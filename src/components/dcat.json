@@ -1,0 +1,312 @@
+{
+  "properties": {
+    "dcat:contactPoint": {
+      "properties": {
+        "vcard:fn": {
+          "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+          "title": "Naam inhoudelijk contactpersoon",
+          "type": "string"
+        },
+        "vcard:hasEmail": {
+          "format": "email",
+          "title": "Email inhoudelijk contactpersoon",
+          "type": "string"
+        },
+        "vcard:hasURL": {
+          "format": "uri",
+          "title": "Website inhoudelijk contactpersoon",
+          "type": "string"
+        }
+      },
+      "required": [
+        "vcard:fn"
+      ],
+      "title": "De contactpersoon voor eventuele vragen over de inhoud en kwaliteit van de gegevens",
+      "type": "object"
+    },
+    "dcat:distribution": {
+      "items": {
+        "properties": {
+          "dcat:accessURL": {
+            "format": "uri",
+            "title": "Toegangslink naar de daadwerkelijke gegevensset",
+            "type": "string"
+          },
+          "dcat:byteSize": {
+            "minimum": 0,
+            "title": "Bestandsgrootte in bytes",
+            "type": "number"
+          },
+          "dcat:downloadURL": {
+            "format": "uri",
+            "title": "Downloadlink om gegevensset te downloaden",
+            "type": "string"
+          },
+          "dcat:mediaType": {
+            "pattern": "^[-\\w.]+/[-\\w.]+$",
+            "title": "Geef het formaat van de beschikbare leveringsvorm van de dataset",
+            "type": "string"
+          },
+          "dct:description": {
+            "title": "Geef een omschrijving van de link, kan specifieke aanvullende informatie geven",
+            "type": "string"
+          },
+          "dct:license": {
+            "enum": [
+              "cc-by",
+              "cc-by-nc",
+              "cc-by-nc-nd",
+              "cc-by-nc-sa",
+              "cc-by-nd",
+              "cc-by-sa",
+              "cc-nc",
+              "cc-zero",
+              "other-open",
+              "other-by",
+              "other-nc",
+              "other-not-open",
+              "unspec"
+            ],
+            "title": "Geef aan onder welke open data licentie de gegevensset gepubliceerd is, indien van toepassing. Gebruik invulhulp om licentie te bepalen.\\\nIndien er sprake is van een gedeeltelijk publieke dataset, dan geldt de licentie voor het publieke deel",
+            "type": "string",
+            "x-display": {
+              "cc-by": "Creative Commons, Naamsvermelding",
+              "cc-by-nc": "Creative Commons, Naamsvermelding, Niet-Commercieel",
+              "cc-by-nc-nd": "Creative Commons, Naamsvermelding, Niet-Commercieel, Geen Afgeleide Werken",
+              "cc-by-nc-sa": "Creative Commons, Naamsvermelding, Niet-Commercieel, Gelijk Delen",
+              "cc-by-nd": "Creative Commons, Naamsvermelding, Geen Afgeleide Werken",
+              "cc-by-sa": "Creative Commons, Naamsvermelding, Gelijk Delen",
+              "cc-nc": "Creative Commons, Niet-Commercieel",
+              "cc-zero": "Publiek Domein",
+              "other-by": "Anders, Naamsvermelding",
+              "other-nc": "Anders, Niet Commercieel",
+              "other-not-open": "Anders, Niet Open",
+              "other-open": "Anders, Open",
+              "unspec": "Niet gespecificeerd"
+            }
+          },
+          "dct:title": {
+            "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+            "title": "Titel van de link naar de gegevensset",
+            "type": "string"
+          }
+        },
+        "required": [
+          "dct:title",
+          "dct:description",
+          "dct:license"
+        ],
+        "type": "object"
+      },
+      "title": "Resources",
+      "type": "array"
+    },
+    "dcat:keyword": {
+      "items": {
+        "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+        "type": "string"
+      },
+      "title": "Trefwoorden die van toepassing zijn op de gegevensset, zodat de gegevensset gevonden kan worden",
+      "type": "array"
+    },
+    "dcat:theme": {
+      "items": {
+        "enum": [
+          "theme:bestuur-en-organisatie",
+          "theme:bevolking",
+          "theme:dienstverlening",
+          "theme:economie-haven",
+          "theme:educatie-jeugd-diversiteit",
+          "theme:energie",
+          "theme:geografie",
+          "theme:milieu-water",
+          "theme:openbare-orde-veiligheid",
+          "theme:openbare-ruimte-groen",
+          "theme:sport-recreatie",
+          "theme:stedelijke-ontwikkeling",
+          "theme:toerisme-cultuur",
+          "theme:verkeer-infrastructuur",
+          "theme:verkiezingen",
+          "theme:werk-inkomen",
+          "theme:wonen-leefomgeving",
+          "theme:zorg-welzijn"
+        ],
+        "type": "string",
+        "x-display": {
+          "theme:bestuur-en-organisatie": "Bestuur en organisatie",
+          "theme:bevolking": "Bevolking",
+          "theme:dienstverlening": "Dienstverlening",
+          "theme:economie-haven": "Economie & Haven",
+          "theme:educatie-jeugd-diversiteit": "Educatie, Jeugd & Diversiteit",
+          "theme:energie": "Energie",
+          "theme:geografie": "Geografie",
+          "theme:milieu-water": "Milieu & Water",
+          "theme:openbare-orde-veiligheid": "Openbare orde & veiligheid",
+          "theme:openbare-ruimte-groen": "Openbare ruimte & groen",
+          "theme:sport-recreatie": "Sport & recreatie",
+          "theme:stedelijke-ontwikkeling": "Stedelijke ontwikkeling",
+          "theme:toerisme-cultuur": "Toerisme & cultuur",
+          "theme:verkeer-infrastructuur": "Verkeer & Infrastructuur",
+          "theme:verkiezingen": "Verkiezingen",
+          "theme:werk-inkomen": "Werk & Inkomen",
+          "theme:wonen-leefomgeving": "Wonen & leefomgeving",
+          "theme:zorg-welzijn": "Zorg & welzijn"
+        }
+      },
+      "title": "Geef aan onder welke hoofdthema\u2019s de gegevensset valt.",
+      "type": "array"
+    },
+    "dct:Spatial": {
+      "title": "Beschrijving of coordinaten van het gebied dat de gegevensset bestrijkt (boundingbox). Rijksdriehoeksstelsel (pseudo-RD) (EPSG:28992)",
+      "type": "string"
+    },
+    "dct:Temporal": {
+      "properties": {
+        "time:hasBeginning": {
+          "format": "date",
+          "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$",
+          "title": "Van",
+          "type": "string"
+        },
+        "time:hasEnd": {
+          "format": "date",
+          "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$",
+          "title": "Tot",
+          "type": "string"
+        }
+      },
+      "required": [
+        "time:hasBeginning",
+        "time:hasEnd"
+      ],
+      "title": "De tijdsperiode die de gegevensset beslaat",
+      "type": "object"
+    },
+    "dct:accrualPeriodicity": {
+      "enum": [
+        "realtime",
+        "day",
+        "2pweek",
+        "week",
+        "2weeks",
+        "month",
+        "quarter",
+        "2pyear",
+        "year",
+        "2years",
+        "4years",
+        "5years",
+        "10years",
+        "reg",
+        "irreg",
+        "req"
+      ],
+      "title": "Frequentie waarmee de gegevens worden geactualiseerd",
+      "type": "string",
+      "x-display": {
+        "10years": "tienjaarlijks",
+        "2pweek": "twee keer per week",
+        "2pyear": "halfjaarlijks",
+        "2weeks": "tweewekelijks",
+        "2years": "tweejaarlijks",
+        "4years": "vierjaarlijks",
+        "5years": "vijfjaarlijks",
+        "day": "dagelijks",
+        "irreg": "onregelmatig",
+        "month": "maandelijks",
+        "quarter": "eens per kwartaal",
+        "realtime": "continu",
+        "reg": "regelmatig",
+        "req": "op afroep",
+        "week": "wekelijks",
+        "year": "jaarlijks"
+      }
+    },
+    "dct:description": {
+      "title": "Geef een samenvatting van de inhoud van de gegevensset, welke gegevens zitten erin en wat is expliciet eruit gelaten",
+      "type": "string"
+    },
+    "dct:identifier": {
+      "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+      "title": "Unieke identifier",
+      "type": "string"
+    },
+    "dct:language": {
+      "default": "lang:nl",
+      "enum": [
+        "lang:nl",
+        "lang:en"
+      ],
+      "title": "De taal van de gegevensset",
+      "type": "string",
+      "x-display": {
+        "lang:en": "Engels",
+        "lang:nl": "Nederlands"
+      }
+    },
+    "dct:publisher": {
+      "properties": {
+        "foaf:homepage": {
+          "format": "uri",
+          "title": "Website technisch contactpersoon",
+          "type": "string"
+        },
+        "foaf:mbox": {
+          "format": "email",
+          "title": "Email technisch contactpersoon",
+          "type": "string"
+        },
+        "foaf:name": {
+          "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+          "title": "Naam technisch contactpersoon",
+          "type": "string"
+        }
+      },
+      "required": [
+        "foaf:name"
+      ],
+      "title": "De contactpersoon voor technische vragen over de aanlevering. Dit kan dezelfde contactpersoon zijn als voor de inhoudelijke vragen.",
+      "type": "object"
+    },
+    "dct:title": {
+      "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+      "title": "Geef een titel van de gegevensset.",
+      "type": "string"
+    },
+    "foaf:isPrimaryTopicOf": {
+      "properties": {
+        "dct:issued": {
+          "format": "date",
+          "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$",
+          "title": "De datum waarop deze beschrijving van de gegevensset beschikbaar is gesteld",
+          "type": "string"
+        },
+        "dct:modified": {
+          "format": "date",
+          "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$",
+          "title": "De datum waarop deze beschrijving van de gegevensset voor het laatst is gewijzigd",
+          "type": "string"
+        }
+      },
+      "required": [
+        "dct:modified"
+      ],
+      "type": "object"
+    },
+    "overheidds:doel": {
+      "title": "Geef aan met welk doel deze gegevensset is aangelegd. Waarom bestaat deze gegevensset?",
+      "type": "string"
+    }
+  },
+  "required": [
+    "dct:title",
+    "dct:description",
+    "dct:language",
+    "dcat:contactPoint",
+    "dct:publisher",
+    "overheidds:doel",
+    "dcat:distribution",
+    "foaf:isPrimaryTopicOf"
+  ],
+  "type": "object"
+}
