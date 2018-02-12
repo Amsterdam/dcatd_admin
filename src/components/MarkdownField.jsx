@@ -10,7 +10,8 @@ const MarkdownField = props => (
       disabled={props.disabled}
       readOnly={props.readonly}
       label={props.label}
-    >{props.value}</textarea>
+      value={props.value}
+    />
     <div>{console.log(props, props.options, props.schema)}</div>
   </div>
 );

@@ -38,8 +38,9 @@
             "type": "number"
           },
           "dcat:downloadURL": {
+            "description": "Via URL",
             "format": "uri",
-            "title": "Downloadlink om gegevensset te downloaden",
+            "title": "Data",
             "type": "string"
           },
           "dcat:mediaType": {
@@ -48,7 +49,7 @@
             "type": "string"
           },
           "dct:description": {
-            "title": "Geef een omschrijving van de link, kan specifieke aanvullende informatie geven",
+            "title": "Beschrijving",
             "type": "string"
           },
           "dct:license": {
@@ -67,27 +68,27 @@
               "other-not-open",
               "unspec"
             ],
-            "title": "Geef aan onder welke open data licentie de gegevensset gepubliceerd is, indien van toepassing. Gebruik invulhulp om licentie te bepalen.\\\nIndien er sprake is van een gedeeltelijk publieke dataset, dan geldt de licentie voor het publieke deel",
-            "type": "string",
-            "x-display": {
-              "cc-by": "Creative Commons, Naamsvermelding",
-              "cc-by-nc": "Creative Commons, Naamsvermelding, Niet-Commercieel",
-              "cc-by-nc-nd": "Creative Commons, Naamsvermelding, Niet-Commercieel, Geen Afgeleide Werken",
-              "cc-by-nc-sa": "Creative Commons, Naamsvermelding, Niet-Commercieel, Gelijk Delen",
-              "cc-by-nd": "Creative Commons, Naamsvermelding, Geen Afgeleide Werken",
-              "cc-by-sa": "Creative Commons, Naamsvermelding, Gelijk Delen",
-              "cc-nc": "Creative Commons, Niet-Commercieel",
-              "cc-zero": "Publiek Domein",
-              "other-by": "Anders, Naamsvermelding",
-              "other-nc": "Anders, Niet Commercieel",
-              "other-not-open": "Anders, Niet Open",
-              "other-open": "Anders, Open",
-              "unspec": "Niet gespecificeerd"
-            }
+            "enumNames": [
+              "Creative Commons, Naamsvermelding",
+              "Creative Commons, Naamsvermelding, Niet-Commercieel",
+              "Creative Commons, Naamsvermelding, Niet-Commercieel, Geen Afgeleide Werken",
+              "Creative Commons, Naamsvermelding, Niet-Commercieel, Gelijk Delen",
+              "Creative Commons, Naamsvermelding, Geen Afgeleide Werken",
+              "Creative Commons, Naamsvermelding, Gelijk Delen",
+              "Creative Commons, Niet-Commercieel",
+              "Publiek Domein",
+              "Anders, Naamsvermelding",
+              "Anders, Niet Commercieel",
+              "Anders, Niet Open",
+              "Anders, Open",
+              "Niet gespecificeerd"
+            ],
+            "title": "Zichtbaarheid",
+            "type": "string"
           },
           "dct:title": {
             "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
-            "title": "Titel van de link naar de gegevensset",
+            "title": "Titel",
             "type": "string"
           }
         },
@@ -131,27 +132,27 @@
           "theme:wonen-leefomgeving",
           "theme:zorg-welzijn"
         ],
-        "type": "string",
-        "x-display": {
-          "theme:bestuur-en-organisatie": "Bestuur en organisatie",
-          "theme:bevolking": "Bevolking",
-          "theme:dienstverlening": "Dienstverlening",
-          "theme:economie-haven": "Economie & Haven",
-          "theme:educatie-jeugd-diversiteit": "Educatie, Jeugd & Diversiteit",
-          "theme:energie": "Energie",
-          "theme:geografie": "Geografie",
-          "theme:milieu-water": "Milieu & Water",
-          "theme:openbare-orde-veiligheid": "Openbare orde & veiligheid",
-          "theme:openbare-ruimte-groen": "Openbare ruimte & groen",
-          "theme:sport-recreatie": "Sport & recreatie",
-          "theme:stedelijke-ontwikkeling": "Stedelijke ontwikkeling",
-          "theme:toerisme-cultuur": "Toerisme & cultuur",
-          "theme:verkeer-infrastructuur": "Verkeer & Infrastructuur",
-          "theme:verkiezingen": "Verkiezingen",
-          "theme:werk-inkomen": "Werk & Inkomen",
-          "theme:wonen-leefomgeving": "Wonen & leefomgeving",
-          "theme:zorg-welzijn": "Zorg & welzijn"
-        }
+        "enumNames": [
+          "Bestuur en organisatie",
+          "Bevolking",
+          "Dienstverlening",
+          "Economie & Haven",
+          "Educatie, Jeugd & Diversiteit",
+          "Energie",
+          "Geografie",
+          "Milieu & Water",
+          "Openbare orde & veiligheid",
+          "Openbare ruimte & groen",
+          "Sport & recreatie",
+          "Stedelijke ontwikkeling",
+          "Toerisme & cultuur",
+          "Verkeer & Infrastructuur",
+          "Verkiezingen",
+          "Werk & Inkomen",
+          "Wonen & leefomgeving",
+          "Zorg & welzijn"
+        ],
+        "type": "string"
       },
       "title": "Geef aan onder welke hoofdthema\u2019s de gegevensset valt.",
       "type": "array"
@@ -163,15 +164,17 @@
     "dct:Temporal": {
       "properties": {
         "time:hasBeginning": {
+          "description": "Geef de tijdsperiode aan (begindatum), die de gegevensset beslaat",
           "format": "date",
           "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$",
-          "title": "Van",
+          "title": "Tijdsperiode van",
           "type": "string"
         },
         "time:hasEnd": {
+          "description": "Geef de tijdsperiode aan (einddatum), die de gegevensset beslaat",
           "format": "date",
           "pattern": "^\\d\\d\\d\\d-\\d\\d-\\d\\d$",
-          "title": "Tot",
+          "title": "Tijdsperiode tot",
           "type": "string"
         }
       },
@@ -179,7 +182,7 @@
         "time:hasBeginning",
         "time:hasEnd"
       ],
-      "title": "De tijdsperiode die de gegevensset beslaat",
+      "title": "",
       "type": "object"
     },
     "dct:accrualPeriodicity": {
@@ -201,29 +204,30 @@
         "irreg",
         "req"
       ],
-      "title": "Frequentie waarmee de gegevens worden geactualiseerd",
-      "type": "string",
-      "x-display": {
-        "10years": "tienjaarlijks",
-        "2pweek": "twee keer per week",
-        "2pyear": "halfjaarlijks",
-        "2weeks": "tweewekelijks",
-        "2years": "tweejaarlijks",
-        "4years": "vierjaarlijks",
-        "5years": "vijfjaarlijks",
-        "day": "dagelijks",
-        "irreg": "onregelmatig",
-        "month": "maandelijks",
-        "quarter": "eens per kwartaal",
-        "realtime": "continu",
-        "reg": "regelmatig",
-        "req": "op afroep",
-        "week": "wekelijks",
-        "year": "jaarlijks"
-      }
+      "enumNames": [
+        "tienjaarlijks",
+        "twee keer per week",
+        "halfjaarlijks",
+        "tweewekelijks",
+        "tweejaarlijks",
+        "vierjaarlijks",
+        "vijfjaarlijks",
+        "dagelijks",
+        "onregelmatig",
+        "maandelijks",
+        "eens per kwartaal",
+        "continu",
+        "regelmatig",
+        "op afroep",
+        "wekelijks",
+        "jaarlijks"
+      ],
+      "title": "Wijzigingsfrequentie",
+      "type": "string"
     },
     "dct:description": {
-      "title": "Geef een samenvatting van de inhoud van de gegevensset, welke gegevens zitten erin en wat is expliciet eruit gelaten",
+      "description": "Geef aan met welk doel deze gegevensset is aangelegd. Waarom bestaat deze gegevensset?",
+      "title": "Beschrijving",
       "type": "string"
     },
     "dct:identifier": {
@@ -239,7 +243,7 @@
       ],
       "title": "De taal van de gegevensset",
       "type": "string",
-      "x-display": {
+      "enumNames": {
         "lang:en": "Engels",
         "lang:nl": "Nederlands"
       }
@@ -270,7 +274,7 @@
     },
     "dct:title": {
       "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
-      "title": "Geef een titel van de gegevensset.",
+      "title": "Titel",
       "type": "string"
     },
     "foaf:isPrimaryTopicOf": {
@@ -294,7 +298,8 @@
       "type": "object"
     },
     "overheidds:doel": {
-      "title": "Geef aan met welk doel deze gegevensset is aangelegd. Waarom bestaat deze gegevensset?",
+      "title": "Doel",
+      "description": "Geef aan met welk doel deze gegevensset is aangelegd. Waarom bestaat deze gegevensset?",
       "type": "string"
     }
   },
