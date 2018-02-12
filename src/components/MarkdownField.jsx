@@ -2,30 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const MarkdownField = props => (
-  <textarea
-    id={props.id}
-    className="markdown-field"
-    placeholder={props.placeholder}
-    label={props.label}
-  >{props.value}</textarea>
+  <div>
+    <textarea
+      id={props.id}
+      className="markdown-field"
+      placeholder={props.placeholder}
+      disabled={props.disabled}
+      readOnly={props.readonly}
+      label={props.label}
+    >{props.value}</textarea>
+    <div>{console.log(props, props.options, props.schema)}</div>
+  </div>
 );
 
 MarkdownField.defaultProps = {
   label: '',
   placeholder: '',
-  // schema: {},
+  options: {},
+  schema: {},
   value: ''
 };
 
 MarkdownField.propTypes = {
   // autofocus: PropTypes.bool.isRequired,
-  // disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  // readonly: PropTypes.bool.isRequired,
+  options: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  readonly: PropTypes.bool.isRequired,
   // required: PropTypes.bool.isRequired,
-  // schema: PropTypes.object,
+  schema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   value: PropTypes.string
 };
 
