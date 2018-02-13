@@ -36,6 +36,7 @@ class Dropdown extends Component {
       <div>
         <SemanticDropdown
           id={this.props.id}
+          className="form-control"
           placeholder={this.props.placeholder}
           allowAdditions={this.props.options.allowAdditions}
           disabled={this.props.disabled}
@@ -49,7 +50,7 @@ class Dropdown extends Component {
           onAddItem={this.handleAddition}
           onChange={this.handleChange}
         />
-        <div>{console.log(this.props)}</div>
+        <div>{console.log('Dropdown', this.props)}</div>
       </div>
     );
   }

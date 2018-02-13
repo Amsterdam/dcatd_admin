@@ -60,7 +60,10 @@ export default {
     }
   },
   'dct:description': {
-    'ui.widget': 'textarea'
+    'ui:widget': 'markdown',
+    'ui:options': {
+      rows: 3
+    }
   },
   'dcat:keyword': {
     'ui:widget': 'dropdown',
@@ -84,9 +87,6 @@ export default {
       'ui:placeholder': 'steve@apple.com'
     }
   },
-  'dct:Spatial': {
-    'ui.widget': 'textarea'
-  },
   'dcat:theme': {
     'ui:widget': 'dropdown',
     'ui:placeholder': '',
@@ -94,8 +94,5 @@ export default {
       allowAdditions: false,
       multiple: true
     }
-  },
-  'overheidds:doel': {
-    'ui.widget': 'textarea'
   }
 };
