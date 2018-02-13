@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MarkdownField = props => (
+const Markdown = props => (
   <div>
     <textarea
       id={props.id}
@@ -16,7 +16,7 @@ const MarkdownField = props => (
   </div>
 );
 
-MarkdownField.defaultProps = {
+Markdown.defaultProps = {
   label: '',
   placeholder: '',
   options: {},
@@ -24,7 +24,7 @@ MarkdownField.defaultProps = {
   value: ''
 };
 
-MarkdownField.propTypes = {
+Markdown.propTypes = {
   // autofocus: PropTypes.bool.isRequired,
   disabled: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
@@ -37,4 +37,4 @@ MarkdownField.propTypes = {
   value: PropTypes.string
 };
 
-export default MarkdownField;
+export default Markdown;

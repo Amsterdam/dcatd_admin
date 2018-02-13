@@ -3,11 +3,7 @@ import Form from 'react-jsonschema-form';
 
 import schema from './dcat.json';
 import uiSchema from './uiSchema';
-import MarkdownField from './MarkdownField';
-
-const widgets = {
-  markdown: MarkdownField
-};
+import widgets from '../widgets';
 
 const DataSetForm = () => (
   <Form

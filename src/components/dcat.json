@@ -154,11 +154,12 @@
         ],
         "type": "string"
       },
-      "title": "Geef aan onder welke hoofdthema\u2019s de gegevensset valt.",
-      "type": "array"
+      "title": "Thema\u2019s",
+      "type": "string"
     },
     "dct:Spatial": {
-      "title": "Beschrijving of coordinaten van het gebied dat de gegevensset bestrijkt (boundingbox). Rijksdriehoeksstelsel (pseudo-RD) (EPSG:28992)",
+      "description": "Beschrijf of geef de coordinaten van het gebied dat de gegevensset bestrijkt (boundingbox), rijksdriehoeksstelsel (pseudo-RD)",
+      "title": "Cooridinaten gebiedskader",
       "type": "string"
     },
     "dct:Temporal": {
@@ -241,12 +242,12 @@
         "lang:nl",
         "lang:en"
       ],
+      "enumNames": [
+        "Engels",
+        "Nederlands"
+      ],
       "title": "De taal van de gegevensset",
-      "type": "string",
-      "enumNames": {
-        "lang:en": "Engels",
-        "lang:nl": "Nederlands"
-      }
+      "type": "string"
     },
     "dct:publisher": {
       "properties": {

@@ -1,5 +1,9 @@
 export default {
-  'ui:widget': 'markdown',
+  'ui:widget': [
+    'markdown',
+    'dropdown'
+  ],
+
   'ui:order': [
     'dct:title',
     'dct:description',
@@ -52,8 +56,20 @@ export default {
   'dct:description': {
     'ui.widget': 'textarea'
   },
+  // 'dcat:keyword': {
+  //   'ui:widget': 'tags',
+  //   'ui:placeholder': ''
+  // },
   'dct:Spatial': {
     'ui.widget': 'textarea'
+  },
+  'dcat:theme': {
+    'ui:widget': 'dropdown',
+    'ui:placeholder': 'Bevolking, Dienstverlening',
+    'ui:options': {
+      allowAdditions: false,
+      multiple: true
+    }
   },
   'overheidds:doel': {
     'ui.widget': 'textarea'
