@@ -14,22 +14,28 @@ export default {
     'dct:accrualPeriodicity',
     'dct:Temporal',
 
-    'dcat:contactPoint',
-    'dcat:theme',
+    'foaf:isPrimaryTopicOf',
     'dct:Spatial',
     'dct:identifier',
     'dct:language',
+
+    'dcat:contactPoint',
     'dct:publisher',
+
+    'dcat:theme',
     'dcat:keyword',
-    'foaf:isPrimaryTopicOf',
+    'dct:license',
 
     '*'
   ],
 
   'dcat:contactPoint': {
-    'vcard:fn': {
-      'ui:widget': 'textarea'
-    },
+    'ui:order': [
+      'vcard:fn',
+      'vcard:hasEmail',
+      'vcard:hasURL'
+    ],
+
     'vcard:hasEmail': {
       'ui:placeholder': 'steve@apple.com'
     },
@@ -56,16 +62,34 @@ export default {
   'dct:description': {
     'ui.widget': 'textarea'
   },
-  // 'dcat:keyword': {
-  //   'ui:widget': 'tags',
-  //   'ui:placeholder': ''
-  // },
+  'dcat:keyword': {
+    'ui:widget': 'dropdown',
+    'ui:placeholder': '',
+    'ui:options': {
+      allowAdditions: false,
+      multiple: true
+    }
+  },
+  'dct:publisher': {
+    'ui:order': [
+      'foaf:name',
+      'foaf:mbox',
+      'foaf:homepage'
+    ],
+
+    'foaf:homepage': {
+      'ui:placeholder': 'http://'
+    },
+    'foaf:mbox': {
+      'ui:placeholder': 'steve@apple.com'
+    }
+  },
   'dct:Spatial': {
     'ui.widget': 'textarea'
   },
   'dcat:theme': {
     'ui:widget': 'dropdown',
-    'ui:placeholder': 'Bevolking, Dienstverlening',
+    'ui:placeholder': '',
     'ui:options': {
       allowAdditions: false,
       multiple: true

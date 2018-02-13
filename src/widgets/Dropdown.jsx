@@ -7,10 +7,10 @@ class Dropdown extends Component {
     super(props);
 
     this.state = {
-      options: props.schema.items.enum.map(
+      options: props.schema.enum.map(
         (option, index) => ({
           value: option,
-          text: props.schema.items.enumNames[index]
+          text: props.schema.enumNames[index]
         })),
       value: props.value
     };

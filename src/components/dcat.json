@@ -1,15 +1,54 @@
 {
+  "definitions": {
+    "license": {
+      "enum": [
+        "cc-by",
+        "cc-by-nc",
+        "cc-by-nc-nd",
+        "cc-by-nc-sa",
+        "cc-by-nd",
+        "cc-by-sa",
+        "cc-nc",
+        "cc-zero",
+        "other-open",
+        "other-by",
+        "other-nc",
+        "other-not-open",
+        "unspec"
+      ],
+      "enumNames": [
+        "Creative Commons, Naamsvermelding",
+        "Creative Commons, Naamsvermelding, Niet-Commercieel",
+        "Creative Commons, Naamsvermelding, Niet-Commercieel, Geen Afgeleide Werken",
+        "Creative Commons, Naamsvermelding, Niet-Commercieel, Gelijk Delen",
+        "Creative Commons, Naamsvermelding, Geen Afgeleide Werken",
+        "Creative Commons, Naamsvermelding, Gelijk Delen",
+        "Creative Commons, Niet-Commercieel",
+        "Publiek Domein",
+        "Anders, Naamsvermelding",
+        "Anders, Niet Commercieel",
+        "Anders, Niet Open",
+        "Anders, Open",
+        "Niet gespecificeerd"
+      ],
+      "description": "Geef aan onder welke open data licentie de gegevensset gepubliceerd is, indien van toepassing. Gebruik invulhulp om licentie te bepalen. Indien er sprake is van een gedeeltelijk publieke dataset, dan geldt de licentie voor het publieke deel",
+      "title": "Licentie",
+      "type": "string"
+    }
+  },
+
   "properties": {
     "dcat:contactPoint": {
       "properties": {
         "vcard:fn": {
           "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
-          "title": "Naam inhoudelijk contactpersoon",
+          "title": "Inhoudelijk contactpersoon",
+          "description": "Geef de naam van de contactpersoon voor eventuele vragen over de inhoud en kwaliteit van de gegevens",
           "type": "string"
         },
         "vcard:hasEmail": {
           "format": "email",
-          "title": "Email inhoudelijk contactpersoon",
+          "title": "E-mail inhoudelijk contactpersoon",
           "type": "string"
         },
         "vcard:hasURL": {
@@ -21,7 +60,7 @@
       "required": [
         "vcard:fn"
       ],
-      "title": "De contactpersoon voor eventuele vragen over de inhoud en kwaliteit van de gegevens",
+      "title": "",
       "type": "object"
     },
     "dcat:distribution": {
@@ -52,40 +91,7 @@
             "title": "Beschrijving",
             "type": "string"
           },
-          "dct:license": {
-            "enum": [
-              "cc-by",
-              "cc-by-nc",
-              "cc-by-nc-nd",
-              "cc-by-nc-sa",
-              "cc-by-nd",
-              "cc-by-sa",
-              "cc-nc",
-              "cc-zero",
-              "other-open",
-              "other-by",
-              "other-nc",
-              "other-not-open",
-              "unspec"
-            ],
-            "enumNames": [
-              "Creative Commons, Naamsvermelding",
-              "Creative Commons, Naamsvermelding, Niet-Commercieel",
-              "Creative Commons, Naamsvermelding, Niet-Commercieel, Geen Afgeleide Werken",
-              "Creative Commons, Naamsvermelding, Niet-Commercieel, Gelijk Delen",
-              "Creative Commons, Naamsvermelding, Geen Afgeleide Werken",
-              "Creative Commons, Naamsvermelding, Gelijk Delen",
-              "Creative Commons, Niet-Commercieel",
-              "Publiek Domein",
-              "Anders, Naamsvermelding",
-              "Anders, Niet Commercieel",
-              "Anders, Niet Open",
-              "Anders, Open",
-              "Niet gespecificeerd"
-            ],
-            "title": "Zichtbaarheid",
-            "type": "string"
-          },
+          "dct:license": { "$ref": "#/definitions/license" },
           "dct:title": {
             "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
             "title": "Titel",
@@ -103,57 +109,58 @@
       "type": "array"
     },
     "dcat:keyword": {
-      "items": {
-        "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
-        "type": "string"
-      },
-      "title": "Trefwoorden die van toepassing zijn op de gegevensset, zodat de gegevensset gevonden kan worden",
-      "type": "array"
+      "enum": [
+        "keyword:binnenstad",
+        "keyword:vuilnis"
+      ],
+      "enumNames": [
+        "Binnenstad",
+        "Vuilnis"
+      ],
+      "title": "Tags",
+      "type": "string"
     },
     "dcat:theme": {
-      "items": {
-        "enum": [
-          "theme:bestuur-en-organisatie",
-          "theme:bevolking",
-          "theme:dienstverlening",
-          "theme:economie-haven",
-          "theme:educatie-jeugd-diversiteit",
-          "theme:energie",
-          "theme:geografie",
-          "theme:milieu-water",
-          "theme:openbare-orde-veiligheid",
-          "theme:openbare-ruimte-groen",
-          "theme:sport-recreatie",
-          "theme:stedelijke-ontwikkeling",
-          "theme:toerisme-cultuur",
-          "theme:verkeer-infrastructuur",
-          "theme:verkiezingen",
-          "theme:werk-inkomen",
-          "theme:wonen-leefomgeving",
-          "theme:zorg-welzijn"
+      "enum": [
+        "theme:bestuur-en-organisatie",
+        "theme:bevolking",
+        "theme:dienstverlening",
+        "theme:economie-haven",
+        "theme:educatie-jeugd-diversiteit",
+        "theme:energie",
+        "theme:geografie",
+        "theme:milieu-water",
+        "theme:openbare-orde-veiligheid",
+        "theme:openbare-ruimte-groen",
+        "theme:sport-recreatie",
+        "theme:stedelijke-ontwikkeling",
+        "theme:toerisme-cultuur",
+        "theme:verkeer-infrastructuur",
+        "theme:verkiezingen",
+        "theme:werk-inkomen",
+        "theme:wonen-leefomgeving",
+        "theme:zorg-welzijn"
+      ],
+      "enumNames": [
+        "Bestuur en organisatie",
+        "Bevolking",
+        "Dienstverlening",
+        "Economie & Haven",
+        "Educatie, Jeugd & Diversiteit",
+        "Energie",
+        "Geografie",
+        "Milieu & Water",
+        "Openbare orde & veiligheid",
+        "Openbare ruimte & groen",
+        "Sport & recreatie",
+        "Stedelijke ontwikkeling",
+        "Toerisme & cultuur",
+        "Verkeer & Infrastructuur",
+        "Verkiezingen",
+        "Werk & Inkomen",
+        "Wonen & leefomgeving",
+        "Zorg & welzijn"
         ],
-        "enumNames": [
-          "Bestuur en organisatie",
-          "Bevolking",
-          "Dienstverlening",
-          "Economie & Haven",
-          "Educatie, Jeugd & Diversiteit",
-          "Energie",
-          "Geografie",
-          "Milieu & Water",
-          "Openbare orde & veiligheid",
-          "Openbare ruimte & groen",
-          "Sport & recreatie",
-          "Stedelijke ontwikkeling",
-          "Toerisme & cultuur",
-          "Verkeer & Infrastructuur",
-          "Verkiezingen",
-          "Werk & Inkomen",
-          "Wonen & leefomgeving",
-          "Zorg & welzijn"
-        ],
-        "type": "string"
-      },
       "title": "Thema\u2019s",
       "type": "string"
     },
@@ -249,6 +256,7 @@
       "title": "De taal van de gegevensset",
       "type": "string"
     },
+    "dct:license": { "$ref": "#/definitions/license" },
     "dct:publisher": {
       "properties": {
         "foaf:homepage": {
@@ -258,19 +266,20 @@
         },
         "foaf:mbox": {
           "format": "email",
-          "title": "Email technisch contactpersoon",
+          "title": "E-mail technisch contactpersoon",
           "type": "string"
         },
         "foaf:name": {
+          "description": "Geef de naam van de contactpersoon voor technische vragen over de aanlevering. Dit kan dezelfde contactpersoon zijn als voor de inhoudelijke vragen.",
           "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
-          "title": "Naam technisch contactpersoon",
+          "title": "Technisch contactpersoon",
           "type": "string"
         }
       },
       "required": [
         "foaf:name"
       ],
-      "title": "De contactpersoon voor technische vragen over de aanlevering. Dit kan dezelfde contactpersoon zijn als voor de inhoudelijke vragen.",
+      "title": "",
       "type": "object"
     },
     "dct:title": {
@@ -296,6 +305,7 @@
       "required": [
         "dct:modified"
       ],
+      "title": "",
       "type": "object"
     },
     "overheidds:doel": {
