@@ -43,6 +43,7 @@ class Dropdown extends Component {
           fluid
           multiple={this.props.options.multiple}
           readOnly={this.props.readonly}
+          required={this.props.required}
           search
           selection
           options={options}
@@ -66,17 +67,15 @@ Dropdown.defaultProps = {
 };
 
 Dropdown.propTypes = {
-  // autofocus: PropTypes.bool.isRequired,
   allowAdditions: PropTypes.bool,
   disabled: PropTypes.bool.isRequired,
   id: PropTypes.string.isRequired,
   options: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   placeholder: PropTypes.string,
   readonly: PropTypes.bool.isRequired,
-  // required: PropTypes.bool.isRequired,
+  required: PropTypes.bool.isRequired,
   schema: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   value: PropTypes.string
-  // onChange: PropTypes.func.isRequired
 };
 
 export default Dropdown;
