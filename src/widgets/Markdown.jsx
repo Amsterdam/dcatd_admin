@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TextArea } from 'semantic-ui-react';
+import ReactMarkdown from 'react-markdown';
 
 class Markdown extends Component {
   constructor(props) {
@@ -21,18 +22,24 @@ class Markdown extends Component {
     const { value } = this.state;
 
     return (
-      <TextArea
-        id={this.props.id}
-        className="form-control"
-        placeholder={this.props.placeholder}
-        disabled={this.props.disabled}
-        readOnly={this.props.readonly}
-        rows={this.props.options.rows}
-        label={this.props.label}
-        required={this.props.required}
-        value={value}
-        onChange={this.handleChange}
-      />
+      <div>
+        <TextArea
+          id={this.props.id}
+          className="form-control"
+          placeholder={this.props.placeholder}
+          disabled={this.props.disabled}
+          readOnly={this.props.readonly}
+          rows={this.props.options.rows}
+          label={this.props.label}
+          required={this.props.required}
+          value={value}
+          onChange={this.handleChange}
+        />
+        <ReactMarkdown
+          source={value}
+          className="form-control preview"
+        />
+      </div>
     );
   }
 }
