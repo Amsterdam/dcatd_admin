@@ -19,13 +19,13 @@ class Dropdown extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleAddition(e, { value }) {
+  handleAddition(event, { value }) {
     this.setState({
       options: [{ text: value, value }, ...this.state.options]
     });
   }
 
-  handleChange(e, { value }) {
+  handleChange(event, { value }) {
     this.setState({ value });
   }
 
