@@ -213,22 +213,22 @@
         "req"
       ],
       "enumNames": [
-        "tienjaarlijks",
+        "continu",
+        "dagelijks",
         "twee keer per week",
-        "halfjaarlijks",
+        "wekelijks",
         "tweewekelijks",
+        "maandelijks",
+        "eens per kwartaal",
+        "halfjaarlijks",
+        "jaarlijks",
         "tweejaarlijks",
         "vierjaarlijks",
         "vijfjaarlijks",
-        "dagelijks",
-        "onregelmatig",
-        "maandelijks",
-        "eens per kwartaal",
-        "continu",
+        "tienjaarlijks",
         "regelmatig",
-        "op afroep",
-        "wekelijks",
-        "jaarlijks"
+        "onregelmatig",
+        "op afroep"
       ],
       "title": "Wijzigingsfrequentie",
       "type": "string"
