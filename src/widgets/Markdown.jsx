@@ -13,7 +13,7 @@ class Markdown extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(e, { value }) {
+  handleChange(event, { value }) {
     this.setState({ value });
   }
 
@@ -21,21 +21,18 @@ class Markdown extends Component {
     const { value } = this.state;
 
     return (
-      <div>
-        <TextArea
-          id={this.props.id}
-          className="form-control"
-          placeholder={this.props.placeholder}
-          disabled={this.props.disabled}
-          readOnly={this.props.readonly}
-          rows={this.props.options.rows}
-          label={this.props.label}
-          required={this.props.required}
-          value={value}
-          onChange={this.handleChange}
-        />
-        <div>{console.log('MARKDOWN', this.props)}</div>
-      </div>
+      <TextArea
+        id={this.props.id}
+        className="form-control"
+        placeholder={this.props.placeholder}
+        disabled={this.props.disabled}
+        readOnly={this.props.readonly}
+        rows={this.props.options.rows}
+        label={this.props.label}
+        required={this.props.required}
+        value={value}
+        onChange={this.handleChange}
+      />
     );
   }
 }

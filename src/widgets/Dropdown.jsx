@@ -33,26 +33,23 @@ class Dropdown extends Component {
     const { value, options } = this.state;
 
     return (
-      <div>
-        <SemanticDropdown
-          id={this.props.id}
-          className="form-control"
-          placeholder={this.props.placeholder}
-          allowAdditions={this.props.options.allowAdditions}
-          disabled={this.props.disabled}
-          fluid
-          multiple={this.props.options.multiple}
-          readOnly={this.props.readonly}
-          required={this.props.required}
-          search
-          selection
-          options={options}
-          value={value}
-          onAddItem={this.handleAddition}
-          onChange={this.handleChange}
-        />
-        <div>{console.log('Dropdown', this.props)}</div>
-      </div>
+      <SemanticDropdown
+        id={this.props.id}
+        className="form-control"
+        placeholder={this.props.placeholder}
+        allowAdditions={this.props.options.allowAdditions}
+        disabled={this.props.disabled}
+        fluid
+        multiple={this.props.options.multiple}
+        readOnly={this.props.readonly}
+        required={this.props.required}
+        search
+        selection
+        options={options}
+        value={value}
+        onAddItem={this.handleAddition}
+        onChange={this.handleChange}
+      />
     );
   }
 }
