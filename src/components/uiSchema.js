@@ -1,4 +1,7 @@
 export default {
+  'ui:field': [
+    'resources'
+  ],
   'ui:widget': [
     'markdown',
     'dropdown'
@@ -44,20 +47,7 @@ export default {
     }
   },
   'dcat:distribution': {
-    items: {
-      'ui:order': [
-        'dct:title',
-        'dct:description',
-        'dcat:downloadURL',
-        'dct:license',
-        'dcat:mediaType',
-
-        '*'
-      ]
-    },
-    'dcat:accessURL': {
-      'ui:placeholder': 'http://'
-    }
+    'ui:field': 'resources'
   },
   'dct:description': {
     'ui:widget': 'markdown',
