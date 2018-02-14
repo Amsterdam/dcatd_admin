@@ -9,7 +9,7 @@ const Header = () => (
     <Container>
       <Menu.Item header>
         <NavLink to="/accounts">
-          DataPunt ADW-beheer
+          DataPunt catalogus beheer
         </NavLink>
       </Menu.Item>
       <Menu.Item>

@@ -8,8 +8,7 @@ class Markdown extends Component {
     super(props);
 
     this.state = {
-      value: props.value,
-      showPreview: props.showPreview
+      value: props.value
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -52,7 +51,6 @@ Markdown.defaultProps = {
   placeholder: '',
   options: {},
   rows: 3,
-  showPreview: false,
   value: ''
 };
 
@@ -65,7 +63,6 @@ Markdown.propTypes = {
   readonly: PropTypes.bool.isRequired,
   rows: PropTypes.number,
   required: PropTypes.bool.isRequired,
-  showPreview: PropTypes.bool,
   value: PropTypes.string
 };
 

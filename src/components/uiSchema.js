@@ -37,7 +37,7 @@ export default {
     ],
 
     'vcard:hasEmail': {
-      'ui:placeholder': 'steve@apple.com'
+      'ui:placeholder': 'pipo@amsterdam.nl'
     },
     'vcard:hasURL': {
       'ui:placeholder': 'http://'
@@ -82,8 +82,11 @@ export default {
       'ui:placeholder': 'http://'
     },
     'foaf:mbox': {
-      'ui:placeholder': 'steve@apple.com'
+      'ui:placeholder': 'pipo@amsterdam.nl'
     }
+  },
+  'dct:identifier': {
+    'ui:widget': 'hidden'
   },
   'dcat:theme': {
     'ui:widget': 'dropdown',
@@ -91,6 +94,14 @@ export default {
     'ui:options': {
       allowAdditions: false,
       multiple: true
+    }
+  },
+  'foaf:isPrimaryTopicOf': {
+    'dct:issued': {
+      'ui:widget': 'hidden'
+    },
+    'dct:modified': {
+      'ui:widget': 'hidden'
     }
   }
 };
