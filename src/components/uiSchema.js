@@ -61,9 +61,7 @@ export default {
   },
   'dct:description': {
     'ui:widget': 'markdown',
-    'ui:options': {
-      rows: 3
-    }
+    'ui:placeholder': 'tekst of markdown'
   },
   'dcat:keyword': {
     'ui:widget': 'dropdown',

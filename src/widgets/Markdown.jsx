@@ -8,7 +8,8 @@ class Markdown extends Component {
     super(props);
 
     this.state = {
-      value: props.value
+      value: props.value,
+      showPreview: props.showPreview
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +23,7 @@ class Markdown extends Component {
     const { value } = this.state;
 
     return (
-      <div>
+      <div className="markdown" style={{ display: 'flex' }}>
         <TextArea
           id={this.props.id}
           className="form-control"
@@ -33,10 +34,12 @@ class Markdown extends Component {
           label={this.props.label}
           required={this.props.required}
           value={value}
+          style={{ width: '48%' }}
+
           onChange={this.handleChange}
         />
         <ReactMarkdown
-          source={value}
+          source={value || 'preview'}
           className="form-control preview"
         />
       </div>
@@ -49,7 +52,7 @@ Markdown.defaultProps = {
   placeholder: '',
   options: {},
   rows: 3,
-  // schema: {}
+  showPreview: false,
   value: ''
 };
 
@@ -62,6 +65,7 @@ Markdown.propTypes = {
   readonly: PropTypes.bool.isRequired,
   rows: PropTypes.number,
   required: PropTypes.bool.isRequired,
+  showPreview: PropTypes.bool,
   value: PropTypes.string
 };
 
