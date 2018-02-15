@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { TextArea } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
 
+import './_markdown.scss';
+
 class Markdown extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class Markdown extends Component {
     const { value } = this.state;
 
     return (
-      <div className="markdown" style={{ display: 'flex' }}>
+      <div className="markdown">
         <TextArea
           id={this.props.id}
           className="form-control"
@@ -33,7 +35,6 @@ class Markdown extends Component {
           label={this.props.label}
           required={this.props.required}
           value={value}
-          style={{ width: '48%' }}
 
           onChange={this.handleChange}
         />

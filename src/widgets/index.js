@@ -1,5 +1,5 @@
-import Markdown from './Markdown';
-import Dropdown from './Dropdown';
+import Markdown from './Markdown/Markdown';
+import Dropdown from './Dropdown/Dropdown';
 
 const widgets = {
   markdown: Markdown,

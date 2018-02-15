@@ -1,4 +1,4 @@
-import Resources from './Resources';
+import Resources from './Resources/Resources';
 
 const fields = {
   resources: Resources

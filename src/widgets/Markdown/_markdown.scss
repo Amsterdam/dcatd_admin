@@ -1,0 +1,12 @@
+.markdown {
+  display: flex;
+
+  .form-control {
+    width: 48% !important;
+
+    &.preview {
+      height: 87px !important;
+      margin-left: 4%;
+    }
+  }
+}
