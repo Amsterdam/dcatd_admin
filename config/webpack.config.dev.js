@@ -160,7 +160,7 @@ module.exports = {
           },
           {
             test: /\.scss$/,
-            use: extractSass.extract({
+            use: ['extracted-loader'].concat(extractSass.extract({
               use: [{
                   loader: 'css-loader'
               }, {
@@ -168,7 +168,7 @@ module.exports = {
               }],
               // use style-loader in development
               fallback: 'style-loader'
-            })
+            }))
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
