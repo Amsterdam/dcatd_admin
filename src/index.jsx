@@ -13,6 +13,8 @@ import { fetchAccounts } from './actions/account';
 import { fetchRoles } from './actions/roles';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
+import './index.scss';
+
 const history = createHistory();
 const router = routerMiddleware(history);
 

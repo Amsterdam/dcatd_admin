@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import { TextArea } from 'semantic-ui-react';
 
-import './_resources.scss';
+import './resources.scss';
 
 const types = [
   'Data',
@@ -12,12 +12,11 @@ const types = [
 ];
 
 const Resources = props => (
-  <div className="form-group field">
+  <div className="form-group field resources">
     <div className="control-label">Resources</div>
     {types.map(type => (
       <div key={type}>{type}</div>
     ))}
-
     {console.log('props', props)}
     {console.log('props', props.schema.items)}
   </div>

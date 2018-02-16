@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { TextArea } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
 
-import './_markdown.scss';
+import './markdown.scss';
 
 class Markdown extends Component {
   constructor(props) {
