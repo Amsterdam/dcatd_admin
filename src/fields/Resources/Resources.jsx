@@ -11,11 +11,28 @@ const types = [
   'Voorbeeldtoepassing'
 ];
 
+function handleAddResource(type) {
+  console.log('handleAddResource', type);
+}
+
 const Resources = props => (
-  <div className="form-group field resources">
-    <div className="control-label">Resources</div>
+  <div className="resources">
+    <div className="resources__title">Resources</div>
     {types.map(type => (
-      <div key={type}>{type}</div>
+      <div className="resources-type" key={type}>
+        <div className="resources-type-header">
+          <span className="resources-type-header__title">{type}</span>
+          <button
+            onClick={() => handleAddResource(type)}
+            className="resources-type-header__button"
+          >+</button>
+        </div>
+        <div className="resources-type-content">
+          <div className="resources-type-content--no-resources">
+            Nog geen resoucres van dit type
+          </div>
+        </div>
+      </div>
     ))}
     {console.log('props', props)}
     {console.log('props', props.schema.items)}
