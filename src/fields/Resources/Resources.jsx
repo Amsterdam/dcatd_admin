@@ -35,7 +35,7 @@ const Resources = props => (
       </div>
     ))}
     {console.log('props', props)}
-    {console.log('props', props.schema.items)}
+    {console.log('props.schema.items', props.schema.items)}
   </div>
 );
 

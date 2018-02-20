@@ -1,35 +1,10 @@
 export default {
   'ui:field': [
-    'resources'
-  ],
-  'ui:widget': [
-    'markdown',
+    'resources',
     'dropdown'
   ],
-
-  'ui:order': [
-    'dct:title',
-    'dct:description',
-    'dcat:distribution',
-
-    'overheidds:doel',
-
-    'dct:accrualPeriodicity',
-    'dct:Temporal',
-
-    'foaf:isPrimaryTopicOf',
-    'dct:Spatial',
-    'dct:identifier',
-    'dct:language',
-
-    'dcat:contactPoint',
-    'dct:publisher',
-
-    'dcat:theme',
-    'dcat:keyword',
-    'dct:license',
-
-    '*'
+  'ui:widget': [
+    'markdown'
   ],
 
   'dcat:contactPoint': {
@@ -53,11 +28,19 @@ export default {
     'ui:widget': 'markdown',
     'ui:placeholder': 'tekst of markdown'
   },
-  'dcat:keyword': {
-    'ui:widget': 'dropdown',
+  'ams:owner': {
+    'ui:field': 'dropdown',
     'ui:placeholder': '',
     'ui:options': {
-      allowAdditions: false,
+      allowAdditions: true,
+      multiple: false
+    }
+  },
+  'dcat:keyword': {
+    'ui:field': 'dropdown',
+    'ui:placeholder': '',
+    'ui:options': {
+      allowAdditions: true,
       multiple: true
     }
   },
@@ -79,7 +62,7 @@ export default {
     'ui:widget': 'hidden'
   },
   'dcat:theme': {
-    'ui:widget': 'dropdown',
+    'ui:field': 'dropdown',
     'ui:placeholder': '',
     'ui:options': {
       allowAdditions: false,
