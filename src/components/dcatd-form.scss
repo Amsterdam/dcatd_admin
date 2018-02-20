@@ -1,0 +1,27 @@
+@import "../variables";
+
+.dcatd-form {
+  .control-label {
+    margin-bottom: 2px;
+  }
+
+  .field-description {
+    color: $brownish-grey;
+  }
+
+  .form-control {
+    border-color: $brownish-grey;
+    border-radius: 0;
+    border-width: 1px;
+    color: $black;
+    height: 32px;
+    padding: 4px 10px;
+
+  }
+
+  select.form-control {
+    border: 0;
+    outline: 1px solid $brownish-grey;
+    background-color: white;
+  }
+}

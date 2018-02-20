@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Form, Header } from 'semantic-ui-react';
-import DataSetForm from './DataSetForm';
+import DatasetForm from './DatasetForm/DatasetForm';
 
 class AccountDetail extends React.Component {
   constructor(props) {
@@ -76,7 +76,7 @@ class AccountDetail extends React.Component {
   render() {
     return (
       <span>
-        <DataSetForm />
+        <DatasetForm />
         <Form onSubmit={this.handleSubmit}>
           <Header as="h2">Koppeling wijzigen</Header>
           <Form.Group widths="equal">
