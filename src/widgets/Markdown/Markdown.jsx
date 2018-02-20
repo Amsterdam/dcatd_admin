@@ -18,6 +18,7 @@ class Markdown extends Component {
 
   handleChange(event, { value }) {
     this.setState({ value });
+    this.props.onChange(value || undefined);
   }
 
   render() {
@@ -64,7 +65,8 @@ Markdown.propTypes = {
   readonly: PropTypes.bool.isRequired,
   rows: PropTypes.number,
   required: PropTypes.bool.isRequired,
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired
 };
 
 export default Markdown;

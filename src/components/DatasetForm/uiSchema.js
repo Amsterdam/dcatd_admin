@@ -28,6 +28,16 @@ export default {
     'ui:widget': 'markdown',
     'ui:placeholder': 'tekst of markdown'
   },
+  'dct:temporal': {
+    'time:hasBeginning': {
+      'ui:placeholder': 'Kies een datum',
+      'ui:widget': 'date'
+    },
+    'time:hasEnd': {
+      'ui:placeholder': 'Kies een datum',
+      'ui:widget': 'date'
+    }
+  },
   'ams:owner': {
     'ui:field': 'dropdown',
     'ui:placeholder': '',

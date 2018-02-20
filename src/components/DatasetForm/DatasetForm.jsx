@@ -21,6 +21,8 @@ const DatasetForm = () => (
     fields={fields}
     uiSchema={uiSchema}
     formData={formData}
+    noHtml5Validate
+    showErrorList={false}
   />
 );
 

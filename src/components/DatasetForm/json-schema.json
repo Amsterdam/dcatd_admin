@@ -85,7 +85,6 @@
         "UWV",
         "Waag Society"
       ],
-      "format": "combobox",
       "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
       "title": "Eigenaar",
       "type": "string"
@@ -220,7 +219,6 @@
           },
           "dct:description": {
             "description": "Geef een omschrijving van de link, kan specifieke aanvullende informatie geven",
-            "format": "markdown",
             "title": "Omschrijving van de link",
             "type": "string"
           },
@@ -285,7 +283,6 @@
       "type": "array"
     },
     "dcat:keyword": {
-      "format": "multicombobox",
       "items": {
         "examples": [
           "14.000 ft",
@@ -1579,7 +1576,6 @@
       "type": "string"
     },
     "dcat:theme": {
-      "format": "multiselect",
       "items": {
         "enum": [
           "theme:bestuur-en-organisatie",
@@ -1670,7 +1666,6 @@
     },
     "dct:description": {
       "description": "Geef een samenvatting van de inhoud van de gegevensset, welke gegevens zitten erin en wat is expliciet eruit gelaten",
-      "format": "markdown",
       "title": "Beschrijving",
       "type": "string"
     },
@@ -1746,6 +1741,7 @@
           "type": "string"
         }
       },
+      "title": "",
       "type": "object",
       "x-order": [
         "time:hasBeginning",
@@ -1777,6 +1773,7 @@
       "required": [
         "dct:modified"
       ],
+      "title": "",
       "type": "object",
       "x-order": [
         "dct:issued",
@@ -1785,13 +1782,11 @@
     },
     "overheid:grondslag": {
       "description": "Geef indien van toepassing aan wat is de oorspronkelijke juridische basis is van de gegevensset.",
-      "format": "markdown",
       "title": "Juridische grondslag",
       "type": "string"
     },
     "overheidds:doel": {
       "description": "Geef aan met welk doel deze gegevensset is aangelegd. Waarom bestaat deze gegevensset?",
-      "format": "markdown",
       "title": "Doel",
       "type": "string"
     }

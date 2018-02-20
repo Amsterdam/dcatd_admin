@@ -39,6 +39,7 @@ class Dropdown extends Component {
 
   handleChange(event, { value }) {
     this.setState({ value });
+    this.props.onChange(value);
   }
 
   render() {
@@ -88,7 +89,8 @@ Dropdown.propTypes = {
   required: PropTypes.bool.isRequired,
   schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
   uiSchema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  value: PropTypes.string
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired
 };
 
 export default Dropdown;

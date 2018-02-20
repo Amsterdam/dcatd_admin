@@ -19,9 +19,11 @@
 
   }
 
-  select.form-control {
-    border: 0;
-    outline: 1px solid $brownish-grey;
-    background-color: white;
+  select {
+    &.form-control {
+      background-color: $white;
+      border-width: 0;
+      outline: 1px solid $brownish-grey;
+    }
   }
 }
