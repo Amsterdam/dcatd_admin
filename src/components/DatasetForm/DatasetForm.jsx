@@ -1,14 +1,20 @@
 import React from 'react';
 import Form from 'react-jsonschema-form';
+import extraFields from 'react-jsonschema-form-extras';
 
 import schema from './json-schema.json';
 import uiSchema from './uiSchema';
-import formData from './dcatData';
+import formDatas from './dcatData';
 
-import fields from '../../fields';
+import localFields from '../../fields';
 import widgets from '../../widgets';
 
 import '../dcatd-form.scss';
+
+const fields = {
+  ...extraFields,
+  ...localFields
+};
 
 // use the order defined in the schema
 uiSchema['ui:order'] = schema['x-order'] || [];
@@ -20,9 +26,10 @@ const DatasetForm = () => (
     widgets={widgets}
     fields={fields}
     uiSchema={uiSchema}
-    formData={formData}
+    formData={formDatas}
     noHtml5Validate
     showErrorList={false}
+    onChange={({ formData }) => console.log('CHANGE', formData)}
   />
 );
 

@@ -1,7 +1,8 @@
 export default {
   'ui:field': [
     'resources',
-    'dropdown'
+    'dropdown',
+    'rte'
   ],
   'ui:widget': [
     'markdown'
@@ -25,13 +26,16 @@ export default {
     'ui:field': 'resources'
   },
   'dct:description': {
-    'ui:widget': 'markdown',
-    'ui:placeholder': 'tekst of markdown'
+    'ui:field': 'rte',
+    'ui:placeholder': 'tekst of markdown',
+    rte: {
+      format: 'markdown'
+    }
   },
   'dct:temporal': {
     'time:hasBeginning': {
       'ui:placeholder': 'Kies een datum',
-      'ui:widget': 'date'
+      'ui:field': 'date'
     },
     'time:hasEnd': {
       'ui:placeholder': 'Kies een datum',
