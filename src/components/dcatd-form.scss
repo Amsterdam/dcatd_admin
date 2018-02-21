@@ -10,20 +10,33 @@
   }
 
   .form-control {
-    border-color: $brownish-grey;
-    border-radius: 0;
-    border-width: 1px;
+    border: 1px solid $brownish-grey !important;
+    border-radius: 0 !important;
     color: $black;
     height: 32px;
     padding: 4px 10px;
-
   }
 
   select {
     &.form-control {
       background-color: $white;
-      border-width: 0;
+      border-width: 0 !important;
       outline: 1px solid $brownish-grey;
+    }
+  }
+
+  .form-group {
+    .has-error {
+      border-left: 2px solid $red;
+      padding-left: 10px;
+
+      .form-control {
+        border-color: $red !important;
+      }
+
+      .control-label {
+        color: $black;
+      }
     }
   }
 }
