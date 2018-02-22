@@ -35,11 +35,11 @@ export default {
   'dct:temporal': {
     'time:hasBeginning': {
       'ui:placeholder': 'Kies een datum',
-      'ui:field': 'date'
+      'ui:field': 'rdp'
     },
     'time:hasEnd': {
       'ui:placeholder': 'Kies een datum',
-      'ui:widget': 'date'
+      'ui:field': 'rdp'
     }
   },
   'ams:owner': {

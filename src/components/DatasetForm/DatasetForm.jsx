@@ -9,6 +9,7 @@ import formDatas from './dcatData';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
+import '../../../node_modules/react-day-picker/lib/style.css';
 import '../dcatd-form.scss';
 
 const fields = {
