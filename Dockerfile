@@ -5,4 +5,4 @@ FROM node:8.1-alpine as builder
   RUN npm install && npm run build
 
 FROM nginx:stable-alpine
-  COPY --from=builder /app/build/. /usr/share/nginx/html
+  COPY --from=builder /app/build/. /usr/share/nginx/html/dcatd_admin/
