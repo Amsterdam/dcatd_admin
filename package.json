@@ -2,6 +2,7 @@
   "name": "user-admin",
   "version": "0.0.1",
   "private": false,
+  "homepage": "/dcatd_admin/",
   "devDependencies": {
     "enzyme": "^2.8.2",
     "react-test-renderer": "^15.6.2"
