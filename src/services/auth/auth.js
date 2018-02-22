@@ -25,8 +25,8 @@ const API_ROOT = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}
 
 // The URI we need to redirect to for communication with the OAuth2
 // authorization service
-const scopes = encodeURIComponent('AUR/R AUR/W');
-const AUTH_PATH = `oauth2/authorize?idp_id=datapunt&response_type=token&client_id=authz_admin&scope=${scopes}`;
+const scopes = encodeURIComponent('CAT/W');
+const AUTH_PATH = `oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${scopes}`;
 
 // The keys of values we need to store in the session storage
 //
@@ -133,7 +133,7 @@ function handleCallback() {
  */
 export function login() {
   // Get the URI the OAuth2 authorization service needs to use as callback
-  const callback = encodeURIComponent(`${location.protocol}//${location.host}/`);
+  const callback = encodeURIComponent(`${location.protocol}//${location.host}${location.pathname}`);
   // Get a random string to prevent CSRF
   const stateToken = stateTokenGenerator();
   const encodedStateToken = encodeURIComponent(stateToken);
