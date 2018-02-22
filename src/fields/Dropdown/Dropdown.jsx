@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Dropdown as SemanticDropdown } from 'semantic-ui-react';
 
+import './dropdown.scss';
+
 class Dropdown extends Component {
   constructor(props) {
     super(props);
@@ -65,6 +67,7 @@ class Dropdown extends Component {
           readOnly={this.props.readonly}
           required={this.props.required}
           search
+          noResultsMessage="Geen resultaten"
           selection
           options={options}
           value={value}
