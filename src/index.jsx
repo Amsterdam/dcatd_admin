@@ -10,7 +10,7 @@ import thunk from 'redux-thunk';
 import reducers from './reducers';
 import App from './components/App';
 import { fetchAccounts } from './actions/account';
-import { fetchRoles } from './actions/roles';
+// import { fetchRoles } from './actions/roles';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
 import './index.scss';
@@ -35,7 +35,7 @@ if (returnPath) {
 }
 
 store.dispatch(fetchAccounts());
-store.dispatch(fetchRoles());
+// store.dispatch(fetchRoles());
 
 render(
   <Provider store={store}>
