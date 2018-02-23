@@ -51,6 +51,24 @@
     }
   }
 
+  fieldset > {
+    .field-object {
+      width: 60%;
+    }
+  }
+
+  .DayPickerInput {
+    position: relative;
+
+    &::after {
+      content: "#";
+      padding: 4px;
+      position: absolute;
+      right: 1px;
+      top: 1px;
+    }
+  }
+
   .DayPickerInput-Overlay {
     border: 1px solid $black;
     box-shadow: none;
