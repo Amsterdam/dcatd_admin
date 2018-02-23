@@ -5,5 +5,8 @@ export default {
     'dct:title': 'titel van een documentatie pdf',
     'dct:description': 'omschrijving',
     'dct:license': 'licentie'
-  }]
+  }],
+  'dct:temporal': {
+    'time:hasBeginning': '2018-02-02'
+  }
 };

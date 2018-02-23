@@ -1,0 +1,49 @@
+@import "../../variables";
+
+.resources {
+  .resources-type {
+    &-header {
+      border-bottom: 1px solid $black;
+      border-top: 1px solid $black;
+      color: $black;
+      display: flex;
+      font-size: 17px;
+      padding: 8px 7px 8px 16px;
+
+      &__title {
+        align-self: center;
+        flex-grow: 1;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      &__button  {
+        align-self: center;
+        background-color: $white;
+        border-radius: 50%;
+        border-style: none;
+        font-size: 23px;
+        padding: 0 9px;
+
+        &:hover {
+          background-color: $red;
+          color: $white;
+        }
+      }
+    }
+
+    &-content {
+      border-bottom: 1px solid $warm-grey;
+      font-size: 16px;
+      margin-bottom: 20px;
+
+      &--no-resources {
+        background-color: $white-four;
+        color: $warm-grey;
+        font-style: italic;
+        padding: 22px;
+        text-align:  center;
+      }
+    }
+  }
+}
