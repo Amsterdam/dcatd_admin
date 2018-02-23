@@ -24,3 +24,14 @@ export const WEEKDAYS_LONG = [
 ];
 
 export const WEEKDAYS_SHORT = ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'];
+
+export const dayPickerProps = {
+  locale: 'nl',
+  firstDayOfWeek: 1,
+  months: MONTHS,
+  weekdaysLong: WEEKDAYS_LONG,
+  weekdaysShort: WEEKDAYS_SHORT,
+  disabledDays: {
+    daysOfWeek: [0, 6]
+  }
+};

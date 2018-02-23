@@ -1,4 +1,4 @@
-import { MONTHS, WEEKDAYS_LONG, WEEKDAYS_SHORT } from '../localization';
+import { dayPickerProps } from '../localization';
 
 export default {
   'ui:field': [
@@ -18,7 +18,7 @@ export default {
     ],
 
     'vcard:hasEmail': {
-      'ui:placeholder': 'pipo@amsterdam.nl'
+      'ui:placeholder': 'jan@amsterdam.nl'
     },
     'vcard:hasURL': {
       'ui:placeholder': 'http://'
@@ -34,28 +34,23 @@ export default {
       format: 'markdown'
     }
   },
+  'dcat:landingPage': {
+    'ui:placeholder': 'http://'
+  },
   'dct:temporal': {
     'time:hasBeginning': {
-      'ui:placeholder': 'Kies een datum',
       'ui:field': 'rdp',
       rdp: {
-        // showOverlay: true,
-        // hideOnDayClick: false,
-        dayPickerProps: {
-          locale: 'nl',
-          firstDayOfWeek: 1,
-          months: MONTHS,
-          weekdaysLong: WEEKDAYS_LONG,
-          weekdaysShort: WEEKDAYS_SHORT,
-          disabledDays: {
-            daysOfWeek: [0, 6]
-          }
-        }
+        placeholder: 'Kies een datum',
+        dayPickerProps
       }
     },
     'time:hasEnd': {
-      'ui:placeholder': 'Kies een datum',
-      'ui:field': 'rdp'
+      'ui:field': 'rdp',
+      rdp: {
+        placeholder: 'Kies een datum',
+        dayPickerProps
+      }
     }
   },
   'ams:owner': {
@@ -85,7 +80,7 @@ export default {
       'ui:placeholder': 'http://'
     },
     'foaf:mbox': {
-      'ui:placeholder': 'pipo@amsterdam.nl'
+      'ui:placeholder': 'jan@amsterdam.nl'
     }
   },
   'dct:identifier': {
