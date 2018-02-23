@@ -39,8 +39,8 @@ export default {
       'ui:placeholder': 'Kies een datum',
       'ui:field': 'rdp',
       rdp: {
-        showOverlay: true,
-        hideOnDayClick: false,
+        // showOverlay: true,
+        // hideOnDayClick: false,
         dayPickerProps: {
           locale: 'nl',
           firstDayOfWeek: 1,
