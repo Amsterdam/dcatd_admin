@@ -1,4 +1,9 @@
-@import "../variables";
+@import "../config";
+
+html,
+body {
+  font-family: "Avenir LT W01 55 Roman", Arial, sans-serif;
+}
 
 .dcatd-form {
   .control-label {
@@ -61,16 +66,27 @@
     position: relative;
 
     &::after {
-      content: "#";
-      padding: 4px;
+      background-color: yellow;
+      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M407.8059 240L353 296.6444l208.3433 215.3788L353 727.3556 407.8059 784 671 512.0232z"/></svg>');
+      content: "";
+      height: 30px;
       position: absolute;
       right: 1px;
       top: 1px;
+      width: 30px;
     }
   }
 
+  .DayPicker-Month {
+    width: 100%;
+  }
+
+  .DayPicker-Months {
+    width: 296px;
+  }
+
   .DayPickerInput-Overlay {
-    border: 1px solid $black;
+    border: 2px solid $black;
     box-shadow: none;
   }
 
@@ -111,34 +127,28 @@
   }
 
   .DayPicker-NavButton {
-    color: $black !important;
-    height: 35px;
-    top: 10px;
+    background-size: 65%;
+    // color: $black !important;
+    height: 34px;
+    top: 7px;
     width: 35px;
 
     &--next {
-      background-image: none;
-      right: 4px;
+      @extend %icon-arrow-right-black;
+      right: 6px;
 
-      &::after {
-        content: ">";
-        font-size: 25px;
-        left: 10px;
-        position: absolute;
-        top: -1px;
+      &:hover {
+        @extend %icon-arrow-right-white;
       }
     }
 
     &--prev {
-      background-image: none;
-      left: 4px;
+      @extend %icon-arrow-left-black;
+      left: 6px;
+      // background-color: orange;
 
-      &::before {
-        content: "<";
-        font-size: 25px;
-        position: absolute;
-        right: 10px;
-        top: -1px;
+      &:hover {
+        @extend %icon-arrow-left-white;
       }
     }
 
