@@ -6,6 +6,8 @@ body {
 }
 
 .dcatd-form {
+  padding-bottom: 30px;
+
   .control-label {
     margin-bottom: 2px;
   }
@@ -66,13 +68,12 @@ body {
     position: relative;
 
     &::after {
-      background-color: yellow;
-      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M407.8059 240L353 296.6444l208.3433 215.3788L353 727.3556 407.8059 784 671 512.0232z"/></svg>');
+      @extend %icon-calendar;
       content: "";
       height: 30px;
       position: absolute;
-      right: 1px;
-      top: 1px;
+      right: 0;
+      top: 2px;
       width: 30px;
     }
   }
@@ -94,7 +95,6 @@ body {
     border-radius: 0 !important;
     color: $black;
     height: 34px !important;
-    padding: 0;
 
     &--today {
       border: 1px solid $black;
@@ -127,14 +127,12 @@ body {
   }
 
   .DayPicker-NavButton {
-    background-size: 65%;
-    // color: $black !important;
     height: 34px;
     top: 7px;
     width: 35px;
 
     &--next {
-      @extend %icon-arrow-right-black;
+      @extend %icon-arrow-right;
       right: 6px;
 
       &:hover {
@@ -143,9 +141,8 @@ body {
     }
 
     &--prev {
-      @extend %icon-arrow-left-black;
+      @extend %icon-arrow-left;
       left: 6px;
-      // background-color: orange;
 
       &:hover {
         @extend %icon-arrow-left-white;
