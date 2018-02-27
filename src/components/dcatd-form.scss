@@ -1,22 +1,25 @@
-@import "../config";
-
-html,
-body {
-  font-family: "Avenir LT W01 55 Roman", Arial, sans-serif;
-}
+@import "../styling/config";
 
 .dcatd-form {
   padding-bottom: 30px;
 
   .control-label {
+    @extend %heavy-font;
+
+    font-size: 16px;
     margin-bottom: 2px;
   }
 
   .field-description {
+    @extend %light-font;
+
     color: $brownish-grey;
+    font-size: 14px;
   }
 
   .form-control {
+    @extend %base-font;
+
     border: 1px solid $brownish-grey !important;
     border-radius: 0 !important;
     color: $black;
@@ -78,86 +81,106 @@ body {
     }
   }
 
-  .DayPicker-Month {
-    width: 100%;
-  }
+  .DayPicker {
+    padding: 0;
 
-  .DayPicker-Months {
-    width: 296px;
+    &-NavButton {
+      height: 34px;
+      top: 7px;
+      width: 35px;
+
+      &--next {
+        @extend %icon-arrow-right;
+        right: 6px;
+
+        &:hover {
+          @extend %icon-arrow-right-white;
+        }
+      }
+
+      &--prev {
+        @extend %icon-arrow-left;
+        left: 6px;
+
+        &:hover {
+          @extend %icon-arrow-left-white;
+        }
+      }
+
+      &:hover {
+        background-color: $red !important;
+        border-radius: 0 !important;
+        color: $white !important;
+      }
+    }
+
+    &-Caption > div {
+      @extend %heavy-font;
+
+      font-size: 16px;
+      padding: 2px 30px;
+      text-align: center;
+    }
+
+    &-Weekday {
+      @extend %heavy-font;
+
+      color: $black;
+      font-size: 12px;
+      font-weight: normal;
+      padding: 0 7.5px 17px;
+    }
+
+    &-Month {
+      border-collapse: separate;
+      border-spacing: 3px;
+      width: 100%;
+    }
+
+    &-Months {
+    }
+
+    &-Day {
+      @extend %heavy-font;
+
+      border-radius: 0 !important;
+      color: $black;
+      font-size: 18px;
+      padding: 5px 6px;
+
+      &--today {
+        border: 1px solid $black;
+        font-weight: normal;
+      }
+
+      &--disabled {
+        color: $warm-grey;
+
+        &.DayPicker-Day--today {
+          border-color: $warm-grey;
+        }
+      }
+
+      &--selected {
+        background-color: $red !important;
+        color: $white !important;
+      }
+
+      &:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+        background-color: $white !important;
+        color: $red !important;
+        text-decoration: underline;
+
+        &.DayPicker-Day--selected {
+          background-color: $red !important;
+          color: $white !important;
+        }
+      }
+    }
   }
 
   .DayPickerInput-Overlay {
     border: 2px solid $black;
     box-shadow: none;
-  }
-
-  .DayPicker-Day {
-    border-radius: 0 !important;
-    color: $black;
-    height: 34px !important;
-
-    &--today {
-      border: 1px solid $black;
-      font-weight: normal;
-    }
-
-    &--disabled {
-      color: $brownish-grey;
-
-      &.DayPicker-Day--today {
-        border-color: $brownish-grey;
-      }
-    }
-
-    &--selected {
-      background-color: $red !important;
-      color: $white !important;
-    }
-
-    &:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
-      background-color: $white !important;
-      color: $red !important;
-      text-decoration: underline;
-
-      &.DayPicker-Day--selected {
-        background-color: $red !important;
-        color: $white !important;
-      }
-    }
-  }
-
-  .DayPicker-NavButton {
-    height: 34px;
-    top: 7px;
-    width: 35px;
-
-    &--next {
-      @extend %icon-arrow-right;
-      right: 6px;
-
-      &:hover {
-        @extend %icon-arrow-right-white;
-      }
-    }
-
-    &--prev {
-      @extend %icon-arrow-left;
-      left: 6px;
-
-      &:hover {
-        @extend %icon-arrow-left-white;
-      }
-    }
-
-    &:hover {
-      background-color: $red !important;
-      border-radius: 0 !important;
-      color: $white !important;
-    }
-  }
-
-  .DayPicker-Caption {
-    padding: 2px 30px;
-    text-align: center;
   }
 }

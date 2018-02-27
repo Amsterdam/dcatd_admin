@@ -41,6 +41,8 @@ export default {
     'time:hasBeginning': {
       'ui:field': 'rdp',
       rdp: {
+        // hideOnDayClick: false,
+        // showOverlay: true,
         placeholder: 'Kies een datum',
         dayPickerProps
       }
