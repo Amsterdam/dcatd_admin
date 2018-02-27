@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import accounts from './accounts';
-import roles from './roles';
+import schema from './schema';
 import visibilityFilter from './visibilityFilter';
 
 const appState = combineReducers({
   accounts,
-  roles,
+  schema,
   visibilityFilter,
   router: routerReducer
 });

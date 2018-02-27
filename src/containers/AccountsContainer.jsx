@@ -12,7 +12,7 @@ import AccountDetail from '../components/AccountDetail';
 const mapStateToProps = (state, ownProps) => ({
   account: selectAccount(state.accounts, ownProps.match.params.id),
   accounts: getActiveAccounts(state.accounts, state.visibilityFilter),
-  roles: state.roles
+  schema: state.schema
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -40,7 +40,7 @@ const AccountsContainer = props => (
         <AccountDetail
           account={props.account}
           onUpdate={props.onUpdate}
-          roles={props.roles}
+          schema={props.schema}
         />
       )}
     />
@@ -50,7 +50,7 @@ const AccountsContainer = props => (
       render={() => (
         <AccountDetail
           onCreate={props.onCreate}
-          roles={props.roles}
+          schema={props.schema}
         />
       )}
     />
@@ -60,7 +60,7 @@ const AccountsContainer = props => (
 AccountsContainer.defaultProps = {
   account: {},
   accounts: [],
-  roles: []
+  schema: {}
 };
 
 AccountsContainer.propTypes = {
@@ -69,7 +69,7 @@ AccountsContainer.propTypes = {
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
-  roles: PropTypes.arrayOf(PropTypes.object)
+  schema: PropTypes.object.isRequired // eslint-disable-line
 };
 
 export default connect(

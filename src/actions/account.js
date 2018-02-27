@@ -23,8 +23,7 @@ export function fetchAccount(account) {
       .then(response => ({
         etag: response._etag,
         emailAddress: response._links.self.name,
-        name: response._links.self.title,
-        roles: response._links.role
+        name: response._links.self.title
       }))
       .then(response => dispatch(fetchAccountSuccess(response)))
       .catch((error) => { throw error; });
@@ -37,7 +36,7 @@ export function createAccount(account) {
       method: 'PUT',
       body: JSON.stringify({
         _links: {
-          role: account.roles
+          // role: account.roles
         },
         name: account.emailAddress,
         title: account.name
@@ -66,15 +65,14 @@ export function fetchAccountsSuccess(accounts) {
 
 export function fetchAccounts() {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}?embed=item`, { headers: getAuthHeaders() })
+    return fetch(`${apiUrl}`, { headers: getAuthHeaders() })
       .then(checkAuthStatus())
       .then(response => response.json())
-      .then(response => response._embedded.item)
+      // .then(response => response._embedded.item)
       .then(response => response.map(account => ({
         etag: account._etag,
         emailAddress: account._links.self.name,
-        name: account._links.self.title,
-        roles: account._links.role
+        name: account._links.self.title
       })))
       .then(accounts => dispatch(fetchAccountsSuccess(accounts)))
       .catch((error) => { throw error; });
@@ -87,7 +85,7 @@ export function updateAccount(account) {
       method: 'PUT',
       body: JSON.stringify({
         _links: {
-          role: account.roles
+          // role: account.roles
         },
         name: account.emailAddress,
         title: account.name

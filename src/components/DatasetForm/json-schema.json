@@ -1794,7 +1794,6 @@
   "required": [
     "dct:title",
     "dct:description",
-    "dcat:distribution",
     "overheidds:doel",
     "dct:language",
     "dcat:contactPoint",
