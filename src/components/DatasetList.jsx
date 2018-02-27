@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Button } from 'semantic-ui-react';
 
-const AccountList = ({ accounts, onRemove }) => (
+const DatasetList = ({ datasets, onRemove }) => (
   <section>
     {/* Use classes on a `<div>` instead of `<Button>` for Firefox support */}
     <div className="ui primary button">
       <NavLink
         style={{ color: '#FFF' }}
-        to="/accounts/new"
+        to="/datasets/new"
       >
-        Account koppelen
+        Dataset koppelen
       </NavLink>
     </div>
     <table className="ui celled table">
@@ -23,23 +23,23 @@ const AccountList = ({ accounts, onRemove }) => (
         </tr>
       </thead>
       <tbody>
-        {accounts.map(account => (
-          <tr key={account.emailAddress}>
+        {datasets.map(dataset => (
+          <tr key={dataset.emailAddress}>
             <td>
               <NavLink
-                to={`/accounts/${account.emailAddress}`}
+                to={`/datasets/${dataset.emailAddress}`}
                 style={{ display: 'block' }}
               >
-                {account.emailAddress}
+                {dataset.emailAddress}
               </NavLink>
             </td>
             <td>
-              {account.roles.map(role => role.title).sort().join(', ')}
+              {dataset.roles.map(role => role.title).sort().join(', ')}
             </td>
             <td>
               <Button
                 compact
-                onClick={() => onRemove(account)}
+                onClick={() => onRemove(dataset)}
               >
                 Verwijderen
               </Button>
@@ -51,13 +51,13 @@ const AccountList = ({ accounts, onRemove }) => (
   </section>
 );
 
-AccountList.defaultProps = {
+DatasetList.defaultProps = {
   onRemove: () => {}
 };
 
-AccountList.propTypes = {
-  accounts: PropTypes.arrayOf(PropTypes.object).isRequired,
+DatasetList.propTypes = {
+  datasets: PropTypes.arrayOf(PropTypes.object).isRequired,
   onRemove: PropTypes.func
 };
 
-export default AccountList;
+export default DatasetList;

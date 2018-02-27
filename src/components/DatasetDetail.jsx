@@ -4,17 +4,17 @@ import { NavLink } from 'react-router-dom';
 import { Form, Header } from 'semantic-ui-react';
 import DatasetForm from './DatasetForm/DatasetForm';
 
-class AccountDetail extends React.Component {
+class DatasetDetail extends React.Component {
   constructor(props) {
     super(props);
 
-    // NB: Setting state of nested objects, i.e. `{ account: { name: '' } }`, is not supported
+    // NB: Setting state of nested objects, i.e. `{ dataset: { name: '' } }`, is not supported
     this.state = {
-      etag: props.account.etag || '',
-      emailAddress: props.account.emailAddress || '',
-      name: props.account.name || '',
+      etag: props.dataset.etag || '',
+      emailAddress: props.dataset.emailAddress || '',
+      name: props.dataset.name || '',
       // NB: Set all roles directly on the state
-      ...(props.account.roles || [])
+      ...(props.dataset.roles || [])
         .map(role => role.title)
         .reduce((prev, curr) => ({
           ...prev,
@@ -27,16 +27,16 @@ class AccountDetail extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (!Object.keys(nextProps.account).length) {
+    if (!Object.keys(nextProps.dataset).length) {
       return;
     }
 
     this.setState({
-      etag: nextProps.account.etag,
-      emailAddress: nextProps.account.emailAddress,
-      name: nextProps.account.name,
+      etag: nextProps.dataset.etag,
+      emailAddress: nextProps.dataset.emailAddress,
+      name: nextProps.dataset.name,
       // NB: Set all roles directly on the state
-      ...(nextProps.account.roles || [])
+      ...(nextProps.dataset.roles || [])
         .map(role => role.title)
         .reduce((prev, curr) => ({
           ...prev,
@@ -55,7 +55,7 @@ class AccountDetail extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    const account = {
+    const dataset = {
       etag: this.state.etag,
       emailAddress: this.state.emailAddress,
       name: this.state.name,
@@ -65,11 +65,11 @@ class AccountDetail extends React.Component {
     };
 
     if (this.props.onCreate) {
-      this.props.onCreate(account);
+      this.props.onCreate(dataset);
     }
 
     if (this.props.onUpdate) {
-      this.props.onUpdate(account);
+      this.props.onUpdate(dataset);
     }
   }
 
@@ -106,7 +106,7 @@ class AccountDetail extends React.Component {
             <div className="ui button">
               <NavLink
                 style={{ color: '#FFF' }}
-                to="/accounts"
+                to="/datasets"
               >
                 Annuleren
               </NavLink>
@@ -118,15 +118,15 @@ class AccountDetail extends React.Component {
   }
 }
 
-AccountDetail.defaultProps = {
-  account: {},
+DatasetDetail.defaultProps = {
+  dataset: {},
   onCreate: () => {},
   onUpdate: () => {},
   roles: []
 };
 
-AccountDetail.propTypes = {
-  account: PropTypes.shape({
+DatasetDetail.propTypes = {
+  dataset: PropTypes.shape({
     etag: PropTypes.string,
     emailAddress: PropTypes.string,
     name: PropTypes.string,
@@ -137,4 +137,4 @@ AccountDetail.propTypes = {
   roles: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default AccountDetail;
+export default DatasetDetail;

@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router';
 import { Container } from 'semantic-ui-react';
 
 import Header from '../components/Header';
-import AccountsContainer from '../containers/AccountsContainer';
+import DatasetsContainer from '../containers/DatasetsContainer';
 
 const App = () => (
   <div>
@@ -13,10 +13,10 @@ const App = () => (
         exact
         path="/"
         render={() => (
-          <Redirect to="/accounts" />
+          <Redirect to="/datasets" />
         )}
       />
-      <Route exact path="/accounts/:id?" component={AccountsContainer} />
+      <Route exact path="/datasets/:id?" component={DatasetsContainer} />
     </Container>
   </div>
 );

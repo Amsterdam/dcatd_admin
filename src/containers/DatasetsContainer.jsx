@@ -4,41 +4,41 @@ import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { createAccount, removeAccount, updateAccount } from '../actions/account';
-import { getActiveAccounts, selectAccount } from '../reducers/accounts';
-import AccountList from '../components/AccountList';
-import AccountDetail from '../components/AccountDetail';
+import { createDataset, removeDataset, updateDataset } from '../actions/dataset';
+import { getActiveDatasets, selectDataset } from '../reducers/datasets';
+import DatasetList from '../components/DatasetList';
+import DatasetDetail from '../components/DatasetDetail';
 
 const mapStateToProps = (state, ownProps) => ({
-  account: selectAccount(state.accounts, ownProps.match.params.id),
-  accounts: getActiveAccounts(state.accounts, state.visibilityFilter),
+  dataset: selectDataset(state.datasets, ownProps.match.params.id),
+  datasets: getActiveDatasets(state.datasets, state.visibilityFilter),
   schema: state.schema
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  onCreate: createAccount,
-  onRemove: removeAccount,
-  onUpdate: updateAccount
+  onCreate: createDataset,
+  onRemove: removeDataset,
+  onUpdate: updateDataset
 }, dispatch);
 
-const AccountsContainer = props => (
+const DatasetsContainer = props => (
   <section>
     <Route
       exact
-      path="/accounts"
+      path="/datasets"
       render={() => (
-        <AccountList
-          accounts={props.accounts}
+        <DatasetList
+          datasets={props.datasets}
           onRemove={props.onRemove}
         />
       )}
     />
     <Route
       exact
-      path="/accounts/:id(\S+@\S+)"
+      path="/datasets/:id(\S+@\S+)"
       render={() => (
-        <AccountDetail
-          account={props.account}
+        <DatasetDetail
+          dataset={props.dataset}
           onUpdate={props.onUpdate}
           schema={props.schema}
         />
@@ -46,9 +46,9 @@ const AccountsContainer = props => (
     />
     <Route
       exact
-      path="/accounts/new"
+      path="/datasets/new"
       render={() => (
-        <AccountDetail
+        <DatasetDetail
           onCreate={props.onCreate}
           schema={props.schema}
         />
@@ -57,15 +57,15 @@ const AccountsContainer = props => (
   </section>
 );
 
-AccountsContainer.defaultProps = {
-  account: {},
-  accounts: [],
+DatasetsContainer.defaultProps = {
+  dataset: {},
+  datasets: [],
   schema: {}
 };
 
-AccountsContainer.propTypes = {
-  account: PropTypes.object, // eslint-disable-line
-  accounts: PropTypes.arrayOf(PropTypes.object),
+DatasetsContainer.propTypes = {
+  dataset: PropTypes.object, // eslint-disable-line
+  datasets: PropTypes.arrayOf(PropTypes.object),
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
@@ -75,4 +75,4 @@ AccountsContainer.propTypes = {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AccountsContainer);
+)(DatasetsContainer);

@@ -2,22 +2,22 @@ import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../services/auth/auth';
 import checkAuthStatus from '../services/check-auth-status/check-auth-status';
 
-export const FETCH_ACCOUNT_SUCCESS = 'FETCH_ACCOUNT_SUCCESS';
-export const FETCH_ACCOUNTS_SUCCESS = 'FETCH_ACCOUNTS_SUCCESS';
-export const REMOVE_ACCOUNT_SUCCESS = 'REMOVE_ACCOUNT_SUCCESS';
+export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
+export const FETCH_DATASETS_SUCCESS = 'FETCH_DATASETS_SUCCESS';
+export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
 
-export function fetchAccountSuccess(account) {
+export function fetchDatasetSuccess(dataset) {
   return {
-    type: FETCH_ACCOUNT_SUCCESS,
-    account
+    type: FETCH_DATASET_SUCCESS,
+    dataset
   };
 }
 
-export function fetchAccount(account) {
+export function fetchDataset(dataset) {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}/${account.emailAddress}`, { headers: getAuthHeaders() })
+    return fetch(`${apiUrl}/${dataset.emailAddress}`, { headers: getAuthHeaders() })
       .then(checkAuthStatus())
       .then(response => response.json())
       .then(response => ({
@@ -25,21 +25,21 @@ export function fetchAccount(account) {
         emailAddress: response._links.self.name,
         name: response._links.self.title
       }))
-      .then(response => dispatch(fetchAccountSuccess(response)))
+      .then(response => dispatch(fetchDatasetSuccess(response)))
       .catch((error) => { throw error; });
   };
 }
 
-export function createAccount(account) {
+export function createDataset(dataset) {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}/${account.emailAddress}`, {
+    return fetch(`${apiUrl}/${dataset.emailAddress}`, {
       method: 'PUT',
       body: JSON.stringify({
         _links: {
-          // role: account.roles
+          // role: dataset.roles
         },
-        name: account.emailAddress,
-        title: account.name
+        name: dataset.emailAddress,
+        title: dataset.name
       }),
       headers: new Headers({
         ...getAuthHeaders(),
@@ -47,84 +47,84 @@ export function createAccount(account) {
         'If-None-Match': '*'
       })
     })
-      .then(() => dispatch(fetchAccount(account)))
+      .then(() => dispatch(fetchDataset(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/accounts'));
+        dispatch(push('/datasets'));
       })
       .catch((error) => { throw error; });
   };
 }
 
-export function fetchAccountsSuccess(accounts) {
+export function fetchDatasetsSuccess(datasets) {
   return {
-    type: FETCH_ACCOUNTS_SUCCESS,
-    accounts
+    type: FETCH_DATASETS_SUCCESS,
+    datasets
   };
 }
 
-export function fetchAccounts() {
+export function fetchDatasets() {
   return (dispatch) => { // eslint-disable-line
     return fetch(`${apiUrl}`, { headers: getAuthHeaders() })
       .then(checkAuthStatus())
       .then(response => response.json())
       // .then(response => response._embedded.item)
-      .then(response => response.map(account => ({
-        etag: account._etag,
-        emailAddress: account._links.self.name,
-        name: account._links.self.title
+      .then(response => response.map(dataset => ({
+        etag: dataset._etag,
+        emailAddress: dataset._links.self.name,
+        name: dataset._links.self.title
       })))
-      .then(accounts => dispatch(fetchAccountsSuccess(accounts)))
+      .then(datasets => dispatch(fetchDatasetsSuccess(datasets)))
       .catch((error) => { throw error; });
   };
 }
 
-export function updateAccount(account) {
+export function updateDataset(dataset) {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}/${account.emailAddress}`, {
+    return fetch(`${apiUrl}/${dataset.emailAddress}`, {
       method: 'PUT',
       body: JSON.stringify({
         _links: {
-          // role: account.roles
+          // role: dataset.roles
         },
-        name: account.emailAddress,
-        title: account.name
+        name: dataset.emailAddress,
+        title: dataset.name
       }),
       headers: new Headers({
         ...getAuthHeaders(),
         'Content-Type': 'application/hal+json',
-        'If-Match': account.etag
+        'If-Match': dataset.etag
       })
     })
-      .then(() => dispatch(fetchAccount(account)))
+      .then(() => dispatch(fetchDataset(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/accounts'));
+        dispatch(push('/datasets'));
       })
       .catch((error) => { throw error; });
   };
 }
 
-export function removeAccountSuccess(account) {
+export function removeDatasetSuccess(dataset) {
   return {
-    type: REMOVE_ACCOUNT_SUCCESS,
-    account
+    type: REMOVE_DATASET_SUCCESS,
+    dataset
   };
 }
 
-export function removeAccount(account) {
+export function removeDataset(dataset) {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}/${account.emailAddress}`, {
+    return fetch(`${apiUrl}/${dataset.emailAddress}`, {
       method: 'DELETE',
       headers: new Headers({
         ...getAuthHeaders(),
-        'If-Match': account.etag
+        'If-Match': dataset.etag
       })
     })
-      .then(() => dispatch(removeAccountSuccess(account)))
+      .then(() => dispatch(removeDatasetSuccess(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/accounts'));
+        dispatch(push('/datasets'));
       })
       .catch((error) => { throw error; });
   };

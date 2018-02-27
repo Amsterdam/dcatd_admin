@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 import App from './components/App';
-import { fetchAccounts } from './actions/account';
+import { fetchDatasets } from './actions/dataset';
 import { fetchSchema } from './actions/schema';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
@@ -34,7 +34,7 @@ if (returnPath) {
   store.dispatch(push(returnPath));
 }
 
-store.dispatch(fetchAccounts());
+store.dispatch(fetchDatasets());
 store.dispatch(fetchSchema());
 
 render(
