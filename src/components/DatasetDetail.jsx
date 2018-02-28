@@ -1,8 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
-import { Form, Header } from 'semantic-ui-react';
-import DatasetForm from './DatasetForm/DatasetForm';
+// import { NavLink } from 'react-router-dom';
+// import { Header } from 'semantic-ui-react';
+// import DatasetForm from './DatasetForm/DatasetForm';
+
+import Form from 'react-jsonschema-form';
+import extraFields from 'react-jsonschema-form-extras';
+
+import schema from './DatasetForm/json-schema.json';
+import uiSchema from './DatasetForm/uiSchema';
+import formDatas from './DatasetForm/dcatData';
+
+import localFields from '../fields';
+import widgets from '../widgets';
+
+import '../../node_modules/react-day-picker/lib/style.css';
+import './dcatd-form.scss';
+
+const fields = {
+  ...extraFields,
+  ...localFields
+};
+
+// use the order defined in the schema
+uiSchema['ui:order'] = schema['x-order'] || [];
 
 class DatasetDetail extends React.Component {
   constructor(props) {
@@ -76,43 +97,17 @@ class DatasetDetail extends React.Component {
   render() {
     return (
       <span>
-        <DatasetForm />
-        <Form onSubmit={this.handleSubmit}>
-          <Header as="h2">Koppeling wijzigen</Header>
-          <Form.Group widths="equal">
-            <Form.Input
-              label="E-mailadres"
-              name="emailAddress"
-              onChange={this.handleChange}
-              placeholder="E-mailadres"
-              value={this.state.emailAddress}
-            />
-          </Form.Group>
-          <Form.Group inline>
-            <label htmlFor="employee_plus">Rollen</label>
-            {this.props.roles.map(role => (
-              <Form.Checkbox
-                checked={this.state[role.title]}
-                key={role.href}
-                label={role.title}
-                name={role.title}
-                onChange={this.handleChange}
-              />
-            ))}
-          </Form.Group>
-          <Form.Group inline>
-            <Form.Button primary>Opslaan</Form.Button>
-            {/* Use classes on a `<div>` instead of `<Button>` for Firefox support */}
-            <div className="ui button">
-              <NavLink
-                style={{ color: '#FFF' }}
-                to="/datasets"
-              >
-                Annuleren
-              </NavLink>
-            </div>
-          </Form.Group>
-        </Form>
+        <Form
+          className="dcatd-form dataset-form"
+          schema={schema}
+          widgets={widgets}
+          fields={fields}
+          uiSchema={uiSchema}
+          formData={formDatas}
+          noHtml5Validate
+          showErrorList={false}
+          onChange={({ formData }) => console.log('CHANGE', formData)}
+        />
       </span>
     );
   }

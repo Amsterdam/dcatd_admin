@@ -50,7 +50,7 @@ export function createDataset(dataset) {
       .then(() => dispatch(fetchDataset(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/datasets'));
+        dispatch(push('/dcatd_admin/datasets'));
       })
       .catch((error) => { throw error; });
   };
@@ -69,10 +69,10 @@ export function fetchDatasets() {
       .then(checkAuthStatus())
       .then(response => response.json())
       // .then(response => response._embedded.item)
-      .then(response => response.map(dataset => ({
-        etag: dataset._etag,
-        emailAddress: dataset._links.self.name,
-        name: dataset._links.self.title
+      .then(response => response['dcat:dataset'].map(dataset => ({
+        id: dataset['dct:identifier'],
+        title: dataset['dct:title'] || '',
+        description: dataset['dct:description'] || ''
       })))
       .then(datasets => dispatch(fetchDatasetsSuccess(datasets)))
       .catch((error) => { throw error; });
@@ -99,7 +99,7 @@ export function updateDataset(dataset) {
       .then(() => dispatch(fetchDataset(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/datasets'));
+        dispatch(push('/dcatd_admin/datasets'));
       })
       .catch((error) => { throw error; });
   };
@@ -124,7 +124,7 @@ export function removeDataset(dataset) {
       .then(() => dispatch(removeDatasetSuccess(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/datasets'));
+        dispatch(push('/dcatd_admin/datasets'));
       })
       .catch((error) => { throw error; });
   };

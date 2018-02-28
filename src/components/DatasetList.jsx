@@ -9,9 +9,9 @@ const DatasetList = ({ datasets, onRemove }) => (
     <div className="ui primary button">
       <NavLink
         style={{ color: '#FFF' }}
-        to="/datasets/new"
+        to="/dcatd_admin/datasets/new"
       >
-        Dataset koppelen
+        Dataset aanmaken
       </NavLink>
     </div>
     <table className="ui celled table">
@@ -24,17 +24,17 @@ const DatasetList = ({ datasets, onRemove }) => (
       </thead>
       <tbody>
         {datasets.map(dataset => (
-          <tr key={dataset.emailAddress}>
+          <tr key={dataset.id}>
             <td>
               <NavLink
-                to={`/datasets/${dataset.emailAddress}`}
+                to={`/dcatd_admin/datasets/${dataset.id}`}
                 style={{ display: 'block' }}
               >
-                {dataset.emailAddress}
+                {dataset.title}
               </NavLink>
             </td>
             <td>
-              {dataset.roles.map(role => role.title).sort().join(', ')}
+              yo
             </td>
             <td>
               <Button

@@ -13,10 +13,10 @@ const App = () => (
         exact
         path="/"
         render={() => (
-          <Redirect to="/datasets" />
+          <Redirect to="/dcatd_admin/datasets" />
         )}
       />
-      <Route exact path="/datasets/:id?" component={DatasetsContainer} />
+      <Route exact path="/dcatd_admin/datasets/:id?" component={DatasetsContainer} />
     </Container>
   </div>
 );

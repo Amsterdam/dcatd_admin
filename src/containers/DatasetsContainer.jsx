@@ -25,7 +25,7 @@ const DatasetsContainer = props => (
   <section>
     <Route
       exact
-      path="/datasets"
+      path="/dcatd_admin/datasets"
       render={() => (
         <DatasetList
           datasets={props.datasets}
@@ -35,7 +35,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/datasets/:id(\S+@\S+)"
+      path="/dcatd_admin/datasets/:id(\S+@\S+)"
       render={() => (
         <DatasetDetail
           dataset={props.dataset}
@@ -46,7 +46,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/datasets/new"
+      path="/dcatd_admin/datasets/new"
       render={() => (
         <DatasetDetail
           onCreate={props.onCreate}
