@@ -1,4 +1,4 @@
-import { dayPickerProps } from '../localization';
+import { dayPickerProps } from './day-picker';
 
 export default {
   'ui:field': [

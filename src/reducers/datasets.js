@@ -37,5 +37,5 @@ export function getActiveDatasets(datasets, filter) {
 }
 
 export function selectDataset(datasets, datasetId) {
-  return datasets.find(dataset => dataset.emailAddress === datasetId);
+  return datasets.find(dataset => dataset.id === datasetId);
 }

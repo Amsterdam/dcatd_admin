@@ -14,7 +14,7 @@ const Header = () => (
       </Menu.Item>
       <Menu.Item>
         <NavLink to="/dcatd_admin/datasets">
-          Koppelingen
+          Datasets
         </NavLink>
       </Menu.Item>
       <Menu.Menu position="right">

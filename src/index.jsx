@@ -11,6 +11,7 @@ import reducers from './reducers';
 import App from './components/App';
 import { fetchDatasets } from './actions/dataset';
 import { fetchSchema } from './actions/schema';
+import { fetchUiDataset } from './actions/uiDataset';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
 import './index.scss';
@@ -36,6 +37,7 @@ if (returnPath) {
 
 store.dispatch(fetchDatasets());
 store.dispatch(fetchSchema());
+store.dispatch(fetchUiDataset());
 
 render(
   <Provider store={store}>

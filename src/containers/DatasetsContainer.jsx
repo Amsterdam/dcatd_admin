@@ -35,7 +35,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/:id(\S+@\S+)"
+      path="/dcatd_admin/datasets/:id([\w-]+)"
       render={() => (
         <DatasetDetail
           dataset={props.dataset}

@@ -1,3 +1,5 @@
+import { setUiDatasetOrder } from './uiDataset';
+
 export const FETCH_SCHEMA_SUCCESS = 'FETCH_SCHEMA_SUCCESS';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/openapi`;
@@ -15,6 +17,7 @@ export function fetchSchema() {
       .then(response => response.json())
       .then(response => response.components.schemas['dcat-doc'])
       .then(schema => dispatch(fetchSchemaSuccess(schema)))
+      .then(schema => dispatch(setUiDatasetOrder(schema)))
       .catch((error) => { throw error; });
   };
 }
