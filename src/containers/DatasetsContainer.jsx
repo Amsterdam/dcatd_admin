@@ -12,7 +12,8 @@ import DatasetDetail from '../components/DatasetDetail';
 const mapStateToProps = (state, ownProps) => ({
   dataset: selectDataset(state.datasets, ownProps.match.params.id),
   datasets: getActiveDatasets(state.datasets, state.visibilityFilter),
-  schema: state.schema
+  schema: state.schema,
+  uiDataset: state.uiDataset
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
@@ -40,6 +41,7 @@ const DatasetsContainer = props => (
         <DatasetDetail
           dataset={props.dataset}
           schema={props.schema}
+          uiDataset={props.uiDataset}
           onUpdate={props.onUpdate}
         />
       )}
@@ -50,6 +52,7 @@ const DatasetsContainer = props => (
       render={() => (
         <DatasetDetail
           schema={props.schema}
+          uiDataset={props.uiDataset}
           onCreate={props.onCreate}
         />
       )}
@@ -59,8 +62,7 @@ const DatasetsContainer = props => (
 
 DatasetsContainer.defaultProps = {
   dataset: {},
-  datasets: [],
-  schema: {}
+  datasets: []
 };
 
 DatasetsContainer.propTypes = {
@@ -69,7 +71,8 @@ DatasetsContainer.propTypes = {
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
-  schema: PropTypes.object.isRequired // eslint-disable-line
+  schema: PropTypes.object.isRequired, // eslint-disable-line
+  uiDataset: PropTypes.object.isRequired, // eslint-disable-line
 };
 
 export default connect(

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import uiDataset from '../definitions/uiDataset';
+// import uiDataset from '../definitions/uiDataset';
 // import formDatas from '../definitions/dcatData';
 
 import localFields from '../fields';
@@ -22,7 +22,7 @@ const fields = {
 // use the order defined in the schema
 // uiSchema['ui:order'] = resourceSchema['x-order'] || [];
 
-const DatasetDetail = ({ schema }) => (
+const DatasetDetail = ({ schema, uiDataset }) => (
   <Form
     className="dcatd-form dataset-form"
     schema={schema}
@@ -36,7 +36,8 @@ const DatasetDetail = ({ schema }) => (
 );
 
 DatasetDetail.propTypes = {
-  schema: PropTypes.object.isRequired // eslint-disable-line
+  schema: PropTypes.object.isRequired, // eslint-disable-line
+  uiDataset: PropTypes.object.isRequired // eslint-disable-line
 };
 
 export default DatasetDetail;
