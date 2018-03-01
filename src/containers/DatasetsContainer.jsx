@@ -39,8 +39,8 @@ const DatasetsContainer = props => (
       render={() => (
         <DatasetDetail
           dataset={props.dataset}
-          onUpdate={props.onUpdate}
           schema={props.schema}
+          onUpdate={props.onUpdate}
         />
       )}
     />
@@ -49,8 +49,8 @@ const DatasetsContainer = props => (
       path="/dcatd_admin/datasets/new"
       render={() => (
         <DatasetDetail
-          onCreate={props.onCreate}
           schema={props.schema}
+          onCreate={props.onCreate}
         />
       )}
     />
