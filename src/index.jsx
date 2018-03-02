@@ -12,6 +12,7 @@ import App from './components/App';
 import { fetchDatasets } from './actions/dataset';
 import { fetchSchema } from './actions/schema';
 import { fetchUiDataset } from './actions/uiDataset';
+import { fetchUiResource } from './actions/uiResource';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
 import './index.scss';
@@ -38,6 +39,7 @@ if (returnPath) {
 store.dispatch(fetchDatasets());
 store.dispatch(fetchSchema());
 store.dispatch(fetchUiDataset());
+store.dispatch(fetchUiResource());
 
 render(
   <Provider store={store}>
