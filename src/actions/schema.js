@@ -1,4 +1,5 @@
 import { setUiDatasetOrder } from './uiDataset';
+import { setUiResourceOrder } from './uiResource';
 
 export const FETCH_SCHEMA_SUCCESS = 'FETCH_SCHEMA_SUCCESS';
 
@@ -18,6 +19,7 @@ export function fetchSchema() {
       .then(response => response.components.schemas['dcat-doc'])
       .then(schema => dispatch(fetchSchemaSuccess(schema)))
       .then(schema => dispatch(setUiDatasetOrder(schema)))
+      .then(schema => dispatch(setUiResourceOrder(schema)))
       .catch((error) => { throw error; });
   };
 }
