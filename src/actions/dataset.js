@@ -1,6 +1,5 @@
 import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../services/auth/auth';
-// import checkAuthStatus from '../services/check-auth-status/check-auth-status';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
@@ -14,16 +13,11 @@ export function fetchDatasetSuccess(dataset) {
   };
 }
 
-export function fetchDataset(dataset) {
+export function fetchDataset(id) {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}/${dataset.id}`) // , { headers: getAuthHeaders() })
-      // .then(checkAuthStatus())
+    console.log('fetchDataset', `${apiUrl}/${id}`);
+    return fetch(`${apiUrl}/${id}`)
       .then(response => response.json())
-      .then(response => ({
-        etag: response._etag,
-        emailAddress: response._links.self.name,
-        name: response._links.self.title
-      }))
       .then(response => dispatch(fetchDatasetSuccess(response)))
       .catch((error) => { throw error; });
   };

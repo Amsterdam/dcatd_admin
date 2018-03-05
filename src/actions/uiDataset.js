@@ -10,16 +10,16 @@ export function fetchUiDatasetSuccess(uiSchema) {
   };
 }
 
+export function fetchUiDataset() {
+  return (dispatch) => { // eslint-disable-line
+    return dispatch(fetchUiDatasetSuccess(uiDataset));
+  };
+}
+
 export function setUiDatasetOrderSuccess(schema) {
   return {
     ...schema,
     type: SET_UI_DATASET_ORDER
-  };
-}
-
-export function fetchUiDataset() {
-  return (dispatch) => { // eslint-disable-line
-    return dispatch(fetchUiDatasetSuccess(uiDataset));
   };
 }
 

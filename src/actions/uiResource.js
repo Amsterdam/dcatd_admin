@@ -10,16 +10,16 @@ export function fetchUiResourceSuccess(uiSchema) {
   };
 }
 
+export function fetchUiResource() {
+  return (dispatch) => { // eslint-disable-line
+    return dispatch(fetchUiResourceSuccess(uiResource));
+  };
+}
+
 export function setUiResourceOrderSuccess(schema) {
   return {
     ...schema,
     type: SET_UI_RESOURCE_ORDER
-  };
-}
-
-export function fetchUiResource() {
-  return (dispatch) => { // eslint-disable-line
-    return dispatch(fetchUiResourceSuccess(uiResource));
   };
 }
 

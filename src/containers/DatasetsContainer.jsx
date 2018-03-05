@@ -5,13 +5,11 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { createDataset, removeDataset, updateDataset } from '../actions/dataset';
-import { getActiveDatasets, selectDataset } from '../reducers/datasets';
 import DatasetList from '../components/DatasetList';
 import DatasetDetail from '../components/DatasetDetail';
 
-const mapStateToProps = (state, ownProps) => ({
-  dataset: selectDataset(state.datasets, ownProps.match.params.id),
-  datasets: getActiveDatasets(state.datasets, state.visibilityFilter),
+const mapStateToProps = state => ({
+  datasets: state.datasets,
   schema: state.schema,
   uiDataset: state.uiDataset,
   uiResource: state.uiResource
@@ -40,7 +38,7 @@ const DatasetsContainer = props => (
       path="/dcatd_admin/datasets/:id([\w-]+)"
       render={() => (
         <DatasetDetail
-          dataset={props.dataset}
+          id={props.match.params.id}
           schema={props.schema}
           uiDataset={props.uiDataset}
           uiResource={props.uiResource}
@@ -69,7 +67,7 @@ DatasetsContainer.defaultProps = {
 };
 
 DatasetsContainer.propTypes = {
-  dataset: PropTypes.object, // eslint-disable-line
+  match: PropTypes.object, // eslint-disable-line
   datasets: PropTypes.arrayOf(PropTypes.object),
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,

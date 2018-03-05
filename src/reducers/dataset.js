@@ -3,15 +3,14 @@ import {
   REMOVE_DATASET_SUCCESS
 } from '../actions/dataset';
 
-const initialState = [];
+const initialState = {};
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_DATASET_SUCCESS:
-      return [
-        ...state.filter(dataset => dataset.emailAddress !== action.dataset.emailAddress),
-        Object.assign({}, action.dataset)
-      ];
+      return {
+        ...action.dataset
+      };
     case REMOVE_DATASET_SUCCESS:
       return state.filter(dataset => dataset.emailAddress !== action.dataset.emailAddress);
     default:

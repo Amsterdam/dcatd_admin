@@ -1,7 +1,3 @@
-// import { push } from 'react-router-redux';
-// import { getAuthHeaders } from '../services/auth/auth';
-// import checkAuthStatus from '../services/check-auth-status/check-auth-status';
-
 export const FETCH_DATASETS_SUCCESS = 'FETCH_DATASETS_SUCCESS';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
@@ -15,10 +11,8 @@ export function fetchDatasetsSuccess(datasets) {
 
 export function fetchDatasets() {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}`) // , { headers: getAuthHeaders() })
-      // .then(checkAuthStatus())
+    return fetch(`${apiUrl}`)
       .then(response => response.json())
-      // .then(response => response._embedded.item)
       .then(response => response['dcat:dataset'].map(dataset => ({
         id: dataset['dct:identifier'],
         title: dataset['dct:title'] || '',
