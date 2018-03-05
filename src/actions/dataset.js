@@ -1,9 +1,8 @@
 import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../services/auth/auth';
-import checkAuthStatus from '../services/check-auth-status/check-auth-status';
+// import checkAuthStatus from '../services/check-auth-status/check-auth-status';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
-export const FETCH_DATASETS_SUCCESS = 'FETCH_DATASETS_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
@@ -17,8 +16,8 @@ export function fetchDatasetSuccess(dataset) {
 
 export function fetchDataset(dataset) {
   return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}/${dataset.emailAddress}`, { headers: getAuthHeaders() })
-      .then(checkAuthStatus())
+    return fetch(`${apiUrl}/${dataset.id}`) // , { headers: getAuthHeaders() })
+      // .then(checkAuthStatus())
       .then(response => response.json())
       .then(response => ({
         etag: response._etag,
@@ -52,29 +51,6 @@ export function createDataset(dataset) {
         // TODO: Find alternative approach letting the container handle this
         dispatch(push('/dcatd_admin/datasets'));
       })
-      .catch((error) => { throw error; });
-  };
-}
-
-export function fetchDatasetsSuccess(datasets) {
-  return {
-    type: FETCH_DATASETS_SUCCESS,
-    datasets
-  };
-}
-
-export function fetchDatasets() {
-  return (dispatch) => { // eslint-disable-line
-    return fetch(`${apiUrl}`, { headers: getAuthHeaders() })
-      .then(checkAuthStatus())
-      .then(response => response.json())
-      // .then(response => response._embedded.item)
-      .then(response => response['dcat:dataset'].map(dataset => ({
-        id: dataset['dct:identifier'],
-        title: dataset['dct:title'] || '',
-        description: dataset['dct:description'] || ''
-      })))
-      .then(datasets => dispatch(fetchDatasetsSuccess(datasets)))
       .catch((error) => { throw error; });
   };
 }

@@ -9,7 +9,7 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 import App from './components/App';
-import { fetchDatasets } from './actions/dataset';
+import { fetchDatasets } from './actions/datasets';
 import { fetchSchema } from './actions/schema';
 import { fetchUiDataset } from './actions/uiDataset';
 import { fetchUiResource } from './actions/uiResource';
