@@ -18,7 +18,3 @@ export default function (state = initialState, action) {
       return state;
   }
 }
-
-export function selectDataset(datasets, datasetId) {
-  return datasets.find(dataset => dataset.id === datasetId);
-}
