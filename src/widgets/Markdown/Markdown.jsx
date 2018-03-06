@@ -61,7 +61,7 @@ Markdown.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
-  options: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  options: PropTypes.object,
   readonly: PropTypes.bool.isRequired,
   rows: PropTypes.number,
   required: PropTypes.bool.isRequired,

@@ -63,18 +63,19 @@ const DatasetsContainer = props => (
 
 DatasetsContainer.defaultProps = {
   dataset: {},
-  datasets: []
+  datasets: [],
+  match: null
 };
 
 DatasetsContainer.propTypes = {
-  match: PropTypes.object, // eslint-disable-line
+  match: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
-  schema: PropTypes.object.isRequired, // eslint-disable-line
-  uiDataset: PropTypes.object.isRequired, // eslint-disable-line
-  uiResource: PropTypes.object.isRequired // eslint-disable-line
+  schema: PropTypes.object.isRequired,
+  uiDataset: PropTypes.object.isRequired,
+  uiResource: PropTypes.object.isRequired
 };
 
 export default connect(

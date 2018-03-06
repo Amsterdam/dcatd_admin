@@ -41,6 +41,7 @@ class DatasetDetail extends Component {
         <Form
           className="dcatd-form dataset-form"
           schema={this.props.schema}
+          formData={this.props.dataset}
           widgets={widgets}
           fields={fields}
           uiSchema={this.props.uiDataset}
@@ -63,11 +64,16 @@ class DatasetDetail extends Component {
   }
 }
 
+DatasetDetail.defaultProps = {
+  id: null
+};
+
 DatasetDetail.propTypes = {
-  schema: PropTypes.object.isRequired, // eslint-disable-line
-  uiDataset: PropTypes.object.isRequired, // eslint-disable-line
-  uiResource: PropTypes.object.isRequired, // eslint-disable-line
-  id: PropTypes.string, // eslint-disable-line
+  schema: PropTypes.object.isRequired,
+  uiDataset: PropTypes.object.isRequired,
+  uiResource: PropTypes.object.isRequired,
+  id: PropTypes.string,
+  dataset: PropTypes.object.isRequired,
 
   fetchDataset: PropTypes.func.isRequired
 };

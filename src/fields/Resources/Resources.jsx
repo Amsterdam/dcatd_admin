@@ -43,7 +43,7 @@ const Resources = props => (
 // };
 
 Resources.propTypes = {
-  schema: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  schema: PropTypes.object.isRequired
 };
 
 export default Resources;

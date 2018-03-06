@@ -11,7 +11,7 @@ export function fetchUiDatasetSuccess(uiSchema) {
 }
 
 export function fetchUiDataset() {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return dispatch(fetchUiDatasetSuccess(uiDataset));
   };
 }
@@ -24,7 +24,7 @@ export function setUiDatasetOrderSuccess(schema) {
 }
 
 export function setUiDatasetOrder(schema) {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return dispatch(setUiDatasetOrderSuccess(schema));
   };
 }

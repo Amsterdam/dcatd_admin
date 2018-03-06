@@ -14,8 +14,7 @@ export function fetchDatasetSuccess(dataset) {
 }
 
 export function fetchDataset(id) {
-  return (dispatch) => { // eslint-disable-line
-    console.log('fetchDataset', `${apiUrl}/${id}`);
+  return (dispatch) => {
     return fetch(`${apiUrl}/${id}`)
       .then(response => response.json())
       .then(response => dispatch(fetchDatasetSuccess(response)))
@@ -24,7 +23,7 @@ export function fetchDataset(id) {
 }
 
 export function createDataset(dataset) {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return fetch(`${apiUrl}/${dataset.emailAddress}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -50,7 +49,7 @@ export function createDataset(dataset) {
 }
 
 export function updateDataset(dataset) {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return fetch(`${apiUrl}/${dataset.emailAddress}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -83,7 +82,7 @@ export function removeDatasetSuccess(dataset) {
 }
 
 export function removeDataset(dataset) {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return fetch(`${apiUrl}/${dataset.emailAddress}`, {
       method: 'DELETE',
       headers: new Headers({

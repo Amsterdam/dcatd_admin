@@ -10,7 +10,7 @@ export function fetchDatasetsSuccess(datasets) {
 }
 
 export function fetchDatasets() {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return fetch(`${apiUrl}`)
       .then(response => response.json())
       .then(response => response['dcat:dataset'].map(dataset => ({

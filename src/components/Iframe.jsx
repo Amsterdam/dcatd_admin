@@ -32,7 +32,7 @@ Iframe.defaultProps = {
 
 
 Iframe.propTypes = {
-  children: PropTypes.object // eslint-disable-line react/forbid-prop-types
+  children: PropTypes.object
 };
 
 export default Iframe;

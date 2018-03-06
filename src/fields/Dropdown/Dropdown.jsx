@@ -87,11 +87,11 @@ Dropdown.defaultProps = {
 
 Dropdown.propTypes = {
   disabled: PropTypes.bool.isRequired,
-  idSchema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  idSchema: PropTypes.object.isRequired,
   readonly: PropTypes.bool.isRequired,
   required: PropTypes.bool.isRequired,
-  schema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
-  uiSchema: PropTypes.object.isRequired, // eslint-disable-line react/forbid-prop-types
+  schema: PropTypes.object.isRequired,
+  uiSchema: PropTypes.object.isRequired,
   value: PropTypes.string,
   onChange: PropTypes.func.isRequired
 };

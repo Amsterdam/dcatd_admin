@@ -13,7 +13,7 @@ export function fetchSchemaSuccess(schema) {
 }
 
 export function fetchSchema() {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return fetch(apiUrl)
       .then(response => response.json())
       .then(response => response.components.schemas['dcat-doc'])

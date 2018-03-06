@@ -11,7 +11,7 @@ export function fetchUiResourceSuccess(uiSchema) {
 }
 
 export function fetchUiResource() {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return dispatch(fetchUiResourceSuccess(uiResource));
   };
 }
@@ -24,7 +24,7 @@ export function setUiResourceOrderSuccess(schema) {
 }
 
 export function setUiResourceOrder(schema) {
-  return (dispatch) => { // eslint-disable-line
+  return (dispatch) => {
     return dispatch(setUiResourceOrderSuccess(schema));
   };
 }
