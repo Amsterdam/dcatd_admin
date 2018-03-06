@@ -4,13 +4,6 @@ import PropTypes from 'prop-types';
 
 import './resources.scss';
 
-const types = [
-  'Data',
-  'Documentatie',
-  'Visualisatie',
-  'Voorbeeldtoepassing'
-];
-
 function handleAddResource(type) {
   console.log('handleAddResource', type);
 }
@@ -18,7 +11,7 @@ function handleAddResource(type) {
 const Resources = props => (
   <div className="resources">
     <div className="resources__title">Resources</div>
-    {types.map(type => (
+    {props.schema.items.properties['ams:resourceType'].enumNames.map(type => (
       <div className="resources-type" key={type}>
         <div className="resources-type-header">
           <span className="resources-type-header__title">{type}</span>
@@ -29,20 +22,23 @@ const Resources = props => (
         </div>
         <div className="resources-type-content">
           <div className="resources-type-content--no-resources">
-            Nog geen resoucres van dit type
+            Nog geen resources van dit type
           </div>
+          {props.formData.filter(resource => resource['ams:resourceType'] === type).map(resource => (
+            <div key={resource['dcat:accessURL']}>{resource['dct:title']} </div>
+          ))}
         </div>
       </div>
     ))}
-    {console.log('props', props)}
-    {console.log('props.schema.items', props.schema.items)}
   </div>
 );
 
-// Resources.defaultProps = {
-// };
+Resources.defaultProps = {
+  formData: []
+};
 
 Resources.propTypes = {
+  formData: PropTypes.array,
   schema: PropTypes.object.isRequired
 };
 

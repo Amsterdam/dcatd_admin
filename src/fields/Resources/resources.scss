@@ -3,12 +3,11 @@
 .resources {
   .resources-type {
     &-header {
-      border-bottom: 1px solid $black;
-      border-top: 1px solid $black;
+      border-bottom: 1px solid $pinkish-grey;
       color: $black;
       display: flex;
       font-size: 17px;
-      padding: 8px 7px 8px 16px;
+      padding: 8px 23px 15px 20px;
 
       &__title {
         align-self: center;
@@ -20,8 +19,8 @@
       &__button  {
         align-self: center;
         background-color: $white;
-        border-radius: 50%;
-        border-style: none;
+        border: 1px solid $pinkish-grey;
+        color: $brownish-grey;
         font-size: 23px;
         padding: 0 9px;
 
@@ -33,15 +32,17 @@
     }
 
     &-content {
-      border-bottom: 1px solid $warm-grey;
+      border-bottom: 1px solid $pinkish-grey;
       font-size: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 23px;
+      padding: 0 20px;
 
       &--no-resources {
         background-color: $white-four;
         color: $warm-grey;
         font-style: italic;
-        padding: 22px;
+        margin: 0 -20px;
+        padding: 22px 0;
         text-align:  center;
       }
     }
