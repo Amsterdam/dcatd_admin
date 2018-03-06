@@ -26,23 +26,30 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDataset
 }, dispatch);
 
-class DatasetDetail extends Component {
+class ResourceDetail extends Component {
   componentDidMount() {
-    if (this.props.id) {
+    if (this.hasDataset()) {
       this.props.fetchDataset(this.props.id);
     }
   }
 
+  hasDataset() {
+    return this.props.id && this.props.id !== 'new';
+  }
+
   render() {
+    const resourceSchema = (this.props.schema && this.props.schema.properties &&
+      this.props.schema.properties['dcat:distribution'] &&
+      this.props.schema.properties['dcat:distribution'].items) || {};
+
     return (
       <div>
         <Form
-          className="dcatd-form dataset-form"
-          schema={this.props.schema}
-          formData={this.props.id ? this.props.dataset : {}}
+          className="dcatd-form resource-form"
+          schema={resourceSchema}
           widgets={widgets}
           fields={fields}
-          uiSchema={this.props.uiDataset}
+          uiSchema={this.props.uiResource}
           noHtml5Validate
           showErrorList={false}
           onChange={({ formData }) => console.log('CHANGE', formData)}
@@ -52,17 +59,21 @@ class DatasetDetail extends Component {
   }
 }
 
-DatasetDetail.defaultProps = {
+/*
+*/
+
+ResourceDetail.defaultProps = {
   id: null
 };
 
-DatasetDetail.propTypes = {
+ResourceDetail.propTypes = {
   schema: PropTypes.object.isRequired,
-  uiDataset: PropTypes.object.isRequired,
+  // uiDataset: PropTypes.object.isRequired,
+  uiResource: PropTypes.object.isRequired,
   id: PropTypes.string,
-  dataset: PropTypes.object.isRequired,
+  // dataset: PropTypes.object.isRequired,
 
   fetchDataset: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DatasetDetail);
+export default connect(mapStateToProps, mapDispatchToProps)(ResourceDetail);

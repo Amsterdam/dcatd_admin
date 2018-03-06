@@ -6,9 +6,16 @@ export default {
     'rte'
   ],
   'ui:widget': [
-    'markdown'
+    'markdown',
+    'file'
   ],
 
+  'dcat:accessURL': {
+    'ui:widget': 'file'
+  },
+  'ams:classification': {
+    'ui:widget': 'hidden'
+  },
   'dct:description': {
     'ui:field': 'rte',
     'ui:placeholder': 'tekst of markdown',
@@ -16,28 +23,22 @@ export default {
       format: 'markdown'
     }
   },
-  'dcat:landingPage': {
-    'ui:placeholder': 'http://'
-  },
-  'dct:temporal': {
-    'time:hasBeginning': {
-      'ui:field': 'rdp',
-      rdp: {
-        // hideOnDayClick: false,
-        // showOverlay: true,
-        placeholder: 'Kies een datum',
-        dayPickerProps
-      }
-    },
-    'time:hasEnd': {
-      'ui:field': 'rdp',
-      rdp: {
-        placeholder: 'Kies een datum',
-        dayPickerProps
-      }
-    }
-  },
   'dct:identifier': {
     'ui:widget': 'hidden'
+  },
+  'dct:issued': {
+    'ui:field': 'rdp',
+    rdp: {
+      placeholder: 'Kies een datum',
+      dayPickerProps
+    }
+  },
+  'foaf:isPrimaryTopicOf': {
+    'dct:issued': {
+      'ui:widget': 'hidden'
+    },
+    'dct:modified': {
+      'ui:widget': 'hidden'
+    }
   }
 };

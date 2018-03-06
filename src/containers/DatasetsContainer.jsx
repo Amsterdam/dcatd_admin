@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { createDataset, removeDataset, updateDataset } from '../actions/dataset';
 import DatasetList from '../components/DatasetList';
 import DatasetDetail from '../components/DatasetDetail';
+import ResourceDetail from '../components/ResourceDetail';
 
 const mapStateToProps = state => ({
   datasets: state.datasets,
@@ -35,7 +36,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/:id([\w-]+)"
+      path="/dcatd_admin/datasets/:id([a-zA-Z\d-]+)"
       render={() => (
         <DatasetDetail
           id={props.match.params.id}
@@ -48,9 +49,9 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/new"
+      path="/dcatd_admin/datasets/_new_"
       render={() => (
-        <DatasetDetail
+        <ResourceDetail
           schema={props.schema}
           uiDataset={props.uiDataset}
           uiResource={props.uiResource}

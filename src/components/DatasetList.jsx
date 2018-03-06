@@ -9,7 +9,7 @@ const DatasetList = ({ datasets, onRemove }) => (
     <div className="ui primary button">
       <NavLink
         style={{ color: '#FFF' }}
-        to="/dcatd_admin/datasets/new"
+        to="/dcatd_admin/datasets/_new_"
       >
         Dataset aanmaken
       </NavLink>
