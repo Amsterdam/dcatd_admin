@@ -34,3 +34,8 @@
   background-size: 65%;
   transform: rotate(180deg);
 }
+
+%icon-verwijder {
+  @extend %icon;
+  background-image: url("data:image/svg+xml;utf8,<?xml version='1.0' encoding='UTF-8'?><svg viewBox='0 0 1024 1024' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><polygon points='512 564.325902 678.170094 730.495995 730.495995 678.170094 564.325902 512 730.495995 345.829906 678.170094 293.504005 511.632304 460.041794 345.829906 293.504005 293.504005 345.829906 459.689221 511.984877 293.504005 678.170094 345.829906 730.495995'></polygon></svg>");
+}

@@ -30,7 +30,6 @@ const DatasetsContainer = props => (
       render={() => (
         <DatasetList
           datasets={props.datasets}
-          onRemove={props.onRemove}
         />
       )}
     />
@@ -72,7 +71,6 @@ DatasetsContainer.propTypes = {
   match: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
   onCreate: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,

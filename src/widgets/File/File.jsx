@@ -70,8 +70,15 @@ class File extends Component {
     });
   }
 
+  calculateProgress() {
+    if (this.state.status === 'done') {
+      return 100;
+    }
+    return (this.state.total ? ((this.state.loaded / this.state.total) * 95).toFixed(0) : 0);
+  }
+
   render() {
-    const { file, loaded, total, url, status } = this.state;
+    const { file, url, status, value } = this.state;
 
     return (
       <div className="file">
@@ -82,26 +89,39 @@ class File extends Component {
           label={this.props.label}
           disabled={this.props.disabled}
           placeholder={this.props.placeholder}
-          value={url}
+          value={value || url}
         />
+        <label
+          htmlFor={`${this.props.id}-upload`}
+          className={`
+            file__upload-label
+            ${status === 'idle' ? '' : 'file__upload--hidden'}
+          `}
+        >Selecteer bestand</label>
         <input
           type="file"
-          className="form-control file__upload"
-          name="distribution"
+          className="file__upload file__upload--hidden"
+          id={`${this.props.id}-upload`}
           required={this.props.required}
           disabled={this.props.disabled}
           readOnly={this.props.readonly}
 
-          onClick={() => this.resetFile()}
           onChange={event => this.processFile(event.target.files)}
         />
-        <div className="file__progress-wrapper">
-          <div
-            className="file__progress"
-            style={{ width: `${(total ? ((loaded / total) * 100).toFixed(0) : 0)}%` }}
-          >{file}</div>
-        </div>
-        <div>{status}</div>
+        {status !== 'idle' ?
+          <div className="file__progress">
+            <div
+              className="file__progress-percentage"
+              style={{ width: `${this.calculateProgress()}%` }}
+            />
+            <span className="file__progress-filename">{file}</span>
+            {status === 'done' ?
+              <button
+                className="file__progress-close-button"
+                onClick={() => this.resetFile()}
+              /> : ''}
+          </div>
+          : ''}
       </div>
     );
   }

@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import { Button } from 'semantic-ui-react';
 
-const DatasetList = ({ datasets, onRemove }) => (
+const DatasetList = ({ datasets }) => (
   <section>
     {/* Use classes on a `<div>` instead of `<Button>` for Firefox support */}
     <div className="ui primary button">
@@ -17,9 +16,7 @@ const DatasetList = ({ datasets, onRemove }) => (
     <table className="ui celled table">
       <thead>
         <tr>
-          <th>E-mailadres</th>
-          <th>Rollen</th>
-          <th />
+          <th>Dataset</th>
         </tr>
       </thead>
       <tbody>
@@ -33,17 +30,6 @@ const DatasetList = ({ datasets, onRemove }) => (
                 {dataset.title}
               </NavLink>
             </td>
-            <td>
-              yo
-            </td>
-            <td>
-              <Button
-                compact
-                onClick={() => onRemove(dataset)}
-              >
-                Verwijderen
-              </Button>
-            </td>
           </tr>
         ))}
       </tbody>
@@ -51,13 +37,8 @@ const DatasetList = ({ datasets, onRemove }) => (
   </section>
 );
 
-DatasetList.defaultProps = {
-  onRemove: () => {}
-};
-
 DatasetList.propTypes = {
-  datasets: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onRemove: PropTypes.func
+  datasets: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default DatasetList;
