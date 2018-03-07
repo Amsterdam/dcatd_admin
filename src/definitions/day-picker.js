@@ -30,8 +30,5 @@ export const dayPickerProps = {
   firstDayOfWeek: 1,
   months: MONTHS,
   weekdaysLong: WEEKDAYS_LONG,
-  weekdaysShort: WEEKDAYS_SHORT,
-  disabledDays: {
-    daysOfWeek: [0, 6]
-  }
+  weekdaysShort: WEEKDAYS_SHORT
 };
