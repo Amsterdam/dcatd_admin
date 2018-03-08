@@ -11,7 +11,8 @@ export default {
   ],
 
   'dcat:accessURL': {
-    'ui:widget': 'file'
+    'ui:widget': 'file',
+    'ui:placeholder': 'http://'
   },
   'ams:classification': {
     'ui:widget': 'hidden'

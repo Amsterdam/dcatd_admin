@@ -97,7 +97,7 @@ class File extends Component {
             file__upload-label
             ${status === 'idle' ? '' : 'file__upload--hidden'}
           `}
-        >Selecteer bestand</label>
+        >Selecteer bestand voor upload</label>
         <input
           type="file"
           className="file__upload file__upload--hidden"
@@ -144,7 +144,7 @@ File.propTypes = {
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   loaded: PropTypes.number,
-  placeholder: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
   readonly: PropTypes.bool.isRequired,
   required: PropTypes.bool.isRequired,
   status: PropTypes.string,
