@@ -24,6 +24,9 @@ export default {
       format: 'markdown'
     }
   },
+  'dct:format': {
+    'ui:widget': 'hidden'
+  },
   'dct:identifier': {
     'ui:widget': 'hidden'
   },
@@ -33,6 +36,9 @@ export default {
       placeholder: 'Kies een datum',
       dayPickerProps
     }
+  },
+  'ams:serviceType': {
+    'ui:widget': 'hidden'
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {

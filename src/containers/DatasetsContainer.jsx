@@ -51,7 +51,9 @@ const DatasetsContainer = props => (
       path="/dcatd_admin/datasets/_new_"
       render={() => (
         <ResourceDetail
-          schema={props.schema}
+          schema={(props.schema && props.schema.properties &&
+            props.schema.properties['dcat:distribution'] &&
+            props.schema.properties['dcat:distribution'].items) || {}}
           uiDataset={props.uiDataset}
           uiResource={props.uiResource}
           onCreate={props.onCreate}

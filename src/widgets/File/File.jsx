@@ -51,7 +51,8 @@ class File extends Component {
       if (xhr.readyState === 4 && (xhr.status === 201 || xhr.status === 200 || xhr.status === 0)) {
         this.setState({
           status: 'done',
-          url: xhr.getResponseHeader('Location')
+          url: xhr.getResponseHeader('Location'),
+          value: xhr.getResponseHeader('Location')
         });
       }
     };
@@ -78,7 +79,7 @@ class File extends Component {
   }
 
   render() {
-    const { file, url, status, value } = this.state;
+    const { file, status, value } = this.state;
 
     return (
       <div className="file">
@@ -89,7 +90,8 @@ class File extends Component {
           label={this.props.label}
           disabled={this.props.disabled}
           placeholder={this.props.placeholder}
-          value={value || url}
+          readOnly={this.props.readonly}
+          value={value}
         />
         <label
           htmlFor={`${this.props.id}-upload`}
@@ -104,7 +106,6 @@ class File extends Component {
           id={`${this.props.id}-upload`}
           required={this.props.required}
           disabled={this.props.disabled}
-          readOnly={this.props.readonly}
 
           onChange={event => this.processFile(event.target.files)}
         />

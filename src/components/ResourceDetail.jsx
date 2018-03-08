@@ -31,7 +31,8 @@ class ResourceDetail extends Component {
     super(props);
 
     this.state = {
-      uiResource: props.uiResource
+      uiResource: props.uiResource,
+      formData: props.formData
     };
 
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
@@ -55,6 +56,12 @@ class ResourceDetail extends Component {
     } else {
       this.hideField('ams:serviceType');
     }
+
+    this.setState({
+      formData: {
+        ...formData
+      }
+    });
   }
 
   showField(name, type = 'text') {
@@ -89,6 +96,7 @@ class ResourceDetail extends Component {
         <Form
           className="dcatd-form resource-form"
           schema={this.props.schema}
+          formData={this.state.formData}
           widgets={widgets}
           fields={fields}
           uiSchema={this.state.uiResource}
@@ -101,14 +109,13 @@ class ResourceDetail extends Component {
   }
 }
 
-/*
-*/
-
 ResourceDetail.defaultProps = {
+  formData: {},
   id: null
 };
 
 ResourceDetail.propTypes = {
+  formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   // uiDataset: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
