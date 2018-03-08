@@ -27,10 +27,56 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 class ResourceDetail extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      uiResource: props.uiResource
+    };
+
+    this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
+  }
+
   componentDidMount() {
     if (this.hasDataset()) {
-      this.props.fetchDataset(this.props.id);
+      // this.props.fetchDataset(this.props.id);
     }
+  }
+
+  setVisibilityOfFields(formData) {
+    if (formData['ams:distributionType'] === 'file') {
+      this.showField('dct:format', 'select');
+    } else {
+      this.hideField('dct:format');
+    }
+
+    if (formData['ams:distributionType'] === 'api') {
+      this.showField('ams:serviceType', 'select');
+    } else {
+      this.hideField('ams:serviceType');
+    }
+  }
+
+  showField(name, type = 'text') {
+    this.setState({
+      uiResource: {
+        ...this.state.uiResource,
+        [name]: {
+          'ui:widget': type
+        }
+      }
+    });
+  }
+
+  hideField(name) {
+    this.setState({
+      uiResource: {
+        ...this.state.uiResource,
+        [name]: {
+          'ui:widget': 'hidden'
+        }
+      }
+    });
   }
 
   hasDataset() {
@@ -38,21 +84,17 @@ class ResourceDetail extends Component {
   }
 
   render() {
-    const resourceSchema = (this.props.schema && this.props.schema.properties &&
-      this.props.schema.properties['dcat:distribution'] &&
-      this.props.schema.properties['dcat:distribution'].items) || {};
-
     return (
       <div>
         <Form
           className="dcatd-form resource-form"
-          schema={resourceSchema}
+          schema={this.props.schema}
           widgets={widgets}
           fields={fields}
-          uiSchema={this.props.uiResource}
+          uiSchema={this.state.uiResource}
           noHtml5Validate
           showErrorList={false}
-          onChange={({ formData }) => console.log('CHANGE', formData)}
+          onChange={({ formData }) => this.setVisibilityOfFields(formData)}
         />
       </div>
     );
@@ -70,10 +112,10 @@ ResourceDetail.propTypes = {
   schema: PropTypes.object.isRequired,
   // uiDataset: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
-  id: PropTypes.string,
-  // dataset: PropTypes.object.isRequired,
+  id: PropTypes.string
+  // dataset: PropTypes.object.isRequired
 
-  fetchDataset: PropTypes.func.isRequired
+  // fetchDataset: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ResourceDetail);
