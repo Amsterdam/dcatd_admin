@@ -37,7 +37,12 @@ class DatasetDetail extends Component {
 
   componentDidMount() {
     if (this.props.id) {
-      this.props.fetchDataset(this.props.id);
+      this.props.fetchDataset(this.props.id)
+        .then((result) => {
+          this.setState({
+            formData: result.dataset
+          });
+        });
     }
   }
 
@@ -62,14 +67,15 @@ class DatasetDetail extends Component {
 }
 
 DatasetDetail.defaultProps = {
-  id: null
+  id: null,
+  dataset: {}
 };
 
 DatasetDetail.propTypes = {
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,
   id: PropTypes.string,
-  dataset: PropTypes.object.isRequired,
+  dataset: PropTypes.object,
 
   fetchDataset: PropTypes.func.isRequired
 };

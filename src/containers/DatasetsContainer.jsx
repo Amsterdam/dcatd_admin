@@ -50,6 +50,18 @@ const DatasetsContainer = props => (
       exact
       path="/dcatd_admin/datasets/_new_"
       render={() => (
+        <DatasetDetail
+          schema={props.schema}
+          uiDataset={props.uiDataset}
+          uiResource={props.uiResource}
+          onCreate={props.onCreate}
+        />
+      )}
+    />
+    <Route
+      exact
+      path="/dcatd_admin/resources/_new_"
+      render={() => (
         <ResourceDetail
           schema={(props.schema && props.schema.properties &&
             props.schema.properties['dcat:distribution'] &&

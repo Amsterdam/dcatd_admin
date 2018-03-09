@@ -5,7 +5,6 @@
 
   &-button  {
     @extend %icon-plus;
-    align-self: center;
     background-color: $white;
     border: 1px solid $pinkish-grey;
     height: 33px;
@@ -19,6 +18,8 @@
   }
 
   .resources-type {
+    margin-bottom: 22px;
+
     &-header {
       border-bottom: 1px solid $pinkish-grey;
       color: $black;
@@ -31,6 +32,11 @@
         flex-grow: 1;
         font-weight: bold;
         text-align: left;
+      }
+
+      .resources-button  {
+        @extend %icon-plus;
+        align-self: center;
       }
     }
 
@@ -62,11 +68,12 @@
 
         &-info {
           flex-grow: 1;
-          padding-right: 20px;
+          padding-right: 40px;
         }
 
         .resources-button {
           @extend %icon-edit;
+          align-self: center;
           flex-grow: 0;
           flex-shrink: 0;
           margin-right: 4px;
@@ -89,6 +96,7 @@
           color: $warm-grey;
           float: right;
           font-size: 14px;
+          line-height: 23px;
           margin-bottom: 2px;
 
           &::before {
@@ -99,6 +107,18 @@
         &-size {
           clear: right;
           float: right;
+          position: relative;
+          right: 20px;
+
+          &::after {
+            @extend %icon-arrow-right;
+            content: "";
+            display: inline-block;
+            height: 35px;
+            position: absolute;
+            top: -8px;
+            width: 35px;
+          }
         }
 
         &-file-type {
