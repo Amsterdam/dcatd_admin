@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { TextArea } from 'semantic-ui-react';
+
+import { dateFormat } from '../../definitions/localization';
 
 import './resources.scss';
 
@@ -10,22 +11,33 @@ function handleAddResource(type) {
 
 const Resources = props => (
   <div className="resources">
-    <div className="resources__title">Resources</div>
-    {props.schema.items.properties['ams:resourceType'].enumNames.map(type => (
+    <div className="resources-title">Resources</div>
+    {props.schema.items.properties['ams:resourceType'].enumNames.map((type, index) => (
       <div className="resources-type" key={type}>
         <div className="resources-type-header">
-          <span className="resources-type-header__title">{type}</span>
+          <span className="resources-type-header-title">{type}</span>
           <button
             onClick={() => handleAddResource(type)}
-            className="resources-type-header__button"
-          >+</button>
+            className="resources-button"
+          />
         </div>
         <div className="resources-type-content">
-          <div className="resources-type-content--no-resources">
-            Nog geen resources van dit type
-          </div>
-          {props.formData.filter(resource => resource['ams:resourceType'] === type).map(resource => (
-            <div key={resource['dcat:accessURL']}>{resource['dct:title']} </div>
+          {props.formData.filter(resource => resource['ams:resourceType'] === props.schema.items.properties['ams:resourceType'].enum[index]).map(resource => (
+            <div
+              className="resources-type-content-item"
+              key={resource['dcat:accessURL']}
+            >
+              <div className="resources-type-content-item-info">
+                <div className="resources-type-content-item-updated">{dateFormat.formatDate(resource['foaf:isPrimaryTopicOf']['dct:issued'])}</div>
+                <div className="resources-type-content-item-size">{(resource['dcat:byteSize'] || 0) / 1024} kb</div>
+                <div className="resources-type-content-item-title">{resource['dct:title']}</div>
+                <div className="resources-type-content-item-description">{resource['dct:description']}</div>
+              </div>
+              <button
+                onClick={() => handleAddResource(type)}
+                className="resources-button"
+              />
+            </div>
           ))}
         </div>
       </div>

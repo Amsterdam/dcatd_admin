@@ -1,6 +1,22 @@
 @import "../../styling/config";
 
 .resources {
+
+  &-button  {
+    @extend %icon-plus;
+    align-self: center;
+    background-color: $white;
+    border: 1px solid $pinkish-grey;
+    height: 33px;
+    width: 33px;
+
+    &:hover {
+      @extend %icon-plus-white;
+      background-color: $red;
+      border-color: $red;
+    }
+  }
+
   .resources-type {
     &-header {
       border-bottom: 1px solid $pinkish-grey;
@@ -9,41 +25,76 @@
       font-size: 17px;
       padding: 8px 23px 15px 20px;
 
-      &__title {
+      &-title {
         align-self: center;
         flex-grow: 1;
         font-weight: bold;
         text-align: left;
       }
-
-      &__button  {
-        align-self: center;
-        background-color: $white;
-        border: 1px solid $pinkish-grey;
-        color: $brownish-grey;
-        font-size: 23px;
-        padding: 0 9px;
-
-        &:hover {
-          background-color: $red;
-          color: $white;
-        }
-      }
     }
 
     &-content {
-      border-bottom: 1px solid $pinkish-grey;
       font-size: 16px;
-      margin-bottom: 23px;
+      margin: 0 -20px 23px;
       padding: 0 20px;
 
-      &--no-resources {
+
+      &:empty {
         background-color: $white-four;
+        border-bottom: 1px solid $pinkish-grey;
         color: $warm-grey;
         font-style: italic;
-        margin: 0 -20px;
+        margin: 0;
         padding: 22px 0;
         text-align:  center;
+
+        &::before {
+          content: "Nog geen resources van dit type";
+        }
+      }
+
+      &-item {
+        border-bottom: 1px solid $pinkish-grey;
+        display: flex;
+        padding: 11px 20px;
+        width: 100%;
+
+        &-info {
+          flex-grow: 1;
+          padding-right: 20px;
+        }
+
+        .resources-button {
+          @extend %icon-edit;
+          flex-grow: 0;
+          flex-shrink: 0;
+          margin-right: 4px;
+
+          &:hover {
+            @extend %icon-edit-white;
+            background-color: $red;
+            border-color: $red;
+          }
+        }
+
+        &-title {
+          @extend %heavy-font;
+          color: $brownish-grey;
+        }
+
+        &-updated {
+          clear: right;
+          color: $warm-grey;
+          float: right;
+          &::before {
+            content: "gewijzigd op ";
+          }
+        }
+
+        &-size {
+          clear: right;
+          float: right;
+        }
       }
     }
   }

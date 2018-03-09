@@ -32,3 +32,13 @@ export const dayPickerProps = {
   weekdaysLong: WEEKDAYS_LONG,
   weekdaysShort: WEEKDAYS_SHORT
 };
+
+export const dateFormat = new Intl.DateTimeFormat('nl-NL', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+dateFormat.formatDate = (date) => {
+  return dateFormat.format(new Date(date));
+};

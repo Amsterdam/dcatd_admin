@@ -27,6 +27,14 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 }, dispatch);
 
 class DatasetDetail extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      formData: props.dataset
+    };
+  }
+
   componentDidMount() {
     if (this.props.id) {
       this.props.fetchDataset(this.props.id);
@@ -34,18 +42,19 @@ class DatasetDetail extends Component {
   }
 
   render() {
+    const { formData } = this.state;
     return (
       <div>
         <Form
           className="dcatd-form dataset-form"
           schema={this.props.schema}
-          formData={this.props.id ? this.props.dataset : {}}
+          formData={formData}
           widgets={widgets}
           fields={fields}
           uiSchema={this.props.uiDataset}
           noHtml5Validate
           showErrorList={false}
-          onChange={({ formData }) => console.log('CHANGE', formData)}
+          onChange={event => console.log('CHANGE', event.formData)}
         />
       </div>
     );

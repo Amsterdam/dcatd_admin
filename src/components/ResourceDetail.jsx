@@ -44,14 +44,14 @@ class ResourceDetail extends Component {
     }
   }
 
-  setVisibilityOfFields(formData) {
-    if (formData['ams:distributionType'] === 'file') {
+  setVisibilityOfFields(event) {
+    if (event.formData['ams:distributionType'] === 'file') {
       this.showField('dct:format', 'select');
     } else {
       this.hideField('dct:format');
     }
 
-    if (formData['ams:distributionType'] === 'api') {
+    if (event.formData['ams:distributionType'] === 'api') {
       this.showField('ams:serviceType', 'select');
     } else {
       this.hideField('ams:serviceType');
@@ -59,7 +59,7 @@ class ResourceDetail extends Component {
 
     this.setState({
       formData: {
-        ...formData
+        ...event.formData
       }
     });
   }
@@ -91,18 +91,19 @@ class ResourceDetail extends Component {
   }
 
   render() {
+    const { formData } = this.state;
     return (
       <div>
         <Form
           className="dcatd-form resource-form"
           schema={this.props.schema}
-          formData={this.state.formData}
+          formData={formData}
           widgets={widgets}
           fields={fields}
           uiSchema={this.state.uiResource}
           noHtml5Validate
           showErrorList={false}
-          onChange={({ formData }) => this.setVisibilityOfFields(formData)}
+          onChange={event => this.setVisibilityOfFields(event)}
         />
       </div>
     );

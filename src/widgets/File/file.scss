@@ -44,6 +44,11 @@
       right: 4px;
       top: 4px;
       width: 30px;
+
+      &:hover {
+        @extend %icon-verwijder-white;
+        background-color: $red;
+      }
     }
   }
 
