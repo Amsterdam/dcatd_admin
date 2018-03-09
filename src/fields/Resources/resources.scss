@@ -90,6 +90,7 @@
           float: right;
           font-size: 14px;
           margin-bottom: 2px;
+
           &::before {
             content: "gewijzigd op ";
           }
@@ -109,27 +110,42 @@
           margin-right: 10px;
           padding: 0 5px;
 
-          &-xls {
+          &-xlsx {
             background-color: $thema-6;
           }
-          &-json {
-            background-color: $thema-1;
-          }
-          &-xml {
-            background-color: $thema-4;
-          }
-          &-html {
-            background-color: $thema-9;
-          }
-          &-csv {
-            background-color: $thema-2;
-          }
-          &-zip {
-            background-color: $brownish-grey;
-          }
+
           &-pdf {
             background-color: $red;
           }
+
+          &-csv {
+            background-color: $thema-2;
+          }
+
+          &-json {
+            background-color: $thema-1;
+          }
+
+          &-geojson {
+            background-color: $warm-grey; /* no color yet */
+          }
+
+          &-shp {
+            background-color: $warm-grey; /* no color yet */
+          }
+
+          &-xml {
+            background-color: $thema-4;
+          }
+
+          &-html {
+            background-color: $thema-9;
+          }
+
+          &-zip {
+            background-color: $brownish-grey;
+          }
+
           &-api {
             background-color: $thema-15;
           }
