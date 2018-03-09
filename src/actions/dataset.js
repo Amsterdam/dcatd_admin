@@ -2,6 +2,7 @@ import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../services/auth/auth';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
+export const EMPTY_DATASET_SUCCESS = 'EMPTY_DATASET_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
@@ -19,6 +20,18 @@ export function fetchDataset(id) {
       .then(response => response.json())
       .then(response => dispatch(fetchDatasetSuccess(response)))
       .catch((error) => { throw error; });
+  };
+}
+
+export function emptyDatasetSuccess() {
+  return {
+    type: EMPTY_DATASET_SUCCESS
+  };
+}
+
+export function emptyDataset() {
+  return (dispatch) => {
+    return dispatch(emptyDatasetSuccess());
   };
 }
 

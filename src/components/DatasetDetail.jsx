@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import { fetchDataset } from '../actions/dataset';
+import { fetchDataset, emptyDataset } from '../actions/dataset';
 import localFields from '../fields';
 import widgets from '../widgets';
 
@@ -23,7 +23,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchDataset
+  fetchDataset,
+  emptyDataset
 }, dispatch);
 
 class DatasetDetail extends Component {
@@ -31,29 +32,34 @@ class DatasetDetail extends Component {
     super(props);
 
     this.state = {
-      formData: props.dataset
+      dataset: props.dataset
     };
   }
 
   componentDidMount() {
     if (this.props.id) {
-      this.props.fetchDataset(this.props.id)
-        .then((result) => {
-          this.setState({
-            formData: result.dataset
-          });
-        });
+      this.props.fetchDataset(this.props.id);
+    } else {
+      this.props.emptyDataset();
+    }
+  }
+
+  componentWillReceiveProps(props) {
+    if (props.dataset) {
+      this.setState({
+        dataset: props.dataset
+      });
     }
   }
 
   render() {
-    const { formData } = this.state;
+    const { dataset } = this.state;
     return (
       <div>
         <Form
           className="dcatd-form dataset-form"
           schema={this.props.schema}
-          formData={formData}
+          formData={dataset}
           widgets={widgets}
           fields={fields}
           uiSchema={this.props.uiDataset}
@@ -77,7 +83,8 @@ DatasetDetail.propTypes = {
   id: PropTypes.string,
   dataset: PropTypes.object,
 
-  fetchDataset: PropTypes.func.isRequired
+  fetchDataset: PropTypes.func.isRequired,
+  emptyDataset: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatasetDetail);
