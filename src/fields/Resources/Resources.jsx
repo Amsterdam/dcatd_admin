@@ -5,8 +5,24 @@ import { dateFormat } from '../../definitions/localization';
 
 import './resources.scss';
 
+const filetypeMap = {
+  'application/json': 'json',
+  'application/octet-stream': 'overig'
+};
+
 function handleAddResource(type) {
   console.log('handleAddResource', type);
+}
+
+function getFileType(mime) {
+  const type = mime.split('/')[1];
+  console.log(mime, type);
+  return (
+    <span className={`resources-type-content-item-file-type
+      resources-type-content-item-file-type-${type}`}
+    >{filetypeMap[mime]}
+    </span>
+  );
 }
 
 const Resources = props => (
@@ -28,10 +44,14 @@ const Resources = props => (
               key={resource['dcat:accessURL']}
             >
               <div className="resources-type-content-item-info">
-                <div className="resources-type-content-item-updated">{dateFormat.formatDate(resource['foaf:isPrimaryTopicOf']['dct:issued'])}</div>
-                <div className="resources-type-content-item-size">{(resource['dcat:byteSize'] || 0) / 1024} kb</div>
-                <div className="resources-type-content-item-title">{resource['dct:title']}</div>
-                <div className="resources-type-content-item-description">{resource['dct:description']}</div>
+                <div className="resources-type-content-item-updated">
+                  {dateFormat.formatDate(resource['foaf:isPrimaryTopicOf']['dct:issued'])}</div>
+                <div className="resources-type-content-item-size">
+                  {resource['dcat:byteSize'] > 0 ? (resource['dcat:byteSize'] || 0) / 1024 : ''} kb</div>
+                <div className="resources-type-content-item-title">
+                  {resource['dct:title']}</div>
+                <div className="resources-type-content-item-description">
+                  {getFileType(resource['dct:format'])}{resource['dct:description']}</div>
               </div>
               <button
                 onClick={() => handleAddResource(type)}
