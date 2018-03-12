@@ -35,7 +35,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/:id([a-zA-Z\d-]+)"
+      path="/dcatd_admin/datasets/:id([\w-]{10,})"
       render={() => (
         <DatasetDetail
           id={props.match.params.id}
@@ -43,12 +43,13 @@ const DatasetsContainer = props => (
           uiDataset={props.uiDataset}
           uiResource={props.uiResource}
           onUpdate={props.onUpdate}
+          onRemove={props.onRemove}
         />
       )}
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/_new_"
+      path="/dcatd_admin/datasets/new"
       render={() => (
         <DatasetDetail
           schema={props.schema}
@@ -60,7 +61,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/resources/_new_"
+      path="/dcatd_admin/resources/new"
       render={() => (
         <ResourceDetail
           schema={(props.schema && props.schema.properties &&
@@ -85,6 +86,7 @@ DatasetsContainer.propTypes = {
   match: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
   onCreate: PropTypes.func.isRequired,
+  onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,

@@ -15,7 +15,8 @@ export default function (state = initialState, action) {
     case EMPTY_DATASET_SUCCESS:
       return {};
     case REMOVE_DATASET_SUCCESS:
-      return state.filter(dataset => dataset.emailAddress !== action.dataset.emailAddress);
+      return state;
+      // return state.datasets.filter(dataset => dataset.id !== action.dataset['dct:identifier']);
     default:
       return state;
   }

@@ -1,5 +1,10 @@
 @import "../styling/config";
 
+// make
+.ui.modal {
+  bottom: auto !important;
+}
+
 .dcatd-form {
   padding-bottom: 30px;
 
@@ -25,6 +30,54 @@
     color: $black;
     height: 32px;
     padding: 4px 10px;
+  }
+
+  &-button {
+    @extend %heavy-font;
+
+    background-color: $white;
+    border: 1px solid $pinkish-grey;
+    color: $brownish-grey;
+    margin-right: 8px;
+    padding: 2px 8px 1px;
+
+    &:hover {
+      background-color: #ccc;
+    }
+
+    &-submit {
+      background-color: $red;
+      border-color: $red;
+      color: $white;
+
+      &:hover {
+        background-color: #bc0000;
+      }
+    }
+
+    &-remove {
+      background-color: $darkish-blue;
+      border-color: $darkish-blue;
+      color: $white;
+      float: right;
+      padding-left: 26px;
+      position: relative;
+
+      &:hover {
+        background-color: #00387a;
+        border-color: #00387a;
+      }
+
+      &::before {
+        @extend %icon-delete-white;
+        content: "";
+        height: 26px;
+        left: 0;
+        position: absolute;
+        top: -1px;
+        width: 26px;
+      }
+    }
   }
 
   select {

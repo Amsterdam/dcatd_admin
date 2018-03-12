@@ -8,7 +8,7 @@ const DatasetList = ({ datasets }) => (
     <div className="ui primary button">
       <NavLink
         style={{ color: '#FFF' }}
-        to="/dcatd_admin/datasets/_new_"
+        to="/dcatd_admin/datasets/new"
       >
         Dataset aanmaken
       </NavLink>

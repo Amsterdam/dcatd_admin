@@ -15,10 +15,39 @@ export function fetchDatasetSuccess(dataset) {
 }
 
 export function fetchDataset(id) {
+  let etag = '';
   return (dispatch) => {
     return fetch(`${apiUrl}/${id}`)
-      .then(response => response.json())
-      .then(response => dispatch(fetchDatasetSuccess(response)))
+      .then((response) => {
+        etag = response.headers.get('etag');
+        return response.json();
+      })
+      .then(response => dispatch(fetchDatasetSuccess({
+        ...response,
+        etag
+      })))
+      .catch((error) => { throw error; });
+  };
+}
+
+export function createDataset(dataset) {
+  return (dispatch) => {
+    return fetch(apiUrl, {
+      method: 'POST',
+      body: JSON.stringify(dataset),
+      headers: new Headers({
+        ...getAuthHeaders(),
+        'Content-Type': 'application/hal+json',
+        'If-None-Match': '*'
+      })
+    })
+      .then((response) => {
+        return response;
+      })
+      .then(() => {
+        // TODO: Find alternative approach letting the container handle this
+        dispatch(push('/dcatd_admin/datasets'));
+      })
       .catch((error) => { throw error; });
   };
 }
@@ -35,35 +64,9 @@ export function emptyDataset() {
   };
 }
 
-export function createDataset(dataset) {
-  return (dispatch) => {
-    return fetch(`${apiUrl}/${dataset.emailAddress}`, {
-      method: 'PUT',
-      body: JSON.stringify({
-        _links: {
-          // role: dataset.roles
-        },
-        name: dataset.emailAddress,
-        title: dataset.name
-      }),
-      headers: new Headers({
-        ...getAuthHeaders(),
-        'Content-Type': 'application/hal+json',
-        'If-None-Match': '*'
-      })
-    })
-      .then(() => dispatch(fetchDataset(dataset)))
-      .then(() => {
-        // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/dcatd_admin/datasets'));
-      })
-      .catch((error) => { throw error; });
-  };
-}
-
 export function updateDataset(dataset) {
   return (dispatch) => {
-    return fetch(`${apiUrl}/${dataset.emailAddress}`, {
+    return fetch(dataset.location || apiUrl, {
       method: 'PUT',
       body: JSON.stringify({
         _links: {
@@ -96,7 +99,7 @@ export function removeDatasetSuccess(dataset) {
 
 export function removeDataset(dataset) {
   return (dispatch) => {
-    return fetch(`${apiUrl}/${dataset.emailAddress}`, {
+    return fetch(`${apiUrl}/${dataset['dct:identifier']}`, {
       method: 'DELETE',
       headers: new Headers({
         ...getAuthHeaders(),

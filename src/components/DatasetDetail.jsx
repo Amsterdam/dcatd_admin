@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Modal } from 'semantic-ui-react';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import { fetchDataset, emptyDataset } from '../actions/dataset';
+import { fetchDataset, emptyDataset, createDataset, removeDataset } from '../actions/dataset';
 import localFields from '../fields';
 import widgets from '../widgets';
 
@@ -24,7 +25,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDataset,
-  emptyDataset
+  emptyDataset,
+  createDataset,
+  removeDataset
 }, dispatch);
 
 class DatasetDetail extends Component {
@@ -32,7 +35,8 @@ class DatasetDetail extends Component {
     super(props);
 
     this.state = {
-      dataset: props.dataset
+      dataset: props.dataset,
+      isModalOpen: props.isModalOpen
     };
   }
 
@@ -47,7 +51,7 @@ class DatasetDetail extends Component {
   componentWillReceiveProps(props) {
     if (props.dataset) {
       this.setState({
-        dataset: props.dataset
+        dataset: { ...props.dataset }
       });
     }
   }
@@ -65,8 +69,64 @@ class DatasetDetail extends Component {
           uiSchema={this.props.uiDataset}
           noHtml5Validate
           showErrorList={false}
+          onSubmit={event => this.props.createDataset(event.formData)}
           onChange={event => console.log('CHANGE', event.formData)}
-        />
+        >
+          <div>
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              type="submit"
+            >
+              Opslaan</button>
+            <button
+              className="dcatd-form-button dcatd-form-button-cancel"
+              type="button"
+            >
+              Annuleren</button>
+            <Modal
+              open={this.state.isModalOpen}
+              trigger={(
+                <button
+                  onClick={() => this.setState({
+                    isModalOpen: true
+                  })}
+                  type="button"
+                  className="dcatd-form-button dcatd-form-button-remove"
+                >
+                  Dataset verwijderen
+                </button>
+              )}
+              size="tiny"
+            >
+              <Modal.Content>
+                <h4>Let op!</h4>
+                <p>Door de dataset te verwijderen, gaan alle gegevens verloren.</p>
+              </Modal.Content>
+              <Modal.Actions>
+                <button
+                  onClick={() => {
+                    this.setState({
+                      isModalOpen: false
+                    });
+                    this.props.removeDataset(dataset);
+                  }}
+                  className="dcatd-form-button dcatd-form-button-submit"
+                >
+                  Dataset verwijderen
+                </button>
+                <button
+                  onClick={() => this.setState({
+                    isModalOpen: false
+                  })}
+                  className="dcatd-form-button"
+                >
+                  Annuleren
+                </button>
+              </Modal.Actions>
+            </Modal>
+
+          </div>
+        </Form>
       </div>
     );
   }
@@ -74,6 +134,7 @@ class DatasetDetail extends Component {
 
 DatasetDetail.defaultProps = {
   id: null,
+  isModalOpen: false,
   dataset: {}
 };
 
@@ -81,10 +142,13 @@ DatasetDetail.propTypes = {
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,
   id: PropTypes.string,
+  isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
 
   fetchDataset: PropTypes.func.isRequired,
-  emptyDataset: PropTypes.func.isRequired
+  emptyDataset: PropTypes.func.isRequired,
+  createDataset: PropTypes.func.isRequired,
+  removeDataset: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatasetDetail);
