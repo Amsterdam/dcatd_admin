@@ -1,13 +1,19 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import accounts from './accounts';
-import roles from './roles';
+import dataset from './dataset';
+import datasets from './datasets';
+import schema from './schema';
+import uiDataset from './uiDataset';
+import uiResource from './uiResource';
 import visibilityFilter from './visibilityFilter';
 
 const appState = combineReducers({
-  accounts,
-  roles,
+  dataset,
+  datasets,
+  schema,
+  uiDataset,
+  uiResource,
   visibilityFilter,
   router: routerReducer
 });

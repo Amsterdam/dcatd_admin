@@ -1,3 +1,5 @@
+import { dayPickerProps } from './localization';
+
 export default {
   'ui:field': [
     'resources',
@@ -16,7 +18,7 @@ export default {
     ],
 
     'vcard:hasEmail': {
-      'ui:placeholder': 'pipo@amsterdam.nl'
+      'ui:placeholder': 'jan@amsterdam.nl'
     },
     'vcard:hasURL': {
       'ui:placeholder': 'http://'
@@ -32,14 +34,25 @@ export default {
       format: 'markdown'
     }
   },
+  'dcat:landingPage': {
+    'ui:placeholder': 'http://'
+  },
   'dct:temporal': {
     'time:hasBeginning': {
-      'ui:placeholder': 'Kies een datum',
-      'ui:field': 'date'
+      'ui:field': 'rdp',
+      rdp: {
+        // hideOnDayClick: false,
+        // showOverlay: true,
+        placeholder: 'Kies een datum',
+        dayPickerProps
+      }
     },
     'time:hasEnd': {
-      'ui:placeholder': 'Kies een datum',
-      'ui:widget': 'date'
+      'ui:field': 'rdp',
+      rdp: {
+        placeholder: 'Kies een datum',
+        dayPickerProps
+      }
     }
   },
   'ams:owner': {
@@ -69,7 +82,7 @@ export default {
       'ui:placeholder': 'http://'
     },
     'foaf:mbox': {
-      'ui:placeholder': 'pipo@amsterdam.nl'
+      'ui:placeholder': 'jan@amsterdam.nl'
     }
   },
   'dct:identifier': {

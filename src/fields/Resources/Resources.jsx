@@ -1,49 +1,73 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { TextArea } from 'semantic-ui-react';
+import filesize from 'filesize';
+
+import { dateFormat } from '../../definitions/localization';
 
 import './resources.scss';
-
-const types = [
-  'Data',
-  'Documentatie',
-  'Visualisatie',
-  'Voorbeeldtoepassing'
-];
 
 function handleAddResource(type) {
   console.log('handleAddResource', type);
 }
 
+function getFileType(mime, fieldSchema) {
+  const type = fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)];
+  return (
+    <span className={`resources-type-content-item-file-type
+      resources-type-content-item-file-type-${type}`}
+    >{type || 'overig'}
+    </span>
+  );
+}
+
 const Resources = props => (
   <div className="resources">
-    <div className="resources__title">Resources</div>
-    {types.map(type => (
+    <div className="resources-title">Resources</div>
+    {props.schema.items.properties['ams:resourceType'].enumNames.map((type, index) => (
       <div className="resources-type" key={type}>
         <div className="resources-type-header">
-          <span className="resources-type-header__title">{type}</span>
+          <span className="resources-type-header-title">{type}</span>
           <button
             onClick={() => handleAddResource(type)}
-            className="resources-type-header__button"
-          >+</button>
+            className="resources-button"
+          />
         </div>
         <div className="resources-type-content">
-          <div className="resources-type-content--no-resources">
-            Nog geen resoucres van dit type
-          </div>
+          {props.formData.filter(resource => resource['ams:resourceType'] === props.schema.items.properties['ams:resourceType'].enum[index]).map(resource => (
+            <div
+              className="resources-type-content-item"
+              key={resource['dcat:accessURL']}
+            >
+              <div className="resources-type-content-item-info">
+                <div className="resources-type-content-item-updated">
+                  {dateFormat.formatDate(resource['foaf:isPrimaryTopicOf']['dct:issued'])}</div>
+                <div className="resources-type-content-item-size">
+                  {resource['dcat:byteSize'] > 0 ? filesize(resource['dcat:byteSize']) : ''}</div>
+                <div className="resources-type-content-item-title">
+                  {resource['dct:title']}</div>
+                <div className="resources-type-content-item-description">
+                  {getFileType(resource['dct:format'], props.schema.items.properties['dct:format'])}
+                  {resource['dct:description']}</div>
+              </div>
+              <button
+                onClick={() => handleAddResource(type)}
+                className="resources-button"
+              />
+            </div>
+          ))}
         </div>
       </div>
     ))}
-    {console.log('props', props)}
-    {console.log('props.schema.items', props.schema.items)}
   </div>
 );
 
-// Resources.defaultProps = {
-// };
+Resources.defaultProps = {
+  formData: []
+};
 
 Resources.propTypes = {
-  schema: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
+  formData: PropTypes.array,
+  schema: PropTypes.object.isRequired
 };
 
 export default Resources;

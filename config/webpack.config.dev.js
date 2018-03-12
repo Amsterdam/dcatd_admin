@@ -158,7 +158,7 @@ module.exports = {
             },
           },
           {
-            test: /\.scss$/,
+            test: /\.(css|scss)$/,
             use: ['extracted-loader'].concat(extractSass.extract({
               use: [{
                 loader: 'css-loader',

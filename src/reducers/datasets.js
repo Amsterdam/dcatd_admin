@@ -1,11 +1,13 @@
-import { FETCH_ROLES_SUCCESS } from '../actions/roles';
+import {
+  FETCH_DATASETS_SUCCESS
+} from '../actions/datasets';
 
 const initialState = [];
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case FETCH_ROLES_SUCCESS:
-      return [...action.roles];
+    case FETCH_DATASETS_SUCCESS:
+      return [...action.datasets];
     default:
       return state;
   }

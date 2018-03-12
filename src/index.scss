@@ -1,5 +1,11 @@
-@import "./variables";
+@import "./styling/config";
+
 
 html {
   font-size: 15px !important;
+}
+
+html,
+body {
+  @extend %base-font;
 }

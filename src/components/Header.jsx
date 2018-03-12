@@ -8,13 +8,13 @@ const Header = () => (
   <Menu fixed="top" inverted>
     <Container>
       <Menu.Item header>
-        <NavLink to="/accounts">
+        <NavLink to="/dcatd_admin/datasets">
           DataPunt catalogus beheer
         </NavLink>
       </Menu.Item>
       <Menu.Item>
-        <NavLink to="/accounts">
-          Koppelingen
+        <NavLink to="/dcatd_admin/datasets">
+          Datasets
         </NavLink>
       </Menu.Item>
       <Menu.Menu position="right">

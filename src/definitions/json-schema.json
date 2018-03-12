@@ -476,7 +476,7 @@
           "aantal",
           "aantal kamers",
           "aantasting",
-          "accounts",
+          "datasets",
           "achtergrond",
           "activiteiten",
           "actueel",
@@ -1794,7 +1794,6 @@
   "required": [
     "dct:title",
     "dct:description",
-    "dcat:distribution",
     "overheidds:doel",
     "dct:language",
     "dcat:contactPoint",

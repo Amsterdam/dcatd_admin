@@ -9,8 +9,10 @@ import thunk from 'redux-thunk';
 
 import reducers from './reducers';
 import App from './components/App';
-import { fetchAccounts } from './actions/account';
-import { fetchRoles } from './actions/roles';
+import { fetchDatasets } from './actions/datasets';
+import { fetchSchema } from './actions/schema';
+import { fetchUiDataset } from './actions/uiDataset';
+import { fetchUiResource } from './actions/uiResource';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
 import './index.scss';
@@ -34,8 +36,10 @@ if (returnPath) {
   store.dispatch(push(returnPath));
 }
 
-store.dispatch(fetchAccounts());
-store.dispatch(fetchRoles());
+store.dispatch(fetchDatasets());
+store.dispatch(fetchSchema());
+store.dispatch(fetchUiDataset());
+store.dispatch(fetchUiResource());
 
 render(
   <Provider store={store}>

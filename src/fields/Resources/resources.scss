@@ -1,48 +1,183 @@
-@import "../../variables";
+@import "../../styling/config";
 
 .resources {
+  @extend %base-font;
+
+  &-button  {
+    @extend %icon-plus;
+    background-color: $white;
+    border: 1px solid $pinkish-grey;
+    height: 33px;
+    width: 33px;
+
+    &:hover {
+      @extend %icon-plus-white;
+      background-color: $red;
+      border-color: $red;
+    }
+  }
+
   .resources-type {
+    margin-bottom: 22px;
+
     &-header {
-      border-bottom: 1px solid $black;
-      border-top: 1px solid $black;
+      border-bottom: 1px solid $pinkish-grey;
       color: $black;
       display: flex;
       font-size: 17px;
-      padding: 8px 7px 8px 16px;
+      padding: 8px 23px 15px 20px;
 
-      &__title {
+      &-title {
         align-self: center;
         flex-grow: 1;
         font-weight: bold;
         text-align: left;
       }
 
-      &__button  {
+      .resources-button  {
+        @extend %icon-plus;
         align-self: center;
-        background-color: $white;
-        border-radius: 50%;
-        border-style: none;
-        font-size: 23px;
-        padding: 0 9px;
-
-        &:hover {
-          background-color: $red;
-          color: $white;
-        }
       }
     }
 
     &-content {
-      border-bottom: 1px solid $warm-grey;
       font-size: 16px;
-      margin-bottom: 20px;
+      margin: 0 -20px 23px;
+      padding: 0 20px;
 
-      &--no-resources {
+
+      &:empty {
         background-color: $white-four;
+        border-bottom: 1px solid $pinkish-grey;
         color: $warm-grey;
         font-style: italic;
-        padding: 22px;
+        margin: 0;
+        padding: 22px 0;
         text-align:  center;
+
+        &::before {
+          content: "Nog geen resources van dit type";
+        }
+      }
+
+      &-item {
+        border-bottom: 1px solid $pinkish-grey;
+        display: flex;
+        padding: 11px 20px;
+        width: 100%;
+
+        &-info {
+          flex-grow: 1;
+          padding-right: 40px;
+        }
+
+        .resources-button {
+          @extend %icon-edit;
+          align-self: center;
+          flex-grow: 0;
+          flex-shrink: 0;
+          margin-right: 4px;
+
+          &:hover {
+            @extend %icon-edit-white;
+            background-color: $red;
+            border-color: $red;
+          }
+        }
+
+        &-title {
+          @extend %heavy-font;
+          color: $brownish-grey;
+          margin-bottom: 2px;
+        }
+
+        &-updated {
+          clear: right;
+          color: $warm-grey;
+          float: right;
+          font-size: 14px;
+          line-height: 23px;
+          margin-bottom: 2px;
+
+          &::before {
+            content: "gewijzigd op ";
+          }
+        }
+
+        &-size {
+          clear: right;
+          float: right;
+          position: relative;
+          right: 20px;
+
+          &::after {
+            @extend %icon-arrow-right;
+            content: "";
+            display: inline-block;
+            height: 35px;
+            position: absolute;
+            top: -8px;
+            width: 35px;
+          }
+        }
+
+        &-file-type {
+          background-color: $warm-grey;
+          color: $black;
+          display: inline-block;
+          font-size: 13px;
+          line-height: 16px;
+          margin-right: 10px;
+          padding: 0 5px;
+
+          &-xlsx {
+            background-color: $thema-6;
+          }
+
+          &-pdf {
+            background-color: $red;
+          }
+
+          &-csv {
+            background-color: $thema-2;
+          }
+
+          &-json {
+            background-color: $thema-1;
+          }
+
+          &-geojson {
+            background-color: $warm-grey; /* no color yet */
+          }
+
+          &-shp {
+            background-color: $warm-grey; /* no color yet */
+          }
+
+          &-wms {
+            background-color: $warm-grey; /* no color yet */
+          }
+
+          &-wfs {
+            background-color: $warm-grey; /* no color yet */
+          }
+
+          &-xml {
+            background-color: $thema-4;
+          }
+
+          &-html {
+            background-color: $thema-9;
+          }
+
+          &-zip {
+            background-color: $brownish-grey;
+          }
+
+          &-api {
+            background-color: $thema-15;
+          }
+        }
       }
     }
   }
