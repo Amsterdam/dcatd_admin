@@ -7,7 +7,8 @@ import { Modal } from 'semantic-ui-react';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import { fetchDataset, emptyDataset, createDataset, removeDataset } from '../actions/dataset';
+import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
+  from '../actions/dataset';
 import localFields from '../fields';
 import widgets from '../widgets';
 
@@ -27,7 +28,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   fetchDataset,
   emptyDataset,
   createDataset,
-  removeDataset
+  removeDataset,
+  updateDataset
 }, dispatch);
 
 class DatasetDetail extends Component {
@@ -38,6 +40,8 @@ class DatasetDetail extends Component {
       dataset: props.dataset,
       isModalOpen: props.isModalOpen
     };
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -56,6 +60,14 @@ class DatasetDetail extends Component {
     }
   }
 
+  handleSubmit(event) {
+    if (this.props.id) {
+      this.props.updateDataset(event.formData);
+    } else {
+      this.props.createDataset(event.formData);
+    }
+  }
+
   render() {
     const { dataset } = this.state;
     return (
@@ -69,7 +81,7 @@ class DatasetDetail extends Component {
           uiSchema={this.props.uiDataset}
           noHtml5Validate
           showErrorList={false}
-          onSubmit={event => this.props.createDataset(event.formData)}
+          onSubmit={event => this.handleSubmit(event)}
           onChange={event => console.log('CHANGE', event.formData)}
         >
           <div>
@@ -148,7 +160,8 @@ DatasetDetail.propTypes = {
   fetchDataset: PropTypes.func.isRequired,
   emptyDataset: PropTypes.func.isRequired,
   createDataset: PropTypes.func.isRequired,
-  removeDataset: PropTypes.func.isRequired
+  removeDataset: PropTypes.func.isRequired,
+  updateDataset: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DatasetDetail);

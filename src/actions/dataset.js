@@ -41,9 +41,9 @@ export function createDataset(dataset) {
         'If-None-Match': '*'
       })
     })
-      .then((response) => {
-        return response;
-      })
+      // .then((response) => {
+      //   return response;
+      // })
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
         dispatch(push('/dcatd_admin/datasets'));
@@ -66,22 +66,16 @@ export function emptyDataset() {
 
 export function updateDataset(dataset) {
   return (dispatch) => {
-    return fetch(dataset.location || apiUrl, {
+    return fetch(`${apiUrl}/${dataset['dct:identifier']}`, {
       method: 'PUT',
-      body: JSON.stringify({
-        _links: {
-          // role: dataset.roles
-        },
-        name: dataset.emailAddress,
-        title: dataset.name
-      }),
+      body: JSON.stringify(dataset),
       headers: new Headers({
         ...getAuthHeaders(),
         'Content-Type': 'application/hal+json',
         'If-Match': dataset.etag
       })
     })
-      .then(() => dispatch(fetchDataset(dataset)))
+      // .then(() => dispatch(fetchDataset(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
         dispatch(push('/dcatd_admin/datasets'));
