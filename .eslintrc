@@ -5,6 +5,7 @@
     "node": true
   },
   "rules": {
+    "clean-import-paths": 0,
     "no-throw-literal": 0,
     "arrow-body-style": 0,
     "react/forbid-prop-types": 0,
