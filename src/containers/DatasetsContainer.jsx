@@ -4,7 +4,8 @@ import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { createDataset, removeDataset, updateDataset } from '../actions/dataset';
+import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
+  from '../actions/dataset';
 import DatasetList from '../components/DatasetList';
 import DatasetDetail from '../components/DatasetDetail';
 import ResourceDetail from '../components/ResourceDetail';
@@ -17,6 +18,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
+  onFetch: fetchDataset,
+  onEmpty: emptyDataset,
   onCreate: createDataset,
   onRemove: removeDataset,
   onUpdate: updateDataset
@@ -42,6 +45,8 @@ const DatasetsContainer = props => (
           schema={props.schema}
           uiDataset={props.uiDataset}
           uiResource={props.uiResource}
+          onFetch={props.onFetch}
+          onEmpty={props.onEmpty}
           onUpdate={props.onUpdate}
           onRemove={props.onRemove}
         />
@@ -85,6 +90,8 @@ DatasetsContainer.defaultProps = {
 DatasetsContainer.propTypes = {
   match: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  onFetch: PropTypes.func.isRequired,
+  onEmpty: PropTypes.func.isRequired,
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
