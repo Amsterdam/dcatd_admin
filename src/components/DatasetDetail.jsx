@@ -7,8 +7,6 @@ import { Modal } from 'semantic-ui-react';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-// import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
-//   from '../actions/dataset';
 import localFields from '../fields';
 import widgets from '../widgets';
 
@@ -23,14 +21,6 @@ const fields = {
 const mapStateToProps = state => ({
   dataset: state.dataset
 });
-
-// const mapDispatchToProps = dispatch => bindActionCreators({
-//   fetchDataset,
-//   emptyDataset,
-//   createDataset,
-//   removeDataset,
-//   updateDataset
-// }, dispatch);
 
 class DatasetDetail extends Component {
   constructor(props) {
