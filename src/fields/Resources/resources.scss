@@ -4,14 +4,28 @@
   @extend %base-font;
 
   &-button  {
-    @extend %icon-plus;
     background-color: $white;
     border: 1px solid $pinkish-grey;
     height: 33px;
     width: 33px;
 
+    &-new {
+      @extend %icon-plus;
+
+      &:hover {
+        @extend %icon-plus-white;
+      }
+    }
+
+    &-edit {
+      @extend %icon-edit;
+
+      &:hover {
+        @extend %icon-edit-white;
+      }
+    }
+
     &:hover {
-      @extend %icon-plus-white;
       background-color: $red;
       border-color: $red;
     }
@@ -34,8 +48,7 @@
         text-align: left;
       }
 
-      .resources-button  {
-        @extend %icon-plus;
+      .resources-button-new  {
         align-self: center;
       }
     }
@@ -71,18 +84,11 @@
           padding-right: 40px;
         }
 
-        .resources-button {
-          @extend %icon-edit;
+        .resources-button-edit {
           align-self: center;
           flex-grow: 0;
           flex-shrink: 0;
           margin-right: 4px;
-
-          &:hover {
-            @extend %icon-edit-white;
-            background-color: $red;
-            border-color: $red;
-          }
         }
 
         &-title {

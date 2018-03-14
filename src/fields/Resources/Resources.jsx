@@ -10,6 +10,10 @@ function handleAddResource(type) {
   console.log('handleAddResource', type);
 }
 
+function handleEditResource(resource) {
+  console.log('handleEditResource', resource);
+}
+
 function getFileType(mime, fieldSchema) {
   const type = fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)];
   return (
@@ -27,8 +31,9 @@ const Resources = props => (
         <div className="resources-type-header">
           <span className="resources-type-header-title">{type}</span>
           <button
+            type="button"
             onClick={() => handleAddResource(type)}
-            className="resources-button"
+            className="resources-button resources-button-new"
           />
         </div>
         <div className="resources-type-content">
@@ -49,8 +54,9 @@ const Resources = props => (
                   {resource['dct:description']}</div>
               </div>
               <button
-                onClick={() => handleAddResource(type)}
-                className="resources-button"
+                type="button"
+                onClick={() => handleEditResource(resource)}
+                className="resources-button resources-button-edit"
               />
             </div>
           ))}
