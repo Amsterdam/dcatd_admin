@@ -22,7 +22,6 @@ function getFileType(mime, fieldSchema) {
 
 const Resources = props => (
   <div className="resources">
-    <div className="resources-title">Resources</div>
     {props.schema.items.properties['ams:resourceType'].enumNames.map((type, index) => (
       <div className="resources-type" key={type}>
         <div className="resources-type-header">

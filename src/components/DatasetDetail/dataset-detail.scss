@@ -1,0 +1,28 @@
+@import "../../styling/config";
+
+.dataset-form {
+  .resources {
+    &::before {
+      @extend %title-font;
+      content: "Resources";
+    }
+  }
+
+  .control-label {
+    &[for="root_overheidds:doel"] {
+      &::before {
+        @extend %title-font;
+        content: "Details";
+      }
+    }
+
+    &[for="root_dcat:theme"],
+    &[for="root_dcat:keyword"],
+    &[for="root_ams:license"] {
+      @extend %title-font;
+
+      border-top: 1px solid $pinkish-grey;
+      padding-top: 30px;
+    }
+  }
+}

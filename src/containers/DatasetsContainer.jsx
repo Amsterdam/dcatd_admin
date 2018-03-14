@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
   from '../actions/dataset';
 import DatasetList from '../components/DatasetList';
-import DatasetDetail from '../components/DatasetDetail';
+import DatasetDetail from '../components/DatasetDetail/DatasetDetail';
 import ResourceDetail from '../components/ResourceDetail';
 
 const mapStateToProps = state => ({

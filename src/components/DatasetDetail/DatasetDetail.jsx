@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Modal } from 'semantic-ui-react';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import localFields from '../fields';
-import widgets from '../widgets';
+import localFields from '../../fields';
+import widgets from '../../widgets';
 
-import '../../node_modules/react-day-picker/lib/style.css';
-import './dcatd-form.scss';
+import '../../../node_modules/react-day-picker/lib/style.css';
+import '../dcatd-form.scss';
+import './dataset-detail.scss';
 
 const fields = {
   ...extraFields,
