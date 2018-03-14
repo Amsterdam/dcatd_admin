@@ -1,13 +1,16 @@
 @import "../styling/config";
 
-// make
-.ui.modal {
-  bottom: auto !important;
+.ui {
+  &.modal {
+    bottom: auto !important;
+  }
+}
+
+.container-main {
+  margin: 75px 0;
 }
 
 .dcatd-form {
-  padding-bottom: 30px;
-
   .control-label {
     @extend %heavy-font;
 
@@ -42,7 +45,7 @@
     padding: 2px 8px 1px;
 
     &:hover {
-      background-color: #ccc;
+      background-color: $pinkish-grey;
     }
 
     &-submit {
@@ -51,7 +54,7 @@
       color: $white;
 
       &:hover {
-        background-color: #bc0000;
+        background-color: $darker-red;
       }
     }
 
@@ -64,8 +67,8 @@
       position: relative;
 
       &:hover {
-        background-color: #00387a;
-        border-color: #00387a;
+        background-color: $darker-blue;
+        border-color: $darker-blue;
       }
 
       &::before {
