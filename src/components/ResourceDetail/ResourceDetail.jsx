@@ -39,6 +39,7 @@ class ResourceDetail extends Component {
   }
 
   componentWillReceiveProps(props) {
+    console.log('componentWillReceiveProps', props);
     this.setState({
       uiResource: props.uiResource,
       formData: props.formData
@@ -91,6 +92,17 @@ class ResourceDetail extends Component {
     return this.props.id && this.props.id !== 'new';
   }
 
+  handleSubmit(event) {
+    console.log('handleSubmit', event.formData);
+
+    return this;
+    // if (this.props.id) {
+    //   this.props.onUpdate(event.formData);
+    // } else {
+    //   this.props.onCreate(event.formData);
+    // }
+  }
+
   render() {
     const { formData } = this.state;
     return (
@@ -105,8 +117,29 @@ class ResourceDetail extends Component {
           uiSchema={this.state.uiResource}
           noHtml5Validate
           showErrorList={false}
-          onChange={event => this.setVisibilityOfFields(event)}
-        />
+          onSubmit={event => this.handleSubmit(event)}
+          onChange={event => console.log('RESOURCE CHANGE', event.formData)}
+        >
+          <div>
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              type="submit"
+            >
+              Opslaan</button>
+            <button
+              className="dcatd-form-button dcatd-form-button-cancel"
+              type="button"
+            >
+              Annuleren</button>
+            <button
+              onClick={event => console.log('remove resource', event)}
+              type="button"
+              className="dcatd-form-button dcatd-form-button-remove"
+            >
+              Resource verwijderen
+            </button>
+          </div>
+        </Form>
       </div>
     );
   }

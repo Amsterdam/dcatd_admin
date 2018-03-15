@@ -73,7 +73,7 @@ class DatasetDetail extends Component {
           noHtml5Validate
           showErrorList={false}
           onSubmit={event => this.handleSubmit(event)}
-          onChange={event => console.log('CHANGE', event.formData)}
+          onChange={event => console.log('DATASET CHANGE', event.formData)}
         >
           <div>
             <button
