@@ -34,7 +34,7 @@
   .resources-type {
     margin-bottom: 22px;
 
-    &-header {
+    &__header {
       border-bottom: 1px solid $pinkish-grey;
       color: $black;
       display: flex;
@@ -53,11 +53,24 @@
       }
     }
 
-    &-content {
+    &__content {
       font-size: 16px;
       margin: 0 -20px 23px;
       padding: 0 20px;
 
+      &-item {
+        border-bottom: 1px solid $pinkish-grey;
+        display: flex;
+        padding: 11px 20px;
+        width: 100%;
+      }
+
+      .resources-button-edit {
+        align-self: center;
+        flex-grow: 0;
+        flex-shrink: 0;
+        margin-right: 4px;
+      }
 
       &:empty {
         background-color: $white-four;
@@ -70,119 +83,6 @@
 
         &::before {
           content: "Nog geen resources van dit type";
-        }
-      }
-
-      &-item {
-        border-bottom: 1px solid $pinkish-grey;
-        display: flex;
-        padding: 11px 20px;
-        width: 100%;
-
-        &-info {
-          flex-grow: 1;
-          padding-right: 40px;
-        }
-
-        .resources-button-edit {
-          align-self: center;
-          flex-grow: 0;
-          flex-shrink: 0;
-          margin-right: 4px;
-        }
-
-        &-title {
-          @extend %heavy-font;
-          color: $brownish-grey;
-          margin-bottom: 2px;
-        }
-
-        &-updated {
-          clear: right;
-          color: $warm-grey;
-          float: right;
-          font-size: 14px;
-          line-height: 23px;
-          margin-bottom: 2px;
-
-          &::before {
-            content: "gewijzigd op ";
-          }
-        }
-
-        &-size {
-          clear: right;
-          float: right;
-          position: relative;
-          right: 20px;
-
-          &::after {
-            @extend %icon-arrow-right;
-            content: "";
-            display: inline-block;
-            height: 35px;
-            position: absolute;
-            top: -8px;
-            width: 35px;
-          }
-        }
-
-        &-file-type {
-          background-color: $warm-grey;
-          color: $black;
-          display: inline-block;
-          font-size: 13px;
-          line-height: 16px;
-          margin-right: 10px;
-          padding: 0 5px;
-
-          &-xlsx {
-            background-color: $thema-6;
-          }
-
-          &-pdf {
-            background-color: $red;
-          }
-
-          &-csv {
-            background-color: $thema-2;
-          }
-
-          &-json {
-            background-color: $thema-1;
-          }
-
-          &-geojson {
-            background-color: $warm-grey; /* no color yet */
-          }
-
-          &-shp {
-            background-color: $warm-grey; /* no color yet */
-          }
-
-          &-wms {
-            background-color: $warm-grey; /* no color yet */
-          }
-
-          &-wfs {
-            background-color: $warm-grey; /* no color yet */
-          }
-
-          &-xml {
-            background-color: $thema-4;
-          }
-
-          &-html {
-            background-color: $thema-9;
-          }
-
-          &-zip {
-            background-color: $brownish-grey;
-          }
-
-          &-api {
-            background-color: $thema-15;
-          }
         }
       }
     }

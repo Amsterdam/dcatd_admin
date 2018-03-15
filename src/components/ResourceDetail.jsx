@@ -44,6 +44,13 @@ class ResourceDetail extends Component {
     }
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      uiResource: props.uiResource,
+      formData: props.formData
+    });
+  }
+
   setVisibilityOfFields(event) {
     if (event.formData['ams:distributionType'] === 'file') {
       this.showField('dct:format', 'select');

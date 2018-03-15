@@ -40,16 +40,25 @@ const DatasetsContainer = props => (
       exact
       path="/dcatd_admin/datasets/:id([\w-]{6,})"
       render={() => (
-        <DatasetDetail
-          id={props.match.params.id}
-          schema={props.schema}
-          uiDataset={props.uiDataset}
-          uiResource={props.uiResource}
-          onFetch={props.onFetch}
-          onEmpty={props.onEmpty}
-          onUpdate={props.onUpdate}
-          onRemove={props.onRemove}
-        />
+        <div>
+          <DatasetDetail
+            id={props.match.params.id}
+            schema={props.schema}
+            uiDataset={props.uiDataset}
+            uiResource={props.uiResource}
+            onFetch={props.onFetch}
+            onEmpty={props.onEmpty}
+            onUpdate={props.onUpdate}
+            onRemove={props.onRemove}
+          />
+          <ResourceDetail
+            schema={(props.schema && props.schema.properties &&
+              props.schema.properties['dcat:distribution'] &&
+              props.schema.properties['dcat:distribution'].items) || {}}
+            uiResource={props.uiResource}
+            onCreate={props.onCreate}
+          />
+        </div>
       )}
     />
     <Route
