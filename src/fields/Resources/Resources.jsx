@@ -5,12 +5,12 @@ import { bindActionCreators } from 'redux';
 
 import ResourcesItem from './ResourcesItem';
 
-import { getResource } from '../../actions/resource';
+import { setResource } from '../../actions/resource';
 
 import './resources.scss';
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getResource
+  setResource
 }, dispatch);
 
 class Resources extends Component {
@@ -18,39 +18,51 @@ class Resources extends Component {
     super(props);
 
     this.state = {
-      resource: props.resource
+      resources: props.formData
     };
 
     this.handleAddResource = this.handleAddResource.bind(this);
     this.handleEditResource = this.handleEditResource.bind(this);
+    this.getResourceTypeSchema = this.getResourceTypeSchema.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      resources: props.formData
+    });
+  }
+
+  getResourceTypeSchema() {
+    return this.props.schema.items.properties['ams:resourceType'];
   }
 
   handleAddResource(type) {
-    // this;
-    console.log('handleAddResource', type, this);
+    this.props.setResource({
+      'ams:resourceType': type
+    });
   }
 
   handleEditResource(resource) {
-    console.log('handleEditResource', resource, this);
-    // this.props.getResource(resource);
+    this.props.setResource(resource);
   }
 
   render() {
-    console.log('render');
+    const { resources } = this.state;
+
     return (
       <div className="resources">
         {this.props.schema.items.properties['ams:resourceType'].enumNames.map((type, index) => (
-          <div className="resources-type" key={type}>
+          <div className="resources-type" key={this.getResourceTypeSchema().enum[index]}>
             <div className="resources-type__header">
               <span className="resources-type__header-title">{type}</span>
               <button
                 type="button"
-                onClick={() => this.handleAddResource(type)}
+                onClick={() => this.handleAddResource(this.getResourceTypeSchema().enum[index])}
                 className="resources-button resources-button-new"
               />
             </div>
             <div className="resources-type__content">
-              {this.props.formData.filter(resource => resource['ams:resourceType'] === this.props.schema.items.properties['ams:resourceType'].enum[index]).map(resource => (
+              {resources.filter(resource => resource['ams:resourceType'] === this.getResourceTypeSchema().enum[index]).map(resource => (
                 <div
                   className="resources-type__content-item"
                   key={resource['dcat:accessURL']}
@@ -75,18 +87,17 @@ class Resources extends Component {
 }
 
 Resources.defaultProps = {
-  formData: [],
-  resource: {}
+  formData: []
 };
 
 Resources.propTypes = {
   formData: PropTypes.array,
-  resource: PropTypes.object,
-  schema: PropTypes.object.isRequired
+  schema: PropTypes.object.isRequired,
 
-  // getResource: PropTypes.func.isRequired
+  setResource: PropTypes.func.isRequired
 };
 
 export default connect(
+  null,
   mapDispatchToProps
 )(Resources);

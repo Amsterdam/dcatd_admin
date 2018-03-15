@@ -1,14 +1,14 @@
-export const GET_RESOURCE_SUCCESS = 'GET_RESOURCE_SUCCESS';
+export const SET_RESOURCE_SUCCESS = 'SET_RESOURCE_SUCCESS';
 
-export function getResourceSuccess(resource) {
+export function setResourceSuccess(resource) {
   return {
-    type: GET_RESOURCE_SUCCESS,
+    type: SET_RESOURCE_SUCCESS,
     resource
   };
 }
 
-export function getResource(resource) {
+export function setResource(resource) {
   return (dispatch) => {
-    return dispatch(getResourceSuccess(resource));
+    return dispatch(setResourceSuccess(resource));
   };
 }

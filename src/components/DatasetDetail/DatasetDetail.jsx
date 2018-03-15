@@ -64,6 +64,7 @@ class DatasetDetail extends Component {
       <div>
         <Form
           className="dcatd-form dataset-form"
+          idPrefix="dataset"
           schema={this.props.schema}
           formData={dataset}
           widgets={widgets}

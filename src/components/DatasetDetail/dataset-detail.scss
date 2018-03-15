@@ -9,16 +9,16 @@
   }
 
   .control-label {
-    &[for="root_overheidds:doel"] {
+    &[for="dataset_overheidds:doel"] {
       &::before {
         @extend %title-font;
         content: "Details";
       }
     }
 
-    &[for="root_dcat:theme"],
-    &[for="root_dcat:keyword"],
-    &[for="root_ams:license"] {
+    &[for="dataset_dcat:theme"],
+    &[for="dataset_dcat:keyword"],
+    &[for="dataset_ams:license"] {
       @extend %title-font;
 
       border-top: 1px solid $pinkish-grey;
