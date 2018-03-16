@@ -32,14 +32,7 @@ class ResourceDetail extends Component {
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
   }
 
-  componentDidMount() {
-    if (this.hasDataset()) {
-      // this.props.fetchDataset(this.props.id);
-    }
-  }
-
   componentWillReceiveProps(props) {
-    console.log('componentWillReceiveProps', props);
     this.setState({
       uiResource: props.uiResource,
       formData: props.formData
@@ -93,14 +86,7 @@ class ResourceDetail extends Component {
   }
 
   handleSubmit(event) {
-    console.log('handleSubmit', event.formData);
-
-    return this;
-    // if (this.props.id) {
-    //   this.props.onUpdate(event.formData);
-    // } else {
-    //   this.props.onCreate(event.formData);
-    // }
+    this.props.setResource(event.formData);
   }
 
   render() {
@@ -154,7 +140,9 @@ ResourceDetail.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
-  id: PropTypes.string
+  id: PropTypes.string,
+
+  setResource: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps)(ResourceDetail);

@@ -19,7 +19,8 @@ const fields = {
 };
 
 const mapStateToProps = state => ({
-  dataset: state.dataset
+  dataset: state.dataset,
+  resource: state.resource
 });
 
 class DatasetDetail extends Component {
@@ -32,10 +33,11 @@ class DatasetDetail extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.hasDataset = this.hasDataset.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.id) {
+    if (this.hasDataset()) {
       this.props.onFetch(this.props.id);
     } else {
       this.props.onEmpty();
@@ -48,10 +50,30 @@ class DatasetDetail extends Component {
         dataset: { ...props.dataset }
       });
     }
+
+    if (props.resource.id) {
+      this.setState({
+        dataset: {
+          ...this.state.dataset,
+          'dcat:distribution': [
+            ...this.state.dataset['dcat:distribution'].map((resource) => {
+              if (resource.id === props.resource.id) {
+                return { ...props.resource };
+              }
+              return resource;
+            })
+          ]
+        }
+      });
+    }
+  }
+
+  hasDataset() {
+    return this.props.id;
   }
 
   handleSubmit(event) {
-    if (this.props.id) {
+    if (this.hasDataset()) {
       this.props.onUpdate(event.formData);
     } else {
       this.props.onCreate(event.formData);
@@ -139,6 +161,7 @@ DatasetDetail.defaultProps = {
   id: null,
   isModalOpen: false,
   dataset: {},
+  resource: {},
 
   onFetch: () => {},
   onEmpty: () => {},
@@ -153,6 +176,7 @@ DatasetDetail.propTypes = {
   id: PropTypes.string,
   isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
+  resource: PropTypes.object,
 
   onFetch: PropTypes.func,
   onEmpty: PropTypes.func,
