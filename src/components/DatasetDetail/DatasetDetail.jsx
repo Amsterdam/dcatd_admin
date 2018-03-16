@@ -20,7 +20,7 @@ const fields = {
 
 const mapStateToProps = state => ({
   dataset: state.dataset,
-  resource: state.resource
+  resourceToDataset: state.resourceToDataset
 });
 
 class DatasetDetail extends Component {
@@ -51,20 +51,22 @@ class DatasetDetail extends Component {
       });
     }
 
-    if (props.resource.id) {
+    if (props.resourceToDataset.id) {
       this.setState({
         dataset: {
           ...this.state.dataset,
           'dcat:distribution': [
             ...this.state.dataset['dcat:distribution'].map((resource) => {
-              if (resource.id === props.resource.id) {
-                return { ...props.resource };
+              if (resource.id === props.resourceToDataset.id) {
+                return { ...props.resourceToDataset };
               }
               return resource;
             })
           ]
         }
       });
+
+      this.props.emptyResourceToDataset();
     }
   }
 
@@ -161,13 +163,14 @@ DatasetDetail.defaultProps = {
   id: null,
   isModalOpen: false,
   dataset: {},
-  resource: {},
+  resourceToDataset: {},
 
   onFetch: () => {},
   onEmpty: () => {},
   onCreate: () => {},
   onRemove: () => {},
-  onUpdate: () => {}
+  onUpdate: () => {},
+  emptyResourceToDataset: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -176,13 +179,14 @@ DatasetDetail.propTypes = {
   id: PropTypes.string,
   isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
-  resource: PropTypes.object,
+  resourceToDataset: PropTypes.object,
 
   onFetch: PropTypes.func,
   onEmpty: PropTypes.func,
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func,
+  emptyResourceToDataset: PropTypes.func
 };
 
 export default connect(mapStateToProps)(DatasetDetail);

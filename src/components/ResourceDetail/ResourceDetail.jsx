@@ -86,7 +86,7 @@ class ResourceDetail extends Component {
   }
 
   handleSubmit(event) {
-    this.props.setResource(event.formData);
+    this.props.setResourceToDataset(event.formData);
   }
 
   render() {
@@ -142,7 +142,7 @@ ResourceDetail.propTypes = {
   uiResource: PropTypes.object.isRequired,
   id: PropTypes.string,
 
-  setResource: PropTypes.func.isRequired
+  setResourceToDataset: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps)(ResourceDetail);
