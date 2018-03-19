@@ -19,8 +19,7 @@ const fields = {
 };
 
 const mapStateToProps = state => ({
-  dataset: state.dataset,
-  resourceToDataset: state.resourceToDataset
+  dataset: state.dataset
 });
 
 class DatasetDetail extends Component {
@@ -51,23 +50,24 @@ class DatasetDetail extends Component {
       });
     }
 
-    if (props.resourceToDataset.id) {
-      this.setState({
-        dataset: {
-          ...this.state.dataset,
-          'dcat:distribution': [
-            ...this.state.dataset['dcat:distribution'].map((resource) => {
-              if (resource.id === props.resourceToDataset.id) {
-                return { ...props.resourceToDataset };
-              }
-              return resource;
-            })
-          ]
-        }
-      });
-
-      this.props.emptyResourceToDataset();
-    }
+    // if (props.resourceToDataset.id) {
+    //   this.setState({
+    //     dataset: {
+    //       ...this.state.dataset,
+    //       'dcat:distribution': [
+    //         ...this.state.dataset['dcat:distribution'].map((resource) => {
+    //           if (resource.id === props.resourceToDataset.id) {
+    //             console.log('Y', props.resourceToDataset);
+    //             return { 'dct:title': 'booooooooo' };
+    //           }
+    //           console.log('n', resource);
+    //           return resource;
+    //         })
+    //       ]
+    //     }
+    //   });
+    //   this.props.emptyResourceToDataset();
+    // }
   }
 
   hasDataset() {
@@ -163,14 +163,12 @@ DatasetDetail.defaultProps = {
   id: null,
   isModalOpen: false,
   dataset: {},
-  resourceToDataset: {},
 
   onFetch: () => {},
   onEmpty: () => {},
   onCreate: () => {},
   onRemove: () => {},
-  onUpdate: () => {},
-  emptyResourceToDataset: () => {}
+  onUpdate: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -179,14 +177,12 @@ DatasetDetail.propTypes = {
   id: PropTypes.string,
   isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
-  resourceToDataset: PropTypes.object,
 
   onFetch: PropTypes.func,
   onEmpty: PropTypes.func,
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
-  onUpdate: PropTypes.func,
-  emptyResourceToDataset: PropTypes.func
+  onUpdate: PropTypes.func
 };
 
 export default connect(mapStateToProps)(DatasetDetail);

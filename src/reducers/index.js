@@ -4,7 +4,6 @@ import { routerReducer } from 'react-router-redux';
 import dataset from './dataset';
 import datasets from './datasets';
 import resource from './resource';
-import resourceToDataset from './resourceToDataset';
 import schema from './schema';
 import uiDataset from './uiDataset';
 import uiResource from './uiResource';
@@ -14,7 +13,6 @@ const appState = combineReducers({
   dataset,
   datasets,
   resource,
-  resourceToDataset,
   schema,
   uiDataset,
   uiResource,
