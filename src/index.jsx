@@ -15,6 +15,7 @@ import { fetchUiDataset } from './actions/uiDataset';
 import { fetchUiResource } from './actions/uiResource';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
+import './styling/config.scss';
 import './index.scss';
 
 const history = createHistory();
