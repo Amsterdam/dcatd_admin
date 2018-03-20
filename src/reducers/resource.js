@@ -1,4 +1,4 @@
-import { SET_RESOURCE_SUCCESS } from '../actions/resource';
+import { SET_RESOURCE_SUCCESS, EMPTY_RESOURCE_SUCCESS } from '../actions/resource';
 
 const initialState = {};
 
@@ -8,6 +8,9 @@ export default function (state = initialState, action) {
       return {
         ...action.resource
       };
+
+    case EMPTY_RESOURCE_SUCCESS:
+      return {};
 
     default:
       return state;

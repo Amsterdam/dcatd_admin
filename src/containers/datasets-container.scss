@@ -1,0 +1,17 @@
+@import "../styling/config";
+
+.form-wrapper {
+  .resource-form {
+    display: none;
+  }
+
+  &--show-resource-form {
+    .dataset-form {
+      display: none;
+    }
+
+    .resource-form {
+      display: block;
+    }
+  }
+}

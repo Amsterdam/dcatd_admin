@@ -33,6 +33,7 @@ class DatasetDetail extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.hasDataset = this.hasDataset.bind(this);
+    this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
   }
 
   componentDidMount() {
@@ -50,24 +51,33 @@ class DatasetDetail extends Component {
       });
     }
 
-    // if (props.resourceToDataset.id) {
-    //   this.setState({
-    //     dataset: {
-    //       ...this.state.dataset,
-    //       'dcat:distribution': [
-    //         ...this.state.dataset['dcat:distribution'].map((resource) => {
-    //           if (resource.id === props.resourceToDataset.id) {
-    //             console.log('Y', props.resourceToDataset);
-    //             return { 'dct:title': 'booooooooo' };
-    //           }
-    //           console.log('n', resource);
-    //           return resource;
-    //         })
-    //       ]
-    //     }
-    //   });
-    //   this.props.emptyResourceToDataset();
-    // }
+    if (props.resourceToDataset['dcat:accessURL']) {
+      this.handleResourceToDataset(props.resourceToDataset);
+      this.props.emptyResourceToDataset();
+    }
+  }
+
+  handleResourceToDataset(resource) {
+    let distributions = [...this.state.dataset['dcat:distribution']];
+
+    if (resource.id) {
+      distributions = distributions.map((distribution) => {
+        if (distribution.id === resource.id) {
+          return { ...resource };
+        }
+        return { ...distribution };
+      });
+    } else {
+      resource.id = Math.random().toString(36).substr(2, 10);
+      distributions.push(resource);
+    }
+
+    this.setState({
+      dataset: {
+        ...this.state.dataset,
+        'dcat:distribution': [...distributions]
+      }
+    });
   }
 
   hasDataset() {
@@ -163,12 +173,14 @@ DatasetDetail.defaultProps = {
   id: null,
   isModalOpen: false,
   dataset: {},
+  resourceToDataset: {},
 
   onFetch: () => {},
   onEmpty: () => {},
   onCreate: () => {},
   onRemove: () => {},
-  onUpdate: () => {}
+  onUpdate: () => {},
+  emptyResourceToDataset: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -177,12 +189,14 @@ DatasetDetail.propTypes = {
   id: PropTypes.string,
   isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
+  resourceToDataset: PropTypes.object,
 
   onFetch: PropTypes.func,
   onEmpty: PropTypes.func,
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func,
+  emptyResourceToDataset: PropTypes.func
 };
 
 export default connect(mapStateToProps)(DatasetDetail);
