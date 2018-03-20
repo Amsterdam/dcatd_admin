@@ -8,7 +8,7 @@ import DatasetsContainer from '../containers/DatasetsContainer';
 const App = () => (
   <div>
     <Header />
-    <Container style={{ marginTop: '7em' }}>
+    <Container className="container-main" >
       <Route
         exact
         path="/"

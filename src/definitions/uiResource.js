@@ -30,7 +30,7 @@ export default {
   'dct:identifier': {
     'ui:widget': 'hidden'
   },
-  'dct:issued': {
+  'dct:modified': {
     'ui:field': 'rdp',
     rdp: {
       placeholder: 'Kies een datum',
@@ -42,10 +42,20 @@ export default {
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
-      'ui:widget': 'hidden'
+      // 'ui:widget': 'hidden'
+      'ui:field': 'rdp',
+      rdp: {
+        placeholder: 'Kies een datum',
+        dayPickerProps
+      }
     },
     'dct:modified': {
-      'ui:widget': 'hidden'
+      // 'ui:widget': 'hidden'
+      'ui:field': 'rdp',
+      rdp: {
+        placeholder: 'Kies een datum',
+        dayPickerProps
+      }
     }
   }
 };

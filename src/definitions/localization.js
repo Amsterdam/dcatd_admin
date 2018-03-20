@@ -40,5 +40,5 @@ export const dateFormat = new Intl.DateTimeFormat('nl-NL', {
 });
 
 dateFormat.formatDate = (date) => {
-  return dateFormat.format(new Date(date));
+  return date ? dateFormat.format(new Date(date)) : '';
 };

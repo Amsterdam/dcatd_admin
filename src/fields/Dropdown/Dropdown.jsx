@@ -5,20 +5,7 @@ import { Dropdown as SemanticDropdown } from 'semantic-ui-react';
 import './dropdown.scss';
 
 class Dropdown extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      options: this.getOptions(props.schema.items || props.schema),
-      value: props.value
-    };
-
-    this.handleAddition = this.handleAddition.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  getOptions(items) {
-    console.log(this);
+  static getOptions(items) {
     if (items.examples) {
       return items.examples.map(
         option => ({
@@ -31,6 +18,18 @@ class Dropdown extends Component {
         value: option,
         text: items.enumNames[index]
       }));
+  }
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      options: Dropdown.getOptions(props.schema.items || props.schema),
+      value: props.value
+    };
+
+    this.handleAddition = this.handleAddition.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleAddition(event, { value }) {

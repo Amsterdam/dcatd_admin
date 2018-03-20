@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import { fetchDataset } from '../actions/dataset';
-import localFields from '../fields';
-import widgets from '../widgets';
+import localFields from '../../fields';
+import widgets from '../../widgets';
 
-import '../../node_modules/react-day-picker/lib/style.css';
-import './dcatd-form.scss';
+import '../../../node_modules/react-day-picker/lib/style.css';
+import '../dcatd-form.scss';
 
 const fields = {
   ...extraFields,
@@ -21,10 +19,6 @@ const fields = {
 const mapStateToProps = state => ({
   dataset: state.dataset
 });
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchDataset
-}, dispatch);
 
 class ResourceDetail extends Component {
   constructor(props) {
@@ -38,10 +32,11 @@ class ResourceDetail extends Component {
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
   }
 
-  componentDidMount() {
-    if (this.hasDataset()) {
-      // this.props.fetchDataset(this.props.id);
-    }
+  componentWillReceiveProps(props) {
+    this.setState({
+      uiResource: props.uiResource,
+      formData: props.formData
+    });
   }
 
   setVisibilityOfFields(event) {
@@ -90,12 +85,18 @@ class ResourceDetail extends Component {
     return this.props.id && this.props.id !== 'new';
   }
 
+  handleSubmit(event) {
+    console.log('handleSubmit', event.formData, this);
+    // this.props.setResourceToDataset(event.formData);
+  }
+
   render() {
     const { formData } = this.state;
     return (
       <div>
         <Form
           className="dcatd-form resource-form"
+          idPrefix="resource"
           schema={this.props.schema}
           formData={formData}
           widgets={widgets}
@@ -103,8 +104,29 @@ class ResourceDetail extends Component {
           uiSchema={this.state.uiResource}
           noHtml5Validate
           showErrorList={false}
-          onChange={event => this.setVisibilityOfFields(event)}
-        />
+          onSubmit={event => this.handleSubmit(event)}
+          onChange={event => console.log('RESOURCE CHANGE', event.formData)}
+        >
+          <div>
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              type="submit"
+            >
+              Opslaan</button>
+            <button
+              className="dcatd-form-button dcatd-form-button-cancel"
+              type="button"
+            >
+              Annuleren</button>
+            <button
+              onClick={event => console.log('remove resource', event)}
+              type="button"
+              className="dcatd-form-button dcatd-form-button-remove"
+            >
+              Resource verwijderen
+            </button>
+          </div>
+        </Form>
       </div>
     );
   }
@@ -118,12 +140,8 @@ ResourceDetail.defaultProps = {
 ResourceDetail.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
-  // uiDataset: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
   id: PropTypes.string
-  // dataset: PropTypes.object.isRequired
-
-  // fetchDataset: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ResourceDetail);
+export default connect(mapStateToProps)(ResourceDetail);

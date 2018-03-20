@@ -21,3 +21,12 @@
 
   font-family: "Avenir LT W01 85 Heavy", Arial, sans-serif;
 }
+
+%title-font {
+  @extend %heavy-font;
+
+  color: $red;
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+}

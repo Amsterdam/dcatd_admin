@@ -22,8 +22,14 @@ class File extends Component {
     this.resetFile = this.resetFile.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      value: props.value
+    });
+  }
+
   processFile(files) {
-    if (files.length === 0) {
+    if (files.length !== 1) {
       return;
     }
 

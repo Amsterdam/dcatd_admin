@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Modal } from 'semantic-ui-react';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
-  from '../actions/dataset';
-import localFields from '../fields';
-import widgets from '../widgets';
+import localFields from '../../fields';
+import widgets from '../../widgets';
 
-import '../../node_modules/react-day-picker/lib/style.css';
-import './dcatd-form.scss';
+import '../../../node_modules/react-day-picker/lib/style.css';
+import '../dcatd-form.scss';
+import './dataset-detail.scss';
 
 const fields = {
   ...extraFields,
@@ -23,14 +21,6 @@ const fields = {
 const mapStateToProps = state => ({
   dataset: state.dataset
 });
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  fetchDataset,
-  emptyDataset,
-  createDataset,
-  removeDataset,
-  updateDataset
-}, dispatch);
 
 class DatasetDetail extends Component {
   constructor(props) {
@@ -42,13 +32,14 @@ class DatasetDetail extends Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.hasDataset = this.hasDataset.bind(this);
   }
 
   componentDidMount() {
-    if (this.props.id) {
-      this.props.fetchDataset(this.props.id);
+    if (this.hasDataset()) {
+      this.props.onFetch(this.props.id);
     } else {
-      this.props.emptyDataset();
+      this.props.onEmpty();
     }
   }
 
@@ -58,13 +49,36 @@ class DatasetDetail extends Component {
         dataset: { ...props.dataset }
       });
     }
+
+    // if (props.resourceToDataset.id) {
+    //   this.setState({
+    //     dataset: {
+    //       ...this.state.dataset,
+    //       'dcat:distribution': [
+    //         ...this.state.dataset['dcat:distribution'].map((resource) => {
+    //           if (resource.id === props.resourceToDataset.id) {
+    //             console.log('Y', props.resourceToDataset);
+    //             return { 'dct:title': 'booooooooo' };
+    //           }
+    //           console.log('n', resource);
+    //           return resource;
+    //         })
+    //       ]
+    //     }
+    //   });
+    //   this.props.emptyResourceToDataset();
+    // }
+  }
+
+  hasDataset() {
+    return this.props.id;
   }
 
   handleSubmit(event) {
-    if (this.props.id) {
-      this.props.updateDataset(event.formData);
+    if (this.hasDataset()) {
+      this.props.onUpdate(event.formData);
     } else {
-      this.props.createDataset(event.formData);
+      this.props.onCreate(event.formData);
     }
   }
 
@@ -74,6 +88,7 @@ class DatasetDetail extends Component {
       <div>
         <Form
           className="dcatd-form dataset-form"
+          idPrefix="dataset"
           schema={this.props.schema}
           formData={dataset}
           widgets={widgets}
@@ -82,7 +97,7 @@ class DatasetDetail extends Component {
           noHtml5Validate
           showErrorList={false}
           onSubmit={event => this.handleSubmit(event)}
-          onChange={event => console.log('CHANGE', event.formData)}
+          onChange={event => console.log('DATASET CHANGE', event.formData)}
         >
           <div>
             <button
@@ -120,7 +135,7 @@ class DatasetDetail extends Component {
                     this.setState({
                       isModalOpen: false
                     });
-                    this.props.removeDataset(dataset);
+                    this.props.onRemove(dataset);
                   }}
                   className="dcatd-form-button dcatd-form-button-submit"
                 >
@@ -147,7 +162,13 @@ class DatasetDetail extends Component {
 DatasetDetail.defaultProps = {
   id: null,
   isModalOpen: false,
-  dataset: {}
+  dataset: {},
+
+  onFetch: () => {},
+  onEmpty: () => {},
+  onCreate: () => {},
+  onRemove: () => {},
+  onUpdate: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -157,11 +178,11 @@ DatasetDetail.propTypes = {
   isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
 
-  fetchDataset: PropTypes.func.isRequired,
-  emptyDataset: PropTypes.func.isRequired,
-  createDataset: PropTypes.func.isRequired,
-  removeDataset: PropTypes.func.isRequired,
-  updateDataset: PropTypes.func.isRequired
+  onFetch: PropTypes.func,
+  onEmpty: PropTypes.func,
+  onCreate: PropTypes.func,
+  onRemove: PropTypes.func,
+  onUpdate: PropTypes.func
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(DatasetDetail);
+export default connect(mapStateToProps)(DatasetDetail);
