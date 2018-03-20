@@ -30,6 +30,8 @@ class ResourceDetail extends Component {
     };
 
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -86,8 +88,12 @@ class ResourceDetail extends Component {
   }
 
   handleSubmit(event) {
-    console.log('handleSubmit', event.formData, this);
-    // this.props.setResourceToDataset(event.formData);
+    this.props.handleResourceToDataset(event.formData);
+    this.props.onEmptyResource();
+  }
+
+  handleCancel() {
+    this.props.onEmptyResource();
   }
 
   render() {
@@ -114,6 +120,7 @@ class ResourceDetail extends Component {
             >
               Opslaan</button>
             <button
+              onClick={() => this.handleCancel()}
               className="dcatd-form-button dcatd-form-button-cancel"
               type="button"
             >
@@ -141,7 +148,10 @@ ResourceDetail.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
-  id: PropTypes.string
+  id: PropTypes.string,
+
+  handleResourceToDataset: PropTypes.func.isRequired,
+  onEmptyResource: PropTypes.func.isRequired
 };
 
 export default connect(mapStateToProps)(ResourceDetail);
