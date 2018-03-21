@@ -37,14 +37,15 @@ class ResourceDetail extends Component {
     });
   }
 
-  setVisibilityOfFields(event) {
-    if (event.formData['ams:distributionType'] === 'file') {
+  setVisibilityOfFields(formData) {
+    console.log('setVisibilityOfFields', formData);
+    if (formData['ams:distributionType'] === 'file') {
       this.showField('dct:format', 'select');
     } else {
       this.hideField('dct:format');
     }
 
-    if (event.formData['ams:distributionType'] === 'api') {
+    if (formData['ams:distributionType'] === 'api') {
       this.showField('ams:serviceType', 'select');
     } else {
       this.hideField('ams:serviceType');
@@ -52,7 +53,7 @@ class ResourceDetail extends Component {
 
     this.setState({
       formData: {
-        ...event.formData
+        ...formData
       }
     });
   }
@@ -83,8 +84,9 @@ class ResourceDetail extends Component {
     return this.props.id && this.props.id !== 'new';
   }
 
-  handleSubmit(event) {
-    this.props.handleResourceToDataset(event.formData);
+  handleSubmit(formData) {
+    console.log('submit', formData);
+    this.props.handleResourceToDataset(formData);
     this.props.onEmptyResource();
   }
 
@@ -106,8 +108,8 @@ class ResourceDetail extends Component {
           uiSchema={this.state.uiResource}
           noHtml5Validate
           showErrorList={false}
-          onSubmit={event => this.handleSubmit(event)}
-          onChange={event => console.log('RESOURCE CHANGE', event.formData)}
+          onSubmit={event => this.handleSubmit(event.formData)}
+          onChange={event => this.setVisibilityOfFields(event.formData)}
         >
           <div>
             <button

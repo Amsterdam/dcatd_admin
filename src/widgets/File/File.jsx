@@ -107,6 +107,7 @@ class File extends Component {
           disabled={this.props.disabled}
           placeholder={this.props.placeholder}
           readOnly={this.props.readonly}
+          required={this.props.required}
           value={value}
           onChange={event => this.handleChange(event.target.value)}
         />
@@ -121,7 +122,6 @@ class File extends Component {
           type="file"
           className="file__upload file__upload--hidden"
           id={`${this.props.id}-upload`}
-          required={this.props.required}
           disabled={this.props.disabled}
 
           onChange={event => this.processFile(event.target.files)}
