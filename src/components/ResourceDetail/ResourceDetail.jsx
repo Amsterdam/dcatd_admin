@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
@@ -15,10 +15,6 @@ const fields = {
   ...extraFields,
   ...localFields
 };
-
-const mapStateToProps = state => ({
-  dataset: state.dataset
-});
 
 class ResourceDetail extends Component {
   constructor(props) {
@@ -154,4 +150,4 @@ ResourceDetail.propTypes = {
   onEmptyResource: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps)(ResourceDetail);
+export default ResourceDetail;

@@ -14,6 +14,7 @@ import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
 import './datasets-container.scss';
 
 const mapStateToProps = state => ({
+  dataset: state.dataset,
   datasets: state.datasets,
   resource: state.resource,
   schema: state.schema,
@@ -85,6 +86,7 @@ class DatasetsContainer extends Component {
               />
               <DatasetDetail
                 id={this.props.match.params.id}
+                dataset={this.props.dataset}
                 schema={this.props.schema}
                 resourceToDataset={this.state.resourceToDataset}
                 uiDataset={this.props.uiDataset}
@@ -142,6 +144,7 @@ DatasetsContainer.defaultProps = {
 
 DatasetsContainer.propTypes = {
   match: PropTypes.object,
+  dataset: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Modal } from 'semantic-ui-react';
 
 import Form from 'react-jsonschema-form';
@@ -17,10 +16,6 @@ const fields = {
   ...extraFields,
   ...localFields
 };
-
-const mapStateToProps = state => ({
-  dataset: state.dataset
-});
 
 class DatasetDetail extends Component {
   constructor(props) {
@@ -197,4 +192,4 @@ DatasetDetail.propTypes = {
   onEmptyResource: PropTypes.func
 };
 
-export default connect(mapStateToProps)(DatasetDetail);
+export default DatasetDetail;
