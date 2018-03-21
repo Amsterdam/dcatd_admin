@@ -93,6 +93,7 @@ class DatasetsContainer extends Component {
                 onEmpty={this.props.onEmpty}
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
+                onEmptyResource={this.props.onEmptyResource}
                 emptyResourceToDataset={this.emptyResourceToDataset}
               />
             </div>

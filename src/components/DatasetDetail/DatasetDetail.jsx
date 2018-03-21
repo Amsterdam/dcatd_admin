@@ -42,6 +42,7 @@ class DatasetDetail extends Component {
     } else {
       this.props.onEmpty();
     }
+    this.props.onEmptyResource();
   }
 
   componentWillReceiveProps(props) {
@@ -177,7 +178,7 @@ DatasetDetail.defaultProps = {
   onCreate: () => {},
   onRemove: () => {},
   onUpdate: () => {},
-  emptyResourceToDataset: () => {}
+  onEmptyResource: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -192,7 +193,8 @@ DatasetDetail.propTypes = {
   onEmpty: PropTypes.func,
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
-  onUpdate: PropTypes.func
+  onUpdate: PropTypes.func,
+  onEmptyResource: PropTypes.func
 };
 
 export default connect(mapStateToProps)(DatasetDetail);
