@@ -13,12 +13,7 @@ export default function (state = initialState, action) {
         ...action.dataset,
         'dcat:distribution': (action.dataset['dcat:distribution'] ? [...action.dataset['dcat:distribution']]
           .map((distribution) => {
-            distribution.id = Math.random().toString(36).substr(2, 10);
-
-            // fix these in back end
-            distribution['dcat:byteSize'] = 12345;
-            distribution['foaf:isPrimaryTopicOf']['dct:issued'] = '2017-03-02';
-            distribution['foaf:isPrimaryTopicOf']['dct:modified'] = '2016-11-21';
+            distribution['@id'] = `_:${Math.random().toString(36).substr(2, 10)}`;
             return distribution;
           }) : [])
       };

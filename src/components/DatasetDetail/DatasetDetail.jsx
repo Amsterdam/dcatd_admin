@@ -52,16 +52,15 @@ class DatasetDetail extends Component {
 
   handleResourceToDataset(resource) {
     let distributions = [...this.state.dataset['dcat:distribution']];
-
-    if (resource.id) {
+    if (resource['@id']) {
       distributions = distributions.map((distribution) => {
-        if (distribution.id === resource.id) {
+        if (distribution['@id'] === resource['@id']) {
           return { ...resource };
         }
         return { ...distribution };
       });
     } else {
-      resource.id = Math.random().toString(36).substr(2, 10);
+      resource['@id'] = `_:${Math.random().toString(36).substr(2, 10)}`;
       distributions.push(resource);
     }
 
