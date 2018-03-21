@@ -92,6 +92,7 @@ class File extends Component {
     this.setState({
       value
     });
+    this.props.onChange(value || undefined);
   }
 
   render() {
@@ -168,9 +169,9 @@ File.propTypes = {
   status: PropTypes.string,
   total: PropTypes.number,
   url: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
 
-  // onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 };
 
 export default File;
