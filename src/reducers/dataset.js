@@ -11,7 +11,7 @@ export default function (state = initialState, action) {
     case FETCH_DATASET_SUCCESS:
       return {
         ...action.dataset,
-        'dcat:distribution': [...action.dataset['dcat:distribution']]
+        'dcat:distribution': (action.dataset['dcat:distribution'] ? [...action.dataset['dcat:distribution']]
           .map((distribution) => {
             distribution.id = Math.random().toString(36).substr(2, 10);
 
@@ -20,13 +20,15 @@ export default function (state = initialState, action) {
             distribution['foaf:isPrimaryTopicOf']['dct:issued'] = '2017-03-02';
             distribution['foaf:isPrimaryTopicOf']['dct:modified'] = '2016-11-21';
             return distribution;
-          })
+          }) : [])
       };
+
     case EMPTY_DATASET_SUCCESS:
       return {};
+
     case REMOVE_DATASET_SUCCESS:
       return state;
-      // return state.datasets.filter(dataset => dataset.id !== action.dataset['dct:identifier']);
+
     default:
       return state;
   }

@@ -72,7 +72,7 @@ class DatasetsContainer extends Component {
           render={() => (
             <div
               className={`form-wrapper
-                form-wrapper--${this.props.resource['dcat:accessURL'] ? 'show' : 'hide'}-resource-form`}
+                form-wrapper--${this.props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
             >
               <ResourceDetail
                 schema={(this.props.schema && this.props.schema.properties &&

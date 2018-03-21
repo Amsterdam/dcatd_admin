@@ -45,15 +45,12 @@ class DatasetDetail extends Component {
   }
 
   componentWillReceiveProps(props) {
-    if (props.dataset) {
+    if (props.resourceToDataset['dcat:accessURL']) {
+      this.handleResourceToDataset(props.resourceToDataset);
+    } else {
       this.setState({
         dataset: { ...props.dataset }
       });
-    }
-
-    if (props.resourceToDataset['dcat:accessURL']) {
-      this.handleResourceToDataset(props.resourceToDataset);
-      this.props.emptyResourceToDataset();
     }
   }
 
@@ -195,8 +192,7 @@ DatasetDetail.propTypes = {
   onEmpty: PropTypes.func,
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
-  onUpdate: PropTypes.func,
-  emptyResourceToDataset: PropTypes.func
+  onUpdate: PropTypes.func
 };
 
 export default connect(mapStateToProps)(DatasetDetail);
