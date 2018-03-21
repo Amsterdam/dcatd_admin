@@ -74,7 +74,7 @@ function catchError() {
  *
  * @returns {string} The access token.
  */
-function getAccessToken() {
+export function getAccessToken() {
   return sessionStorage.getItem(ACCESS_TOKEN);
 }
 

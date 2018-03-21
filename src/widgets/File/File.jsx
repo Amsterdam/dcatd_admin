@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { getAccessToken } from '../../services/auth/auth';
+
 import './file.scss';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
@@ -64,6 +66,7 @@ class File extends Component {
     };
 
     xhr.open('POST', apiUrl, true);
+    xhr.setRequestHeader('Authorization', `Bearer ${getAccessToken()}`);
     xhr.send(formData);
   }
 
