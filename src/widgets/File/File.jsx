@@ -22,6 +22,7 @@ class File extends Component {
 
     this.processFile = this.processFile.bind(this);
     this.resetFile = this.resetFile.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -87,6 +88,12 @@ class File extends Component {
     return (this.state.total ? ((this.state.loaded / this.state.total) * 95).toFixed(0) : 0);
   }
 
+  handleChange(value) {
+    this.setState({
+      value
+    });
+  }
+
   render() {
     const { file, status, value } = this.state;
 
@@ -101,6 +108,7 @@ class File extends Component {
           placeholder={this.props.placeholder}
           readOnly={this.props.readonly}
           value={value}
+          onChange={event => this.handleChange(event.target.value)}
         />
         <label
           htmlFor={`${this.props.id}-upload`}
