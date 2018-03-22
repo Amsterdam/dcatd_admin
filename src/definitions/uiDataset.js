@@ -98,7 +98,11 @@ export default {
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
-      'ui:widget': 'hidden'
+      'ui:field': 'rdp',
+      rdp: {
+        placeholder: 'Kies een datum',
+        dayPickerProps
+      }
     },
     'dct:modified': {
       'ui:widget': 'hidden'

@@ -38,7 +38,6 @@ class ResourceDetail extends Component {
   }
 
   setVisibilityOfFields(formData) {
-    console.log('setVisibilityOfFields', formData);
     if (formData['ams:distributionType'] === 'file') {
       this.showField('dct:format', 'select');
     } else {
@@ -85,7 +84,6 @@ class ResourceDetail extends Component {
   }
 
   handleSubmit(formData) {
-    console.log('submit', formData);
     this.props.handleResourceToDataset(formData);
     this.props.onEmptyResource();
   }

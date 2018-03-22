@@ -105,26 +105,28 @@ class DatasetsContainer extends Component {
           exact
           path="/dcatd_admin/datasets/new"
           render={() => (
-            <DatasetDetail
-              schema={this.props.schema}
-              uiDataset={this.props.uiDataset}
-              uiResource={this.props.uiResource}
-              onCreate={this.props.onCreate}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/dcatd_admin/resources/new"
-          render={() => (
-            <ResourceDetail
-              schema={(this.props.schema && this.props.schema.properties &&
-                this.props.schema.properties['dcat:distribution'] &&
-                this.props.schema.properties['dcat:distribution'].items) || {}}
-              uiDataset={this.props.uiDataset}
-              uiResource={this.props.uiResource}
-              onCreate={this.props.onCreate}
-            />
+            <div
+              className={`form-wrapper
+                form-wrapper--${this.props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
+            >
+              <ResourceDetail
+                schema={(this.props.schema && this.props.schema.properties &&
+                  this.props.schema.properties['dcat:distribution'] &&
+                  this.props.schema.properties['dcat:distribution'].items) || {}}
+                uiResource={this.props.uiResource}
+                formData={this.props.resource}
+                handleResourceToDataset={this.handleResourceToDataset}
+                onEmptyResource={this.props.onEmptyResource}
+              />
+              <DatasetDetail
+                schema={this.props.schema}
+                uiDataset={this.props.uiDataset}
+                uiResource={this.props.uiResource}
+                onCreate={this.props.onCreate}
+                onEmptyResource={this.props.onEmptyResource}
+                emptyResourceToDataset={this.emptyResourceToDataset}
+              />
+            </div>
           )}
         />
       </section>
