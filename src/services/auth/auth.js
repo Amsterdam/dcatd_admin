@@ -74,7 +74,7 @@ function catchError() {
  *
  * @returns {string} The access token.
  */
-function getAccessToken() {
+export function getAccessToken() {
   return sessionStorage.getItem(ACCESS_TOKEN);
 }
 
@@ -132,8 +132,9 @@ function handleCallback() {
  * Redirects to the OAuth2 authorization service.
  */
 export function login() {
+  const pathname = '/dcatd_admin/';
   // Get the URI the OAuth2 authorization service needs to use as callback
-  const callback = encodeURIComponent(`${location.protocol}//${location.host}${location.pathname}`);
+  const callback = encodeURIComponent(`${location.protocol}//${location.host}${pathname}`);
   // Get a random string to prevent CSRF
   const stateToken = stateTokenGenerator();
   const encodedStateToken = encodeURIComponent(stateToken);
@@ -143,7 +144,7 @@ export function login() {
   }
 
   sessionStorage.removeItem(ACCESS_TOKEN);
-  sessionStorage.setItem(RETURN_PATH, location.pathname);
+  sessionStorage.setItem(RETURN_PATH, pathname);
   sessionStorage.setItem(STATE_TOKEN, stateToken);
 
   location.href = `${API_ROOT}${AUTH_PATH}&state=${encodedStateToken}&redirect_uri=${callback}`;

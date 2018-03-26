@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { Modal } from 'semantic-ui-react';
 
 import Form from 'react-jsonschema-form';
@@ -17,10 +16,6 @@ const fields = {
   ...extraFields,
   ...localFields
 };
-
-const mapStateToProps = state => ({
-  dataset: state.dataset
-});
 
 class DatasetDetail extends Component {
   constructor(props) {
@@ -42,33 +37,30 @@ class DatasetDetail extends Component {
     } else {
       this.props.onEmpty();
     }
+    this.props.onEmptyResource();
   }
 
   componentWillReceiveProps(props) {
-    if (props.dataset) {
+    if (props.resourceToDataset['dcat:accessURL']) {
+      this.handleResourceToDataset(props.resourceToDataset);
+    } else {
       this.setState({
         dataset: { ...props.dataset }
       });
-    }
-
-    if (props.resourceToDataset['dcat:accessURL']) {
-      this.handleResourceToDataset(props.resourceToDataset);
-      this.props.emptyResourceToDataset();
     }
   }
 
   handleResourceToDataset(resource) {
     let distributions = [...this.state.dataset['dcat:distribution']];
-
-    if (resource.id) {
+    if (resource['@id']) {
       distributions = distributions.map((distribution) => {
-        if (distribution.id === resource.id) {
+        if (distribution['@id'] === resource['@id']) {
           return { ...resource };
         }
         return { ...distribution };
       });
     } else {
-      resource.id = Math.random().toString(36).substr(2, 10);
+      resource['@id'] = `_:${Math.random().toString(36).substr(2, 10)}`;
       distributions.push(resource);
     }
 
@@ -180,7 +172,7 @@ DatasetDetail.defaultProps = {
   onCreate: () => {},
   onRemove: () => {},
   onUpdate: () => {},
-  emptyResourceToDataset: () => {}
+  onEmptyResource: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -196,7 +188,7 @@ DatasetDetail.propTypes = {
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
   onUpdate: PropTypes.func,
-  emptyResourceToDataset: PropTypes.func
+  onEmptyResource: PropTypes.func
 };
 
-export default connect(mapStateToProps)(DatasetDetail);
+export default DatasetDetail;

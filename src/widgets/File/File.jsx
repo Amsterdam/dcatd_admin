@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import { getAccessToken } from '../../services/auth/auth';
+
 import './file.scss';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
@@ -20,6 +22,7 @@ class File extends Component {
 
     this.processFile = this.processFile.bind(this);
     this.resetFile = this.resetFile.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -64,6 +67,7 @@ class File extends Component {
     };
 
     xhr.open('POST', apiUrl, true);
+    xhr.setRequestHeader('Authorization', `Bearer ${getAccessToken()}`);
     xhr.send(formData);
   }
 
@@ -84,6 +88,13 @@ class File extends Component {
     return (this.state.total ? ((this.state.loaded / this.state.total) * 95).toFixed(0) : 0);
   }
 
+  handleChange(value) {
+    this.setState({
+      value
+    });
+    this.props.onChange(value || undefined);
+  }
+
   render() {
     const { file, status, value } = this.state;
 
@@ -97,7 +108,9 @@ class File extends Component {
           disabled={this.props.disabled}
           placeholder={this.props.placeholder}
           readOnly={this.props.readonly}
+          required={this.props.required}
           value={value}
+          onChange={event => this.handleChange(event.target.value)}
         />
         <label
           htmlFor={`${this.props.id}-upload`}
@@ -110,7 +123,6 @@ class File extends Component {
           type="file"
           className="file__upload file__upload--hidden"
           id={`${this.props.id}-upload`}
-          required={this.props.required}
           disabled={this.props.disabled}
 
           onChange={event => this.processFile(event.target.files)}
@@ -157,9 +169,9 @@ File.propTypes = {
   status: PropTypes.string,
   total: PropTypes.number,
   url: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
 
-  // onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 };
 
 export default File;

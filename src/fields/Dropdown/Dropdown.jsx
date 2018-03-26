@@ -25,11 +25,17 @@ class Dropdown extends Component {
 
     this.state = {
       options: Dropdown.getOptions(props.schema.items || props.schema),
-      value: props.value
+      value: props.formData
     };
 
     this.handleAddition = this.handleAddition.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      value: props.formData
+    });
   }
 
   handleAddition(event, { value }) {
@@ -45,7 +51,6 @@ class Dropdown extends Component {
 
   render() {
     const { value, options } = this.state;
-
     return (
       <span>
         <label
@@ -81,7 +86,7 @@ class Dropdown extends Component {
 Dropdown.defaultProps = {
   allowAdditions: false,
   label: '',
-  value: ''
+  formData: []
 };
 
 Dropdown.propTypes = {
@@ -91,7 +96,7 @@ Dropdown.propTypes = {
   required: PropTypes.bool.isRequired,
   schema: PropTypes.object.isRequired,
   uiSchema: PropTypes.object.isRequired,
-  value: PropTypes.string,
+  formData: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   onChange: PropTypes.func.isRequired
 };
 

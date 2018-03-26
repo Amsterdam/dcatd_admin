@@ -14,6 +14,7 @@ import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
 import './datasets-container.scss';
 
 const mapStateToProps = state => ({
+  dataset: state.dataset,
   datasets: state.datasets,
   resource: state.resource,
   schema: state.schema,
@@ -72,7 +73,7 @@ class DatasetsContainer extends Component {
           render={() => (
             <div
               className={`form-wrapper
-                form-wrapper--${this.props.resource['dcat:accessURL'] ? 'show' : 'hide'}-resource-form`}
+                form-wrapper--${this.props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
             >
               <ResourceDetail
                 schema={(this.props.schema && this.props.schema.properties &&
@@ -85,6 +86,7 @@ class DatasetsContainer extends Component {
               />
               <DatasetDetail
                 id={this.props.match.params.id}
+                dataset={this.props.dataset}
                 schema={this.props.schema}
                 resourceToDataset={this.state.resourceToDataset}
                 uiDataset={this.props.uiDataset}
@@ -93,6 +95,7 @@ class DatasetsContainer extends Component {
                 onEmpty={this.props.onEmpty}
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
+                onEmptyResource={this.props.onEmptyResource}
                 emptyResourceToDataset={this.emptyResourceToDataset}
               />
             </div>
@@ -102,26 +105,28 @@ class DatasetsContainer extends Component {
           exact
           path="/dcatd_admin/datasets/new"
           render={() => (
-            <DatasetDetail
-              schema={this.props.schema}
-              uiDataset={this.props.uiDataset}
-              uiResource={this.props.uiResource}
-              onCreate={this.props.onCreate}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/dcatd_admin/resources/new"
-          render={() => (
-            <ResourceDetail
-              schema={(this.props.schema && this.props.schema.properties &&
-                this.props.schema.properties['dcat:distribution'] &&
-                this.props.schema.properties['dcat:distribution'].items) || {}}
-              uiDataset={this.props.uiDataset}
-              uiResource={this.props.uiResource}
-              onCreate={this.props.onCreate}
-            />
+            <div
+              className={`form-wrapper
+                form-wrapper--${this.props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
+            >
+              <ResourceDetail
+                schema={(this.props.schema && this.props.schema.properties &&
+                  this.props.schema.properties['dcat:distribution'] &&
+                  this.props.schema.properties['dcat:distribution'].items) || {}}
+                uiResource={this.props.uiResource}
+                formData={this.props.resource}
+                handleResourceToDataset={this.handleResourceToDataset}
+                onEmptyResource={this.props.onEmptyResource}
+              />
+              <DatasetDetail
+                schema={this.props.schema}
+                uiDataset={this.props.uiDataset}
+                uiResource={this.props.uiResource}
+                onCreate={this.props.onCreate}
+                onEmptyResource={this.props.onEmptyResource}
+                emptyResourceToDataset={this.emptyResourceToDataset}
+              />
+            </div>
           )}
         />
       </section>
@@ -141,6 +146,7 @@ DatasetsContainer.defaultProps = {
 
 DatasetsContainer.propTypes = {
   match: PropTypes.object,
+  dataset: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,
