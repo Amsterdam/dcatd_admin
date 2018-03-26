@@ -10,7 +10,8 @@ const App = () => (
     <Header />
     <Container className="container-main" >
       <Route
-        path="/"
+        exact
+        path="/dcatd_admin"
         render={() => (
           <Redirect to="/dcatd_admin/datasets" />
         )}
