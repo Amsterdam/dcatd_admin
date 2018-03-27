@@ -10,7 +10,7 @@ function getFileType(mime, fieldSchema) {
   const type = fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)];
   return (
     <span className={`resources-item__file-type
-      resources-item__file-type--${type}`}
+      resources-item__file-type--${type.toLowerCase()}`}
     >{type || 'overig'}
     </span>
   );
