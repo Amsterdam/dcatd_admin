@@ -7,10 +7,10 @@ import { dateFormat } from '../../definitions/localization';
 import './resources-item.scss';
 
 function getFileType(mime, fieldSchema) {
-  const type = fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)];
+  const type = fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)].toLowerCase();
   return (
     <span className={`resources-item__file-type
-      resources-item__file-type--${type.toLowerCase()}`}
+      resources-item__file-type--${type}`}
     >{type || 'overig'}
     </span>
   );
