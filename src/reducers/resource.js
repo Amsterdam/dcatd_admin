@@ -7,7 +7,6 @@ const initialState = {};
 export default function (state = initialState, action) {
   switch (action.type) {
     case SET_RESOURCE_SUCCESS:
-      console.log('SET_RESOURCE_SUCCESS');
       return {
         ...action.resource
       };

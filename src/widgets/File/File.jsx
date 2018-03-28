@@ -73,7 +73,6 @@ class File extends Component {
         });
 
         this.props.setResourceFilesize(this.state.total);
-        console.log('dispatch xhr', xhr, this.state.total);
       }
     };
 
