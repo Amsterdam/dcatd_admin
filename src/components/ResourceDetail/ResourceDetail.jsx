@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import { connect } from 'react-redux';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
+import Modal from '../Modal/Modal';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -116,18 +116,29 @@ class ResourceDetail extends Component {
             >
               Opslaan</button>
             <button
-              onClick={() => this.handleCancel()}
+              onClick={() => this.props.onEmptyResource()}
               className="dcatd-form-button dcatd-form-button-cancel"
               type="button"
             >
               Annuleren</button>
-            <button
-              onClick={event => console.log('remove resource', event)}
-              type="button"
-              className="dcatd-form-button dcatd-form-button-remove"
-            >
-              Resource verwijderen
-            </button>
+            <Modal
+              ref={(ref) => { this.modal = ref; }}
+              content="Door de resource te verwijderen, gaan alle gegevens verloren."
+              actionLabel="Resource verwijderen"
+              trigger={(
+                <button
+                  onClick={() => this.modal.handleShowState(true)}
+                  type="button"
+                  className="dcatd-form-button dcatd-form-button-remove"
+                >
+                  Resource verwijderen
+                </button>
+              )}
+              onProceed={() => {
+                console.log('proceed');
+                // this.props.onRemove(dataset);
+              }}
+            />
           </div>
         </Form>
       </div>

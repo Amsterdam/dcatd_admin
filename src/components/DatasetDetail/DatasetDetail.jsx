@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Modal } from 'semantic-ui-react';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
+import Modal from '../Modal/Modal';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -22,8 +22,7 @@ class DatasetDetail extends Component {
     super(props);
 
     this.state = {
-      dataset: props.dataset,
-      isModalOpen: props.isModalOpen
+      dataset: props.dataset
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -112,48 +111,25 @@ class DatasetDetail extends Component {
               type="button"
             >
               Annuleren</button>
-            <Modal
-              open={this.state.isModalOpen}
-              trigger={(
-                <button
-                  onClick={() => this.setState({
-                    isModalOpen: true
-                  })}
-                  type="button"
-                  className="dcatd-form-button dcatd-form-button-remove"
-                >
-                  Dataset verwijderen
-                </button>
-              )}
-              size="tiny"
-            >
-              <Modal.Content>
-                <h4>Let op!</h4>
-                <p>Door de dataset te verwijderen, gaan alle gegevens verloren.</p>
-              </Modal.Content>
-              <Modal.Actions>
-                <button
-                  onClick={() => {
-                    this.setState({
-                      isModalOpen: false
-                    });
-                    this.props.onRemove(dataset);
-                  }}
-                  className="dcatd-form-button dcatd-form-button-submit"
-                >
-                  Dataset verwijderen
-                </button>
-                <button
-                  onClick={() => this.setState({
-                    isModalOpen: false
-                  })}
-                  className="dcatd-form-button"
-                >
-                  Annuleren
-                </button>
-              </Modal.Actions>
-            </Modal>
-
+            {this.hasDataset() ?
+              <Modal
+                ref={(ref) => { this.modal = ref; }}
+                content="Door de dataset te verwijderen, gaan alle gegevens verloren."
+                actionLabel="Dataset verwijderen"
+                trigger={(
+                  <button
+                    onClick={() => this.modal.handleShowState(true)}
+                    type="button"
+                    className="dcatd-form-button dcatd-form-button-remove"
+                  >
+                    Dataset verwijderen
+                  </button>
+                )}
+                onProceed={() => {
+                  this.props.onRemove(dataset);
+                }}
+              />
+              : ''}
           </div>
         </Form>
       </div>
@@ -163,7 +139,6 @@ class DatasetDetail extends Component {
 
 DatasetDetail.defaultProps = {
   id: null,
-  isModalOpen: false,
   dataset: {},
   resourceToDataset: {},
 
@@ -179,7 +154,6 @@ DatasetDetail.propTypes = {
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,
   id: PropTypes.string,
-  isModalOpen: PropTypes.bool,
   dataset: PropTypes.object,
   resourceToDataset: PropTypes.object,
 
