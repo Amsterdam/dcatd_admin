@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Modal as SemanticModal } from 'semantic-ui-react';
 
+import './modal.scss';
+
 class Modal extends Component {
   constructor(props) {
     super(props);
