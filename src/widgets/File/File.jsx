@@ -1,11 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+
+import { setResourceFilesize } from '../../actions/resource';
 
 import { getAccessToken } from '../../services/auth/auth';
 
 import './file.scss';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setResourceFilesize
+}, dispatch);
 
 class File extends Component {
   constructor(props) {
@@ -57,12 +65,15 @@ class File extends Component {
 
     xhr.onload = () => {
       // upload success
-      if (xhr.readyState === 4 && (xhr.status === 201 || xhr.status === 200 || xhr.status === 0)) {
+      if (xhr.readyState === 4 && (xhr.status === 201 || xhr.statustext === 'Created')) {
         this.setState({
           status: 'done',
           url: xhr.getResponseHeader('Location'),
           value: xhr.getResponseHeader('Location')
         });
+
+        this.props.setResourceFilesize(this.state.total);
+        console.log('dispatch xhr', xhr, this.state.total);
       }
     };
 
@@ -171,7 +182,11 @@ File.propTypes = {
   url: PropTypes.string,
   value: PropTypes.string,
 
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  setResourceFilesize: PropTypes.func.isRequired
 };
 
-export default File;
+export default connect(
+  null,
+  mapDispatchToProps
+)(File);
