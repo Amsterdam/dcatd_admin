@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import defer from 'lodash.defer';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
@@ -32,8 +33,12 @@ class ResourceDetail extends Component {
 
   componentWillReceiveProps(props) {
     this.setState({
-      uiResource: props.uiResource,
-      formData: props.formData
+      uiResource: { ...props.uiResource },
+      formData: { ...props.formData }
+    });
+
+    defer(() => {
+      this.setVisibilityOfFields(props.formData);
     });
   }
 
