@@ -5,6 +5,7 @@ import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
 import Modal from '../Modal/Modal';
+import transformErrors from '../../services/transform-errors/transform-errors';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -97,6 +98,7 @@ class DatasetDetail extends Component {
           uiSchema={this.props.uiDataset}
           noHtml5Validate
           showErrorList={false}
+          transformErrors={transformErrors}
           onSubmit={event => this.handleSubmit(event)}
           onChange={event => console.log('DATASET CHANGE', event.formData)}
         >
