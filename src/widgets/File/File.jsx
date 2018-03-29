@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import { setResourceFilesize } from '../../actions/resource';
+import { setResourceSpecs } from '../../actions/resource';
 
 import { getAccessToken } from '../../services/auth/auth';
 
@@ -12,7 +12,7 @@ import './file.scss';
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setResourceFilesize
+  setResourceSpecs
 }, dispatch);
 
 class File extends Component {
@@ -71,8 +71,10 @@ class File extends Component {
           url: xhr.getResponseHeader('Location'),
           value: xhr.getResponseHeader('Location')
         });
-
-        this.props.setResourceFilesize(this.state.total);
+        this.props.setResourceSpecs({
+          'dcat:byteSize': this.state.total,
+          'dct:format': files[0].type
+        });
       }
     };
 
@@ -182,7 +184,7 @@ File.propTypes = {
   value: PropTypes.string,
 
   onChange: PropTypes.func.isRequired,
-  setResourceFilesize: PropTypes.func.isRequired
+  setResourceSpecs: PropTypes.func.isRequired
 };
 
 export default connect(

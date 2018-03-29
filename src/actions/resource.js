@@ -1,6 +1,6 @@
 export const SET_RESOURCE_SUCCESS = 'SET_RESOURCE_SUCCESS';
 export const EMPTY_RESOURCE_SUCCESS = 'EMPTY_RESOURCE_SUCCESS';
-export const SET_RESOURCE_FILESIZE_SUCCESS = 'SET_RESOURCE_FILESIZE_SUCCESS';
+export const SET_RESOURCE_SPECS_SUCCESS = 'SET_RESOURCE_SPECS_SUCCESS';
 
 export function setResourceSuccess(resource) {
   return {
@@ -28,15 +28,15 @@ export function emptyResource(resource) {
   };
 }
 
-export function setResourceFilesizeSuccess(filesize) {
+export function setResourceSpecsSuccess(specs) {
   return {
-    type: SET_RESOURCE_FILESIZE_SUCCESS,
-    filesize
+    type: SET_RESOURCE_SPECS_SUCCESS,
+    specs
   };
 }
 
-export function setResourceFilesize(filesize) {
+export function setResourceSpecs(specs) {
   return (dispatch) => {
-    return dispatch(setResourceFilesizeSuccess(filesize));
+    return dispatch(setResourceSpecsSuccess(specs));
   };
 }

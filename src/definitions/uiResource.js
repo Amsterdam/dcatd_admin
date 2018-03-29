@@ -14,6 +14,9 @@ export default {
     'ui:widget': 'file',
     'ui:placeholder': 'http://'
   },
+  'dcat:byteSize': {
+    'ui:readonly': true
+  },
   'ams:classification': {
     'ui:widget': 'hidden'
   },
