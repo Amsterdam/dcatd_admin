@@ -2,11 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Menu } from 'semantic-ui-react';
 
+import Logo from '../styling/logo.svg';
+
 import { logout } from '../services/auth/auth';
 
 const Header = () => (
-  <Menu fixed="top" inverted>
+  <Menu fixed="top">
     <Container>
+      <Logo />
       <Menu.Item header>
         <NavLink to="/dcatd_admin/datasets">
           DataPunt catalogus beheer

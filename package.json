@@ -5,7 +5,8 @@
   "homepage": "/dcatd_admin/",
   "devDependencies": {
     "enzyme": "^2.8.2",
-    "react-test-renderer": "^15.6.2"
+    "react-test-renderer": "^15.6.2",
+    "svg-react-loader": "^0.4.5"
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
