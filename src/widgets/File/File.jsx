@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import defer from 'lodash.defer';
 
 import { setResourceSpecs } from '../../actions/resource';
 
@@ -37,6 +38,10 @@ class File extends Component {
     this.setState({
       value: props.value
     });
+
+    if (props.value) {
+      this.resetFile();
+    }
   }
 
   processFile(files) {
@@ -66,14 +71,20 @@ class File extends Component {
     xhr.onload = () => {
       // upload success
       if (xhr.readyState === 4 && (xhr.status === 201 || xhr.statustext === 'Created')) {
+        const location = xhr.getResponseHeader('Location');
         this.setState({
           status: 'done',
-          url: xhr.getResponseHeader('Location'),
-          value: xhr.getResponseHeader('Location')
+          url: location,
+          value: location
         });
+
         this.props.setResourceSpecs({
           'dcat:byteSize': this.state.total,
           'dct:format': files[0].type
+        });
+
+        defer(() => {
+          this.handleChange(location);
         });
       }
     };

@@ -11,11 +11,7 @@ export default function (state = initialState, action) {
     case FETCH_DATASET_SUCCESS:
       return {
         ...action.dataset,
-        'dcat:distribution': (action.dataset['dcat:distribution'] ? [...action.dataset['dcat:distribution']]
-          .map((distribution) => {
-            distribution['@id'] = `_:${Math.random().toString(36).substr(2, 10)}`;
-            return distribution;
-          }) : [])
+        'dcat:distribution': [...action.dataset['dcat:distribution']]
       };
 
     case EMPTY_DATASET_SUCCESS:
