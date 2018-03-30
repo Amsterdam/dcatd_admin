@@ -30,6 +30,7 @@ class ResourceDetail extends Component {
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.hasResource = this.hasResource.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -85,8 +86,8 @@ class ResourceDetail extends Component {
     });
   }
 
-  hasDataset() {
-    return this.props.id && this.props.id !== 'new';
+  hasResource() {
+    return this.props.formData['@id'];
   }
 
   handleSubmit(formData) {
@@ -128,24 +129,26 @@ class ResourceDetail extends Component {
               type="button"
             >
               Annuleren</button>
-            <Modal
-              ref={(ref) => { this.modal = ref; }}
-              content="Door de resource te verwijderen, gaan alle gegevens verloren."
-              actionLabel="Resource verwijderen"
-              trigger={(
-                <button
-                  onClick={() => this.modal.handleShowState(true)}
-                  type="button"
-                  className="dcatd-form-button dcatd-form-button-remove"
-                >
-                  Resource verwijderen
-                </button>
-              )}
-              onProceed={() => {
-                console.log('proceed');
-                // this.props.onRemove(dataset);
-              }}
-            />
+            {this.hasResource() ?
+              <Modal
+                ref={(ref) => { this.modal = ref; }}
+                content="Door de resource te verwijderen, gaan alle gegevens verloren."
+                actionLabel="Resource verwijderen"
+                trigger={(
+                  <button
+                    onClick={() => this.modal.handleShowState(true)}
+                    type="button"
+                    className="dcatd-form-button dcatd-form-button-remove"
+                  >
+                    Resource verwijderen
+                  </button>
+                )}
+                onProceed={() => {
+                  console.log('proceed to remove resource');
+                  // this.props.onRemove(dataset);
+                }}
+              />
+              : ''}
           </div>
         </Form>
       </div>
@@ -154,15 +157,13 @@ class ResourceDetail extends Component {
 }
 
 ResourceDetail.defaultProps = {
-  formData: {},
-  id: null
+  formData: {}
 };
 
 ResourceDetail.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
-  id: PropTypes.string,
 
   handleResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired
