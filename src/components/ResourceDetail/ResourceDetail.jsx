@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import defer from 'lodash.defer';
+import defer from 'lodash.defer';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
@@ -35,20 +35,17 @@ class ResourceDetail extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log('ResourceDetail componentWillReceiveProps', props);
-
     this.setState({
       uiResource: { ...props.uiResource },
       formData: { ...props.formData }
     });
 
-    // defer(() => {
-    //   this.setVisibilityOfFields(props.formData);
-    // });
+    defer(() => {
+      this.setVisibilityOfFields(this.state.formData);
+    });
   }
 
   setVisibilityOfFields(formData) {
-    console.log('ResourceDetail ONCHANGE setVisibilityOfFields', formData);
     if (formData['ams:distributionType'] === 'file') {
       this.showField('dct:format', 'select');
     } else {
