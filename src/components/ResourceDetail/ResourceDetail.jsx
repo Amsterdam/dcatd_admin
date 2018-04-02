@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import defer from 'lodash.defer';
+// import defer from 'lodash.defer';
 
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
@@ -31,20 +31,24 @@ class ResourceDetail extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.hasResource = this.hasResource.bind(this);
+    this.setResourceSpecs = this.setResourceSpecs.bind(this);
   }
 
   componentWillReceiveProps(props) {
+    console.log('ResourceDetail componentWillReceiveProps', props);
+
     this.setState({
       uiResource: { ...props.uiResource },
       formData: { ...props.formData }
     });
 
-    defer(() => {
-      this.setVisibilityOfFields(props.formData);
-    });
+    // defer(() => {
+    //   this.setVisibilityOfFields(props.formData);
+    // });
   }
 
   setVisibilityOfFields(formData) {
+    console.log('ResourceDetail ONCHANGE setVisibilityOfFields', formData);
     if (formData['ams:distributionType'] === 'file') {
       this.showField('dct:format', 'select');
     } else {
@@ -61,6 +65,16 @@ class ResourceDetail extends Component {
       formData: {
         ...formData
       }
+    });
+  }
+
+  setResourceSpecs(values) {
+    this.setState({
+      formData: {
+        ...this.state.formData,
+        ...values
+      }
+
     });
   }
 
@@ -108,6 +122,9 @@ class ResourceDetail extends Component {
           idPrefix="resource"
           schema={this.props.schema}
           formData={formData}
+          formContext={{
+            setResourceSpecs: this.setResourceSpecs
+          }}
           widgets={widgets}
           fields={fields}
           uiSchema={this.state.uiResource}

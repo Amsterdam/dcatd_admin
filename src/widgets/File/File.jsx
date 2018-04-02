@@ -1,20 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
 import defer from 'lodash.defer';
-
-import { setResourceSpecs } from '../../actions/resource';
 
 import { getAccessToken } from '../../services/auth/auth';
 
 import './file.scss';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  setResourceSpecs
-}, dispatch);
 
 class File extends Component {
   constructor(props) {
@@ -39,7 +31,7 @@ class File extends Component {
       value: props.value
     });
 
-    if (props.value) {
+    if (!props.value) {
       this.resetFile();
     }
   }
@@ -78,10 +70,14 @@ class File extends Component {
           value: location
         });
 
-        this.props.setResourceSpecs({
-          'dcat:byteSize': this.state.total,
-          'dct:format': files[0].type
-        });
+        if (this.props.registry.formContext && this.props.registry.formContext.setResourceSpecs) {
+          this.props.registry.formContext.setResourceSpecs({
+            'dcat:byteSize': this.state.total,
+            'dct:format': files[0].type
+          });
+        }
+
+        this.props.onChange(location);
 
         defer(() => {
           this.handleChange(location);
@@ -174,6 +170,7 @@ File.defaultProps = {
   label: '',
   placeholder: '',
   loaded: 0,
+  registry: {},
   status: 'idle',
   total: 0,
   url: '',
@@ -188,17 +185,14 @@ File.propTypes = {
   loaded: PropTypes.number,
   placeholder: PropTypes.string,
   readonly: PropTypes.bool.isRequired,
+  registry: PropTypes.object,
   required: PropTypes.bool.isRequired,
   status: PropTypes.string,
   total: PropTypes.number,
   url: PropTypes.string,
   value: PropTypes.string,
 
-  onChange: PropTypes.func.isRequired,
-  setResourceSpecs: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(File);
+export default File;
