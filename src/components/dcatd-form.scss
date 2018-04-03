@@ -10,6 +10,18 @@
 
     font-size: 16px;
     margin-bottom: 2px;
+
+    .required {
+      color: transparent;
+
+      &::after {
+        @extend %light-font;
+
+        color: $brownish-grey;
+        content: "(optioneel)";
+        font-size: 14px;
+      }
+    }
   }
 
   .field-description {
