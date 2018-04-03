@@ -1,6 +1,4 @@
-import { SET_RESOURCE_SUCCESS,
-  EMPTY_RESOURCE_SUCCESS,
-  SET_RESOURCE_SPECS_SUCCESS } from '../actions/resource';
+import { SET_RESOURCE_SUCCESS, EMPTY_RESOURCE_SUCCESS } from '../actions/resource';
 
 const initialState = {};
 
@@ -13,12 +11,6 @@ export default function (state = initialState, action) {
 
     case EMPTY_RESOURCE_SUCCESS:
       return {};
-
-    case SET_RESOURCE_SPECS_SUCCESS:
-      return {
-        ...state,
-        ...action.specs
-      };
 
     default:
       return state;

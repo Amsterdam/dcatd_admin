@@ -40,18 +40,11 @@ class DatasetsContainer extends Component {
     };
 
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
-    this.emptyResourceToDataset = this.emptyResourceToDataset.bind(this);
   }
 
   handleResourceToDataset(resource) {
     this.setState({
       resourceToDataset: resource
-    });
-  }
-
-  emptyResourceToDataset() {
-    this.setState({
-      resourceToDataset: {}
     });
   }
 
@@ -96,7 +89,6 @@ class DatasetsContainer extends Component {
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
                 onEmptyResource={this.props.onEmptyResource}
-                emptyResourceToDataset={this.emptyResourceToDataset}
               />
             </div>
           )}
@@ -120,11 +112,11 @@ class DatasetsContainer extends Component {
               />
               <DatasetDetail
                 schema={this.props.schema}
+                resourceToDataset={this.state.resourceToDataset}
                 uiDataset={this.props.uiDataset}
                 uiResource={this.props.uiResource}
                 onCreate={this.props.onCreate}
                 onEmptyResource={this.props.onEmptyResource}
-                emptyResourceToDataset={this.emptyResourceToDataset}
               />
             </div>
           )}

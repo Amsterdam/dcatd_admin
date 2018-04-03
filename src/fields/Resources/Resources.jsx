@@ -38,6 +38,7 @@ class Resources extends Component {
 
   handleAddResource(type) {
     this.props.setResource({
+      'ams:classification': 'public',
       'ams:resourceType': type
     });
   }

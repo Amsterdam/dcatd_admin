@@ -158,8 +158,10 @@ class ResourceDetail extends Component {
                   </button>
                 )}
                 onProceed={() => {
-                  console.log('proceed to remove resource');
-                  // this.props.onRemove(dataset);
+                  this.handleSubmit({
+                    '@id': formData['@id'],
+                    'dcat:accessURL': 'remove'
+                  });
                 }}
               />
               : ''}

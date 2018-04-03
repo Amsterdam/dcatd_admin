@@ -41,25 +41,33 @@ class DatasetDetail extends Component {
   }
 
   componentWillReceiveProps(props) {
+    this.setState({
+      dataset: { ...props.dataset }
+    });
+
     if (props.resourceToDataset['dcat:accessURL']) {
       this.handleResourceToDataset(props.resourceToDataset);
-    } else {
-      this.setState({
-        dataset: { ...props.dataset }
-      });
     }
   }
 
   handleResourceToDataset(resource) {
-    let distributions = [...this.state.dataset['dcat:distribution']];
-    if (resource['@id']) {
-      distributions = distributions.map((distribution) => {
-        if (distribution['@id'] === resource['@id']) {
-          return { ...resource };
-        }
-        return { ...distribution };
-      });
+    let distributions = [...this.state.dataset['dcat:distribution'] || []];
+    const id = resource['@id'];
+
+    if (id) {
+      if (resource['dcat:accessURL'] === 'remove') {
+        // remove resource
+        distributions = distributions.filter(distribution => distribution['@id'] !== id);
+      } else {
+        distributions = distributions.map((distribution) => {
+          if (distribution['@id'] === id) {
+            return { ...resource };
+          }
+          return { ...distribution };
+        });
+      }
     } else {
+      // create new resource
       resource['@id'] = `_:${Math.random().toString(36).substr(2, 10)}`;
       distributions.push(resource);
     }

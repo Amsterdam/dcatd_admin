@@ -75,7 +75,7 @@ export function updateDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      // .then(() => dispatch(fetchDataset(dataset)))
+      .then(() => dispatch(fetchDataset(dataset['dct:identifier'])))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
         dispatch(push('/dcatd_admin/datasets'));
