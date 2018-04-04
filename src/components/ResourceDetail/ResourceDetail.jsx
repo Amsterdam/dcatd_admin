@@ -28,10 +28,11 @@ class ResourceDetail extends Component {
     };
 
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
+    this.setFieldState = this.setFieldState.bind(this);
+    this.setResourceSpecs = this.setResourceSpecs.bind(this);
+    this.hasResource = this.hasResource.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
-    this.hasResource = this.hasResource.bind(this);
-    this.setResourceSpecs = this.setResourceSpecs.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -47,20 +48,32 @@ class ResourceDetail extends Component {
 
   setVisibilityOfFields(formData) {
     if (formData['ams:distributionType'] === 'file') {
-      this.showField('dct:format', 'select');
+      this.setFieldState('dct:format', 'select');
     } else {
-      this.hideField('dct:format');
+      this.setFieldState('dct:format', 'hidden');
     }
 
     if (formData['ams:distributionType'] === 'api') {
-      this.showField('ams:serviceType', 'select');
+      this.setFieldState('ams:serviceType', 'select');
     } else {
-      this.hideField('ams:serviceType');
+      this.setFieldState('ams:serviceType', 'hidden');
     }
 
     this.setState({
       formData: {
         ...formData
+      }
+    });
+  }
+
+  setFieldState(name, value) {
+    this.setState({
+      uiResource: {
+        ...this.state.uiResource,
+        [name]: {
+          ...this.state.uiResource[name],
+          'ui:widget': value
+        }
       }
     });
   }
@@ -72,28 +85,6 @@ class ResourceDetail extends Component {
         ...values
       }
 
-    });
-  }
-
-  showField(name, type = 'text') {
-    this.setState({
-      uiResource: {
-        ...this.state.uiResource,
-        [name]: {
-          'ui:widget': type
-        }
-      }
-    });
-  }
-
-  hideField(name) {
-    this.setState({
-      uiResource: {
-        ...this.state.uiResource,
-        [name]: {
-          'ui:widget': 'hidden'
-        }
-      }
     });
   }
 

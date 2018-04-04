@@ -27,11 +27,12 @@ export default {
       format: 'markdown'
     }
   },
-  'dct:format': {
-    'ui:widget': 'hidden'
+  'ams:distributionType': {
+    'ui:placeholder': 'maak een keuze'
   },
-  'dct:identifier': {
-    'ui:widget': 'hidden'
+  'dct:format': {
+    'ui:widget': 'hidden',
+    'ui:placeholder': 'maak een keuze'
   },
   'dct:modified': {
     'ui:field': 'rdp',
@@ -41,7 +42,8 @@ export default {
     }
   },
   'ams:serviceType': {
-    'ui:widget': 'hidden'
+    'ui:widget': 'hidden',
+    'ui:placeholder': 'maak een keuze'
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
