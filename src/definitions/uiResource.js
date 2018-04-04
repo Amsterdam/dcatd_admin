@@ -16,7 +16,7 @@ export default {
     'ui:placeholder': 'http://'
   },
   'dcat:byteSize': {
-    'ui:readonly': true
+    'ui:widget': 'hidden'
   },
   'ams:classification': {
     'ui:widget': 'hidden'

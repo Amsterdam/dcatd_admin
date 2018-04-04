@@ -139,7 +139,6 @@
 
   .DayPickerInput {
     position: relative;
-    z-index: 2;
 
     &::after {
       @extend %icon-calendar;
@@ -149,7 +148,6 @@
       right: 0;
       top: 2px;
       width: 30px;
-      z-index: 1;
     }
   }
 
@@ -206,10 +204,7 @@
     &-Month {
       border-collapse: separate;
       border-spacing: 3px;
-      width: 100%;
-    }
-
-    &-Months {
+      width: 262px;
     }
 
     &-Day {
