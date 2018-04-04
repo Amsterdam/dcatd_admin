@@ -1,0 +1,16 @@
+@import "../../styling/config.scss";
+
+.header {
+  box-shadow: 0 2px 0 0 $warm-grey;
+  display: flex;
+  height: 50px;
+
+  .logo,
+  .title {
+    align-self: center;
+  }
+
+  .logo {
+    flex-basis: 87px;
+  }
+}

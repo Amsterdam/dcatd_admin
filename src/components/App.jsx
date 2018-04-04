@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 import { Container } from 'semantic-ui-react';
 
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import DatasetsContainer from '../containers/DatasetsContainer';
 
 const App = () => (
