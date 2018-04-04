@@ -1,4 +1,5 @@
-import { dayPickerProps } from './localization';
+import dayPickerProps from './day-picker';
+import rte from './rte';
 
 export default {
   'ui:field': [
@@ -22,10 +23,7 @@ export default {
   },
   'dct:description': {
     'ui:field': 'rte',
-    'ui:placeholder': 'tekst of markdown',
-    rte: {
-      format: 'markdown'
-    }
+    rte
   },
   'ams:distributionType': {
     'ui:placeholder': 'maak een keuze'

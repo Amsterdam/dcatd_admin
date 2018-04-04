@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import filesize from 'filesize';
-import { dateFormat } from '../../definitions/localization';
+import dateFormat from '../../definitions/date';
 
 import './resources-item.scss';
 

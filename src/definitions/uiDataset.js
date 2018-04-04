@@ -1,4 +1,5 @@
-import { dayPickerProps } from './localization';
+import dayPickerProps from './day-picker';
+import rte from './rte';
 
 export default {
   'ui:field': [
@@ -29,10 +30,7 @@ export default {
   },
   'dct:description': {
     'ui:field': 'rte',
-    'ui:placeholder': 'tekst of markdown',
-    rte: {
-      format: 'markdown'
-    }
+    rte
   },
   'dcat:landingPage': {
     'ui:placeholder': 'http://'
@@ -41,8 +39,6 @@ export default {
     'time:hasBeginning': {
       'ui:field': 'rdp',
       rdp: {
-        // hideOnDayClick: false,
-        // showOverlay: true,
         placeholder: 'Kies een datum',
         dayPickerProps
       }
