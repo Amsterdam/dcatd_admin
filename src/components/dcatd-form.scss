@@ -130,8 +130,16 @@
     }
   }
 
+  // rich text editor
+  .RichTextEditor__root___2QXK- {
+    border-color: $black;
+  }
+
+  // day picker
+
   .DayPickerInput {
     position: relative;
+    z-index: 2;
 
     &::after {
       @extend %icon-calendar;
@@ -141,6 +149,7 @@
       right: 0;
       top: 2px;
       width: 30px;
+      z-index: 1;
     }
   }
 
