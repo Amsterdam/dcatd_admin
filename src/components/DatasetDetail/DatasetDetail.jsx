@@ -6,6 +6,7 @@ import extraFields from 'react-jsonschema-form-extras';
 
 import Modal from '../Modal/Modal';
 import transformErrors from '../../services/transform-errors/transform-errors';
+import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -26,9 +27,9 @@ class DatasetDetail extends Component {
       dataset: props.dataset
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.hasDataset = this.hasDataset.bind(this);
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
+    this.hasDataset = this.hasDataset.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -107,6 +108,7 @@ class DatasetDetail extends Component {
           noHtml5Validate
           showErrorList={false}
           transformErrors={transformErrors}
+          onError={scrollToError}
           onSubmit={event => this.handleSubmit(event)}
           onChange={event => console.log('DATASET CHANGE', event.formData)}
         >

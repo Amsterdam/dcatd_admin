@@ -7,6 +7,7 @@ import extraFields from 'react-jsonschema-form-extras';
 
 import Modal from '../Modal/Modal';
 import transformErrors from '../../services/transform-errors/transform-errors';
+import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -119,6 +120,7 @@ class ResourceDetail extends Component {
           noHtml5Validate
           showErrorList={false}
           transformErrors={transformErrors}
+          onError={scrollToError}
           onSubmit={event => this.handleSubmit(event.formData)}
           onChange={event => this.setVisibilityOfFields(event.formData)}
         >
