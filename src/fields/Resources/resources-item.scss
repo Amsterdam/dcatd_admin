@@ -11,6 +11,10 @@
     margin-bottom: 2px;
   }
 
+  &__description {
+    color: $black;
+  }
+
   &__modified {
     color: $warm-grey;
     font-size: 14px;
@@ -29,6 +33,7 @@
 
   &__file-size {
     bottom: 0;
+    color: $black;
     position: absolute;
     right: 60px;
 

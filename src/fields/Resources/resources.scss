@@ -63,6 +63,11 @@
         display: flex;
         padding: 11px 20px;
         width: 100%;
+
+        &:hover {
+          background-color: $white-two;
+          text-decoration: none;
+        }
       }
 
       .resources-button-edit {

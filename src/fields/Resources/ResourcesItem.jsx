@@ -17,7 +17,7 @@ function getFileType(mime, fieldSchema) {
 }
 
 const ResourcesItem = ({ resource, schemaProps }) => (
-  <a className="resources-item" href={resource['dcat:accessURL']} target="_blank">
+  <div className="resources-item">
     <div className="resources-item__modified">
       {dateFormat.formatDate(resource['dct:modified'])}</div>
     <div className="resources-item__file-size">
@@ -27,7 +27,7 @@ const ResourcesItem = ({ resource, schemaProps }) => (
     <div className="resources-item__description">
       {getFileType(resource['dct:format'], schemaProps['dct:format'])}
       {resource['dct:description']}</div>
-  </a>
+  </div>
 );
 
 ResourcesItem.defaultProps = {

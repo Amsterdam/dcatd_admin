@@ -64,7 +64,9 @@ class Resources extends Component {
             </div>
             <div className="resources-type__content">
               {resources.filter(resource => resource['ams:resourceType'] === this.getResourceTypeSchema().enum[index]).map(resource => (
-                <div
+                <a
+                  href={resource['dcat:accessURL']}
+                  target="_blank"
                   className="resources-type__content-item"
                   key={resource['@id']}
                 >
@@ -77,7 +79,7 @@ class Resources extends Component {
                     onClick={() => this.handleEditResource(resource)}
                     className="resources-button resources-button-edit"
                   />
-                </div>
+                </a>
               ))}
             </div>
           </div>
