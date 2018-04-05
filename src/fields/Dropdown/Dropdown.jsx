@@ -46,7 +46,11 @@ class Dropdown extends Component {
 
   handleChange(event, { value }) {
     this.setState({ value });
-    this.props.onChange(value);
+    if (typeof value === 'string') {
+      this.props.onChange(value || undefined);
+    } else {
+      this.props.onChange(value.length > 0 ? value : undefined);
+    }
   }
 
   render() {
