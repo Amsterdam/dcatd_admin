@@ -28,7 +28,7 @@ describe('The auth service', () => {
         case 'returnPath':
           return savedReturnPath;
         default:
-          return;
+          return null;
       }
     });
     global.sessionStorage.setItem = jest.fn();
@@ -222,7 +222,7 @@ describe('The auth service', () => {
       login();
 
       expect(global.sessionStorage.removeItem).toHaveBeenCalledWith('accessToken');
-      expect(global.sessionStorage.setItem).toHaveBeenCalledWith('returnPath', pathname);
+      expect(global.sessionStorage.setItem).toHaveBeenCalledWith('returnPath', '/dcatd_admin/');
       expect(global.sessionStorage.setItem).toHaveBeenCalledWith('stateToken', stateToken);
     });
 
@@ -234,9 +234,9 @@ describe('The auth service', () => {
 
       login();
 
-      expect(global.location.href).toBe('https://acc.api.data.amsterdam.nl/' +
-        'oauth2/authorize?idp_id=datapunt&response_type=token&client_id=authz_admin&scope=AUR%2FR%20AUR%2FW' +
-        '&state=123StateToken&redirect_uri=https%3A%2F%2Fdata.amsterdam.nl%2F');
+      expect(global.location.href).toBe('https://acc.api.data.amsterdam.nl/oauth2/authorize' +
+        '?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=CAT%2FW&state=123StateToken' +
+        '&redirect_uri=https%3A%2F%2Fdata.amsterdam.nl%2Fdcatd_admin%2F');
     });
   });
 
@@ -288,16 +288,13 @@ describe('The auth service', () => {
     });
   });
 
-  describe('Retrieving the auth headers', () => {
-    it('Creates a new instance of the Headers class with the right headers set', () => {
-      savedAccessToken = '123AccessToken';
-      initAuth();
-      const authHeaders = getAuthHeaders();
+  it('Retrieves the auth headers object', () => {
+    savedAccessToken = '123AccessToken';
+    initAuth();
+    const authHeaders = getAuthHeaders();
 
-      expect(authHeaders instanceof global.Headers).toBe(true);
-      expect(global.Headers).toHaveBeenCalledWith({
-        Authorization: 'Bearer 123AccessToken'
-      });
+    expect(authHeaders).toEqual({
+      Authorization: 'Bearer 123AccessToken'
     });
   });
 });
