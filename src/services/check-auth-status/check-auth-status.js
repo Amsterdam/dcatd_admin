@@ -1,6 +1,6 @@
 import { login } from '../auth/auth';
 
-export default function () {
+export default () => {
   return (response) => {
     if (!response.ok && response.status === 401) {
       login();
@@ -9,4 +9,4 @@ export default function () {
     }
     return response;
   };
-}
+};

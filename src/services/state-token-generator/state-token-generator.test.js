@@ -1,12 +1,13 @@
 import stateTokenGenerator from './state-token-generator';
 
-describe('The state token generator service', function () {
+describe('The state token generator service', () => {
   const byteString = '048>IYceiv{ÈÌÐàð';
   const asciiString = 'abcd+efgh==';
 
-  let origBtoa, origCrypto;
+  let origBtoa;
+  let origCrypto;
 
-  beforeEach(function () {
+  beforeEach(() => {
     origBtoa = global.btoa;
     global.btoa = jest.fn();
     global.btoa.mockImplementation(() => asciiString);

@@ -30,7 +30,6 @@ class Modal extends Component {
     return (
       <SemanticModal
         open={open}
-        trigger={this.props.trigger}
         size="tiny"
       >
         <SemanticModal.Header>Let op!</SemanticModal.Header>
@@ -63,7 +62,7 @@ Modal.defaultProps = {
   content: 'Weet u het zeker?',
   actionLabel: 'OK',
   open: false,
-  trigger: {},
+
   onProceed: () => {}
 };
 
@@ -71,7 +70,6 @@ Modal.propTypes = {
   content: PropTypes.string,
   actionLabel: PropTypes.string,
   open: PropTypes.bool,
-  trigger: PropTypes.object,
   onProceed: PropTypes.func
 };
 

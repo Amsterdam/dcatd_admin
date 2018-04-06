@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Modal } from 'semantic-ui-react';
 
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
   from '../actions/dataset';
@@ -36,7 +37,8 @@ class DatasetsContainer extends Component {
     super(props);
 
     this.state = {
-      resourceToDataset: props.resourceToDataset
+      resourceToDataset: props.resourceToDataset,
+      showModal: props.showModal
     };
 
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
@@ -121,6 +123,15 @@ class DatasetsContainer extends Component {
             </div>
           )}
         />
+        <Modal
+          open={this.state.showModal}
+          content="Door de dataset te verwijderen, gaan alle gegevens verloren."
+          actionLabel="Dataset verwijderen"
+          onProceed={() => {
+            console.log('PROCEED');
+            // this.props.onRemove(dataset);
+          }}
+        />
       </section>
     );
   }
@@ -131,6 +142,7 @@ DatasetsContainer.defaultProps = {
   datasets: [],
   resource: {},
   match: null,
+  showModal: false,
   resourceToDataset: {},
 
   onFetch: () => {}
@@ -142,6 +154,8 @@ DatasetsContainer.propTypes = {
   datasets: PropTypes.arrayOf(PropTypes.object),
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,
+  showModal: PropTypes.bool,
+
   onFetch: PropTypes.func.isRequired,
   onEmpty: PropTypes.func.isRequired,
   onCreate: PropTypes.func.isRequired,

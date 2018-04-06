@@ -9,7 +9,7 @@
  * @returns {string} 16 random Ascii characters, empty in case the
  * `crypto` library is not available.
  */
-export default function () {
+export default () => {
   // Backwards compatible with msCrypto in IE11
   const cryptoLib = crypto ||
     msCrypto; // eslint-disable-line no-undef
@@ -29,4 +29,4 @@ export default function () {
     .from(list) // convert to normal array
     .map(n => String.fromCharCode(n)) // convert each integer to a character
     .join('')); // convert to a string of characters
-}
+};
