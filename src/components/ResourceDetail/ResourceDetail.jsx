@@ -5,7 +5,7 @@ import defer from 'lodash.defer';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import Modal from '../Modal/Modal';
+// import Modal from '../Modal/Modal';
 import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import localFields from '../../fields';
@@ -137,26 +137,23 @@ class ResourceDetail extends Component {
             >
               Annuleren</button>
             {this.hasResource() ?
-              <Modal
-                ref={(ref) => { this.modal = ref; }}
-                content="Door de resource te verwijderen, gaan alle gegevens verloren."
-                actionLabel="Resource verwijderen"
-                trigger={(
-                  <button
-                    onClick={() => this.modal.handleShowState(true)}
-                    type="button"
-                    className="dcatd-form-button dcatd-form-button-remove"
-                  >
-                    Resource verwijderen
-                  </button>
-                )}
-                onProceed={() => {
-                  this.handleSubmit({
-                    '@id': formData['@id'],
-                    'dcat:accessURL': 'remove'
-                  });
-                }}
-              />
+              <button
+                onClick={() => this.props.onUpdateModal({
+                  actionLabel: 'Resource verwijderen',
+                  content: 'Door de resource te verwijderen, gaan alle gegevens van de resource verloren',
+                  open: true,
+                  onProceed: () => {
+                    this.handleSubmit({
+                      '@id': formData['@id'],
+                      'dcat:accessURL': 'remove'
+                    });
+                  }
+                })}
+                type="button"
+                className="dcatd-form-button dcatd-form-button-remove"
+              >
+                Resource verwijderen
+              </button>
               : ''}
           </div>
         </Form>
@@ -175,7 +172,8 @@ ResourceDetail.propTypes = {
   uiResource: PropTypes.object.isRequired,
 
   handleResourceToDataset: PropTypes.func.isRequired,
-  onEmptyResource: PropTypes.func.isRequired
+  onEmptyResource: PropTypes.func.isRequired,
+  onUpdateModal: PropTypes.func.isRequired
 };
 
 export default ResourceDetail;

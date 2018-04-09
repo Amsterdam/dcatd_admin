@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { Modal } from 'semantic-ui-react';
 
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
   from '../actions/dataset';
@@ -11,6 +10,7 @@ import { emptyResource } from '../actions/resource';
 import DatasetList from '../components/DatasetList';
 import DatasetDetail from '../components/DatasetDetail/DatasetDetail';
 import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
+import Modal from '../components/Modal/Modal';
 
 import './datasets-container.scss';
 
@@ -38,15 +38,28 @@ class DatasetsContainer extends Component {
 
     this.state = {
       resourceToDataset: props.resourceToDataset,
-      showModal: props.showModal
+      modal: props.modal
     };
 
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
+    this.handleModal = this.handleModal.bind(this);
+  }
+
+  componentWillReceiveProps(props) {
+    this.setState({
+      modal: props.modal
+    });
   }
 
   handleResourceToDataset(resource) {
     this.setState({
       resourceToDataset: resource
+    });
+  }
+
+  handleModal(modal) {
+    this.setState({
+      modal
     });
   }
 
@@ -78,6 +91,7 @@ class DatasetsContainer extends Component {
                 formData={this.props.resource}
                 handleResourceToDataset={this.handleResourceToDataset}
                 onEmptyResource={this.props.onEmptyResource}
+                onUpdateModal={this.handleModal}
               />
               <DatasetDetail
                 id={this.props.match.params.id}
@@ -91,6 +105,7 @@ class DatasetsContainer extends Component {
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
                 onEmptyResource={this.props.onEmptyResource}
+                onUpdateModal={this.handleModal}
               />
             </div>
           )}
@@ -111,6 +126,7 @@ class DatasetsContainer extends Component {
                 formData={this.props.resource}
                 handleResourceToDataset={this.handleResourceToDataset}
                 onEmptyResource={this.props.onEmptyResource}
+                onUpdateModal={this.handleModal}
               />
               <DatasetDetail
                 schema={this.props.schema}
@@ -119,18 +135,16 @@ class DatasetsContainer extends Component {
                 uiResource={this.props.uiResource}
                 onCreate={this.props.onCreate}
                 onEmptyResource={this.props.onEmptyResource}
+                onUpdateModal={this.handleModal}
               />
             </div>
           )}
         />
         <Modal
-          open={this.state.showModal}
-          content="Door de dataset te verwijderen, gaan alle gegevens verloren."
-          actionLabel="Dataset verwijderen"
-          onProceed={() => {
-            console.log('PROCEED');
-            // this.props.onRemove(dataset);
-          }}
+          open={this.state.modal.open}
+          content={this.state.modal.content}
+          actionLabel={this.state.modal.actionLabel}
+          onProceed={this.state.modal.onProceed}
         />
       </section>
     );
@@ -142,7 +156,12 @@ DatasetsContainer.defaultProps = {
   datasets: [],
   resource: {},
   match: null,
-  showModal: false,
+  modal: {
+    actionLabel: 'foo',
+    content: 'bar',
+    open: false,
+    onProceed: () => {}
+  },
   resourceToDataset: {},
 
   onFetch: () => {}
@@ -152,9 +171,9 @@ DatasetsContainer.propTypes = {
   match: PropTypes.object,
   dataset: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
+  modal: PropTypes.object,
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,
-  showModal: PropTypes.bool,
 
   onFetch: PropTypes.func.isRequired,
   onEmpty: PropTypes.func.isRequired,

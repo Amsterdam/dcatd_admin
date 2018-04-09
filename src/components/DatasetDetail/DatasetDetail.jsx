@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-import Modal from '../Modal/Modal';
+// import Modal from '../Modal/Modal';
 import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import localFields from '../../fields';
@@ -124,23 +124,20 @@ class DatasetDetail extends Component {
             >
               Annuleren</button>
             {this.hasDataset() ?
-              <Modal
-                ref={(ref) => { this.modal = ref; }}
-                content="Door de dataset te verwijderen, gaan alle gegevens verloren."
-                actionLabel="Dataset verwijderen"
-                trigger={(
-                  <button
-                    onClick={() => this.modal.handleShowState(true)}
-                    type="button"
-                    className="dcatd-form-button dcatd-form-button-remove"
-                  >
-                    Dataset verwijderen
-                  </button>
-                )}
-                onProceed={() => {
-                  this.props.onRemove(dataset);
-                }}
-              />
+              <button
+                onClick={() => this.props.onUpdateModal({
+                  actionLabel: 'Dataset verwijderen',
+                  content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
+                  open: true,
+                  onProceed: () => {
+                    this.props.onRemove(dataset);
+                  }
+                })}
+                type="button"
+                className="dcatd-form-button dcatd-form-button-remove"
+              >
+                Dataset verwijderen
+              </button>
               : ''}
           </div>
         </Form>
@@ -159,7 +156,8 @@ DatasetDetail.defaultProps = {
   onCreate: () => {},
   onRemove: () => {},
   onUpdate: () => {},
-  onEmptyResource: () => {}
+  onEmptyResource: () => {},
+  onUpdateModal: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -174,7 +172,8 @@ DatasetDetail.propTypes = {
   onCreate: PropTypes.func,
   onRemove: PropTypes.func,
   onUpdate: PropTypes.func,
-  onEmptyResource: PropTypes.func
+  onEmptyResource: PropTypes.func,
+  onUpdateModal: PropTypes.func
 };
 
 export default DatasetDetail;
