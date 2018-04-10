@@ -7,10 +7,12 @@ import { bindActionCreators } from 'redux';
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
   from '../actions/dataset';
 import { emptyResource } from '../actions/resource';
+import { setModal } from '../actions/modal';
+
 import DatasetList from '../components/DatasetList';
 import DatasetDetail from '../components/DatasetDetail/DatasetDetail';
 import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
-import Modal from '../components/Modal/Modal';
+// import Modal from '../components/Modal/Modal';
 
 import './datasets-container.scss';
 
@@ -29,7 +31,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   onCreate: createDataset,
   onRemove: removeDataset,
   onUpdate: updateDataset,
-  onEmptyResource: emptyResource
+  onEmptyResource: emptyResource,
+  onSetModal: setModal
 }, dispatch);
 
 class DatasetsContainer extends Component {
@@ -37,19 +40,19 @@ class DatasetsContainer extends Component {
     super(props);
 
     this.state = {
-      resourceToDataset: props.resourceToDataset,
-      modal: props.modal
+      resourceToDataset: props.resourceToDataset
+      // modal: props.modal
     };
 
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
-    this.handleModal = this.handleModal.bind(this);
+    // this.handleModal = this.handleModal.bind(this);
   }
 
-  componentWillReceiveProps(props) {
-    this.setState({
-      modal: props.modal
-    });
-  }
+  // componentWillReceiveProps(props) {
+  //   this.setState({
+  //     modal: props.modal
+  //   });
+  // }
 
   handleResourceToDataset(resource) {
     this.setState({
@@ -57,11 +60,11 @@ class DatasetsContainer extends Component {
     });
   }
 
-  handleModal(modal) {
-    this.setState({
-      modal
-    });
-  }
+  // handleModal(modal) {
+  //   this.setState({
+  //     modal
+  //   });
+  // }
 
   render() {
     return (
@@ -91,7 +94,7 @@ class DatasetsContainer extends Component {
                 formData={this.props.resource}
                 handleResourceToDataset={this.handleResourceToDataset}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.handleModal}
+                onUpdateModal={this.props.onSetModal}
               />
               <DatasetDetail
                 id={this.props.match.params.id}
@@ -105,7 +108,7 @@ class DatasetsContainer extends Component {
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.handleModal}
+                onUpdateModal={this.props.onSetModal}
               />
             </div>
           )}
@@ -126,7 +129,7 @@ class DatasetsContainer extends Component {
                 formData={this.props.resource}
                 handleResourceToDataset={this.handleResourceToDataset}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.handleModal}
+                onUpdateModal={this.props.onSetModal}
               />
               <DatasetDetail
                 schema={this.props.schema}
@@ -135,16 +138,10 @@ class DatasetsContainer extends Component {
                 uiResource={this.props.uiResource}
                 onCreate={this.props.onCreate}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.handleModal}
+                onUpdateModal={this.props.onSetModal}
               />
             </div>
           )}
-        />
-        <Modal
-          open={this.state.modal.open}
-          content={this.state.modal.content}
-          actionLabel={this.state.modal.actionLabel}
-          onProceed={this.state.modal.onProceed}
         />
       </section>
     );
@@ -156,12 +153,12 @@ DatasetsContainer.defaultProps = {
   datasets: [],
   resource: {},
   match: null,
-  modal: {
-    actionLabel: 'foo',
-    content: 'bar',
-    open: false,
-    onProceed: () => {}
-  },
+  // modal: {
+  //   actionLabel: 'foo',
+  //   content: 'bar',
+  //   open: false,
+  //   onProceed: () => {}
+  // },
   resourceToDataset: {},
 
   onFetch: () => {}
@@ -171,7 +168,7 @@ DatasetsContainer.propTypes = {
   match: PropTypes.object,
   dataset: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
-  modal: PropTypes.object,
+  // modal: PropTypes.object,
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,
 
@@ -181,6 +178,7 @@ DatasetsContainer.propTypes = {
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,
+  onSetModal: PropTypes.func.isRequired,
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired

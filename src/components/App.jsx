@@ -4,6 +4,7 @@ import { Container } from 'semantic-ui-react';
 
 import Header from '../components/Header/Header';
 import DatasetsContainer from '../containers/DatasetsContainer';
+import Modal from '../components/Modal/Modal';
 
 const App = () => (
   <div>
@@ -18,6 +19,7 @@ const App = () => (
       />
       <Route exact path="/dcatd_admin/datasets/:id?" component={DatasetsContainer} />
     </Container>
+    <Modal />
   </div>
 );
 

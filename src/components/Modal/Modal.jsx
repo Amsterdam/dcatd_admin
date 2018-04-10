@@ -1,62 +1,49 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Modal as SemanticModal } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
+import { setModal } from '../../actions/modal';
 
 import './modal.scss';
 
-class Modal extends Component {
-  constructor(props) {
-    super(props);
+const mapStateToProps = state => ({
+  modal: state.modal
+});
 
-    this.state = {
-      open: props.open
-    };
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setModal
+}, dispatch);
 
-    this.handleShowState = this.handleShowState.bind(this);
-  }
-
-  componentWillReceiveProps(props) {
-    this.handleShowState(props.open);
-  }
-
-  handleShowState(state) {
-    this.setState({
-      open: state
-    });
-  }
-
-  render() {
-    const { open } = this.state;
-    return (
-      <SemanticModal
-        open={open}
-        size="tiny"
+const Modal = props => (
+  <SemanticModal
+    open={props.modal.open}
+    size="tiny"
+  >
+    <SemanticModal.Header>Let op!</SemanticModal.Header>
+    <SemanticModal.Content>
+      {props.modal.content}
+    </SemanticModal.Content>
+    <SemanticModal.Actions>
+      <button
+        onClick={() => {
+          props.setModal({ open: false });
+          props.modal.onProceed();
+        }}
+        className="dcatd-form-button dcatd-form-button-submit"
       >
-        <SemanticModal.Header>Let op!</SemanticModal.Header>
-        <SemanticModal.Content>
-          {this.props.content}
-        </SemanticModal.Content>
-        <SemanticModal.Actions>
-          <button
-            onClick={() => {
-              this.handleShowState(false);
-              this.props.onProceed();
-            }}
-            className="dcatd-form-button dcatd-form-button-submit"
-          >
-            {this.props.actionLabel}
-          </button>
-          <button
-            onClick={() => this.handleShowState(false)}
-            className="dcatd-form-button"
-          >
-            Annuleren
-          </button>
-        </SemanticModal.Actions>
-      </SemanticModal>
-    );
-  }
-}
+        {props.modal.actionLabel}
+      </button>
+      <button
+        onClick={() => props.setModal({ open: false })}
+        className="dcatd-form-button"
+      >
+        Annuleren
+      </button>
+    </SemanticModal.Actions>
+  </SemanticModal>
+);
 
 Modal.defaultProps = {
   content: 'Weet u het zeker?',
@@ -67,11 +54,11 @@ Modal.defaultProps = {
 };
 
 Modal.propTypes = {
-  content: PropTypes.string,
-  actionLabel: PropTypes.string,
-  open: PropTypes.bool,
-  onProceed: PropTypes.func
+  modal: PropTypes.object.isRequired,
+  setModal: PropTypes.func.isRequired
 };
 
-
-export default Modal;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Modal);
