@@ -45,7 +45,6 @@ class DatasetDetail extends Component {
   }
 
   componentWillReceiveProps(props) {
-    console.log('componentWillReceiveProps');
     this.setState({
       dataset: { ...props.dataset }
     });
