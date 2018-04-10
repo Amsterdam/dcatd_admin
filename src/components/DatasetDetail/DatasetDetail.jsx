@@ -7,6 +7,7 @@ import extraFields from 'react-jsonschema-form-extras';
 // import Modal from '../Modal/Modal';
 import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
+import isEqual from '../../services/is-equal/is-equal';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -30,6 +31,8 @@ class DatasetDetail extends Component {
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
     this.hasDataset = this.hasDataset.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   componentDidMount() {
@@ -42,6 +45,7 @@ class DatasetDetail extends Component {
   }
 
   componentWillReceiveProps(props) {
+    console.log('componentWillReceiveProps');
     this.setState({
       dataset: { ...props.dataset }
     });
@@ -93,6 +97,27 @@ class DatasetDetail extends Component {
     }
   }
 
+  handleChange(event) {
+    this.setState({
+      dataset: event.formData
+    });
+  }
+
+  handleCancel() {
+    const equal = isEqual(this.state.dataset, this.props.dataset, ['@context', 'ams:spatialUnit']);
+    if (!equal) {
+      this.props.onUpdateModal({
+        actionLabel: 'OK',
+        content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen',
+        open: true,
+        onProceed: () => {
+          console.log('proceed cancel');
+          // this.props.onRemove(dataset);
+        }
+      });
+    }
+  }
+
   render() {
     const { dataset } = this.state;
     return (
@@ -110,7 +135,7 @@ class DatasetDetail extends Component {
           transformErrors={transformErrors}
           onError={scrollToError}
           onSubmit={event => this.handleSubmit(event)}
-          onChange={event => console.log('DATASET CHANGE', event.formData)}
+          onChange={event => this.handleChange(event)}
         >
           <div>
             <button
@@ -120,6 +145,7 @@ class DatasetDetail extends Component {
               Opslaan</button>
             <button
               className="dcatd-form-button dcatd-form-button-cancel"
+              onClick={() => this.handleCancel()}
               type="button"
             >
               Annuleren</button>
