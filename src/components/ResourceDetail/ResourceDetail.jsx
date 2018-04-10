@@ -5,7 +5,6 @@ import defer from 'lodash.defer';
 import Form from 'react-jsonschema-form';
 import extraFields from 'react-jsonschema-form-extras';
 
-// import Modal from '../Modal/Modal';
 import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import localFields from '../../fields';
