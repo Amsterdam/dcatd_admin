@@ -7,6 +7,7 @@ import extraFields from 'react-jsonschema-form-extras';
 
 import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
+import isEqual from '../../services/is-equal/is-equal';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -98,7 +99,20 @@ class ResourceDetail extends Component {
   }
 
   handleCancel() {
-    this.props.onEmptyResource();
+    const equal = isEqual(this.state.formData, this.props.formData);
+    if (!equal) {
+      console.log('RESOURCE WAS CHANGED');
+      this.props.onUpdateModal({
+        actionLabel: 'OK',
+        content: 'Wijzigingen van deze resource zijn nog niet opgeslagen',
+        open: true,
+        onProceed: () => {
+          this.props.onEmptyResource();
+        }
+      });
+    } else {
+      this.props.onEmptyResource();
+    }
   }
 
   render() {
@@ -130,7 +144,7 @@ class ResourceDetail extends Component {
             >
               Opslaan</button>
             <button
-              onClick={() => this.props.onEmptyResource()}
+              onClick={() => this.handleCancel()}
               className="dcatd-form-button dcatd-form-button-cancel"
               type="button"
             >
