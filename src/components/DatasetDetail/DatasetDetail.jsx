@@ -104,7 +104,7 @@ class DatasetDetail extends Component {
   handleCancel() {
     const equal = isEqual(this.state.dataset, this.props.dataset, ['@context', 'ams:spatialUnit']);
     if (!equal) {
-      this.props.onUpdateModal({
+      this.props.setModal({
         actionLabel: 'OK',
         content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen',
         open: true,
@@ -149,7 +149,7 @@ class DatasetDetail extends Component {
               Annuleren</button>
             {this.hasDataset() ?
               <button
-                onClick={() => this.props.onUpdateModal({
+                onClick={() => this.props.setModal({
                   actionLabel: 'Dataset verwijderen',
                   content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
                   open: true,
@@ -181,7 +181,7 @@ DatasetDetail.defaultProps = {
   onRemove: () => {},
   onUpdate: () => {},
   onEmptyResource: () => {},
-  onUpdateModal: () => {}
+  setModal: () => {}
 };
 
 DatasetDetail.propTypes = {
@@ -197,7 +197,7 @@ DatasetDetail.propTypes = {
   onRemove: PropTypes.func,
   onUpdate: PropTypes.func,
   onEmptyResource: PropTypes.func,
-  onUpdateModal: PropTypes.func
+  setModal: PropTypes.func
 };
 
 export default DatasetDetail;

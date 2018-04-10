@@ -102,7 +102,7 @@ class ResourceDetail extends Component {
     const equal = isEqual(this.state.formData, this.props.formData);
     if (!equal) {
       console.log('RESOURCE WAS CHANGED');
-      this.props.onUpdateModal({
+      this.props.setModal({
         actionLabel: 'OK',
         content: 'Wijzigingen van deze resource zijn nog niet opgeslagen',
         open: true,
@@ -151,7 +151,7 @@ class ResourceDetail extends Component {
               Annuleren</button>
             {this.hasResource() ?
               <button
-                onClick={() => this.props.onUpdateModal({
+                onClick={() => this.props.setModal({
                   actionLabel: 'Resource verwijderen',
                   content: 'Door de resource te verwijderen, gaan alle gegevens van de resource verloren',
                   open: true,
@@ -186,7 +186,7 @@ ResourceDetail.propTypes = {
 
   handleResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,
-  onUpdateModal: PropTypes.func.isRequired
+  setModal: PropTypes.func.isRequired
 };
 
 export default ResourceDetail;

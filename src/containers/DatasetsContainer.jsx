@@ -94,7 +94,7 @@ class DatasetsContainer extends Component {
                 formData={this.props.resource}
                 handleResourceToDataset={this.handleResourceToDataset}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.props.onSetModal}
+                setModal={this.props.onSetModal}
               />
               <DatasetDetail
                 id={this.props.match.params.id}
@@ -108,7 +108,7 @@ class DatasetsContainer extends Component {
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.props.onSetModal}
+                setModal={this.props.onSetModal}
               />
             </div>
           )}
@@ -129,7 +129,7 @@ class DatasetsContainer extends Component {
                 formData={this.props.resource}
                 handleResourceToDataset={this.handleResourceToDataset}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.props.onSetModal}
+                setModal={this.props.onSetModal}
               />
               <DatasetDetail
                 schema={this.props.schema}
@@ -138,7 +138,7 @@ class DatasetsContainer extends Component {
                 uiResource={this.props.uiResource}
                 onCreate={this.props.onCreate}
                 onEmptyResource={this.props.onEmptyResource}
-                onUpdateModal={this.props.onSetModal}
+                setModal={this.props.onSetModal}
               />
             </div>
           )}
