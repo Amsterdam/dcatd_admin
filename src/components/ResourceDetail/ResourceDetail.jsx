@@ -25,12 +25,14 @@ class ResourceDetail extends Component {
 
     this.state = {
       uiResource: props.uiResource,
-      formData: props.formData
+      formData: props.formData,
+      uploadStatus: props.uploadStatus
     };
 
     this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
     this.setFieldState = this.setFieldState.bind(this);
     this.setResourceSpecs = this.setResourceSpecs.bind(this);
+    this.setUploadStatus = this.setUploadStatus.bind(this);
     this.hasResource = this.hasResource.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -85,7 +87,14 @@ class ResourceDetail extends Component {
         ...this.state.formData,
         ...values
       }
+    });
 
+    this.setUploadStatus('done');
+  }
+
+  setUploadStatus(status) {
+    this.setState({
+      uploadStatus: status
     });
   }
 
@@ -99,19 +108,31 @@ class ResourceDetail extends Component {
   }
 
   handleCancel() {
-    const equal = isEqual(this.state.formData, this.props.formData);
-    if (!equal) {
-      console.log('RESOURCE WAS CHANGED');
+    if (this.state.uploadStatus === 'busy') {
       this.props.setModal({
-        actionLabel: 'OK',
-        content: 'Wijzigingen van deze resource zijn nog niet opgeslagen',
+        actionLabel: 'Uploaden afbreken',
+        cancelLabel: 'Op deze pagina blijven',
+        content: 'Het uploaden is nog niet voltooid.',
         open: true,
         onProceed: () => {
           this.props.onEmptyResource();
         }
       });
     } else {
-      this.props.onEmptyResource();
+      const equal = isEqual(this.state.formData, this.props.formData, ['foaf:isPrimaryTopicOf']);
+      if (!equal) {
+        this.props.setModal({
+          actionLabel: 'De gemaakte wijzigingen negeren',
+          cancelLabel: 'Blijf deze resource bewerken',
+          content: 'Wijzigingen van deze resource zijn nog niet opgeslagen',
+          open: true,
+          onProceed: () => {
+            this.props.onEmptyResource();
+          }
+        });
+      } else {
+        this.props.onEmptyResource();
+      }
     }
   }
 
@@ -125,7 +146,8 @@ class ResourceDetail extends Component {
           schema={this.props.schema}
           formData={formData}
           formContext={{
-            setResourceSpecs: this.setResourceSpecs
+            setResourceSpecs: this.setResourceSpecs,
+            setUploadStatus: this.setUploadStatus
           }}
           widgets={widgets}
           fields={fields}
@@ -153,6 +175,7 @@ class ResourceDetail extends Component {
               <button
                 onClick={() => this.props.setModal({
                   actionLabel: 'Resource verwijderen',
+                  cancelLabel: 'Annuleren',
                   content: 'Door de resource te verwijderen, gaan alle gegevens van de resource verloren',
                   open: true,
                   onProceed: () => {
@@ -176,13 +199,15 @@ class ResourceDetail extends Component {
 }
 
 ResourceDetail.defaultProps = {
-  formData: {}
+  formData: {},
+  uploadStatus: 'idle'
 };
 
 ResourceDetail.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
+  uploadStatus: PropTypes.string,
 
   handleResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,

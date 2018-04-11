@@ -12,7 +12,6 @@ import { setModal } from '../actions/modal';
 import DatasetList from '../components/DatasetList';
 import DatasetDetail from '../components/DatasetDetail/DatasetDetail';
 import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
-// import Modal from '../components/Modal/Modal';
 
 import './datasets-container.scss';
 
@@ -41,30 +40,16 @@ class DatasetsContainer extends Component {
 
     this.state = {
       resourceToDataset: props.resourceToDataset
-      // modal: props.modal
     };
 
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
-    // this.handleModal = this.handleModal.bind(this);
   }
-
-  // componentWillReceiveProps(props) {
-  //   this.setState({
-  //     modal: props.modal
-  //   });
-  // }
 
   handleResourceToDataset(resource) {
     this.setState({
       resourceToDataset: resource
     });
   }
-
-  // handleModal(modal) {
-  //   this.setState({
-  //     modal
-  //   });
-  // }
 
   render() {
     return (
@@ -153,12 +138,6 @@ DatasetsContainer.defaultProps = {
   datasets: [],
   resource: {},
   match: null,
-  // modal: {
-  //   actionLabel: 'foo',
-  //   content: 'bar',
-  //   open: false,
-  //   onProceed: () => {}
-  // },
   resourceToDataset: {},
 
   onFetch: () => {}
@@ -168,7 +147,6 @@ DatasetsContainer.propTypes = {
   match: PropTypes.object,
   dataset: PropTypes.object,
   datasets: PropTypes.arrayOf(PropTypes.object),
-  // modal: PropTypes.object,
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,
 

@@ -39,7 +39,8 @@ class Resources extends Component {
   handleAddResource(type) {
     this.props.setResource({
       'ams:classification': 'public',
-      'ams:resourceType': type
+      'ams:resourceType': type,
+      'dct:modified': new Date().toISOString().split('T')[0]
     });
   }
 

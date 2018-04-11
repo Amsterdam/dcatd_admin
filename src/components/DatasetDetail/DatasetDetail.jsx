@@ -105,12 +105,12 @@ class DatasetDetail extends Component {
     const equal = isEqual(this.state.dataset, this.props.dataset, ['@context', 'ams:spatialUnit']);
     if (!equal) {
       this.props.setModal({
-        actionLabel: 'OK',
+        actionLabel: 'De gemaakte wijzigingen negeren',
+        cancelLabel: 'Blijf deze dataset bewerken',
         content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen',
         open: true,
         onProceed: () => {
-          console.log('proceed cancel');
-          // this.props.onRemove(dataset);
+          this.props.onRemove(this.state.dataset);
         }
       });
     }
@@ -151,6 +151,7 @@ class DatasetDetail extends Component {
               <button
                 onClick={() => this.props.setModal({
                   actionLabel: 'Dataset verwijderen',
+                  cancelLabel: 'Annuleren',
                   content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
                   open: true,
                   onProceed: () => {

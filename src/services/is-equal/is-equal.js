@@ -23,7 +23,8 @@ const recursiveDiff = (obj1, obj2, ignore = []) => {
 
 const isEqual = (obj1, obj2, ignore = []) => {
   result = {};
-  return Object.keys(recursiveDiff(obj1, obj2, ignore)).length === 0;
+  const diff = recursiveDiff(obj1, obj2, ignore);
+  return Object.keys(diff).length === 0;
 };
 
 export default isEqual;

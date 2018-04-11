@@ -39,7 +39,7 @@ const Modal = props => (
         onClick={() => props.setModal({ open: false })}
         className="dcatd-form-button"
       >
-        Annuleren
+        {props.modal.cancelLabel}
       </button>
     </SemanticModal.Actions>
   </SemanticModal>
@@ -48,6 +48,7 @@ const Modal = props => (
 Modal.defaultProps = {
   content: 'Weet u het zeker?',
   actionLabel: 'OK',
+  cancelLabel: 'Annuleren',
   open: false,
 
   onProceed: () => {}

@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import defer from 'lodash.defer';
 
+import { setModal } from '../../actions/modal';
 import { getAccessToken } from '../../services/auth/auth';
 
 import './file.scss';
 
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  setModal
+}, dispatch);
 
 class File extends Component {
   constructor(props) {
@@ -51,6 +59,10 @@ class File extends Component {
         status: 'busy',
         file: files[0].name
       });
+
+      if (this.props.registry.formContext && this.props.registry.formContext.setUploadStatus) {
+        this.props.registry.formContext.setUploadStatus('busy');
+      }
     };
 
     xhr.upload.onprogress = (e) => {
@@ -62,7 +74,7 @@ class File extends Component {
 
     xhr.onload = () => {
       // upload success
-      if (xhr.readyState === 4 && (xhr.status === 201 || xhr.statustext === 'Created')) {
+      if (xhr.readyState === 4 && xhr.status === 201 && xhr.statustext === 'Created') {
         const location = xhr.getResponseHeader('Location');
         this.setState({
           status: 'done',
@@ -83,6 +95,16 @@ class File extends Component {
         defer(() => {
           this.handleChange(location);
         });
+      } else {
+        this.props.setModal({
+          actionLabel: 'OK',
+          content: `Er is iets fout gegaan bij de upload. Probeer opnieuw in te loggen.
+            [${xhr.responseText}]`,
+          open: true,
+          onProceed: () => {}
+        });
+
+        this.resetFile();
       }
     };
 
@@ -99,6 +121,10 @@ class File extends Component {
       status: 'idle',
       url: ''
     });
+
+    if (this.props.registry.formContext && this.props.registry.formContext.setUploadStatus) {
+      this.props.registry.formContext.setUploadStatus('idle');
+    }
   }
 
   calculateProgress() {
@@ -193,7 +219,11 @@ File.propTypes = {
   url: PropTypes.string,
   value: PropTypes.string,
 
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func.isRequired,
+  setModal: PropTypes.func.isRequired
 };
 
-export default File;
+export default connect(
+  null,
+  mapDispatchToProps
+)(File);

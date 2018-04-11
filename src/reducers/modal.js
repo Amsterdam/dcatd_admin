@@ -2,6 +2,7 @@ import { SET_MODAL_SUCCESS } from '../actions/modal';
 
 const initialState = {
   actionLabel: 'OK',
+  cancelLabel: 'Annuleren',
   content: 'Er gebeurt iets.',
   open: false,
   onProceed: () => {}
