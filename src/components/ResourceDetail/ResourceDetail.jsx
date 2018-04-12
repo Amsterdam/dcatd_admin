@@ -140,6 +140,7 @@ class ResourceDetail extends Component {
     const { formData } = this.state;
     return (
       <div>
+        <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>
         <Form
           className="dcatd-form resource-form"
           idPrefix="resource"

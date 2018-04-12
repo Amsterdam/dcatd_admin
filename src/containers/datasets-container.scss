@@ -1,15 +1,18 @@
 @import "../styling/config.scss";
 
 .form-wrapper {
+  .resource-title,
   .resource-form {
     display: none;
   }
 
   &--show-resource-form {
+    .dataset-title,
     .dataset-form {
       display: none;
     }
 
+    .resource-title,
     .resource-form {
       display: block;
     }

@@ -1,7 +1,13 @@
 @import "../styling/config.scss";
 
 .container-main {
-  margin: 75px 0;
+  margin: 16px 0 75px;
+}
+
+h1 {
+  font-family: "Avenir LT W01 85 Heavy", Arial, sans-serif !important;
+  font-size: 26px !important;
+  margin-bottom: 28px !important;
 }
 
 .dcatd-form {

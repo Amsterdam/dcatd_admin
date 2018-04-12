@@ -141,6 +141,7 @@ class DatasetDetail extends Component {
     const { dataset } = this.state;
     return (
       <div>
+        <h1 className="dataset-title">Dataset {this.hasDataset() ? 'wijzigen' : 'toevoegen'}</h1>
         <Form
           className="dcatd-form dataset-form"
           idPrefix="dataset"
