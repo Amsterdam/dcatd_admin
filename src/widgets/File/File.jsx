@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import defer from 'lodash.defer';
 
-import { setModal } from '../../actions/modal';
+import serverError from '../../services/server-error/server-error';
 import { getAccessToken } from '../../services/auth/auth';
 
 import './file.scss';
@@ -13,7 +13,7 @@ import './file.scss';
 const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  setModal
+  serverError
 }, dispatch);
 
 class File extends Component {
@@ -96,13 +96,7 @@ class File extends Component {
           this.handleChange(location);
         });
       } else {
-        this.props.setModal({
-          actionLabel: 'OK',
-          content: `Er is iets fout gegaan bij de upload. Probeer opnieuw in te loggen.
-            [${xhr.responseText}]`,
-          open: true,
-          onProceed: () => {}
-        });
+        this.props.serverError(xhr);
 
         this.resetFile();
       }
@@ -220,7 +214,7 @@ File.propTypes = {
   value: PropTypes.string,
 
   onChange: PropTypes.func.isRequired,
-  setModal: PropTypes.func.isRequired
+  serverError: PropTypes.func.isRequired
 };
 
 export default connect(
