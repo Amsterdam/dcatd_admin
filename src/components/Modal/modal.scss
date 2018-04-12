@@ -3,5 +3,9 @@
 .ui {
   &.modal {
     bottom: auto !important;
+
+    .actions {
+      text-align: left !important;
+    }
   }
 }

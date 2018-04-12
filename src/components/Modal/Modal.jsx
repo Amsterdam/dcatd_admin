@@ -35,12 +35,14 @@ const Modal = props => (
       >
         {props.modal.actionLabel}
       </button>
-      <button
-        onClick={() => props.setModal({ open: false })}
-        className="dcatd-form-button"
-      >
-        {props.modal.cancelLabel}
-      </button>
+      {props.modal.cancelLabel ?
+        <button
+          onClick={() => props.setModal({ open: false })}
+          className="dcatd-form-button"
+        >
+          {props.modal.cancelLabel}
+        </button>
+        : ''}
     </SemanticModal.Actions>
   </SemanticModal>
 );

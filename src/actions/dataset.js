@@ -1,5 +1,6 @@
 import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../services/auth/auth';
+import serverError from '../services/server-error/server-error';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
 export const EMPTY_DATASET_SUCCESS = 'EMPTY_DATASET_SUCCESS';
@@ -41,9 +42,11 @@ export function createDataset(dataset) {
         'If-None-Match': '*'
       })
     })
-      // .then((response) => {
-      //   return response;
-      // })
+      .then((response) => {
+        if (!response.ok) {
+          dispatch(serverError(response));
+        }
+      })
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
         dispatch(push('/dcatd_admin/datasets'));
@@ -75,6 +78,11 @@ export function updateDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
+      .then((response) => {
+        if (!response.ok) {
+          dispatch(serverError(response));
+        }
+      })
       .then(() => dispatch(fetchDataset(dataset['dct:identifier'])))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
@@ -100,6 +108,11 @@ export function removeDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
+      .then((response) => {
+        if (!response.ok) {
+          dispatch(serverError(response));
+        }
+      })
       .then(() => dispatch(removeDatasetSuccess(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
