@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 
 import ResourcesItem from './ResourcesItem';
 
-import { setResource } from '../../actions/resource';
-
 import './resources.scss';
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  setResource
-}, dispatch);
 
 class Resources extends Component {
   constructor(props) {
@@ -37,15 +29,19 @@ class Resources extends Component {
   }
 
   handleAddResource(type) {
-    this.props.setResource({
-      'ams:classification': 'public',
-      'ams:resourceType': type,
-      'dct:modified': new Date().toISOString().split('T')[0]
-    });
+    if (this.props.formContext && this.props.formContext.handleSetResource) {
+      this.props.formContext.handleSetResource({
+        'ams:classification': 'public',
+        'ams:resourceType': type,
+        'dct:modified': new Date().toISOString().split('T')[0]
+      });
+    }
   }
 
   handleEditResource(resource) {
-    this.props.setResource(resource);
+    if (this.props.formContext && this.props.formContext.handleSetResource) {
+      this.props.formContext.handleSetResource(resource);
+    }
   }
 
   render() {
@@ -97,11 +93,7 @@ Resources.defaultProps = {
 Resources.propTypes = {
   formData: PropTypes.array,
   schema: PropTypes.object.isRequired,
-
-  setResource: PropTypes.func.isRequired
+  formContext: PropTypes.object.isRequired
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(Resources);
+export default Resources;

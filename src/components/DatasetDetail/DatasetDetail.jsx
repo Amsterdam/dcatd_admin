@@ -29,6 +29,7 @@ class DatasetDetail extends Component {
 
     this.handleResourceToDataset = this.handleResourceToDataset.bind(this);
     this.hasDataset = this.hasDataset.bind(this);
+    this.handleSetResource = this.handleSetResource.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -83,6 +84,10 @@ class DatasetDetail extends Component {
     });
   }
 
+  handleSetResource(resource) {
+    this.props.onSetResource(resource);
+  }
+
   hasDataset() {
     return this.props.id;
   }
@@ -125,6 +130,9 @@ class DatasetDetail extends Component {
           idPrefix="dataset"
           schema={this.props.schema}
           formData={dataset}
+          formContext={{
+            handleSetResource: this.handleSetResource
+          }}
           widgets={widgets}
           fields={fields}
           uiSchema={this.props.uiDataset}
@@ -182,6 +190,7 @@ DatasetDetail.defaultProps = {
   onRemove: () => {},
   onUpdate: () => {},
   onEmptyResource: () => {},
+  onSetResource: () => {},
   setModal: () => {}
 };
 
@@ -198,6 +207,7 @@ DatasetDetail.propTypes = {
   onRemove: PropTypes.func,
   onUpdate: PropTypes.func,
   onEmptyResource: PropTypes.func,
+  onSetResource: PropTypes.func,
   setModal: PropTypes.func
 };
 

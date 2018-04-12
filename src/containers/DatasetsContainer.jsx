@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
   from '../actions/dataset';
-import { emptyResource } from '../actions/resource';
+import { emptyResource, setResource } from '../actions/resource';
 import { setModal } from '../actions/modal';
 
 import DatasetList from '../components/DatasetList';
@@ -31,6 +31,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   onRemove: removeDataset,
   onUpdate: updateDataset,
   onEmptyResource: emptyResource,
+  onSetResource: setResource,
   onSetModal: setModal
 }, dispatch);
 
@@ -93,6 +94,7 @@ class DatasetsContainer extends Component {
                 onUpdate={this.props.onUpdate}
                 onRemove={this.props.onRemove}
                 onEmptyResource={this.props.onEmptyResource}
+                onSetResource={this.props.onSetResource}
                 setModal={this.props.onSetModal}
               />
             </div>
@@ -123,6 +125,7 @@ class DatasetsContainer extends Component {
                 uiResource={this.props.uiResource}
                 onCreate={this.props.onCreate}
                 onEmptyResource={this.props.onEmptyResource}
+                onSetResource={this.props.onSetResource}
                 setModal={this.props.onSetModal}
               />
             </div>
@@ -156,6 +159,7 @@ DatasetsContainer.propTypes = {
   onRemove: PropTypes.func.isRequired,
   onUpdate: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,
+  onSetResource: PropTypes.func.isRequired,
   onSetModal: PropTypes.func.isRequired,
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,
