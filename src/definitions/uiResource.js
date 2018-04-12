@@ -1,9 +1,9 @@
 import dayPickerProps from './day-picker';
-import rte from './rte';
+// rte has to be fixed in react-jsonschema-form-extras
+// import rte from './rte';
 
 export default {
   'ui:field': [
-    'dropdown',
     'rte'
   ],
   'ui:widget': [
@@ -22,8 +22,9 @@ export default {
     'ui:widget': 'hidden'
   },
   'dct:description': {
-    'ui:field': 'rte',
-    rte
+    'ui:widget': 'markdown'
+    // 'ui:field': 'rte',
+    // rte
   },
   'ams:distributionType': {
     'ui:placeholder': 'maak een keuze'

@@ -16,6 +16,12 @@ class Markdown extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentWillReceiveProps(props) {
+    this.setState({
+      value: props.value
+    });
+  }
+
   handleChange(event, { value }) {
     this.setState({ value });
     this.props.onChange(value || undefined);

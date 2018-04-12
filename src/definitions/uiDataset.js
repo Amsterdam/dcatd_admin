@@ -1,5 +1,6 @@
 import dayPickerProps from './day-picker';
-import rte from './rte';
+// rte has to be fixed in react-jsonschema-form-extras
+// import rte from './rte';
 
 export default {
   'ui:field': [
@@ -29,8 +30,9 @@ export default {
     'ui:field': 'resources'
   },
   'dct:description': {
-    'ui:field': 'rte',
-    rte
+    'ui:widget': 'markdown'
+    // 'ui:field': 'rte',
+    // rte
   },
   'dcat:landingPage': {
     'ui:placeholder': 'http://'

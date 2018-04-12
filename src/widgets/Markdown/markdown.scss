@@ -9,5 +9,9 @@
   .form-control {
     flex-basis: 48% !important;
     height: auto !important;
+
+    &.preview {
+      overflow: auto;
+    }
   }
 }

@@ -80,6 +80,12 @@
     }
   }
 
+  textarea {
+    &.form-control {
+      height: 128px;
+    }
+  }
+
   .form-group {
     .has-error {
       border-left: 2px solid $red;
