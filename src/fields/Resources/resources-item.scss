@@ -13,6 +13,14 @@
 
   &__description {
     color: $black;
+
+    &-text {
+      overflow: hidden;
+      position: absolute;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: calc(100% - 126px);
+    }
   }
 
   &__modified {

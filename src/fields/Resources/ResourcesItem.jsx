@@ -26,7 +26,8 @@ const ResourcesItem = ({ resource, schemaProps }) => (
       {resource['dct:title']}</div>
     <div className="resources-item__description">
       {getFileType(resource['dct:format'], schemaProps['dct:format'])}
-      {resource['dct:description']}</div>
+      <span className="resources-item__description-text">{resource['dct:description'] || resource['dcat:accessURL']}</span>
+    </div>
   </div>
 );
 
