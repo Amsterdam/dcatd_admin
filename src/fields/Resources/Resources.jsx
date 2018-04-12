@@ -38,7 +38,9 @@ class Resources extends Component {
     }
   }
 
-  handleEditResource(resource) {
+  handleEditResource(event, resource) {
+    event.preventDefault();
+
     if (this.props.formContext && this.props.formContext.handleSetResource) {
       this.props.formContext.handleSetResource(resource);
     }
@@ -73,7 +75,7 @@ class Resources extends Component {
                   />
                   <button
                     type="button"
-                    onClick={() => this.handleEditResource(resource)}
+                    onClick={event => this.handleEditResource(event, resource)}
                     className="resources-button resources-button-edit"
                   />
                 </a>

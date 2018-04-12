@@ -85,7 +85,24 @@ class DatasetDetail extends Component {
   }
 
   handleSetResource(resource) {
-    this.props.onSetResource(resource);
+    if (this.hasChanged()) {
+      this.props.setModal({
+        actionLabel: 'Opslaan en verdergaan',
+        cancelLabel: 'Op deze pagina blijven',
+        content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen.',
+        open: true,
+        onProceed: () => {
+          // submit form
+          console.log('submit form');
+        }
+      });
+    } else {
+      this.props.onSetResource(resource);
+    }
+  }
+
+  hasChanged() {
+    return !isEqual(this.state.dataset, this.props.dataset, ['@context']);
   }
 
   hasDataset() {
@@ -107,8 +124,7 @@ class DatasetDetail extends Component {
   }
 
   handleCancel() {
-    const equal = isEqual(this.state.dataset, this.props.dataset, ['@context', 'ams:spatialUnit']);
-    if (!equal) {
+    if (this.hasChanged()) {
       this.props.setModal({
         actionLabel: 'De gemaakte wijzigingen negeren',
         cancelLabel: 'Blijf deze dataset bewerken',
