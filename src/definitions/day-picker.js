@@ -26,8 +26,7 @@ const WEEKDAYS_LONG = [
 const WEEKDAYS_SHORT = ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'];
 
 const dayPickerProps = {
-// triggers an error at the moment
-//  locale: 'nl',
+  locale: 'nl',
   firstDayOfWeek: 1,
   months: MONTHS,
   weekdaysLong: WEEKDAYS_LONG,
