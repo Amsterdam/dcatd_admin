@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import dataset from './dataset';
-import datasets from './datasets/datasets';
+import datasets from './datasets';
 import modal from './modal';
 import resource from './resource';
 import schema from './schema';

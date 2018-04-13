@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Header as SemanticHeader } from 'semantic-ui-react';
 
-import { logout } from '../../services/auth/auth';
-
 import Logo from '../../styling/logo.svg';
 
 import './header.scss';
@@ -12,9 +10,6 @@ const Header = () => (
     <SemanticHeader size="small" className="header">
       <Logo className="logo" />
       <span className="title">Dataset beheer</span>
-      <button
-        onClick={logout}
-      >uitloggen</button>
     </SemanticHeader>
   </Container>
 );
