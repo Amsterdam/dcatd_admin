@@ -103,7 +103,7 @@ class ResourceDetail extends Component {
   }
 
   handleSubmit(formData) {
-    this.props.handleResourceToDataset(formData);
+    this.props.onSetResourceToDataset(formData);
     this.props.onEmptyResource();
   }
 
@@ -210,7 +210,7 @@ ResourceDetail.propTypes = {
   uiResource: PropTypes.object.isRequired,
   uploadStatus: PropTypes.string,
 
-  handleResourceToDataset: PropTypes.func.isRequired,
+  onSetResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,
   setModal: PropTypes.func.isRequired
 };

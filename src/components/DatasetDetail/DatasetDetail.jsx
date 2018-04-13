@@ -85,20 +85,21 @@ class DatasetDetail extends Component {
   }
 
   handleSetResource(resource) {
-    if (this.hasChanged()) {
-      this.props.setModal({
-        actionLabel: 'Opslaan en verdergaan',
-        cancelLabel: 'Op deze pagina blijven',
-        content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen.',
-        open: true,
-        onProceed: () => {
-          // submit form
-          console.log('submit form');
-        }
-      });
-    } else {
-      this.props.onSetResource(resource);
-    }
+    this.props.onSetResource(resource);
+    // if (this.hasChanged()) {
+    //   this.props.setModal({
+    //     actionLabel: 'Opslaan en verdergaan',
+    //     cancelLabel: 'Op deze pagina blijven',
+    //     content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen.',
+    //     open: true,
+    //     onProceed: () => {
+    //       // submit form
+    //       // @TODO we have to fix submitting the form at this point
+    //     }
+    //   });
+    // } else {
+    //   this.props.onSetResource(resource);
+    // }
   }
 
   hasChanged() {
