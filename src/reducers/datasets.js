@@ -1,6 +1,6 @@
 import {
   FETCH_DATASETS_SUCCESS
-} from '../actions/datasets';
+} from '../actions/datasets/datasets';
 
 const initialState = [];
 
