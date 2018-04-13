@@ -7,13 +7,13 @@ import { fetchDatasets } from './datasets';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('async actions', () => {
+describe('datasets actions', () => {
   afterEach(() => {
     fetchMock.reset();
     fetchMock.restore();
   });
 
-  it('creates FETCH_DATASETS_SUCCESS when fetching datasets has been done', () => {
+  it('FETCH_DATASETS_SUCCESS', () => {
     fetchMock
       .getOnce('https://acc.api.data.amsterdam.nl/dcatd/datasets', {
         body: {
@@ -49,9 +49,7 @@ describe('async actions', () => {
       ]
     }];
 
-    const store = mockStore({
-      todos: []
-    });
+    const store = mockStore();
 
     return store.dispatch(fetchDatasets()).then(() => {
       // return of async actions
