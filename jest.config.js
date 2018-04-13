@@ -1,18 +1,18 @@
 module.exports = {
-  // collectCoverage: true,
-  // collectCoverageFrom: [
-  //   'src/**/*.{js,jsx}'
-  // ],
-  // coverageDirectory: 'coverage',
-  // coverageThreshold: {
-  //   global: {
-  //     statements: 8,
-  //     branches: 8,
-  //     functions: 8,
-  //     lines: 8
-  //   }
-  // },
-  // coverageReporters: ['lcov'],
+  collectCoverage: true,
+  collectCoverageFrom: [
+    'src/**/*.{js,jsx}'
+  ],
+  coverageDirectory: 'coverage',
+  coverageThreshold: {
+    global: {
+      statements: 8,
+      branches: 8,
+      functions: 8,
+      lines: 8
+    }
+  },
+  coverageReporters: ['lcov'],
   setupFiles: [
     '<rootDir>/config/polyfills.js'
   ],
