@@ -3,8 +3,9 @@ import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
-import { ConnectedRouter, routerMiddleware, push } from 'react-router-redux';
+// import createHistory from 'history/createBrowserHistory';
+import { HashRouter } from 'react-router-dom';
+import { push } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
@@ -18,15 +19,14 @@ import { initAuth, getReturnPath } from './services/auth/auth';
 import './styling/config.scss';
 import './index.scss';
 
-const history = createHistory();
-const router = routerMiddleware(history);
+// const history = createHistory();
+// const router = routerMiddleware(history);
 
 const store = createStore(
   reducers,
   composeWithDevTools(
     applyMiddleware(
-      thunk,
-      router
+      thunk
     )
   )
 );
@@ -44,9 +44,9 @@ store.dispatch(fetchUiResource());
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
+    <HashRouter>
       <App />
-    </ConnectedRouter>
+    </HashRouter>
   </Provider>,
   document.getElementById('root')
 );

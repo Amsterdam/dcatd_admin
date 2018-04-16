@@ -133,12 +133,6 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
-console.log('-------------------------------- process.env.CI ', process.env.CI);
-console.log('-------------------------------- ', process.env.NODE_ENV);
-      if (process.env.NODE_ENV === 'production') {
-        startServer();
-      }
-
       return resolve({
         stats,
         previousFileSizes,
@@ -153,35 +147,4 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml,
   });
-}
-
-function startServer() {
-  console.log('-------------------------------- startServer start');
-  // server.js
-  const app = express();
-
-  app.use(express.static(path.join(__dirname, '/../build')));
-
-  app.use('/dcatd_admin', express.static(__dirname + '/dcatd_admin'));
-  app.use('/dcatd_admin/datasets', express.static(__dirname + '/dcatd_admin/datasets'));
-
-  app.use(express.static(__dirname))
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  });
-
-  // // serve our static stuff like index.css
-  // app.use(express.static(__dirname));
-  //
-  // // send all requests to index.html so browserHistory in React Router works
-  // app.get('*', (req, res) => {
-  //   res.sendFile(path.join(__dirname, 'index.html'));
-  // });
-
-  const PORT = process.env.PORT || 80;
-  app.listen(PORT, () => {
-    console.log(chalk.green('Production Express server running at localhost:' + PORT));
-  });
-  console.log('-------------------------------- startServer end');
 }

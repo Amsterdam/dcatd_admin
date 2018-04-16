@@ -125,6 +125,7 @@ function handleCallback() {
     returnPath = sessionStorage.getItem(RETURN_PATH);
     sessionStorage.removeItem(RETURN_PATH);
     sessionStorage.removeItem(STATE_TOKEN);
+    location.href = returnPath;
   }
 }
 
