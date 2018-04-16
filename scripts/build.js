@@ -160,15 +160,26 @@ function startServer() {
   // server.js
   const app = express();
 
-  // serve our static stuff like index.css
-  app.use(express.static(__dirname));
+  app.use(express.static(path.join(__dirname, '/../build')));
 
-  // send all requests to index.html so browserHistory in React Router works
+  app.use('/dcatd_admin', express.static(__dirname + '/dcatd_admin'));
+  app.use('/dcatd_admin/datasets', express.static(__dirname + '/dcatd_admin/datasets'));
+
+  app.use(express.static(__dirname))
+
   app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
   });
 
-  const PORT = process.env.PORT || 3000;
+  // // serve our static stuff like index.css
+  // app.use(express.static(__dirname));
+  //
+  // // send all requests to index.html so browserHistory in React Router works
+  // app.get('*', (req, res) => {
+  //   res.sendFile(path.join(__dirname, 'index.html'));
+  // });
+
+  const PORT = process.env.PORT || 80;
   app.listen(PORT, () => {
     console.log(chalk.green('Production Express server running at localhost:' + PORT));
   });
