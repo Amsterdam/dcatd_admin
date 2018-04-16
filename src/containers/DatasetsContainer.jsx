@@ -42,7 +42,7 @@ const DatasetsContainer = props => (
   <section>
     <Route
       exact
-      path="/dcatd_admin/datasets"
+      path="/datasets"
       render={() => (
         <DatasetList
           datasets={props.datasets}
@@ -51,7 +51,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/:id([\w-]{2,})"
+      path="/datasets/:id([\w-]{2,})"
       render={() => (
         <div
           className={`form-wrapper
@@ -87,7 +87,7 @@ const DatasetsContainer = props => (
     />
     <Route
       exact
-      path="/dcatd_admin/datasets/_"
+      path="/datasets/_"
       render={() => (
         <div
           className={`form-wrapper
