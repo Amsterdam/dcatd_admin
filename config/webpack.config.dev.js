@@ -1,4 +1,5 @@
 /* eslint-disable */
+console.log('DEVELOPMENT -------------------------');
 
 const autoprefixer = require('autoprefixer');
 const path = require('path');
