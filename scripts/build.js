@@ -131,9 +131,9 @@ function build(previousFileSizes) {
       }
 
 console.log('-------------------------------- ', process.env.NODE_ENV);
-      // if (process.env.NODE_ENV === 'production') {
-      //   startServer();
-      // }
+      if (process.env.NODE_ENV === 'production') {
+        startServer();
+      }
 
       return resolve({
         stats,
