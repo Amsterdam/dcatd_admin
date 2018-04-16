@@ -9,7 +9,6 @@ import resourceToDataset from './resourceToDataset';
 import schema from './schema';
 import uiDataset from './uiDataset';
 import uiResource from './uiResource';
-import visibilityFilter from './visibilityFilter';
 
 const appState = combineReducers({
   dataset,
@@ -20,7 +19,6 @@ const appState = combineReducers({
   schema,
   uiDataset,
   uiResource,
-  visibilityFilter,
   router: routerReducer
 });
 
