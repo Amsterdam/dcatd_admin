@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 
-import { apiUrl, fetchDataset } from './dataset';
+import { apiUrl, fetchDataset, createDataset } from './dataset';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -42,6 +42,31 @@ describe('dataset actions', () => {
     const store = mockStore();
 
     return store.dispatch(fetchDataset('ams-dcatd:ois-95620')).then(() => {
+      // return of async actions
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it('CREATE_DATASET_SUCCESS', () => {
+    fetchMock
+      .postOnce(apiUrl, {
+        headers: {
+          'content-type': 'application/hal+json'
+        }
+      });
+
+    const expectedActions = [{
+      type: 'CREATE_DATASET_SUCCESS'
+    }];
+
+    const store = mockStore();
+
+    return store.dispatch(createDataset({
+      '@id': 'ams-dcatd:ois-95620',
+      'dct:description': 'Tekst',
+      'dct:identifier': 'ois-95620',
+      'dct:title': 'De mooie titel'
+    })).then(() => {
       // return of async actions
       expect(store.getActions()).toEqual(expectedActions);
     });
