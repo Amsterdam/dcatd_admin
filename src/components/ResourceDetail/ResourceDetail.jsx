@@ -119,7 +119,7 @@ class ResourceDetail extends Component {
         }
       });
     } else {
-      const equal = isEqual(this.state.formData, this.props.formData, ['foaf:isPrimaryTopicOf']);
+      const equal = isEqual(this.state.formData, this.props.formData, ['dct:modified', 'foaf:isPrimaryTopicOf']);
       if (!equal) {
         this.props.setModal({
           actionLabel: 'De gemaakte wijzigingen negeren',
