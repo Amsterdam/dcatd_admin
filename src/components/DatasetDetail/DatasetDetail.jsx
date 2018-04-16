@@ -86,20 +86,20 @@ class DatasetDetail extends Component {
 
   handleSetResource(resource) {
     this.props.onSetResource(resource);
-    if (!isEqual(this.state.dataset, this.props.dataset, ['@context', 'dcat:distribution'])) {
-      this.props.setModal({
-        actionLabel: 'Opslaan en verdergaan',
-        cancelLabel: 'Op deze pagina blijven',
-        content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen.',
-        open: true,
-        onProceed: () => {
-          // submit form
-          // @TODO we have to fix submitting the form at this point
-        }
-      });
-    } else {
-      this.props.onSetResource(resource);
-    }
+    // if (!isEqual(this.state.dataset, this.props.dataset, ['@context', 'dcat:distribution'])) {
+    //   this.props.setModal({
+    //     actionLabel: 'Opslaan en verdergaan',
+    //     cancelLabel: 'Op deze pagina blijven',
+    //     content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen.',
+    //     open: true,
+    //     onProceed: () => {
+    //       // submit form
+    //       // @TODO we have to fix submitting the form at this point
+    //     }
+    //   });
+    // } else {
+    //   this.props.onSetResource(resource);
+    // }
   }
 
   hasDataset() {
