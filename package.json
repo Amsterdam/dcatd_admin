@@ -6,8 +6,7 @@
   "devDependencies": {
     "enzyme": "^2.8.2",
     "react-test-renderer": "^15.6.2",
-    "redux-mock-store": "^1.5.1",
-    "svg-react-loader": "^0.4.5"
+    "redux-mock-store": "^1.5.1"
   },
   "dependencies": {
     "autoprefixer": "7.1.2",
@@ -70,6 +69,7 @@
     "sass-loader": "^6.0.6",
     "semantic-ui-react": "^0.78.2",
     "style-loader": "0.18.2",
+    "svg-react-loader": "^0.4.5",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.5.9",
     "webpack": "3.5.1",
