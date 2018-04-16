@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable */
 
 // Makes the script crash on unhandled rejections instead of silently
 // ignoring them. In the future, promise rejections that are not handled will
@@ -130,9 +130,10 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
-      if (process.env.NODE_ENV === 'production') {
-        startServer();
-      }
+console.log('-------------------------------- ', process.env.NODE_ENV);
+      // if (process.env.NODE_ENV === 'production') {
+      //   startServer();
+      // }
 
       return resolve({
         stats,
