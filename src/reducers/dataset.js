@@ -2,7 +2,7 @@ import {
   FETCH_DATASET_SUCCESS,
   EMPTY_DATASET_SUCCESS,
   REMOVE_DATASET_SUCCESS
-} from '../actions/dataset';
+} from '../actions/dataset/dataset';
 
 const initialState = {};
 

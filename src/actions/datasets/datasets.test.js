@@ -2,7 +2,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import fetchMock from 'fetch-mock';
 
-import { fetchDatasets } from './datasets';
+import { apiUrl, fetchDatasets } from './datasets';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -15,7 +15,7 @@ describe('datasets actions', () => {
 
   it('FETCH_DATASETS_SUCCESS', () => {
     fetchMock
-      .getOnce('https://acc.api.data.amsterdam.nl/dcatd/datasets', {
+      .getOnce(apiUrl, {
         body: {
           'dcat:dataset': [
             {

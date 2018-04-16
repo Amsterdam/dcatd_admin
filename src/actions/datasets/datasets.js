@@ -1,6 +1,6 @@
 export const FETCH_DATASETS_SUCCESS = 'FETCH_DATASETS_SUCCESS';
 
-const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
+export const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
 
 export function fetchDatasetsSuccess(datasets) {
   return {

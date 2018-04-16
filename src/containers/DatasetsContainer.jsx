@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
-  from '../actions/dataset';
+  from '../actions/dataset/dataset';
 import { setResourceToDataset } from '../actions/resourceToDataset';
 import { emptyResource, setResource } from '../actions/resource';
 import { setModal } from '../actions/modal';

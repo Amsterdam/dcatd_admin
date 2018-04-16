@@ -1,12 +1,12 @@
 import { push } from 'react-router-redux';
-import { getAuthHeaders } from '../services/auth/auth';
-import serverError from '../services/server-error/server-error';
+import { getAuthHeaders } from '../../services/auth/auth';
+import serverError from '../../services/server-error/server-error';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
 export const EMPTY_DATASET_SUCCESS = 'EMPTY_DATASET_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
 
-const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
+export const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
 
 export function fetchDatasetSuccess(dataset) {
   return {
