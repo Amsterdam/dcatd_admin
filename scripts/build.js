@@ -130,6 +130,7 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
+console.log('-------------------------------- process.env.CI ', process.env.CI);
 console.log('-------------------------------- ', process.env.NODE_ENV);
       if (process.env.NODE_ENV === 'production') {
         startServer();
@@ -152,6 +153,7 @@ function copyPublicFolder() {
 }
 
 function startServer() {
+  console.log('-------------------------------- startServer start');
   // server.js
   const app = express();
 
@@ -167,4 +169,5 @@ function startServer() {
   app.listen(PORT, () => {
     console.log(chalk.green('Production Express server running at localhost:' + PORT));
   });
+  console.log('-------------------------------- startServer end');
 }
