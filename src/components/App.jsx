@@ -12,6 +12,13 @@ const App = () => (
     <Container className="container-main" >
       <Route
         exact
+        path="/"
+        render={() => (
+          <Redirect to="/dcatd_admin/datasets" />
+        )}
+      />
+      <Route
+        exact
         path="/dcatd_admin"
         render={() => (
           <Redirect to="/dcatd_admin/datasets" />
