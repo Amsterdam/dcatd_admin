@@ -3,6 +3,7 @@ import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
+export const CREATE_DATASET_SUCCESS = 'CREATE_DATASET_SUCCESS';
 export const EMPTY_DATASET_SUCCESS = 'EMPTY_DATASET_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
 
@@ -31,6 +32,12 @@ export function fetchDataset(id) {
   };
 }
 
+export function createDatasetSuccess() {
+  return {
+    type: CREATE_DATASET_SUCCESS
+  };
+}
+
 export function createDataset(dataset) {
   return (dispatch) => {
     return fetch(apiUrl, {
@@ -47,6 +54,7 @@ export function createDataset(dataset) {
           dispatch(serverError(response));
         }
       })
+      .then(() => dispatch(createDatasetSuccess(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
         dispatch(push('/dcatd_admin/datasets'));
