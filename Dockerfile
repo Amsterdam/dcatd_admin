@@ -1,5 +1,5 @@
 FROM node:8.1-alpine as builder
-  ARG NODE_ENV=production
+  ARG NODE_ENV=development
   WORKDIR /app
   COPY . /app/
   RUN npm install && npm run build
