@@ -1,6 +1,7 @@
 import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
+import { fetchSchema } from '../schema';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
 export const CREATE_DATASET_SUCCESS = 'CREATE_DATASET_SUCCESS';
@@ -19,16 +20,18 @@ export function fetchDatasetSuccess(dataset) {
 export function fetchDataset(id) {
   let etag = '';
   return (dispatch) => {
-    return fetch(`${apiUrl}/${id}`)
-      .then((response) => {
-        etag = response.headers.get('etag');
-        return response.json();
-      })
-      .then(response => dispatch(fetchDatasetSuccess({
-        ...response,
-        etag
-      })))
-      .catch((error) => { throw error; });
+    dispatch(fetchSchema()).then(() => {
+      return fetch(`${apiUrl}/${id}`)
+        .then((response) => {
+          etag = response.headers.get('etag');
+          return response.json();
+        })
+        .then(response => dispatch(fetchDatasetSuccess({
+          ...response,
+          etag
+        })))
+        .catch((error) => { throw error; });
+    });
   };
 }
 
