@@ -130,10 +130,6 @@ function build(previousFileSizes) {
         return reject(new Error(messages.warnings.join('\n\n')));
       }
 
-      if (process.env.NODE_ENV === 'production') {
-        // startServer();
-      }
-
       return resolve({
         stats,
         previousFileSizes,
@@ -148,24 +144,4 @@ function copyPublicFolder() {
     dereference: true,
     filter: file => file !== paths.appHtml,
   });
-}
-
-function startServer() {
-  // server.js
-  console.log(chalk.green('Starting production server'));
-
-  const app = express();
-
-  // serve our static stuff like index.css
-  app.use(express.static(__dirname));
-
-  // send all requests to index.html so browserHistory in React Router works
-  app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'index.html'));
-  })
-
-  var PORT = process.env.PORT || 8080;
-  app.listen(PORT, function() {
-    console.log('Production Express server running at localhost:' + PORT);
-  })
 }
