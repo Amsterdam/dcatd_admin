@@ -3,7 +3,6 @@ import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { Provider } from 'react-redux';
-// import createHistory from 'history/createBrowserHistory';
 import { HashRouter } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import thunk from 'redux-thunk';
@@ -18,9 +17,6 @@ import { initAuth, getReturnPath } from './services/auth/auth';
 
 import './styling/config.scss';
 import './index.scss';
-
-// const history = createHistory();
-// const router = routerMiddleware(history);
 
 const store = createStore(
   reducers,
