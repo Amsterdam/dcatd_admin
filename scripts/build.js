@@ -7,9 +7,6 @@ process.on('unhandledRejection', err => {
   throw err;
 });
 
-process.env.BABEL_ENV = 'production';
-process.env.NODE_ENV = 'production';
-
 // Ensure environment variables are read.
 require('../config/env');
 
