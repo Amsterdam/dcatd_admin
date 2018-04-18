@@ -1,4 +1,4 @@
-import dayPickerProps from './day-picker';
+// import dayPickerProps from './day-picker';
 // rte has to be fixed in react-jsonschema-form-extras
 // import rte from './rte';
 
@@ -34,11 +34,11 @@ export default {
     'ui:placeholder': 'maak een keuze'
   },
   'dct:modified': {
-    'ui:field': 'rdp',
-    rdp: {
-      placeholder: 'Kies een datum',
-      dayPickerProps
-    }
+    // 'ui:field': 'rdp',
+    // rdp: {
+    //   placeholder: 'Kies een datum',
+    //   dayPickerProps
+    // }
   },
   'ams:serviceType': {
     'ui:widget': 'hidden',

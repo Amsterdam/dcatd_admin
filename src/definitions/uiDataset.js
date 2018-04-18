@@ -1,4 +1,4 @@
-import dayPickerProps from './day-picker';
+// import dayPickerProps from './day-picker';
 // rte has to be fixed in react-jsonschema-form-extras
 // import rte from './rte';
 
@@ -39,18 +39,18 @@ export default {
   },
   'dct:temporal': {
     'time:hasBeginning': {
-      'ui:field': 'rdp',
-      rdp: {
-        placeholder: 'Kies een datum',
-        dayPickerProps
-      }
+      // 'ui:field': 'rdp',
+      // rdp: {
+      //   placeholder: 'Kies een datum',
+      //   dayPickerProps
+      // }
     },
     'time:hasEnd': {
-      'ui:field': 'rdp',
-      rdp: {
-        placeholder: 'Kies een datum',
-        dayPickerProps
-      }
+      // 'ui:field': 'rdp',
+      // rdp: {
+      //   placeholder: 'Kies een datum',
+      //   dayPickerProps
+      // }
     }
   },
   'ams:owner': {
@@ -96,11 +96,11 @@ export default {
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
-      'ui:field': 'rdp',
-      rdp: {
-        placeholder: 'Kies een datum',
-        dayPickerProps
-      }
+      // 'ui:field': 'rdp',
+      // rdp: {
+      //   placeholder: 'Kies een datum',
+      //   dayPickerProps
+      // }
     },
     'dct:modified': {
       'ui:widget': 'hidden'
