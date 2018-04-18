@@ -1,4 +1,4 @@
-import { push } from 'react-router-redux';
+// import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
 import { fetchSchema } from '../schema';
