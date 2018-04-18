@@ -60,7 +60,8 @@ export function createDataset(dataset) {
       .then(() => dispatch(createDatasetSuccess(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/dcatd_admin/datasets'));
+        // dispatch(push('/dcatd_admin/datasets'));
+        window.location.hash = '/datasets';
       })
       .catch((error) => { throw error; });
   };
@@ -97,7 +98,8 @@ export function updateDataset(dataset) {
       .then(() => dispatch(fetchDataset(dataset['dct:identifier'])))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/dcatd_admin/datasets'));
+        // dispatch(push('/dcatd_admin/datasets'));
+        window.location.hash = '/datasets';
       })
       .catch((error) => { throw error; });
   };
@@ -127,7 +129,8 @@ export function removeDataset(dataset) {
       .then(() => dispatch(removeDatasetSuccess(dataset)))
       .then(() => {
         // TODO: Find alternative approach letting the container handle this
-        dispatch(push('/dcatd_admin/datasets'));
+        // dispatch(push('/dcatd_admin/datasets'));
+        window.location.hash = '/datasets';
       })
       .catch((error) => { throw error; });
   };
