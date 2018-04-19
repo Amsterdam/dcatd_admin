@@ -1,8 +1,7 @@
-import { fetchSchema } from '../schema';
+import { fetchSchema } from '../schema/schema';
+import api from '../../services/api/api';
 
 export const FETCH_DATASETS_SUCCESS = 'FETCH_DATASETS_SUCCESS';
-
-export const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
 
 export function fetchDatasetsSuccess(datasets) {
   return {
@@ -14,7 +13,7 @@ export function fetchDatasetsSuccess(datasets) {
 export function fetchDatasets() {
   return (dispatch) => {
     dispatch(fetchSchema()).then(() => {
-      return fetch(`${apiUrl}`)
+      return fetch(api.datasets)
         .then(response => response.json())
         .then(response => response['dcat:dataset'].map(dataset => ({
           id: dataset['dct:identifier'],

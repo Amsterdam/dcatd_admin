@@ -2,13 +2,12 @@
 import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
 import { fetchSchema } from '../schema';
+import api from '../../services/api/api';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
 export const CREATE_DATASET_SUCCESS = 'CREATE_DATASET_SUCCESS';
 export const EMPTY_DATASET_SUCCESS = 'EMPTY_DATASET_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
-
-export const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/datasets`;
 
 export function fetchDatasetSuccess(dataset) {
   return {
@@ -21,7 +20,7 @@ export function fetchDataset(id) {
   let etag = '';
   return (dispatch) => {
     dispatch(fetchSchema()).then(() => {
-      return fetch(`${apiUrl}/${id}`)
+      return fetch(`${api.datasets}/${id}`)
         .then((response) => {
           etag = response.headers.get('etag');
           return response.json();
@@ -43,7 +42,7 @@ export function createDatasetSuccess() {
 
 export function createDataset(dataset) {
   return (dispatch) => {
-    return fetch(apiUrl, {
+    return fetch(api.datasets, {
       method: 'POST',
       body: JSON.stringify(dataset),
       headers: new Headers({
@@ -81,7 +80,7 @@ export function emptyDataset() {
 
 export function updateDataset(dataset) {
   return (dispatch) => {
-    return fetch(`${apiUrl}/${dataset['dct:identifier']}`, {
+    return fetch(`${api.datasets}/${dataset['dct:identifier']}`, {
       method: 'PUT',
       body: JSON.stringify(dataset),
       headers: new Headers({
@@ -114,7 +113,7 @@ export function removeDatasetSuccess(dataset) {
 
 export function removeDataset(dataset) {
   return (dispatch) => {
-    return fetch(`${apiUrl}/${dataset['dct:identifier']}`, {
+    return fetch(`${api.datasets}/${dataset['dct:identifier']}`, {
       method: 'DELETE',
       headers: new Headers({
         ...getAuthHeaders(),
