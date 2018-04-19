@@ -1,4 +1,4 @@
-import uiResource from '../definitions/uiResource';
+import uiResource from '../../definitions/uiResource';
 
 export const FETCH_UI_RESOURCE_SUCCESS = 'FETCH_UI_RESOURCE_SUCCESS';
 export const SET_UI_RESOURCE_ORDER = 'SET_UI_RESOURCE_ORDER';

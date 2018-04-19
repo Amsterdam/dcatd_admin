@@ -1,7 +1,7 @@
 // import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
-import { fetchSchema } from '../schema';
+import { fetchSchema } from '../schema/schema';
 import api from '../../services/api/api';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';

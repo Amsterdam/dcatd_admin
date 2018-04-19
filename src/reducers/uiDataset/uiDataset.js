@@ -1,4 +1,4 @@
-import { FETCH_UI_DATASET_SUCCESS, SET_UI_DATASET_ORDER } from '../actions/uiDataset';
+import { FETCH_UI_DATASET_SUCCESS, SET_UI_DATASET_ORDER } from '../../actions/uiDataset/uiDataset';
 
 const initialState = {};
 

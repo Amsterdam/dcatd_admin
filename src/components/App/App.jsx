@@ -2,9 +2,9 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 import { Container } from 'semantic-ui-react';
 
-import Header from '../components/Header/Header';
-import DatasetsContainer from '../containers/DatasetsContainer';
-import Modal from '../components/Modal/Modal';
+import Header from '../Header/Header';
+import DatasetsContainer from '../../containers/DatasetsContainer';
+import Modal from '../Modal/Modal';
 
 const App = () => (
   <div>

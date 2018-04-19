@@ -1,4 +1,4 @@
-import { FETCH_UI_RESOURCE_SUCCESS, SET_UI_RESOURCE_ORDER } from '../actions/uiResource';
+import { FETCH_UI_RESOURCE_SUCCESS, SET_UI_RESOURCE_ORDER } from '../../actions/uiResource/uiResource';
 
 const initialState = {};
 

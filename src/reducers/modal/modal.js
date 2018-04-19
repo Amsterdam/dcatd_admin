@@ -1,4 +1,4 @@
-import { SET_MODAL_SUCCESS } from '../actions/modal';
+import { SET_MODAL_SUCCESS } from '../../actions/modal/modal';
 
 const initialState = {
   actionLabel: 'OK',

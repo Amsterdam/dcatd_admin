@@ -1,4 +1,4 @@
-import uiDataset from '../definitions/uiDataset';
+import uiDataset from '../../definitions/uiDataset';
 
 export const FETCH_UI_DATASET_SUCCESS = 'FETCH_UI_DATASET_SUCCESS';
 export const SET_UI_DATASET_ORDER = 'SET_UI_DATASET_ORDER';

@@ -1,4 +1,4 @@
-import { setModal } from '../../actions/modal';
+import { setModal } from '../../actions/modal/modal';
 
 export default function serverError() {
   return setModal({

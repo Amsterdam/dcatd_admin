@@ -1,4 +1,4 @@
-import { FETCH_SCHEMA_SUCCESS } from '../actions/schema';
+import { FETCH_SCHEMA_SUCCESS } from '../../actions/schema/schema';
 
 const initialState = {};
 

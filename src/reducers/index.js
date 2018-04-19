@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
-import dataset from './dataset';
-import datasets from './datasets';
-import modal from './modal';
-import resource from './resource';
-import resourceToDataset from './resourceToDataset';
-import schema from './schema';
-import uiDataset from './uiDataset';
-import uiResource from './uiResource';
+import dataset from './dataset/dataset';
+import datasets from './datasets/datasets';
+import modal from './modal/modal';
+import resource from './resource/resource';
+import resourceToDataset from './resourceToDataset/resourceToDataset';
+import schema from './schema/schema';
+import uiDataset from './uiDataset/uiDataset';
+import uiResource from './uiResource/uiResource';
 
 const appState = combineReducers({
   dataset,

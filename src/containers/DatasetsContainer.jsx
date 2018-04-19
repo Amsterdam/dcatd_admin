@@ -6,11 +6,11 @@ import { bindActionCreators } from 'redux';
 
 import { fetchDataset, emptyDataset, createDataset, removeDataset, updateDataset }
   from '../actions/dataset/dataset';
-import { setResourceToDataset } from '../actions/resourceToDataset';
-import { emptyResource, setResource } from '../actions/resource';
-import { setModal } from '../actions/modal';
+import { setResourceToDataset } from '../actions/resourceToDataset/resourceToDataset';
+import { emptyResource, setResource } from '../actions/resource/resource';
+import { setModal } from '../actions/modal/modal';
 
-import DatasetList from '../components/DatasetList';
+import DatasetList from '../components/DatasetList/DatasetList';
 import DatasetDetail from '../components/DatasetDetail/DatasetDetail';
 import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
 

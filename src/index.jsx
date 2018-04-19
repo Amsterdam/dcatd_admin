@@ -9,11 +9,11 @@ import { routerMiddleware, push } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
 import reducers from './reducers';
-import App from './components/App';
+import App from './components/App/App';
 import { fetchDatasets } from './actions/datasets/datasets';
-import { fetchSchema } from './actions/schema';
-import { fetchUiDataset } from './actions/uiDataset';
-import { fetchUiResource } from './actions/uiResource';
+import { fetchSchema } from './actions/schema/schema';
+import { fetchUiDataset } from './actions/uiDataset/uiDataset';
+import { fetchUiResource } from './actions/uiResource/uiResource';
 import { initAuth, getReturnPath } from './services/auth/auth';
 
 import './styling/config.scss';

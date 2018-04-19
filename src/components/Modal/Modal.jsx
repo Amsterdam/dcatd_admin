@@ -4,7 +4,7 @@ import { Modal as SemanticModal } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { setModal } from '../../actions/modal';
+import { setModal } from '../../actions/modal/modal';
 
 import './modal.scss';
 

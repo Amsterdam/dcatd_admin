@@ -1,11 +1,10 @@
-import { setUiDatasetOrder } from '../uiDataset';
-import { setUiResourceOrder } from '../uiResource';
+import { setUiDatasetOrder } from '../uiDataset/uiDataset';
+import { setUiResourceOrder } from '../uiResource/uiResource';
 import api from '../../services/api/api';
 
 export const FETCH_SCHEMA_SUCCESS = 'FETCH_SCHEMA_SUCCESS';
 
 export function fetchSchemaSuccess(schema) {
-  console.log('-----------------------------------------------------------', schema);
   return {
     type: FETCH_SCHEMA_SUCCESS,
     schema
@@ -13,7 +12,6 @@ export function fetchSchemaSuccess(schema) {
 }
 
 export function fetchSchema() {
-  console.log('-----------------------------------------------------------');
   return (dispatch) => {
     return fetch(api.schema)
       .then(response => response.json())
