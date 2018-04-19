@@ -13,6 +13,7 @@ import widgets from '../../widgets';
 
 import '../../../node_modules/react-day-picker/lib/style.css';
 import '../dcatd-form.scss';
+import './resource-detail.scss';
 
 const fields = {
   ...extraFields,
@@ -140,6 +141,10 @@ class ResourceDetail extends Component {
     const { formData } = this.state;
     return (
       <div>
+        <button
+          onClick={() => this.handleCancel()}
+          className="resource-form__back"
+        >Ga terug naar dataset</button>
         <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>
         <Form
           className="dcatd-form resource-form"
@@ -165,7 +170,7 @@ class ResourceDetail extends Component {
               className="dcatd-form-button dcatd-form-button-submit"
               type="submit"
             >
-              Opslaan</button>
+              OK en terug</button>
             <button
               onClick={() => this.handleCancel()}
               className="dcatd-form-button dcatd-form-button-cancel"
@@ -192,6 +197,10 @@ class ResourceDetail extends Component {
                 Resource verwijderen
               </button>
               : ''}
+            <div className="resource-form__disclaimer">
+              Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het
+              opslaan van de dataset wordt ook de resource opgeslagen.
+            </div>
           </div>
         </Form>
       </div>
