@@ -2,17 +2,20 @@
 
 .form-wrapper {
   .resource-title,
+  .resource-form__back,
   .resource-form {
     display: none;
   }
 
   &--show-resource-form {
     .dataset-title,
+    .resource-form__back,
     .dataset-form {
       display: none;
     }
 
     .resource-title,
+    .resource-form__back,
     .resource-form {
       display: block;
     }
