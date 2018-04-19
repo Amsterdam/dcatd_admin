@@ -1,3 +1,4 @@
+import api from '../../services/api/api';
 import queryStringParser from '../query-string-parser/query-string-parser';
 import stateTokenGenerator from '../state-token-generator/state-token-generator';
 
@@ -21,12 +22,12 @@ const ERROR_MESSAGES = {
 // success
 const AUTH_PARAMS = ['access_token', 'token_type', 'expires_in', 'state'];
 
-const API_ROOT = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/`;
+const API_ROOT = api.root;
 
 // The URI we need to redirect to for communication with the OAuth2
 // authorization service
 const scopes = encodeURIComponent('CAT/W');
-const AUTH_PATH = `oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${scopes}`;
+const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${scopes}`;
 
 // The keys of values we need to store in the session storage
 //

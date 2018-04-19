@@ -1,7 +1,7 @@
 import dataset from './dataset';
 
 describe('dataset reducer', () => {
-  it.only('should handle initial state', () => {
+  it('should handle initial state', () => {
     expect(
       dataset(undefined, {})
     ).toEqual({});

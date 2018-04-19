@@ -1,6 +1,27 @@
-const baseUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl`;
+class Api {
+  constructor() {
+    this.setRoot();
+  }
 
-export default {
-  datasets: `${baseUrl}/dcatd/datasets`,
-  schema: `${baseUrl}/dcatd/openapi`
-};
+  setRoot(nodeEnv = process.env.NODE_ENV) {
+    this._root = `https://${nodeEnv !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl`;
+  }
+
+  get root() {
+    return this._root;
+  }
+
+  get files() {
+    return `${this._root}/dcatd/files`;
+  }
+
+  get datasets() {
+    return `${this._root}/dcatd/datasets`;
+  }
+
+  get schema() {
+    return `${this._root}/dcatd/openapi`;
+  }
+}
+
+export default new Api();

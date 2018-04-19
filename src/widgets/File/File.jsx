@@ -5,12 +5,11 @@ import { bindActionCreators } from 'redux';
 
 import defer from 'lodash.defer';
 
+import api from '../../services/api/api';
 import serverError from '../../services/server-error/server-error';
 import { getAccessToken } from '../../services/auth/auth';
 
 import './file.scss';
-
-const apiUrl = `https://${process.env.NODE_ENV !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl/dcatd/files`;
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   serverError
@@ -102,7 +101,7 @@ class File extends Component {
       }
     };
 
-    xhr.open('POST', apiUrl, true);
+    xhr.open('POST', api.files, true);
     xhr.setRequestHeader('Authorization', `Bearer ${getAccessToken()}`);
     xhr.send(formData);
   }
