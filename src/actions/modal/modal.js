@@ -1,6 +1,6 @@
 export const SET_MODAL_SUCCESS = 'SET_MODAL_SUCCESS';
 
-export function setModalSuccess(modal) {
+function setModalSuccess(modal) {
   return {
     type: SET_MODAL_SUCCESS,
     modal
