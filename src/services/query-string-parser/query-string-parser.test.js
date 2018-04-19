@@ -29,4 +29,8 @@ describe('The query string parser service', () => {
       'one/two': '12'
     });
   });
+
+  it('returns null whith no input', () => {
+    expect(queryStringParser()).toEqual(null);
+  });
 });
