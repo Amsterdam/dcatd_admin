@@ -144,7 +144,7 @@ class ResourceDetail extends Component {
         <button
           onClick={() => this.handleCancel()}
           className="resource-form__back"
-        >Ga terug naar dataset</button>
+        >{this.props.datasetTitle}</button>
         <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>
         <Form
           className="dcatd-form resource-form"
@@ -210,6 +210,7 @@ class ResourceDetail extends Component {
 
 ResourceDetail.defaultProps = {
   formData: {},
+  datasetTitle: 'Ga terug naar dataset',
   uploadStatus: 'idle'
 };
 
@@ -218,6 +219,8 @@ ResourceDetail.propTypes = {
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
   uploadStatus: PropTypes.string,
+  datasetTitle: PropTypes.string,
+
 
   onSetResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,

@@ -66,6 +66,7 @@ const DatasetsContainer = props => (
             onSetResourceToDataset={props.onSetResourceToDataset}
             onEmptyResource={props.onEmptyResource}
             setModal={props.onSetModal}
+            datasetTitle={props.dataset['dct:title']}
           />
           <DatasetDetail
             id={props.match.params.id}
