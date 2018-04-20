@@ -7,80 +7,64 @@ describe('dataset reducer', () => {
     ).toEqual({});
   });
 
-  // describe('FETCH_DATASET_SUCCESS', () => {
-  //   it('adds an dataset to an empty state', () => {
-  //     expect(
-  //       dataset([], {
-  //         type: 'FETCH_DATASET_SUCCESS',
-  //         dataset: {
-  //           emailAddress: 'john@doe.com',
-  //           name: 'John Doe',
-  //           id: 0
-  //         }
-  //       })
-  //     ).toEqual([
-  //       {
-  //         emailAddress: 'john@doe.com',
-  //         name: 'John Doe',
-  //         id: 0
-  //       }
-  //     ]);
-  //   });
-  // });
+  describe('FETCH_DATASET_SUCCESS', () => {
+    it('saves a dataset', () => {
+      expect(
+        dataset([], {
+          type: 'FETCH_DATASET_SUCCESS',
+          dataset: {
+            '@id': 'ams-dcatd:ois-95620',
+            'dct:description': 'Mooie dataset, zeg',
+            'dct:identifier': 'ois-95620',
+            'dct:title': 'Openbare orde en veiligheid (Amsterdam in Europa)',
+            'dcat:distribution': ['foo', 'bar'],
+            etag: '666'
+          }
+        })
+      ).toEqual({
+        '@id': 'ams-dcatd:ois-95620',
+        'dct:description': 'Mooie dataset, zeg',
+        'dct:identifier': 'ois-95620',
+        'dct:title': 'Openbare orde en veiligheid (Amsterdam in Europa)',
+        'dcat:distribution': ['foo', 'bar'],
+        etag: '666'
+      });
+    });
+  });
 
-  // it('adds an dataset to a non-empty state', () => {
-  //   expect(
-  //     dataset([
-  //       {
-  //         emailAddress: 'john@doe.com',
-  //         name: 'John Doe',
-  //         active: true,
-  //         id: 0
-  //       }
-  //     ], {
-  //       type: 'FETCH_DATASET_SUCCESS',
-  //       dataset: {
-  //         emailAddress: 'jane@doe.com',
-  //         name: 'Jane Doe',
-  //         id: 1
-  //       }
-  //     })
-  //   ).toEqual([
-  //     {
-  //       emailAddress: 'john@doe.com',
-  //       name: 'John Doe',
-  //       active: true,
-  //       id: 0
-  //     }, {
-  //       emailAddress: 'jane@doe.com',
-  //       name: 'Jane Doe',
-  //       id: 1
-  //     }
-  //   ]);
-  // });
-  //
-  // it('overwrites an existing dataset', () => {
-  //   expect(
-  //     dataset([
-  //       {
-  //         emailAddress: 'john@doe.com',
-  //         name: 'John Doe',
-  //         id: 0
-  //       }
-  //     ], {
-  //       type: 'FETCH_DATASET_SUCCESS',
-  //       dataset: {
-  //         emailAddress: 'john@doe.com',
-  //         name: 'Jane Doe',
-  //         id: 1
-  //       }
-  //     })
-  //   ).toEqual([
-  //     {
-  //       emailAddress: 'john@doe.com',
-  //       name: 'Jane Doe',
-  //       id: 1
-  //     }
-  //   ]);
-  // });
+  describe('EMPTY_DATASET_SUCCESS', () => {
+    it('empties the dataset', () => {
+      expect(
+        dataset([], {
+          type: 'EMPTY_DATASET_SUCCESS',
+          dataset: {
+            '@id': 'ams-dcatd:ois-95620',
+            'dct:description': 'Mooie dataset, zeg',
+            'dct:identifier': 'ois-95620',
+            'dct:title': 'Openbare orde en veiligheid (Amsterdam in Europa)',
+            'dcat:distribution': ['foo', 'bar'],
+            etag: '666'
+          }
+        })
+      ).toEqual({});
+    });
+  });
+
+  describe('REMOVE_DATASET_SUCCESS', () => {
+    it('empties the dataset', () => {
+      expect(
+        dataset([], {
+          type: 'REMOVE_DATASET_SUCCESS',
+          dataset: {
+            '@id': 'ams-dcatd:ois-95620',
+            'dct:description': 'Mooie dataset, zeg',
+            'dct:identifier': 'ois-95620',
+            'dct:title': 'Openbare orde en veiligheid (Amsterdam in Europa)',
+            'dcat:distribution': ['foo', 'bar'],
+            etag: '666'
+          }
+        })
+      ).toEqual({});
+    });
+  });
 });

@@ -10,8 +10,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_DATASET_SUCCESS:
       return {
-        ...action.dataset,
-        'dcat:distribution': [...action.dataset['dcat:distribution']]
+        ...action.dataset
       };
 
     case EMPTY_DATASET_SUCCESS:
