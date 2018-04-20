@@ -3,16 +3,16 @@ import uiDataset from '../../definitions/uiDataset';
 export const FETCH_UI_DATASET_SUCCESS = 'FETCH_UI_DATASET_SUCCESS';
 export const SET_UI_DATASET_ORDER = 'SET_UI_DATASET_ORDER';
 
-export function fetchUiDatasetSuccess(uiSchema) {
+export function fetchUiDatasetSuccess() {
   return {
     type: FETCH_UI_DATASET_SUCCESS,
-    uiDataset: uiSchema
+    uiDataset
   };
 }
 
 export function fetchUiDataset() {
   return (dispatch) => {
-    return dispatch(fetchUiDatasetSuccess(uiDataset));
+    return dispatch(fetchUiDatasetSuccess());
   };
 }
 
