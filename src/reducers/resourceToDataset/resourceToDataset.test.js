@@ -1,6 +1,6 @@
 import resourceToDataset from './resourceToDataset';
 
-describe('resource reducer', () => {
+describe('resourceToDataset reducer', () => {
   it('should handle initial state', () => {
     expect(
       resourceToDataset(undefined, {})
