@@ -38,6 +38,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "2.29.0",
     "jest": "^22.4.3",
+    "jest-fetch-mock": "^1.5.0",
     "lodash.defer": "^4.1.0",
     "moment": "^2.20.1",
     "node-sass": "^4.7.2",

@@ -1,54 +1,49 @@
-// import configureMockStore from 'redux-mock-store';
-// import thunk from 'redux-thunk';
-// import fetchMock from 'fetch-mock';
-//
-// import api from '../../services/api/api';
-// import { fetchSchema } from './schema';
-//
-// import { setUiDatasetOrder } from '../uiDataset';
-// import { setUiResourceOrder } from '../uiResource';
-//
-// const middlewares = [thunk];
-// const mockStore = configureMockStore(middlewares);
-//
-// jest.mock('../uiDataset');
-// jest.mock('../uiResource');
-//
-// describe('schema actions', () => {
-//   afterEach(() => {
-//     fetchMock.reset();
-//     fetchMock.restore();
-//   });
-//
-//   it('FETCH_SCHEMA_SUCCESS', () => {
-//     fetchMock
-//       .getOnce(api.schema, {
-//         body: {
-//           components: {
-//             schemas: {
-//               'dcat-doc': {
-//                 foo: 'bar'
-//               }
-//             }
-//           }
-//         },
-//         headers: {
-//           'content-type': 'application/json'
-//         }
-//       });
-//
-//     const expectedActions = [{
-//       type: 'FETCH_SCHEMA_SUCCESS',
-//       schema: {
-//         foo: 'bar'
-//       }
-//     }];
-//
-//     const store = mockStore();
-//
-//     return store.dispatch(fetchSchema()).then(() => {
-//       // return of async actions
-//       expect(store.getActions()).toEqual(expectedActions);
-//     });
-//   });
-// });
+import configureMockStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
+import { fetchSchema } from './schema';
+
+const middlewares = [thunk];
+const mockStore = configureMockStore(middlewares);
+const schema = {
+  properties: {
+    'dct:title': {
+      title: 'Titel',
+      type: 'string'
+    },
+    'dct:description': {
+      title: 'Beschrijving',
+      type: 'string'
+    }
+  },
+  required: ['dct:title'],
+  type: 'object',
+  'x-order': ['dct:title', 'dct:description']
+};
+
+describe('schema actions', () => {
+  it.only('should dispatch fetchSchema', () => {
+    fetch.mockResponseOnce(JSON.stringify({
+      components: {
+        schemas: {
+          'dcat-doc': schema
+        }
+      }
+    }));
+
+    const expectedActions = [{
+      type: 'FETCH_SCHEMA_SUCCESS',
+      schema
+    }, {
+      type: 'SET_UI_DATASET_ORDER',
+      schema
+    }, {
+      type: 'SET_UI_RESOURCE_ORDER',
+      schema
+    }];
+
+    const store = mockStore();
+    store.dispatch(fetchSchema()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+});
