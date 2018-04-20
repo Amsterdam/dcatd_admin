@@ -6,8 +6,8 @@ import uiResource from '../../definitions/uiResource';
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-describe('fetchUiDataset actions', () => {
-  it('should dispatch fetchUiDataset', () => {
+describe('uiResource actions', () => {
+  it('should dispatch fetchUiResource', () => {
     const expectedActions = [
       {
         uiResource,
@@ -21,7 +21,7 @@ describe('fetchUiDataset actions', () => {
     expect(store.getActions()).toEqual(expectedActions);
   });
 
-  it('should dispatch setUiDatasetOrderSuccess', () => {
+  it('should dispatch setUiResourceOrder', () => {
     const expectedActions = [
       {
         type: 'SET_UI_RESOURCE_ORDER',
