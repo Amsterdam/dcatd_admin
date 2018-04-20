@@ -10,7 +10,7 @@ describe('dataset reducer', () => {
   describe('FETCH_DATASET_SUCCESS', () => {
     it('saves a dataset', () => {
       expect(
-        dataset([], {
+        dataset({}, {
           type: 'FETCH_DATASET_SUCCESS',
           dataset: {
             '@id': 'ams-dcatd:ois-95620',
@@ -35,7 +35,7 @@ describe('dataset reducer', () => {
   describe('EMPTY_DATASET_SUCCESS', () => {
     it('empties the dataset', () => {
       expect(
-        dataset([], {
+        dataset({}, {
           type: 'EMPTY_DATASET_SUCCESS',
           dataset: {
             '@id': 'ams-dcatd:ois-95620',
@@ -53,7 +53,7 @@ describe('dataset reducer', () => {
   describe('REMOVE_DATASET_SUCCESS', () => {
     it('empties the dataset', () => {
       expect(
-        dataset([], {
+        dataset({}, {
           type: 'REMOVE_DATASET_SUCCESS',
           dataset: {
             '@id': 'ams-dcatd:ois-95620',
