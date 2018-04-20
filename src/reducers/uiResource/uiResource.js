@@ -1,6 +1,8 @@
 import { FETCH_UI_RESOURCE_SUCCESS, SET_UI_RESOURCE_ORDER } from '../../actions/uiResource/uiResource';
 
-const initialState = {};
+const initialState = {
+  'ui:order': []
+};
 
 export default function (state = initialState, action) {
   switch (action.type) {
