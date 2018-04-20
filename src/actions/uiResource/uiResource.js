@@ -3,16 +3,16 @@ import uiResource from '../../definitions/uiResource';
 export const FETCH_UI_RESOURCE_SUCCESS = 'FETCH_UI_RESOURCE_SUCCESS';
 export const SET_UI_RESOURCE_ORDER = 'SET_UI_RESOURCE_ORDER';
 
-export function fetchUiResourceSuccess(uiSchema) {
+export function fetchUiResourceSuccess() {
   return {
     type: FETCH_UI_RESOURCE_SUCCESS,
-    uiResource: uiSchema
+    uiResource
   };
 }
 
 export function fetchUiResource() {
   return (dispatch) => {
-    return dispatch(fetchUiResourceSuccess(uiResource));
+    return dispatch(fetchUiResourceSuccess());
   };
 }
 
