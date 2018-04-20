@@ -1,18 +1,18 @@
 let result = {};
 
-const recursiveDiff = (obj1, obj2, ignore = []) => {
-  Object.keys(obj1).map((key) => {
+const recursiveDiff = (object1, object2, ignore = []) => {
+  Object.keys(object1).map((key) => {
     if (ignore.includes(key)) {
       return null;
     }
 
-    if (Array.isArray(obj1[key]) || typeof obj1[key] === 'object') {
-      recursiveDiff(obj1[key], obj2[key]);
+    if (Array.isArray(object1[key]) || typeof object1[key] === 'object') {
+      recursiveDiff(object1[key], object2[key], ignore);
       return null;
     }
 
-    if (obj1[key] && obj2[key] !== obj1[key]) {
-      result[key] = obj1[key] || obj2[key];
+    if (object1[key] && object2[key] !== object1[key]) {
+      result[key] = object1[key];
     }
 
     return null;
@@ -21,9 +21,9 @@ const recursiveDiff = (obj1, obj2, ignore = []) => {
   return result;
 };
 
-const isEqual = (obj1, obj2, ignore = []) => {
+const isEqual = (object1, object2, ignore = []) => {
   result = {};
-  const diff = recursiveDiff(obj1, obj2, ignore);
+  const diff = recursiveDiff(object1, object2, ignore);
   return Object.keys(diff).length === 0;
 };
 
