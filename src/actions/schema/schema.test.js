@@ -21,6 +21,10 @@ const mockSschema = {
 };
 
 describe('schema actions', () => {
+  beforeEach(() => {
+    fetch.resetMocks();
+  });
+
   it('should dispatch fetchSchema', () => {
     fetch.mockResponseOnce(JSON.stringify({
       components: {

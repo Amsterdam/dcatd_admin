@@ -21,6 +21,10 @@ const mockSschema = {
 };
 
 describe('dataset actions', () => {
+  beforeEach(() => {
+    fetch.resetMocks();
+  });
+
   it('should dispatch fetchDataset', () => {
     fetch.mockResponses([
       JSON.stringify({
