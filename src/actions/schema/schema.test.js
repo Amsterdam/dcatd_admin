@@ -21,7 +21,7 @@ const schema = {
 };
 
 describe('schema actions', () => {
-  it.only('should dispatch fetchSchema', () => {
+  it('should dispatch fetchSchema', () => {
     fetch.mockResponseOnce(JSON.stringify({
       components: {
         schemas: {
