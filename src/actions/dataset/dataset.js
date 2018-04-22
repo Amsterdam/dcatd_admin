@@ -19,7 +19,7 @@ export function fetchDatasetSuccess(dataset) {
 export function fetchDataset(id) {
   let etag = '';
   return (dispatch) => {
-    dispatch(fetchSchema()).then(() => {
+    return dispatch(fetchSchema()).then(() => {
       return fetch(`${api.datasets}/${id}`)
         .then((response) => {
           etag = response.headers.get('etag');
