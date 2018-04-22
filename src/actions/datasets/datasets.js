@@ -12,7 +12,7 @@ export function fetchDatasetsSuccess(datasets) {
 
 export function fetchDatasets() {
   return (dispatch) => {
-    dispatch(fetchSchema()).then(() => {
+    return dispatch(fetchSchema()).then(() => {
       return fetch(api.datasets)
         .then(response => response.json())
         .then(response => response['dcat:dataset'].map(dataset => ({

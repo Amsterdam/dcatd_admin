@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const jest = require('jest');
 
 // Ensure environment variables are read.

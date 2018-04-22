@@ -1,5 +1,3 @@
-'use strict';
-
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
   // inconsistent state due to an error, but it gets swallowed by a Promise,
@@ -15,4 +13,6 @@ require('whatwg-fetch');
 // It will use the native implementation if it's present and isn't buggy.
 Object.assign = require('object-assign');
 
-global.fetch = require('jest-fetch-mock');
+if (process.env.NODE_ENV === 'test') {
+  global.fetch = require('jest-fetch-mock');
+}
