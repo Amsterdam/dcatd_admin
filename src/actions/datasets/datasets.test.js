@@ -4,7 +4,7 @@ import { fetchDatasets } from './datasets';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
-const schema = {
+const mockSschema = {
   properties: {
     'dct:title': {
       title: 'Titel',
@@ -20,13 +20,13 @@ const schema = {
   'x-order': ['dct:title', 'dct:description']
 };
 
-describe('schema actions', () => {
-  it('should dispatch fetchSchema', () => {
+describe('datasets actions', () => {
+  it('should dispatch fetchDatasets', () => {
     fetch.mockResponses([
       JSON.stringify({
         components: {
           schemas: {
-            'dcat-doc': schema
+            'dcat-doc': mockSschema
           }
         }
       })
@@ -46,13 +46,13 @@ describe('schema actions', () => {
 
     const expectedActions = [{
       type: 'FETCH_SCHEMA_SUCCESS',
-      schema
+      schema: mockSschema
     }, {
       type: 'SET_UI_DATASET_ORDER',
-      schema
+      schema: mockSschema
     }, {
       type: 'SET_UI_RESOURCE_ORDER',
-      schema
+      schema: mockSschema
     }, {
       type: 'FETCH_DATASETS_SUCCESS',
       datasets: [{
