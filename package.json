@@ -39,6 +39,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "^22.4.3",
     "jest-fetch-mock": "^1.5.0",
+    "jsdom": "^11.9.0",
     "lodash.defer": "^4.1.0",
     "moment": "^2.20.1",
     "node-sass": "^4.7.2",

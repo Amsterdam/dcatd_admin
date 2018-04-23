@@ -1,3 +1,13 @@
+/* eslint-disable */
+
+if (process.env.NODE_ENV === 'test') {
+  const JSDOM = require('jsdom').JSDOM;
+  const { window } = new JSDOM();
+  global.window = window;
+
+  global.fetch = require('jest-fetch-mock');
+}
+
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
   // inconsistent state due to an error, but it gets swallowed by a Promise,
@@ -12,7 +22,3 @@ require('whatwg-fetch');
 // Object.assign() is commonly used with React.
 // It will use the native implementation if it's present and isn't buggy.
 Object.assign = require('object-assign');
-
-if (process.env.NODE_ENV === 'test') {
-  global.fetch = require('jest-fetch-mock');
-}

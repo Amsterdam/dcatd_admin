@@ -17,18 +17,20 @@ export function fetchDatasetSuccess(dataset) {
 }
 
 export function fetchDataset(id) {
+  let serverResponse = { ok: false };
   let etag = '';
   return (dispatch) => {
     return dispatch(fetchSchema()).then(() => {
       return fetch(`${api.datasets}/${id}`)
         .then((response) => {
+          serverResponse = response;
           etag = response.headers.get('etag');
           return response.json();
         })
-        .then(response => dispatch(fetchDatasetSuccess({
-          ...response,
+        .then(dataset => dispatch(serverResponse.ok ? fetchDatasetSuccess({
+          ...dataset,
           etag
-        })))
+        }) : serverError(serverResponse)))
         .catch((error) => { throw error; });
     });
   };
@@ -41,6 +43,7 @@ export function createDatasetSuccess() {
 }
 
 export function createDataset(dataset) {
+  // POST: 201
   return (dispatch) => {
     return fetch(api.datasets, {
       method: 'POST',
@@ -51,14 +54,9 @@ export function createDataset(dataset) {
         'If-None-Match': '*'
       })
     })
-      .then((response) => {
-        if (!response.ok) {
-          dispatch(serverError(response));
-        }
-      })
-      .then(() => dispatch(createDatasetSuccess(dataset)))
+      .then(response =>
+        dispatch(response.ok ? createDatasetSuccess(dataset) : serverError(response)))
       .then(() => {
-        // TODO: Find alternative approach letting the container handle this
         // dispatch(push('/dcatd_admin/datasets'));
         window.location.hash = '/datasets';
       })
@@ -79,6 +77,7 @@ export function emptyDataset() {
 }
 
 export function updateDataset(dataset) {
+  // PUT: 204
   return (dispatch) => {
     return fetch(`${api.datasets}/${dataset['dct:identifier']}`, {
       method: 'PUT',
@@ -89,14 +88,9 @@ export function updateDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      .then((response) => {
-        if (!response.ok) {
-          dispatch(serverError(response));
-        }
-      })
-      .then(() => dispatch(fetchDataset(dataset['dct:identifier'])))
+      .then(response =>
+        dispatch(response.ok ? fetchDataset(dataset['dct:identifier']) : serverError(response)))
       .then(() => {
-        // TODO: Find alternative approach letting the container handle this
         // dispatch(push('/dcatd_admin/datasets'));
         window.location.hash = '/datasets';
       })
@@ -104,14 +98,14 @@ export function updateDataset(dataset) {
   };
 }
 
-export function removeDatasetSuccess(dataset) {
+export function removeDatasetSuccess() {
   return {
-    type: REMOVE_DATASET_SUCCESS,
-    dataset
+    type: REMOVE_DATASET_SUCCESS
   };
 }
 
 export function removeDataset(dataset) {
+  // DELETE: 204
   return (dispatch) => {
     return fetch(`${api.datasets}/${dataset['dct:identifier']}`, {
       method: 'DELETE',
@@ -120,14 +114,9 @@ export function removeDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      .then((response) => {
-        if (!response.ok) {
-          dispatch(serverError(response));
-        }
-      })
-      .then(() => dispatch(removeDatasetSuccess(dataset)))
+      .then(response =>
+        dispatch(response.ok ? removeDatasetSuccess() : serverError(response)))
       .then(() => {
-        // TODO: Find alternative approach letting the container handle this
         // dispatch(push('/dcatd_admin/datasets'));
         window.location.hash = '/datasets';
       })
