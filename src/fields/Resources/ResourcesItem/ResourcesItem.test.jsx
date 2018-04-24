@@ -24,18 +24,6 @@ const schemaProps = {
   }
 };
 
-/*
-resource = {
-  'dct:title': 'Titel',
-  'dcat:accessURL': 'http://ergens',
-  'dct:description': 'omschrijving',
-  'dct:format': 'application/pdf',
-  'dcat:byteSize': '666',
-  'foaf:isPrimaryTopicOf': {
-    'dct:modified': '2017-11-30'
-  }
-  */
-
 describe('The ResourcesItem component', () => {
   it('renders with title, description, format, file size and date', () => {
     const resource = {
