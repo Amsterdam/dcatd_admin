@@ -14,6 +14,7 @@ module.exports = {
   },
   coverageReporters: ['lcov'],
   setupFiles: [
+    '<rootDir>/config/jest.js',
     '<rootDir>/config/polyfills.js'
   ],
   testMatch: [

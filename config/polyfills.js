@@ -1,18 +1,5 @@
 /* eslint-disable */
 
-if (process.env.NODE_ENV === 'test') {
-  const Enzyme = require('enzyme');
-  const Adapter = require('enzyme-adapter-react-16');
-  // console.log('-----------------------', enzyme);
-  Enzyme.configure({ adapter: new Adapter() });
-
-  const JSDOM = require('jsdom').JSDOM;
-  const { window } = new JSDOM();
-  global.window = window;
-
-  global.fetch = require('jest-fetch-mock');
-}
-
 if (typeof Promise === 'undefined') {
   // Rejection tracking prevents a common issue where React gets into an
   // inconsistent state due to an error, but it gets swallowed by a Promise,
