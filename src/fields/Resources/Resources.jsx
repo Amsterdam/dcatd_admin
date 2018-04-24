@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import ResourcesItem from './ResourcesItem';
+import ResourcesItem from './ResourcesItem/ResourcesItem';
 
 import './resources.scss';
 
@@ -69,6 +69,7 @@ class Resources extends Component {
                   className="resources-type__content-item"
                   key={resource['@id']}
                 >
+                  {console.log('RES', resource, this.props.schema.items.properties)}
                   <ResourcesItem
                     resource={resource}
                     schemaProps={this.props.schema.items.properties}
