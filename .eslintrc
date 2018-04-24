@@ -5,6 +5,11 @@
     "jest": true,
     "node": true
   },
+  "globals": {
+    "shallow": true,
+    "mount": true,
+    "render": true
+  },
   "rules": {
     "no-param-reassign": 0,
     "no-throw-literal": 0,
