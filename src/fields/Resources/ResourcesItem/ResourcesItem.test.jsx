@@ -2,7 +2,7 @@ import React from 'react';
 
 import ResourcesItem from './ResourcesItem';
 
-const schemaProps = {
+const mockSchema = {
   'dct:format': {
     enum: [
       'n/a',
@@ -36,14 +36,14 @@ describe('The ResourcesItem component', () => {
       }
     };
 
-    const wrapper = shallow(
+    const wrap = shallow(
       <ResourcesItem
         resource={resource}
-        schemaProps={schemaProps}
+        schemaProps={mockSchema}
       />
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrap).toMatchSnapshot();
   });
 
   it('renders with title and url: showing url in place of description', () => {
@@ -54,13 +54,13 @@ describe('The ResourcesItem component', () => {
       'foaf:isPrimaryTopicOf': {}
     };
 
-    const wrapper = shallow(
+    const wrap = shallow(
       <ResourcesItem
         resource={resource}
-        schemaProps={schemaProps}
+        schemaProps={mockSchema}
       />
     );
 
-    expect(wrapper).toMatchSnapshot();
+    expect(wrap).toMatchSnapshot();
   });
 });

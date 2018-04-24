@@ -1,0 +1,1015 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Resources component (react-jsonschema-forms field) renders component renders two resources 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Resources
+    formContext={Object {}}
+    formData={Array []}
+    resources={
+      Array [
+        Object {
+          "@id": "_:d1",
+          "ams:classification": "public",
+          "ams:distributionType": "file",
+          "ams:resourceType": "data",
+          "dcat:accessURL": "http://maps.amsterdam.nl/open_geodata/",
+          "dct:description": "Let op!",
+          "dct:format": "text/csv",
+          "dct:title": "Data via maps.amsterdam.nl",
+          "foaf:isPrimaryTopicOf": Object {
+            "dct:issued": "2017-02-02",
+            "dct:modified": "2017-02-02",
+          },
+        },
+        Object {
+          "@id": "_:d2",
+          "ams:classification": "public",
+          "ams:distributionType": "file",
+          "ams:resourceType": "vis",
+          "dcat:accessURL": "http://maps.amsterdam.nl/markten/",
+          "dct:format": "text/html",
+          "dct:title": "Weergave op kaart",
+          "foaf:isPrimaryTopicOf": Object {
+            "dct:issued": "2017-02-02",
+            "dct:modified": "2017-02-02",
+          },
+        },
+      ]
+    }
+    schema={
+      Object {
+        "default": Array [],
+        "items": Object {
+          "properties": Object {
+            "ams:resourceType": Object {
+              "enum": Array [
+                "data",
+                "doc",
+                "vis",
+                "app",
+              ],
+              "enumNames": Array [
+                "Data",
+                "Documentatie",
+                "Visualisatie",
+                "Voorbeeldtoepassing",
+              ],
+            },
+          },
+        },
+        "type": "array",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="resources-type"
+        >
+          <div
+            className="resources-type__header"
+          >
+            <span
+              className="resources-type__header-title"
+            >
+              Data
+            </span>
+            <button
+              className="resources-button resources-button-new"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+          <div
+            className="resources-type__content"
+          />
+        </div>,
+        <div
+          className="resources-type"
+        >
+          <div
+            className="resources-type__header"
+          >
+            <span
+              className="resources-type__header-title"
+            >
+              Documentatie
+            </span>
+            <button
+              className="resources-button resources-button-new"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+          <div
+            className="resources-type__content"
+          />
+        </div>,
+        <div
+          className="resources-type"
+        >
+          <div
+            className="resources-type__header"
+          >
+            <span
+              className="resources-type__header-title"
+            >
+              Visualisatie
+            </span>
+            <button
+              className="resources-button resources-button-new"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+          <div
+            className="resources-type__content"
+          />
+        </div>,
+        <div
+          className="resources-type"
+        >
+          <div
+            className="resources-type__header"
+          >
+            <span
+              className="resources-type__header-title"
+            >
+              Voorbeeldtoepassing
+            </span>
+            <button
+              className="resources-button resources-button-new"
+              onClick={[Function]}
+              type="button"
+            />
+          </div>
+          <div
+            className="resources-type__content"
+          />
+        </div>,
+      ],
+      "className": "resources",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": "data",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Data
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>,
+            <div
+              className="resources-type__content"
+            />,
+          ],
+          "className": "resources-type",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="resources-type__header-title"
+                >
+                  Data
+                </span>,
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />,
+              ],
+              "className": "resources-type__header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Data",
+                  "className": "resources-type__header-title",
+                },
+                "ref": null,
+                "rendered": "Data",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "resources-button resources-button-new",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [],
+              "className": "resources-type__content",
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "doc",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Documentatie
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>,
+            <div
+              className="resources-type__content"
+            />,
+          ],
+          "className": "resources-type",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="resources-type__header-title"
+                >
+                  Documentatie
+                </span>,
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />,
+              ],
+              "className": "resources-type__header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Documentatie",
+                  "className": "resources-type__header-title",
+                },
+                "ref": null,
+                "rendered": "Documentatie",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "resources-button resources-button-new",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [],
+              "className": "resources-type__content",
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "vis",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Visualisatie
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>,
+            <div
+              className="resources-type__content"
+            />,
+          ],
+          "className": "resources-type",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="resources-type__header-title"
+                >
+                  Visualisatie
+                </span>,
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />,
+              ],
+              "className": "resources-type__header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Visualisatie",
+                  "className": "resources-type__header-title",
+                },
+                "ref": null,
+                "rendered": "Visualisatie",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "resources-button resources-button-new",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [],
+              "className": "resources-type__content",
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": "app",
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Voorbeeldtoepassing
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>,
+            <div
+              className="resources-type__content"
+            />,
+          ],
+          "className": "resources-type",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <span
+                  className="resources-type__header-title"
+                >
+                  Voorbeeldtoepassing
+                </span>,
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />,
+              ],
+              "className": "resources-type__header",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Voorbeeldtoepassing",
+                  "className": "resources-type__header-title",
+                },
+                "ref": null,
+                "rendered": "Voorbeeldtoepassing",
+                "type": "span",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "resources-button resources-button-new",
+                  "onClick": [Function],
+                  "type": "button",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [],
+              "className": "resources-type__content",
+            },
+            "ref": null,
+            "rendered": Array [],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="resources-type"
+          >
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Data
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>
+            <div
+              className="resources-type__content"
+            />
+          </div>,
+          <div
+            className="resources-type"
+          >
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Documentatie
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>
+            <div
+              className="resources-type__content"
+            />
+          </div>,
+          <div
+            className="resources-type"
+          >
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Visualisatie
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>
+            <div
+              className="resources-type__content"
+            />
+          </div>,
+          <div
+            className="resources-type"
+          >
+            <div
+              className="resources-type__header"
+            >
+              <span
+                className="resources-type__header-title"
+              >
+                Voorbeeldtoepassing
+              </span>
+              <button
+                className="resources-button resources-button-new"
+                onClick={[Function]}
+                type="button"
+              />
+            </div>
+            <div
+              className="resources-type__content"
+            />
+          </div>,
+        ],
+        "className": "resources",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": "data",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="resources-type__header"
+              >
+                <span
+                  className="resources-type__header-title"
+                >
+                  Data
+                </span>
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />
+              </div>,
+              <div
+                className="resources-type__content"
+              />,
+            ],
+            "className": "resources-type",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="resources-type__header-title"
+                  >
+                    Data
+                  </span>,
+                  <button
+                    className="resources-button resources-button-new"
+                    onClick={[Function]}
+                    type="button"
+                  />,
+                ],
+                "className": "resources-type__header",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Data",
+                    "className": "resources-type__header-title",
+                  },
+                  "ref": null,
+                  "rendered": "Data",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "resources-button resources-button-new",
+                    "onClick": [Function],
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "button",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [],
+                "className": "resources-type__content",
+              },
+              "ref": null,
+              "rendered": Array [],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "doc",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="resources-type__header"
+              >
+                <span
+                  className="resources-type__header-title"
+                >
+                  Documentatie
+                </span>
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />
+              </div>,
+              <div
+                className="resources-type__content"
+              />,
+            ],
+            "className": "resources-type",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="resources-type__header-title"
+                  >
+                    Documentatie
+                  </span>,
+                  <button
+                    className="resources-button resources-button-new"
+                    onClick={[Function]}
+                    type="button"
+                  />,
+                ],
+                "className": "resources-type__header",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Documentatie",
+                    "className": "resources-type__header-title",
+                  },
+                  "ref": null,
+                  "rendered": "Documentatie",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "resources-button resources-button-new",
+                    "onClick": [Function],
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "button",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [],
+                "className": "resources-type__content",
+              },
+              "ref": null,
+              "rendered": Array [],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "vis",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="resources-type__header"
+              >
+                <span
+                  className="resources-type__header-title"
+                >
+                  Visualisatie
+                </span>
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />
+              </div>,
+              <div
+                className="resources-type__content"
+              />,
+            ],
+            "className": "resources-type",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="resources-type__header-title"
+                  >
+                    Visualisatie
+                  </span>,
+                  <button
+                    className="resources-button resources-button-new"
+                    onClick={[Function]}
+                    type="button"
+                  />,
+                ],
+                "className": "resources-type__header",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Visualisatie",
+                    "className": "resources-type__header-title",
+                  },
+                  "ref": null,
+                  "rendered": "Visualisatie",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "resources-button resources-button-new",
+                    "onClick": [Function],
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "button",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [],
+                "className": "resources-type__content",
+              },
+              "ref": null,
+              "rendered": Array [],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": "app",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <div
+                className="resources-type__header"
+              >
+                <span
+                  className="resources-type__header-title"
+                >
+                  Voorbeeldtoepassing
+                </span>
+                <button
+                  className="resources-button resources-button-new"
+                  onClick={[Function]}
+                  type="button"
+                />
+              </div>,
+              <div
+                className="resources-type__content"
+              />,
+            ],
+            "className": "resources-type",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <span
+                    className="resources-type__header-title"
+                  >
+                    Voorbeeldtoepassing
+                  </span>,
+                  <button
+                    className="resources-button resources-button-new"
+                    onClick={[Function]}
+                    type="button"
+                  />,
+                ],
+                "className": "resources-type__header",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Voorbeeldtoepassing",
+                    "className": "resources-type__header-title",
+                  },
+                  "ref": null,
+                  "rendered": "Voorbeeldtoepassing",
+                  "type": "span",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "resources-button resources-button-new",
+                    "onClick": [Function],
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "button",
+                },
+              ],
+              "type": "div",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [],
+                "className": "resources-type__content",
+              },
+              "ref": null,
+              "rendered": Array [],
+              "type": "div",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

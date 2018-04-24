@@ -69,7 +69,6 @@ class Resources extends Component {
                   className="resources-type__content-item"
                   key={resource['@id']}
                 >
-                  {console.log('RES', resource, this.props.schema.items.properties)}
                   <ResourcesItem
                     resource={resource}
                     schemaProps={this.props.schema.items.properties}
@@ -90,13 +89,14 @@ class Resources extends Component {
 }
 
 Resources.defaultProps = {
-  formData: []
+  formData: [],
+  formContext: {}
 };
 
 Resources.propTypes = {
   formData: PropTypes.array,
   schema: PropTypes.object.isRequired,
-  formContext: PropTypes.object.isRequired
+  formContext: PropTypes.object
 };
 
 export default Resources;
