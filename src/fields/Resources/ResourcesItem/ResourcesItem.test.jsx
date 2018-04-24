@@ -24,24 +24,56 @@ const schemaProps = {
   }
 };
 
-it('renders correctly', () => {
-  const resource = {
-    'dct:title': 'Titel',
-    'dct:description': 'omschrijving',
-    'dcat:accessURL': 'http://ergens',
-    'dct:format': 'application/pdf',
-    'dcat:byteSize': '666',
-    'foaf:isPrimaryTopicOf': {
-      'dct:modified': '2017-11-30'
-    }
-  };
+/*
+resource = {
+  'dct:title': 'Titel',
+  'dcat:accessURL': 'http://ergens',
+  'dct:description': 'omschrijving',
+  'dct:format': 'application/pdf',
+  'dcat:byteSize': '666',
+  'foaf:isPrimaryTopicOf': {
+    'dct:modified': '2017-11-30'
+  }
+  */
 
-  const wrapper = shallow(
-    <ResourcesItem
-      resource={resource}
-      schemaProps={schemaProps}
-    />
-  );
+describe('The ResourcesItem component', () => {
+  it('renders with title, description, format, file size and date', () => {
+    const resource = {
+      'dct:title': 'Titel',
+      'dcat:accessURL': 'http://ergens',
+      'dct:description': 'omschrijving',
+      'dct:format': 'application/pdf',
+      'dcat:byteSize': '666',
+      'foaf:isPrimaryTopicOf': {
+        'dct:modified': '2017-11-30'
+      }
+    };
 
-  expect(wrapper).toMatchSnapshot();
+    const wrapper = shallow(
+      <ResourcesItem
+        resource={resource}
+        schemaProps={schemaProps}
+      />
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('renders with title and url: showing url in place of description', () => {
+    const resource = {
+      'dct:title': 'Titel',
+      'dcat:accessURL': 'http://ergens',
+      'dct:format': 'n/a',
+      'foaf:isPrimaryTopicOf': {}
+    };
+
+    const wrapper = shallow(
+      <ResourcesItem
+        resource={resource}
+        schemaProps={schemaProps}
+      />
+    );
+
+    expect(wrapper).toMatchSnapshot();
+  });
 });

@@ -1,6 +1,335 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`The ResourcesItem component renders with title and url: showing url in place of description 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ResourcesItem
+    resource={
+      Object {
+        "dcat:accessURL": "http://ergens",
+        "dct:format": "n/a",
+        "dct:title": "Titel",
+        "foaf:isPrimaryTopicOf": Object {},
+      }
+    }
+    schemaProps={
+      Object {
+        "dct:format": Object {
+          "enum": Array [
+            "n/a",
+            "text/csv",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.geo+json",
+            "application/gml+xml",
+            "text/html",
+            "application/json",
+            "application/pdf",
+            "image/png",
+            "application/vnd.ms-excel",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/xml",
+            "application/octet-stream",
+          ],
+          "enumNames": Array [
+            "",
+            "CSV",
+            "DOCX",
+            "GeoJSON",
+            "GML",
+            "HTML",
+            "JSON",
+            "PDF",
+            "PNG",
+            "XLS",
+            "XLSX",
+            "XML",
+            "Anders",
+          ],
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="resources-item__modified"
+        >
+          
+        </div>,
+        <div
+          className="resources-item__file-size"
+        >
+          
+        </div>,
+        <div
+          className="resources-item__title"
+        >
+          Titel
+        </div>,
+        <div
+          className="resources-item__description"
+        >
+          <span
+            className="resources-item__file-type
+      resources-item__file-type--"
+          >
+            overig
+          </span>
+          <span
+            className="resources-item__description-text"
+          >
+            http://ergens
+          </span>
+        </div>,
+      ],
+      "className": "resources-item",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+          "className": "resources-item__modified",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+          "className": "resources-item__file-size",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Titel",
+          "className": "resources-item__title",
+        },
+        "ref": null,
+        "rendered": "Titel",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span
+              className="resources-item__file-type
+      resources-item__file-type--"
+            >
+              overig
+            </span>,
+            <span
+              className="resources-item__description-text"
+            >
+              http://ergens
+            </span>,
+          ],
+          "className": "resources-item__description",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "overig",
+              "className": "resources-item__file-type
+      resources-item__file-type--",
+            },
+            "ref": null,
+            "rendered": "overig",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "http://ergens",
+              "className": "resources-item__description-text",
+            },
+            "ref": null,
+            "rendered": "http://ergens",
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="resources-item__modified"
+          >
+            
+          </div>,
+          <div
+            className="resources-item__file-size"
+          >
+            
+          </div>,
+          <div
+            className="resources-item__title"
+          >
+            Titel
+          </div>,
+          <div
+            className="resources-item__description"
+          >
+            <span
+              className="resources-item__file-type
+      resources-item__file-type--"
+            >
+              overig
+            </span>
+            <span
+              className="resources-item__description-text"
+            >
+              http://ergens
+            </span>
+          </div>,
+        ],
+        "className": "resources-item",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "resources-item__modified",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "resources-item__file-size",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Titel",
+            "className": "resources-item__title",
+          },
+          "ref": null,
+          "rendered": "Titel",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="resources-item__file-type
+      resources-item__file-type--"
+              >
+                overig
+              </span>,
+              <span
+                className="resources-item__description-text"
+              >
+                http://ergens
+              </span>,
+            ],
+            "className": "resources-item__description",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "overig",
+                "className": "resources-item__file-type
+      resources-item__file-type--",
+              },
+              "ref": null,
+              "rendered": "overig",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "http://ergens",
+                "className": "resources-item__description-text",
+              },
+              "ref": null,
+              "rendered": "http://ergens",
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`The ResourcesItem component renders with title, description, format, file size and date 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
