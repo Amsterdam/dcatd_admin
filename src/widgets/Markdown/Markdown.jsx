@@ -54,24 +54,28 @@ class Markdown extends Component {
 }
 
 Markdown.defaultProps = {
+  disabled: false,
   label: '',
   placeholder: '',
   options: {},
+  readonly: false,
+  required: false,
   rows: 3,
-  value: ''
+  value: '',
+  onChange: () => {}
 };
 
 Markdown.propTypes = {
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   placeholder: PropTypes.string,
   options: PropTypes.object,
-  readonly: PropTypes.bool.isRequired,
+  readonly: PropTypes.bool,
   rows: PropTypes.number,
-  required: PropTypes.bool.isRequired,
+  required: PropTypes.bool,
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired
+  onChange: PropTypes.func
 };
 
 export default Markdown;

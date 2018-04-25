@@ -1,0 +1,701 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Markdown component (react-jsonschema-forms custom widget) renders component renders default 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Markdown
+    disabled={false}
+    id="very-unique-id"
+    label=""
+    onChange={[Function]}
+    options={Object {}}
+    placeholder=""
+    readonly={false}
+    required={false}
+    rows={3}
+    value=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <textarea
+          className="form-control"
+          disabled={false}
+          id="very-unique-id"
+          label=""
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          required={false}
+          rows={undefined}
+          value=""
+        />,
+        <ReactMarkdown
+          className="form-control preview"
+          escapeHtml={true}
+          renderers={Object {}}
+          skipHtml={false}
+          source="preview"
+          transformLinkUri={[Function]}
+        />,
+      ],
+      "className": "markdown",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "form-control",
+          "disabled": false,
+          "id": "very-unique-id",
+          "label": "",
+          "onChange": [Function],
+          "placeholder": "",
+          "readOnly": false,
+          "required": false,
+          "rows": undefined,
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "textarea",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "className": "form-control preview",
+          "escapeHtml": true,
+          "renderers": Object {},
+          "skipHtml": false,
+          "source": "preview",
+          "transformLinkUri": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <textarea
+            className="form-control"
+            disabled={false}
+            id="very-unique-id"
+            label=""
+            onChange={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            rows={undefined}
+            value=""
+          />,
+          <ReactMarkdown
+            className="form-control preview"
+            escapeHtml={true}
+            renderers={Object {}}
+            skipHtml={false}
+            source="preview"
+            transformLinkUri={[Function]}
+          />,
+        ],
+        "className": "markdown",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "form-control",
+            "disabled": false,
+            "id": "very-unique-id",
+            "label": "",
+            "onChange": [Function],
+            "placeholder": "",
+            "readOnly": false,
+            "required": false,
+            "rows": undefined,
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "textarea",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "className": "form-control preview",
+            "escapeHtml": true,
+            "renderers": Object {},
+            "skipHtml": false,
+            "source": "preview",
+            "transformLinkUri": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`The Markdown component (react-jsonschema-forms custom widget) renders component renders new value 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Markdown
+    disabled={false}
+    id="very-unique-id"
+    label=""
+    onChange={[Function]}
+    options={Object {}}
+    placeholder=""
+    readonly={false}
+    required={false}
+    rows={3}
+    value="foo"
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <textarea
+          className="form-control"
+          disabled={false}
+          id="very-unique-id"
+          label=""
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          required={false}
+          rows={undefined}
+          value="foo"
+        />,
+        <ReactMarkdown
+          className="form-control preview"
+          escapeHtml={true}
+          renderers={Object {}}
+          skipHtml={false}
+          source="foo"
+          transformLinkUri={[Function]}
+        />,
+      ],
+      "className": "markdown",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "form-control",
+          "disabled": false,
+          "id": "very-unique-id",
+          "label": "",
+          "onChange": [Function],
+          "placeholder": "",
+          "readOnly": false,
+          "required": false,
+          "rows": undefined,
+          "value": "foo",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "textarea",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "className": "form-control preview",
+          "escapeHtml": true,
+          "renderers": Object {},
+          "skipHtml": false,
+          "source": "foo",
+          "transformLinkUri": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <textarea
+            className="form-control"
+            disabled={false}
+            id="very-unique-id"
+            label=""
+            onChange={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            rows={undefined}
+            value="foo"
+          />,
+          <ReactMarkdown
+            className="form-control preview"
+            escapeHtml={true}
+            renderers={Object {}}
+            skipHtml={false}
+            source="foo"
+            transformLinkUri={[Function]}
+          />,
+        ],
+        "className": "markdown",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "form-control",
+            "disabled": false,
+            "id": "very-unique-id",
+            "label": "",
+            "onChange": [Function],
+            "placeholder": "",
+            "readOnly": false,
+            "required": false,
+            "rows": undefined,
+            "value": "foo",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "textarea",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "className": "form-control preview",
+            "escapeHtml": true,
+            "renderers": Object {},
+            "skipHtml": false,
+            "source": "foo",
+            "transformLinkUri": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`The Markdown component (react-jsonschema-forms custom widget) triggering events updates the value after change 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Markdown
+    disabled={false}
+    id="very-unique-id"
+    label=""
+    onChange={[Function]}
+    options={Object {}}
+    placeholder=""
+    readonly={false}
+    required={false}
+    rows={3}
+    value=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <textarea
+          className="form-control"
+          disabled={false}
+          id="very-unique-id"
+          label=""
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          required={false}
+          rows={undefined}
+          value=""
+        />,
+        <ReactMarkdown
+          className="form-control preview"
+          escapeHtml={true}
+          renderers={Object {}}
+          skipHtml={false}
+          source="preview"
+          transformLinkUri={[Function]}
+        />,
+      ],
+      "className": "markdown",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "form-control",
+          "disabled": false,
+          "id": "very-unique-id",
+          "label": "",
+          "onChange": [Function],
+          "placeholder": "",
+          "readOnly": false,
+          "required": false,
+          "rows": undefined,
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "textarea",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "className": "form-control preview",
+          "escapeHtml": true,
+          "renderers": Object {},
+          "skipHtml": false,
+          "source": "preview",
+          "transformLinkUri": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <textarea
+            className="form-control"
+            disabled={false}
+            id="very-unique-id"
+            label=""
+            onChange={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            rows={undefined}
+            value=""
+          />,
+          <ReactMarkdown
+            className="form-control preview"
+            escapeHtml={true}
+            renderers={Object {}}
+            skipHtml={false}
+            source="preview"
+            transformLinkUri={[Function]}
+          />,
+        ],
+        "className": "markdown",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "form-control",
+            "disabled": false,
+            "id": "very-unique-id",
+            "label": "",
+            "onChange": [Function],
+            "placeholder": "",
+            "readOnly": false,
+            "required": false,
+            "rows": undefined,
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "textarea",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "className": "form-control preview",
+            "escapeHtml": true,
+            "renderers": Object {},
+            "skipHtml": false,
+            "source": "preview",
+            "transformLinkUri": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
+exports[`The Markdown component (react-jsonschema-forms custom widget) triggering events updates the value to undefined when string is empty 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Markdown
+    disabled={false}
+    id="very-unique-id"
+    label=""
+    onChange={[Function]}
+    options={Object {}}
+    placeholder=""
+    readonly={false}
+    required={false}
+    rows={3}
+    value=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <textarea
+          className="form-control"
+          disabled={false}
+          id="very-unique-id"
+          label=""
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          required={false}
+          rows={undefined}
+          value=""
+        />,
+        <ReactMarkdown
+          className="form-control preview"
+          escapeHtml={true}
+          renderers={Object {}}
+          skipHtml={false}
+          source="preview"
+          transformLinkUri={[Function]}
+        />,
+      ],
+      "className": "markdown",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "form-control",
+          "disabled": false,
+          "id": "very-unique-id",
+          "label": "",
+          "onChange": [Function],
+          "placeholder": "",
+          "readOnly": false,
+          "required": false,
+          "rows": undefined,
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "textarea",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "className": "form-control preview",
+          "escapeHtml": true,
+          "renderers": Object {},
+          "skipHtml": false,
+          "source": "preview",
+          "transformLinkUri": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <textarea
+            className="form-control"
+            disabled={false}
+            id="very-unique-id"
+            label=""
+            onChange={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            rows={undefined}
+            value=""
+          />,
+          <ReactMarkdown
+            className="form-control preview"
+            escapeHtml={true}
+            renderers={Object {}}
+            skipHtml={false}
+            source="preview"
+            transformLinkUri={[Function]}
+          />,
+        ],
+        "className": "markdown",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "form-control",
+            "disabled": false,
+            "id": "very-unique-id",
+            "label": "",
+            "onChange": [Function],
+            "placeholder": "",
+            "readOnly": false,
+            "required": false,
+            "rows": undefined,
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "textarea",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "className": "form-control preview",
+            "escapeHtml": true,
+            "renderers": Object {},
+            "skipHtml": false,
+            "source": "preview",
+            "transformLinkUri": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
