@@ -10,7 +10,7 @@ import schema from './schema/schema';
 import uiDataset from './uiDataset/uiDataset';
 import uiResource from './uiResource/uiResource';
 
-const appState = combineReducers({
+const rootReducer = combineReducers({
   dataset,
   datasets,
   modal,
@@ -22,4 +22,4 @@ const appState = combineReducers({
   router: routerReducer
 });
 
-export default appState;
+export default rootReducer;

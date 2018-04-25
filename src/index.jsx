@@ -8,7 +8,7 @@ import { HashRouter } from 'react-router-dom';
 import { routerMiddleware, push } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
-import reducers from './reducers';
+import rootReducer from './reducers';
 import App from './components/App/App';
 import { fetchDatasets } from './actions/datasets/datasets';
 import { fetchSchema } from './actions/schema/schema';
@@ -22,7 +22,7 @@ import './index.scss';
 const history = createHistory();
 const router = routerMiddleware(history);
 const store = createStore(
-  reducers,
+  rootReducer,
   composeWithDevTools(
     applyMiddleware(
       thunk,
