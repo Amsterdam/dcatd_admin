@@ -1,16 +1,11 @@
 @import "../../styling/config.scss";
 
 .markdown {
-  align-items: stretch;
-  display: flex;
-  height: 148px;
-  justify-content: space-between;
-
   .form-control {
-    flex-basis: 48% !important;
-    height: auto !important;
+    height: 148px !important;
 
     &.preview {
+      margin-top: 16px;
       overflow: auto;
     }
   }
