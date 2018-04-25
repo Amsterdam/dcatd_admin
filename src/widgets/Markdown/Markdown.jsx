@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { TextArea } from 'semantic-ui-react';
 import ReactMarkdown from 'react-markdown';
 
 import './markdown.scss';
@@ -22,9 +21,9 @@ class Markdown extends Component {
     });
   }
 
-  handleChange(event, { value }) {
-    this.setState({ value });
-    this.props.onChange(value || undefined);
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+    this.props.onChange(event.target.value || undefined);
   }
 
   render() {
@@ -32,7 +31,7 @@ class Markdown extends Component {
 
     return (
       <div className="markdown">
-        <TextArea
+        <textarea
           id={this.props.id}
           className="form-control"
           placeholder={this.props.placeholder}
