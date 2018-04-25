@@ -1,0 +1,706 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Modal component renders component renders SERVER_ERROR 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Modal
+    modal={
+      Object {
+        "actionLabel": "OK",
+        "cancelLabel": null,
+        "content": "SERVER_ERROR",
+        "onProceed": Any {
+          "$$typeof": Symbol(jest.asymmetricMatcher),
+          "sample": [Function],
+        },
+        "open": true,
+      }
+    }
+    open={false}
+    setModal={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <ModalHeader>
+          Niet bevoegd
+        </ModalHeader>,
+        <ModalContent>
+          <span>
+            <p>
+              U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
+            </p>
+            Wellicht komt dit doordat:
+            <ol>
+              <li>
+                Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+              </li>
+              <li>
+                U niet bevoegd bent om datasets te beheren.
+              </li>
+            </ol>
+          </span>
+        </ModalContent>,
+        <ModalActions>
+          <button
+            className="dcatd-form-button dcatd-form-button-submit"
+            onClick={[Function]}
+          >
+            OK
+          </button>
+          
+        </ModalActions>,
+      ],
+      "closeOnDimmerClick": true,
+      "closeOnDocumentClick": false,
+      "dimmer": true,
+      "eventPool": "Modal",
+      "open": true,
+      "size": "tiny",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Niet bevoegd",
+        },
+        "ref": null,
+        "rendered": "Niet bevoegd",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": <span>
+            <p>
+              U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
+            </p>
+            Wellicht komt dit doordat:
+            <ol>
+              <li>
+                Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+              </li>
+              <li>
+                U niet bevoegd bent om datasets te beheren.
+              </li>
+            </ol>
+          </span>,
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <p>
+                U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
+              </p>,
+              "Wellicht komt dit doordat:",
+              <ol>
+                <li>
+                  Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+                </li>
+                <li>
+                  U niet bevoegd bent om datasets te beheren.
+                </li>
+              </ol>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
+              },
+              "ref": null,
+              "rendered": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
+              "type": "p",
+            },
+            "Wellicht komt dit doordat:",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <li>
+                    Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+                  </li>,
+                  <li>
+                    U niet bevoegd bent om datasets te beheren.
+                  </li>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
+                  },
+                  "ref": null,
+                  "rendered": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
+                  "type": "li",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "U niet bevoegd bent om datasets te beheren.",
+                  },
+                  "ref": null,
+                  "rendered": "U niet bevoegd bent om datasets te beheren.",
+                  "type": "li",
+                },
+              ],
+              "type": "ol",
+            },
+          ],
+          "type": "span",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              onClick={[Function]}
+            >
+              OK
+            </button>,
+            "",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "OK",
+              "className": "dcatd-form-button dcatd-form-button-submit",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "OK",
+            "type": "button",
+          },
+          "",
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <ModalHeader>
+            Niet bevoegd
+          </ModalHeader>,
+          <ModalContent>
+            <span>
+              <p>
+                U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
+              </p>
+              Wellicht komt dit doordat:
+              <ol>
+                <li>
+                  Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+                </li>
+                <li>
+                  U niet bevoegd bent om datasets te beheren.
+                </li>
+              </ol>
+            </span>
+          </ModalContent>,
+          <ModalActions>
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              onClick={[Function]}
+            >
+              OK
+            </button>
+            
+          </ModalActions>,
+        ],
+        "closeOnDimmerClick": true,
+        "closeOnDocumentClick": false,
+        "dimmer": true,
+        "eventPool": "Modal",
+        "open": true,
+        "size": "tiny",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Niet bevoegd",
+          },
+          "ref": null,
+          "rendered": "Niet bevoegd",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": <span>
+              <p>
+                U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
+              </p>
+              Wellicht komt dit doordat:
+              <ol>
+                <li>
+                  Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+                </li>
+                <li>
+                  U niet bevoegd bent om datasets te beheren.
+                </li>
+              </ol>
+            </span>,
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <p>
+                  U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
+                </p>,
+                "Wellicht komt dit doordat:",
+                <ol>
+                  <li>
+                    Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+                  </li>
+                  <li>
+                    U niet bevoegd bent om datasets te beheren.
+                  </li>
+                </ol>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
+                },
+                "ref": null,
+                "rendered": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
+                "type": "p",
+              },
+              "Wellicht komt dit doordat:",
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <li>
+                      Uw sessie is verlopen. Deze duurt maximaal 10 uur.
+                    </li>,
+                    <li>
+                      U niet bevoegd bent om datasets te beheren.
+                    </li>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
+                    },
+                    "ref": null,
+                    "rendered": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
+                    "type": "li",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "U niet bevoegd bent om datasets te beheren.",
+                    },
+                    "ref": null,
+                    "rendered": "U niet bevoegd bent om datasets te beheren.",
+                    "type": "li",
+                  },
+                ],
+                "type": "ol",
+              },
+            ],
+            "type": "span",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <button
+                className="dcatd-form-button dcatd-form-button-submit"
+                onClick={[Function]}
+              >
+                OK
+              </button>,
+              "",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "OK",
+                "className": "dcatd-form-button dcatd-form-button-submit",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "OK",
+              "type": "button",
+            },
+            "",
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;
+
+exports[`The Modal component renders component renders default props 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Modal
+    modal={
+      Object {
+        "actionLabel": "OK",
+        "cancelLabel": "Annuleren",
+        "content": "Weet u het zeker?",
+        "onProceed": [Function],
+        "open": false,
+      }
+    }
+    open={false}
+    setModal={[Function]}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "class",
+    "props": Object {
+      "children": Array [
+        <ModalHeader>
+          Let op!
+        </ModalHeader>,
+        <ModalContent>
+          Weet u het zeker?
+        </ModalContent>,
+        <ModalActions>
+          <button
+            className="dcatd-form-button dcatd-form-button-submit"
+            onClick={[Function]}
+          >
+            OK
+          </button>
+          <button
+            className="dcatd-form-button dcatd-form-button-cancel"
+            onClick={[Function]}
+          >
+            Annuleren
+          </button>
+        </ModalActions>,
+      ],
+      "closeOnDimmerClick": true,
+      "closeOnDocumentClick": false,
+      "dimmer": true,
+      "eventPool": "Modal",
+      "open": false,
+      "size": "tiny",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Let op!",
+        },
+        "ref": null,
+        "rendered": "Let op!",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "function",
+        "props": Object {
+          "children": "Weet u het zeker?",
+        },
+        "ref": null,
+        "rendered": "Weet u het zeker?",
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              onClick={[Function]}
+            >
+              OK
+            </button>,
+            <button
+              className="dcatd-form-button dcatd-form-button-cancel"
+              onClick={[Function]}
+            >
+              Annuleren
+            </button>,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "OK",
+              "className": "dcatd-form-button dcatd-form-button-submit",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "OK",
+            "type": "button",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Annuleren",
+              "className": "dcatd-form-button dcatd-form-button-cancel",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "Annuleren",
+            "type": "button",
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "class",
+      "props": Object {
+        "children": Array [
+          <ModalHeader>
+            Let op!
+          </ModalHeader>,
+          <ModalContent>
+            Weet u het zeker?
+          </ModalContent>,
+          <ModalActions>
+            <button
+              className="dcatd-form-button dcatd-form-button-submit"
+              onClick={[Function]}
+            >
+              OK
+            </button>
+            <button
+              className="dcatd-form-button dcatd-form-button-cancel"
+              onClick={[Function]}
+            >
+              Annuleren
+            </button>
+          </ModalActions>,
+        ],
+        "closeOnDimmerClick": true,
+        "closeOnDocumentClick": false,
+        "dimmer": true,
+        "eventPool": "Modal",
+        "open": false,
+        "size": "tiny",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Let op!",
+          },
+          "ref": null,
+          "rendered": "Let op!",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "children": "Weet u het zeker?",
+          },
+          "ref": null,
+          "rendered": "Weet u het zeker?",
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <button
+                className="dcatd-form-button dcatd-form-button-submit"
+                onClick={[Function]}
+              >
+                OK
+              </button>,
+              <button
+                className="dcatd-form-button dcatd-form-button-cancel"
+                onClick={[Function]}
+              >
+                Annuleren
+              </button>,
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "OK",
+                "className": "dcatd-form-button dcatd-form-button-submit",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "OK",
+              "type": "button",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Annuleren",
+                "className": "dcatd-form-button dcatd-form-button-cancel",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "Annuleren",
+              "type": "button",
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;

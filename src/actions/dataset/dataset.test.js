@@ -50,7 +50,6 @@ describe('dataset actions', () => {
     global.sessionStorage = {};
     global.sessionStorage.getItem = jest.fn();
     global.sessionStorage.getItem.mockImplementation((key) => {
-      // console.log('key', key, savedAccessToken);
       switch (key) {
         case 'accessToken':
           return savedAccessToken;

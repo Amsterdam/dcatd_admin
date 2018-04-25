@@ -49,7 +49,7 @@ const Modal = props => (
       {props.modal.cancelLabel ?
         <button
           onClick={() => props.setModal({ open: false })}
-          className="dcatd-form-button"
+          className="dcatd-form-button dcatd-form-button-cancel"
         >
           {props.modal.cancelLabel}
         </button>
@@ -59,17 +59,21 @@ const Modal = props => (
 );
 
 Modal.defaultProps = {
-  content: 'Weet u het zeker?',
-  actionLabel: 'OK',
-  cancelLabel: 'Annuleren',
   open: false,
+  modal: {
+    content: 'Weet u het zeker?',
+    actionLabel: 'OK',
+    cancelLabel: 'Annuleren',
+    open: false,
+    onProceed: () => {}
+  },
 
-  onProceed: () => {}
+  setModal: () => {}
 };
 
 Modal.propTypes = {
-  modal: PropTypes.object.isRequired,
-  setModal: PropTypes.func.isRequired
+  modal: PropTypes.object,
+  setModal: PropTypes.func
 };
 
 export default connect(
