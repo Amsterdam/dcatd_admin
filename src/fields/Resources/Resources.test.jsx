@@ -37,7 +37,7 @@ const mockSchema = {
   }
 };
 
-describe('The Resources component (react-jsonschema-forms field)', () => {
+describe('The Resources component (react-jsonschema-forms custom field)', () => {
   describe('renders component', () => {
     it('renders two resources', () => {
       const wrap = shallow(
