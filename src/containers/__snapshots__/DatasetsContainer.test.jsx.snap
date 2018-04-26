@@ -19,42 +19,9 @@ ShallowWrapper {
     onUpdate={[Function]}
     resource={Object {}}
     resourceToDataset={Object {}}
-    schema={
-      Object {
-        "properties": Object {
-          "dct:description": Object {
-            "title": "Beschrijving",
-            "type": "string",
-          },
-          "dct:title": Object {
-            "title": "Titel",
-            "type": "string",
-          },
-        },
-        "required": Array [
-          "dct:title",
-        ],
-        "type": "object",
-        "x-order": Array [
-          "dct:title",
-          "dct:description",
-        ],
-      }
-    }
-    uiDataset={
-      Object {
-        "dct:description": Object {
-          "ui:widget": "textarea",
-        },
-      }
-    }
-    uiResource={
-      Object {
-        "dct:description": Object {
-          "ui:widget": "textarea",
-        },
-      }
-    }
+    schema={Object {}}
+    uiDataset={Object {}}
+    uiResource={Object {}}
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
