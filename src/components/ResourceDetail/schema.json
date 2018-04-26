@@ -1,0 +1,191 @@
+{
+  "properties": {
+    "ams:classification": {
+      "enum": ["public"],
+      "enumNames": ["Publiek toegankelijk"],
+      "minLength": 1,
+      "title": "Classification",
+      "type": "string"
+    },
+    "ams:distributionType": {
+      "enum": ["api", "file", "web"],
+      "enumNames": ["API/Service", "Bestand", "Website"],
+      "minLength": 1,
+      "title": "Verschijningsvorm",
+      "type": "string"
+    },
+    "ams:layerIdentifier": {
+      "description":
+        "De Citydata kaartlaag waarmee deze dataset op de kaart getoond kan worden",
+      "minLength": 1,
+      "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+      "title": "Interne Kaartlaag ID",
+      "type": "string"
+    },
+    "ams:resourceType": {
+      "enum": ["data", "doc", "vis", "app"],
+      "enumNames": [
+        "Data",
+        "Documentatie",
+        "Visualisatie",
+        "Voorbeeldtoepassing"
+      ],
+      "minLength": 1,
+      "title": "Type resource",
+      "type": "string"
+    },
+    "ams:serviceType": {
+      "description": "Geef het type API of webservice",
+      "enum": [
+        "atom",
+        "rest",
+        "csw",
+        "wcs",
+        "wfs",
+        "wms",
+        "wmts",
+        "soap",
+        "other"
+      ],
+      "enumNames": [
+        "REST: Atom feed",
+        "REST: overig",
+        "CSW",
+        "WCS",
+        "WFS",
+        "WMS",
+        "WMTS",
+        "SOAP",
+        "Anders"
+      ],
+      "minLength": 1,
+      "title": "Type API/Service",
+      "type": "string"
+    },
+    "dcat:accessURL": {
+      "description":
+        "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+      "format": "uri",
+      "minLength": 1,
+      "title": "URL of upload",
+      "type": "string"
+    },
+    "dcat:byteSize": {
+      "description": "Bestandsgrootte in bytes",
+      "minimum": 0,
+      "title": "Bestandsgrootte",
+      "type": "number"
+    },
+    "dct:description": {
+      "minLength": 1,
+      "title": "Beschrijving",
+      "type": "string"
+    },
+    "dct:format": {
+      "enum": [
+        "n/a",
+        "text/csv",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "application/vnd.geo+json",
+        "application/gml+xml",
+        "text/html",
+        "application/json",
+        "application/pdf",
+        "image/png",
+        "application/zip; format=\"shp\"",
+        "application/vnd.ms-excel",
+        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        "application/xml",
+        "application/octet-stream"
+      ],
+      "enumNames": [
+        "",
+        "CSV",
+        "DOCX",
+        "GeoJSON",
+        "GML",
+        "HTML",
+        "JSON",
+        "PDF",
+        "PNG",
+        "SHP",
+        "XLS",
+        "XLSX",
+        "XML",
+        "Anders"
+      ],
+      "minLength": 1,
+      "title": "Type bestand",
+      "type": "string"
+    },
+    "dct:modified": {
+      "default": "2018-04-19",
+      "description":
+        "De datum waarop de inhoud van deze link voor het laatst is geactualiseerd.",
+      "format": "date",
+      "minLength": 1,
+      "pattern":
+        "^\\d\\d\\d\\d-[01]\\d-[0-3]\\d(?:T[012]\\d:[0-5]\\d:[0-5]\\d(?:\\.\\d+)?)?(?:Z|[01]\\d(?::[0-5]\\d)?)?$",
+      "title": "Verversingsdatum",
+      "type": "string"
+    },
+    "dct:title": {
+      "minLength": 1,
+      "pattern": "^[^\\n\\r]*?\\S[^\\n\\r]*$",
+      "title": "Titel",
+      "type": "string"
+    },
+    "foaf:isPrimaryTopicOf": {
+      "properties": {
+        "dct:issued": {
+          "default": "2018-04-19",
+          "description":
+            "De datum waarop deze beschrijving van de gegevensset beschikbaar is gesteld",
+          "format": "date",
+          "minLength": 1,
+          "pattern":
+            "^\\d\\d\\d\\d-[01]\\d-[0-3]\\d(?:T[012]\\d:[0-5]\\d:[0-5]\\d(?:\\.\\d+)?)?(?:Z|[01]\\d(?::[0-5]\\d)?)?$",
+          "title": "Publicatiedatum",
+          "type": "string"
+        },
+        "dct:modified": {
+          "default": "2018-04-19",
+          "description":
+            "De datum waarop deze beschrijving van de gegevensset voor het laatst is gewijzigd",
+          "format": "date",
+          "minLength": 1,
+          "pattern":
+            "^\\d\\d\\d\\d-[01]\\d-[0-3]\\d(?:T[012]\\d:[0-5]\\d:[0-5]\\d(?:\\.\\d+)?)?(?:Z|[01]\\d(?::[0-5]\\d)?)?$",
+          "title": "Wijzigingsdatum",
+          "type": "string"
+        }
+      },
+      "required": ["dct:modified"],
+      "title": "",
+      "type": "object",
+      "x-order": ["dct:issued", "dct:modified"]
+    }
+  },
+  "required": [
+    "dct:title",
+    "dcat:accessURL",
+    "ams:resourceType",
+    "ams:distributionType",
+    "foaf:isPrimaryTopicOf"
+  ],
+  "type": "object",
+  "x-order": [
+    "dct:title",
+    "dct:description",
+    "dcat:accessURL",
+    "ams:resourceType",
+    "ams:distributionType",
+    "ams:serviceType",
+    "dct:format",
+    "ams:layerIdentifier",
+    "dct:modified",
+    "ams:classification",
+    "dcat:byteSize",
+    "foaf:isPrimaryTopicOf"
+  ]
+}
