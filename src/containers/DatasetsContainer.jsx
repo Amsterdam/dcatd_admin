@@ -124,8 +124,11 @@ DatasetsContainer.defaultProps = {
   dataset: {},
   datasets: [],
   resource: {},
+  schema: {},
   match: null,
   resourceToDataset: {},
+  uiDataset: {},
+  uiResource: {},
 
   onFetch: () => {}
 };
@@ -146,9 +149,9 @@ DatasetsContainer.propTypes = {
   onSetResource: PropTypes.func.isRequired,
   onSetModal: PropTypes.func.isRequired,
   onSetResourceToDataset: PropTypes.func.isRequired,
-  schema: PropTypes.object.isRequired,
-  uiDataset: PropTypes.object.isRequired,
-  uiResource: PropTypes.object.isRequired
+  schema: PropTypes.object,
+  uiDataset: PropTypes.object,
+  uiResource: PropTypes.object
 };
 
 export default connect(

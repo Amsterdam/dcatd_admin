@@ -13,9 +13,13 @@ global.mount = mount;
 global.render = render;
 
 // load the dom
-const JSDOM = jsdom.JSDOM;
-const { window } = new JSDOM();
-global.window = window;
+const { JSDOM } = jsdom;
+const { document } = (new JSDOM('<!doctype html><html><body></body></html>')).window;
+global.document = document;
+global.window = document.defaultView;
+global.navigator = {
+  userAgent: 'node.js'
+};
 
 // add global fetch
 global.fetch = require('jest-fetch-mock');

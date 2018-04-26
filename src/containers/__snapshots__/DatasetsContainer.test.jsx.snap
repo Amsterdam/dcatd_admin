@@ -1,0 +1,220 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Modal component renders component renders default props 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DatasetsContainer
+    dataset={Object {}}
+    datasets={Array []}
+    match={null}
+    onCreate={[Function]}
+    onEmpty={[Function]}
+    onEmptyResource={[Function]}
+    onFetch={[Function]}
+    onRemove={[Function]}
+    onSetModal={[Function]}
+    onSetResource={[Function]}
+    onSetResourceToDataset={[Function]}
+    onUpdate={[Function]}
+    resource={Object {}}
+    resourceToDataset={Object {}}
+    schema={
+      Object {
+        "properties": Object {
+          "dct:description": Object {
+            "title": "Beschrijving",
+            "type": "string",
+          },
+          "dct:title": Object {
+            "title": "Titel",
+            "type": "string",
+          },
+        },
+        "required": Array [
+          "dct:title",
+        ],
+        "type": "object",
+        "x-order": Array [
+          "dct:title",
+          "dct:description",
+        ],
+      }
+    }
+    uiDataset={
+      Object {
+        "dct:description": Object {
+          "ui:widget": "textarea",
+        },
+      }
+    }
+    uiResource={
+      Object {
+        "dct:description": Object {
+          "ui:widget": "textarea",
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Route
+          exact={true}
+          path="/datasets"
+          render={[Function]}
+        />,
+        <Route
+          exact={true}
+          path="/datasets/:id([\\\\w-]{2,})"
+          render={[Function]}
+        />,
+        <Route
+          exact={true}
+          path="/datasets/_"
+          render={[Function]}
+        />,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "exact": true,
+          "path": "/datasets",
+          "render": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "exact": true,
+          "path": "/datasets/:id([\\\\w-]{2,})",
+          "render": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "exact": true,
+          "path": "/datasets/_",
+          "render": [Function],
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Route
+            exact={true}
+            path="/datasets"
+            render={[Function]}
+          />,
+          <Route
+            exact={true}
+            path="/datasets/:id([\\\\w-]{2,})"
+            render={[Function]}
+          />,
+          <Route
+            exact={true}
+            path="/datasets/_"
+            render={[Function]}
+          />,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "exact": true,
+            "path": "/datasets",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "exact": true,
+            "path": "/datasets/:id([\\\\w-]{2,})",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "exact": true,
+            "path": "/datasets/_",
+            "render": [Function],
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;
