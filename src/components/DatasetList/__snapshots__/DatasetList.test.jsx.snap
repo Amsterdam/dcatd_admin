@@ -1,0 +1,763 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The DatasetList component renders component 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <DatasetList
+    datasets={
+      Array [
+        Object {
+          "id": "luchtkwaliteit",
+          "title": "Luchtkwaliteit",
+        },
+        Object {
+          "description": "Omschrijvng",
+          "id": "meldingen-openbare-ruimte",
+          "titel": "Meldingen Openbare Ruimte",
+        },
+      ]
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="ui primary button"
+        >
+          <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            style={
+              Object {
+                "color": "#FFF",
+              }
+            }
+            to="/datasets/_"
+          >
+            Dataset aanmaken
+          </NavLink>
+        </div>,
+        <table
+          className="ui celled table"
+        >
+          <thead>
+            <tr>
+              <th>
+                Dataset
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  style={
+                    Object {
+                      "display": "block",
+                    }
+                  }
+                  to="/datasets/luchtkwaliteit"
+                >
+                  Luchtkwaliteit
+                </NavLink>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  style={
+                    Object {
+                      "display": "block",
+                    }
+                  }
+                  to="/datasets/meldingen-openbare-ruimte"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <NavLink
+            activeClassName="active"
+            ariaCurrent="true"
+            style={
+              Object {
+                "color": "#FFF",
+              }
+            }
+            to="/datasets/_"
+          >
+            Dataset aanmaken
+          </NavLink>,
+          "className": "ui primary button",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "activeClassName": "active",
+            "ariaCurrent": "true",
+            "children": "Dataset aanmaken",
+            "style": Object {
+              "color": "#FFF",
+            },
+            "to": "/datasets/_",
+          },
+          "ref": null,
+          "rendered": "Dataset aanmaken",
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <thead>
+              <tr>
+                <th>
+                  Dataset
+                </th>
+              </tr>
+            </thead>,
+            <tbody>
+              <tr>
+                <td>
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    style={
+                      Object {
+                        "display": "block",
+                      }
+                    }
+                    to="/datasets/luchtkwaliteit"
+                  >
+                    Luchtkwaliteit
+                  </NavLink>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    style={
+                      Object {
+                        "display": "block",
+                      }
+                    }
+                    to="/datasets/meldingen-openbare-ruimte"
+                  />
+                </td>
+              </tr>
+            </tbody>,
+          ],
+          "className": "ui celled table",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": <tr>
+                <th>
+                  Dataset
+                </th>
+              </tr>,
+            },
+            "ref": null,
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <th>
+                  Dataset
+                </th>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Dataset",
+                },
+                "ref": null,
+                "rendered": "Dataset",
+                "type": "th",
+              },
+              "type": "tr",
+            },
+            "type": "thead",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <tr>
+                  <td>
+                    <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/luchtkwaliteit"
+                    >
+                      Luchtkwaliteit
+                    </NavLink>
+                  </td>
+                </tr>,
+                <tr>
+                  <td>
+                    <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/meldingen-openbare-ruimte"
+                    />
+                  </td>
+                </tr>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": "luchtkwaliteit",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <td>
+                    <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/luchtkwaliteit"
+                    >
+                      Luchtkwaliteit
+                    </NavLink>
+                  </td>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/luchtkwaliteit"
+                    >
+                      Luchtkwaliteit
+                    </NavLink>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "activeClassName": "active",
+                      "ariaCurrent": "true",
+                      "children": "Luchtkwaliteit",
+                      "style": Object {
+                        "display": "block",
+                      },
+                      "to": "/datasets/luchtkwaliteit",
+                    },
+                    "ref": null,
+                    "rendered": "Luchtkwaliteit",
+                    "type": [Function],
+                  },
+                  "type": "td",
+                },
+                "type": "tr",
+              },
+              Object {
+                "instance": null,
+                "key": "meldingen-openbare-ruimte",
+                "nodeType": "host",
+                "props": Object {
+                  "children": <td>
+                    <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/meldingen-openbare-ruimte"
+                    />
+                  </td>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/meldingen-openbare-ruimte"
+                    />,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "activeClassName": "active",
+                      "ariaCurrent": "true",
+                      "children": undefined,
+                      "style": Object {
+                        "display": "block",
+                      },
+                      "to": "/datasets/meldingen-openbare-ruimte",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "td",
+                },
+                "type": "tr",
+              },
+            ],
+            "type": "tbody",
+          },
+        ],
+        "type": "table",
+      },
+    ],
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="ui primary button"
+          >
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              style={
+                Object {
+                  "color": "#FFF",
+                }
+              }
+              to="/datasets/_"
+            >
+              Dataset aanmaken
+            </NavLink>
+          </div>,
+          <table
+            className="ui celled table"
+          >
+            <thead>
+              <tr>
+                <th>
+                  Dataset
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    style={
+                      Object {
+                        "display": "block",
+                      }
+                    }
+                    to="/datasets/luchtkwaliteit"
+                  >
+                    Luchtkwaliteit
+                  </NavLink>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    style={
+                      Object {
+                        "display": "block",
+                      }
+                    }
+                    to="/datasets/meldingen-openbare-ruimte"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              style={
+                Object {
+                  "color": "#FFF",
+                }
+              }
+              to="/datasets/_"
+            >
+              Dataset aanmaken
+            </NavLink>,
+            "className": "ui primary button",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Dataset aanmaken",
+              "style": Object {
+                "color": "#FFF",
+              },
+              "to": "/datasets/_",
+            },
+            "ref": null,
+            "rendered": "Dataset aanmaken",
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <thead>
+                <tr>
+                  <th>
+                    Dataset
+                  </th>
+                </tr>
+              </thead>,
+              <tbody>
+                <tr>
+                  <td>
+                    <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/luchtkwaliteit"
+                    >
+                      Luchtkwaliteit
+                    </NavLink>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <NavLink
+                      activeClassName="active"
+                      ariaCurrent="true"
+                      style={
+                        Object {
+                          "display": "block",
+                        }
+                      }
+                      to="/datasets/meldingen-openbare-ruimte"
+                    />
+                  </td>
+                </tr>
+              </tbody>,
+            ],
+            "className": "ui celled table",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": <tr>
+                  <th>
+                    Dataset
+                  </th>
+                </tr>,
+              },
+              "ref": null,
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": <th>
+                    Dataset
+                  </th>,
+                },
+                "ref": null,
+                "rendered": Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Dataset",
+                  },
+                  "ref": null,
+                  "rendered": "Dataset",
+                  "type": "th",
+                },
+                "type": "tr",
+              },
+              "type": "thead",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <tr>
+                    <td>
+                      <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        style={
+                          Object {
+                            "display": "block",
+                          }
+                        }
+                        to="/datasets/luchtkwaliteit"
+                      >
+                        Luchtkwaliteit
+                      </NavLink>
+                    </td>
+                  </tr>,
+                  <tr>
+                    <td>
+                      <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        style={
+                          Object {
+                            "display": "block",
+                          }
+                        }
+                        to="/datasets/meldingen-openbare-ruimte"
+                      />
+                    </td>
+                  </tr>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": "luchtkwaliteit",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <td>
+                      <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        style={
+                          Object {
+                            "display": "block",
+                          }
+                        }
+                        to="/datasets/luchtkwaliteit"
+                      >
+                        Luchtkwaliteit
+                      </NavLink>
+                    </td>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        style={
+                          Object {
+                            "display": "block",
+                          }
+                        }
+                        to="/datasets/luchtkwaliteit"
+                      >
+                        Luchtkwaliteit
+                      </NavLink>,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "activeClassName": "active",
+                        "ariaCurrent": "true",
+                        "children": "Luchtkwaliteit",
+                        "style": Object {
+                          "display": "block",
+                        },
+                        "to": "/datasets/luchtkwaliteit",
+                      },
+                      "ref": null,
+                      "rendered": "Luchtkwaliteit",
+                      "type": [Function],
+                    },
+                    "type": "td",
+                  },
+                  "type": "tr",
+                },
+                Object {
+                  "instance": null,
+                  "key": "meldingen-openbare-ruimte",
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <td>
+                      <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        style={
+                          Object {
+                            "display": "block",
+                          }
+                        }
+                        to="/datasets/meldingen-openbare-ruimte"
+                      />
+                    </td>,
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        style={
+                          Object {
+                            "display": "block",
+                          }
+                        }
+                        to="/datasets/meldingen-openbare-ruimte"
+                      />,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "activeClassName": "active",
+                        "ariaCurrent": "true",
+                        "children": undefined,
+                        "style": Object {
+                          "display": "block",
+                        },
+                        "to": "/datasets/meldingen-openbare-ruimte",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": "td",
+                  },
+                  "type": "tr",
+                },
+              ],
+              "type": "tbody",
+            },
+          ],
+          "type": "table",
+        },
+      ],
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
