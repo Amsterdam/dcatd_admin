@@ -48,10 +48,10 @@ class File extends Component {
       return;
     }
 
-    const formData = new FormData();
+    const formData = new window.FormData();
     formData.append('distribution', files[0]);
 
-    const xhr = new XMLHttpRequest();
+    const xhr = new window.XMLHttpRequest();
 
     xhr.onloadstart = () => {
       this.setState({
@@ -186,34 +186,40 @@ class File extends Component {
 }
 
 File.defaultProps = {
+  disabled: false,
   file: '',
   label: '',
   placeholder: '',
   loaded: 0,
+  readonly: false,
   registry: {},
+  required: false,
   status: 'idle',
   total: 0,
   url: '',
-  value: ''
+  value: '',
+
+  onChange: () => {},
+  serverError: () => {}
 };
 
 File.propTypes = {
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   file: PropTypes.string,
   id: PropTypes.string.isRequired,
   label: PropTypes.string,
   loaded: PropTypes.number,
   placeholder: PropTypes.string,
-  readonly: PropTypes.bool.isRequired,
+  readonly: PropTypes.bool,
   registry: PropTypes.object,
-  required: PropTypes.bool.isRequired,
+  required: PropTypes.bool,
   status: PropTypes.string,
   total: PropTypes.number,
   url: PropTypes.string,
   value: PropTypes.string,
 
-  onChange: PropTypes.func.isRequired,
-  serverError: PropTypes.func.isRequired
+  onChange: PropTypes.func,
+  serverError: PropTypes.func
 };
 
 export default connect(

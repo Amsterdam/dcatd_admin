@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The File component (react-jsonschema-forms custom field) renders component renders default 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <File
+    disabled={false}
+    file=""
+    id="very-unique-id"
+    label=""
+    loaded={0}
+    onChange={[Function]}
+    placeholder=""
+    readonly={false}
+    registry={Object {}}
+    required={false}
+    serverError={[Function]}
+    status="idle"
+    total={0}
+    url=""
+    value=""
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <input
+          className="form-control file__url"
+          disabled={false}
+          id="very-unique-id"
+          label=""
+          onChange={[Function]}
+          placeholder=""
+          readOnly={false}
+          required={false}
+          type="text"
+          value=""
+        />,
+        <label
+          className="
+            file__upload-label
+            
+          "
+          htmlFor="very-unique-id-upload"
+        >
+          Selecteer bestand voor upload
+        </label>,
+        <input
+          className="file__upload file__upload--hidden"
+          disabled={false}
+          id="very-unique-id-upload"
+          onChange={[Function]}
+          type="file"
+        />,
+        "",
+      ],
+      "className": "file",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "form-control file__url",
+          "disabled": false,
+          "id": "very-unique-id",
+          "label": "",
+          "onChange": [Function],
+          "placeholder": "",
+          "readOnly": false,
+          "required": false,
+          "type": "text",
+          "value": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Selecteer bestand voor upload",
+          "className": "
+            file__upload-label
+            
+          ",
+          "htmlFor": "very-unique-id-upload",
+        },
+        "ref": null,
+        "rendered": "Selecteer bestand voor upload",
+        "type": "label",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "className": "file__upload file__upload--hidden",
+          "disabled": false,
+          "id": "very-unique-id-upload",
+          "onChange": [Function],
+          "type": "file",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "input",
+      },
+      "",
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <input
+            className="form-control file__url"
+            disabled={false}
+            id="very-unique-id"
+            label=""
+            onChange={[Function]}
+            placeholder=""
+            readOnly={false}
+            required={false}
+            type="text"
+            value=""
+          />,
+          <label
+            className="
+            file__upload-label
+            
+          "
+            htmlFor="very-unique-id-upload"
+          >
+            Selecteer bestand voor upload
+          </label>,
+          <input
+            className="file__upload file__upload--hidden"
+            disabled={false}
+            id="very-unique-id-upload"
+            onChange={[Function]}
+            type="file"
+          />,
+          "",
+        ],
+        "className": "file",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "form-control file__url",
+            "disabled": false,
+            "id": "very-unique-id",
+            "label": "",
+            "onChange": [Function],
+            "placeholder": "",
+            "readOnly": false,
+            "required": false,
+            "type": "text",
+            "value": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Selecteer bestand voor upload",
+            "className": "
+            file__upload-label
+            
+          ",
+            "htmlFor": "very-unique-id-upload",
+          },
+          "ref": null,
+          "rendered": "Selecteer bestand voor upload",
+          "type": "label",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "className": "file__upload file__upload--hidden",
+            "disabled": false,
+            "id": "very-unique-id-upload",
+            "onChange": [Function],
+            "type": "file",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "",
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      },
+    },
+  },
+}
+`;
