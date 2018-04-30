@@ -89,7 +89,7 @@ export function updateDataset(dataset) {
       })
     })
       .then(response =>
-        dispatch(response.ok ? fetchDataset(dataset['dct:identifier']) : serverError(response)))
+        dispatch(response.ok ? emptyDataset() : serverError(response)))
       .then(() => {
         // dispatch(push('/dcatd_admin/datasets'));
         window.location.hash = '/datasets';

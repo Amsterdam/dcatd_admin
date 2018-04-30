@@ -108,6 +108,7 @@ const DatasetsContainer = props => (
             resourceToDataset={props.resourceToDataset}
             uiDataset={props.uiDataset}
             onCreate={props.onCreate}
+            onEmpty={props.onEmpty}
             onEmptyResource={props.onEmptyResource}
             onSetResource={props.onSetResource}
             setModal={props.onSetModal}

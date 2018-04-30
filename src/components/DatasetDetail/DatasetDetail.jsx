@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import Form from 'react-jsonschema-form';
@@ -18,6 +19,10 @@ const fields = {
   ...extraFields,
   ...localFields
 };
+
+const mapStateToProps = state => ({
+  dataset: state.dataset
+});
 
 class DatasetDetail extends Component {
   constructor(props) {
@@ -225,4 +230,7 @@ DatasetDetail.propTypes = {
   setModal: PropTypes.func
 };
 
-export default DatasetDetail;
+export default connect(
+  mapStateToProps,
+  null // mapDispatchToProps
+)(DatasetDetail);
