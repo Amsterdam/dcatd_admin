@@ -7,6 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <DatasetDetail
     dataset={Object {}}
     datasetTitle=""
+    dispatch={[Function]}
     formData={Object {}}
     id={null}
     onCreate={[Function]}
@@ -2011,7 +2012,90 @@ ShallowWrapper {
       }
     }
     setModal={[MockFunction]}
-    uiDataset={Object {}}
+    uiDataset={
+      Object {
+        "ams:owner": Object {
+          "ui:field": "dropdown",
+          "ui:options": Object {
+            "allowAdditions": true,
+            "multiple": false,
+          },
+          "ui:placeholder": "",
+        },
+        "dcat:contactPoint": Object {
+          "ui:order": Array [
+            "vcard:fn",
+            "vcard:hasEmail",
+            "vcard:hasURL",
+          ],
+          "vcard:hasEmail": Object {
+            "ui:placeholder": "jan@amsterdam.nl",
+          },
+          "vcard:hasURL": Object {
+            "ui:placeholder": "http://",
+          },
+        },
+        "dcat:distribution": Object {
+          "ui:field": "resources",
+        },
+        "dcat:keyword": Object {
+          "ui:field": "dropdown",
+          "ui:options": Object {
+            "allowAdditions": true,
+            "multiple": true,
+          },
+          "ui:placeholder": "",
+        },
+        "dcat:landingPage": Object {
+          "ui:placeholder": "http://",
+        },
+        "dcat:theme": Object {
+          "ui:field": "dropdown",
+          "ui:options": Object {
+            "allowAdditions": false,
+            "multiple": true,
+          },
+          "ui:placeholder": "",
+        },
+        "dct:description": Object {
+          "ui:widget": "markdown",
+        },
+        "dct:identifier": Object {
+          "ui:widget": "hidden",
+        },
+        "dct:publisher": Object {
+          "foaf:homepage": Object {
+            "ui:placeholder": "http://",
+          },
+          "foaf:mbox": Object {
+            "ui:placeholder": "jan@amsterdam.nl",
+          },
+          "ui:order": Array [
+            "foaf:name",
+            "foaf:mbox",
+            "foaf:homepage",
+          ],
+        },
+        "dct:temporal": Object {
+          "time:hasBeginning": Object {},
+          "time:hasEnd": Object {},
+        },
+        "foaf:isPrimaryTopicOf": Object {
+          "dct:issued": Object {},
+          "dct:modified": Object {
+            "ui:widget": "hidden",
+          },
+        },
+        "ui:field": Array [
+          "resources",
+          "dropdown",
+          "rte",
+        ],
+        "ui:widget": Array [
+          "markdown",
+        ],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
@@ -4058,7 +4142,90 @@ ShallowWrapper {
           }
           showErrorList={false}
           transformErrors={[Function]}
-          uiSchema={Object {}}
+          uiSchema={
+            Object {
+              "ams:owner": Object {
+                "ui:field": "dropdown",
+                "ui:options": Object {
+                  "allowAdditions": true,
+                  "multiple": false,
+                },
+                "ui:placeholder": "",
+              },
+              "dcat:contactPoint": Object {
+                "ui:order": Array [
+                  "vcard:fn",
+                  "vcard:hasEmail",
+                  "vcard:hasURL",
+                ],
+                "vcard:hasEmail": Object {
+                  "ui:placeholder": "jan@amsterdam.nl",
+                },
+                "vcard:hasURL": Object {
+                  "ui:placeholder": "http://",
+                },
+              },
+              "dcat:distribution": Object {
+                "ui:field": "resources",
+              },
+              "dcat:keyword": Object {
+                "ui:field": "dropdown",
+                "ui:options": Object {
+                  "allowAdditions": true,
+                  "multiple": true,
+                },
+                "ui:placeholder": "",
+              },
+              "dcat:landingPage": Object {
+                "ui:placeholder": "http://",
+              },
+              "dcat:theme": Object {
+                "ui:field": "dropdown",
+                "ui:options": Object {
+                  "allowAdditions": false,
+                  "multiple": true,
+                },
+                "ui:placeholder": "",
+              },
+              "dct:description": Object {
+                "ui:widget": "markdown",
+              },
+              "dct:identifier": Object {
+                "ui:widget": "hidden",
+              },
+              "dct:publisher": Object {
+                "foaf:homepage": Object {
+                  "ui:placeholder": "http://",
+                },
+                "foaf:mbox": Object {
+                  "ui:placeholder": "jan@amsterdam.nl",
+                },
+                "ui:order": Array [
+                  "foaf:name",
+                  "foaf:mbox",
+                  "foaf:homepage",
+                ],
+              },
+              "dct:temporal": Object {
+                "time:hasBeginning": Object {},
+                "time:hasEnd": Object {},
+              },
+              "foaf:isPrimaryTopicOf": Object {
+                "dct:issued": Object {},
+                "dct:modified": Object {
+                  "ui:widget": "hidden",
+                },
+              },
+              "ui:field": Array [
+                "resources",
+                "dropdown",
+                "rte",
+              ],
+              "ui:widget": Array [
+                "markdown",
+              ],
+            }
+          }
           widgets={
             Object {
               "file": [Function],
@@ -6145,7 +6312,88 @@ ShallowWrapper {
           },
           "showErrorList": false,
           "transformErrors": [Function],
-          "uiSchema": Object {},
+          "uiSchema": Object {
+            "ams:owner": Object {
+              "ui:field": "dropdown",
+              "ui:options": Object {
+                "allowAdditions": true,
+                "multiple": false,
+              },
+              "ui:placeholder": "",
+            },
+            "dcat:contactPoint": Object {
+              "ui:order": Array [
+                "vcard:fn",
+                "vcard:hasEmail",
+                "vcard:hasURL",
+              ],
+              "vcard:hasEmail": Object {
+                "ui:placeholder": "jan@amsterdam.nl",
+              },
+              "vcard:hasURL": Object {
+                "ui:placeholder": "http://",
+              },
+            },
+            "dcat:distribution": Object {
+              "ui:field": "resources",
+            },
+            "dcat:keyword": Object {
+              "ui:field": "dropdown",
+              "ui:options": Object {
+                "allowAdditions": true,
+                "multiple": true,
+              },
+              "ui:placeholder": "",
+            },
+            "dcat:landingPage": Object {
+              "ui:placeholder": "http://",
+            },
+            "dcat:theme": Object {
+              "ui:field": "dropdown",
+              "ui:options": Object {
+                "allowAdditions": false,
+                "multiple": true,
+              },
+              "ui:placeholder": "",
+            },
+            "dct:description": Object {
+              "ui:widget": "markdown",
+            },
+            "dct:identifier": Object {
+              "ui:widget": "hidden",
+            },
+            "dct:publisher": Object {
+              "foaf:homepage": Object {
+                "ui:placeholder": "http://",
+              },
+              "foaf:mbox": Object {
+                "ui:placeholder": "jan@amsterdam.nl",
+              },
+              "ui:order": Array [
+                "foaf:name",
+                "foaf:mbox",
+                "foaf:homepage",
+              ],
+            },
+            "dct:temporal": Object {
+              "time:hasBeginning": Object {},
+              "time:hasEnd": Object {},
+            },
+            "foaf:isPrimaryTopicOf": Object {
+              "dct:issued": Object {},
+              "dct:modified": Object {
+                "ui:widget": "hidden",
+              },
+            },
+            "ui:field": Array [
+              "resources",
+              "dropdown",
+              "rte",
+            ],
+            "ui:widget": Array [
+              "markdown",
+            ],
+          },
           "widgets": Object {
             "file": [Function],
             "markdown": [Function],
@@ -8251,7 +8499,90 @@ ShallowWrapper {
             }
             showErrorList={false}
             transformErrors={[Function]}
-            uiSchema={Object {}}
+            uiSchema={
+              Object {
+                "ams:owner": Object {
+                  "ui:field": "dropdown",
+                  "ui:options": Object {
+                    "allowAdditions": true,
+                    "multiple": false,
+                  },
+                  "ui:placeholder": "",
+                },
+                "dcat:contactPoint": Object {
+                  "ui:order": Array [
+                    "vcard:fn",
+                    "vcard:hasEmail",
+                    "vcard:hasURL",
+                  ],
+                  "vcard:hasEmail": Object {
+                    "ui:placeholder": "jan@amsterdam.nl",
+                  },
+                  "vcard:hasURL": Object {
+                    "ui:placeholder": "http://",
+                  },
+                },
+                "dcat:distribution": Object {
+                  "ui:field": "resources",
+                },
+                "dcat:keyword": Object {
+                  "ui:field": "dropdown",
+                  "ui:options": Object {
+                    "allowAdditions": true,
+                    "multiple": true,
+                  },
+                  "ui:placeholder": "",
+                },
+                "dcat:landingPage": Object {
+                  "ui:placeholder": "http://",
+                },
+                "dcat:theme": Object {
+                  "ui:field": "dropdown",
+                  "ui:options": Object {
+                    "allowAdditions": false,
+                    "multiple": true,
+                  },
+                  "ui:placeholder": "",
+                },
+                "dct:description": Object {
+                  "ui:widget": "markdown",
+                },
+                "dct:identifier": Object {
+                  "ui:widget": "hidden",
+                },
+                "dct:publisher": Object {
+                  "foaf:homepage": Object {
+                    "ui:placeholder": "http://",
+                  },
+                  "foaf:mbox": Object {
+                    "ui:placeholder": "jan@amsterdam.nl",
+                  },
+                  "ui:order": Array [
+                    "foaf:name",
+                    "foaf:mbox",
+                    "foaf:homepage",
+                  ],
+                },
+                "dct:temporal": Object {
+                  "time:hasBeginning": Object {},
+                  "time:hasEnd": Object {},
+                },
+                "foaf:isPrimaryTopicOf": Object {
+                  "dct:issued": Object {},
+                  "dct:modified": Object {
+                    "ui:widget": "hidden",
+                  },
+                },
+                "ui:field": Array [
+                  "resources",
+                  "dropdown",
+                  "rte",
+                ],
+                "ui:widget": Array [
+                  "markdown",
+                ],
+              }
+            }
             widgets={
               Object {
                 "file": [Function],
@@ -10338,7 +10669,88 @@ ShallowWrapper {
             },
             "showErrorList": false,
             "transformErrors": [Function],
-            "uiSchema": Object {},
+            "uiSchema": Object {
+              "ams:owner": Object {
+                "ui:field": "dropdown",
+                "ui:options": Object {
+                  "allowAdditions": true,
+                  "multiple": false,
+                },
+                "ui:placeholder": "",
+              },
+              "dcat:contactPoint": Object {
+                "ui:order": Array [
+                  "vcard:fn",
+                  "vcard:hasEmail",
+                  "vcard:hasURL",
+                ],
+                "vcard:hasEmail": Object {
+                  "ui:placeholder": "jan@amsterdam.nl",
+                },
+                "vcard:hasURL": Object {
+                  "ui:placeholder": "http://",
+                },
+              },
+              "dcat:distribution": Object {
+                "ui:field": "resources",
+              },
+              "dcat:keyword": Object {
+                "ui:field": "dropdown",
+                "ui:options": Object {
+                  "allowAdditions": true,
+                  "multiple": true,
+                },
+                "ui:placeholder": "",
+              },
+              "dcat:landingPage": Object {
+                "ui:placeholder": "http://",
+              },
+              "dcat:theme": Object {
+                "ui:field": "dropdown",
+                "ui:options": Object {
+                  "allowAdditions": false,
+                  "multiple": true,
+                },
+                "ui:placeholder": "",
+              },
+              "dct:description": Object {
+                "ui:widget": "markdown",
+              },
+              "dct:identifier": Object {
+                "ui:widget": "hidden",
+              },
+              "dct:publisher": Object {
+                "foaf:homepage": Object {
+                  "ui:placeholder": "http://",
+                },
+                "foaf:mbox": Object {
+                  "ui:placeholder": "jan@amsterdam.nl",
+                },
+                "ui:order": Array [
+                  "foaf:name",
+                  "foaf:mbox",
+                  "foaf:homepage",
+                ],
+              },
+              "dct:temporal": Object {
+                "time:hasBeginning": Object {},
+                "time:hasEnd": Object {},
+              },
+              "foaf:isPrimaryTopicOf": Object {
+                "dct:issued": Object {},
+                "dct:modified": Object {
+                  "ui:widget": "hidden",
+                },
+              },
+              "ui:field": Array [
+                "resources",
+                "dropdown",
+                "rte",
+              ],
+              "ui:widget": Array [
+                "markdown",
+              ],
+            },
             "widgets": Object {
               "file": [Function],
               "markdown": [Function],
@@ -10410,6 +10822,16 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+    "context": Object {
+      "store": Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
       },
     },
   },
