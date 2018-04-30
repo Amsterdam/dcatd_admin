@@ -34,46 +34,15 @@ const mockModel = {
   onProceed: expect.any(Function)
 };
 
+jest.mock('../../services/auth/auth');
+
 describe('dataset actions', () => {
-  let origSessionStorage;
-  let savedStateToken;
-  let savedReturnPath;
-  let savedAccessToken;
-
   beforeEach(() => {
-    // stateToken = '123StateToken';
-    savedStateToken = '';
-    savedReturnPath = '';
-    savedAccessToken = '';
-
-    origSessionStorage = global.sessionStorage;
-    global.sessionStorage = {};
-    global.sessionStorage.getItem = jest.fn();
-    global.sessionStorage.getItem.mockImplementation((key) => {
-      switch (key) {
-        case 'accessToken':
-          return savedAccessToken;
-        case 'stateToken':
-          return savedStateToken;
-        case 'returnPath':
-          return savedReturnPath;
-        default:
-          return null;
-      }
-    });
-    global.sessionStorage.setItem = jest.fn();
-    global.sessionStorage.removeItem = jest.fn();
-
     fetch.resetMocks();
-  });
-
-  afterEach(() => {
-    global.sessionStorage = origSessionStorage;
   });
 
   describe('should dispatch fetchDataset', () => {
     it('authorized', () => {
-      savedAccessToken = 'user-authorized';
       fetch.mockResponses([
         JSON.stringify({
           components: {
@@ -114,7 +83,6 @@ describe('dataset actions', () => {
     });
 
     it('not authorized', () => {
-      savedAccessToken = 'user-not-authorized';
       fetch.mockResponses([
         JSON.stringify({
           components: {
@@ -155,7 +123,6 @@ describe('dataset actions', () => {
 
   describe('should dispatch createDataset', () => {
     it('authorized', () => {
-      savedAccessToken = 'user-authorized';
       fetch.mockResponses([
         JSON.stringify(mockDataset), {
           status: 201
@@ -173,7 +140,6 @@ describe('dataset actions', () => {
     });
 
     it('not authorized', () => {
-      savedAccessToken = 'user-not-authorized';
       fetch.mockResponses([
         JSON.stringify(mockDataset), {
           status: 401
@@ -207,14 +173,15 @@ describe('dataset actions', () => {
 
   describe('should dispatch updateDataset', () => {
     it('authorized', () => {
-      savedAccessToken = 'user-authorized';
       fetch.mockResponses([
         JSON.stringify(mockDataset), {
           status: 201
         }
       ]);
 
-      const expectedActions = [];
+      const expectedActions = [{
+        type: 'EMPTY_DATASET_SUCCESS'
+      }];
 
       const store = mockStore();
       store.dispatch(updateDataset(mockDataset)).then(() => {
@@ -223,7 +190,6 @@ describe('dataset actions', () => {
     });
 
     it('not authorized', () => {
-      savedAccessToken = 'user-not-authorized';
       fetch.mockResponses([
         JSON.stringify(mockDataset), {
           status: 401
@@ -244,7 +210,6 @@ describe('dataset actions', () => {
 
   describe('should dispatch removeDataset', () => {
     it('authorized', () => {
-      savedAccessToken = 'user-authorized';
       fetch.mockResponses([
         JSON.stringify(mockDataset), {
           status: 204
@@ -262,7 +227,6 @@ describe('dataset actions', () => {
     });
 
     it('not authorized', () => {
-      savedAccessToken = 'user-not-authorized';
       fetch.mockResponses([
         JSON.stringify(mockDataset), {
           status: 401
