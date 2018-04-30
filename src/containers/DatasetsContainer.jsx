@@ -74,7 +74,6 @@ const DatasetsContainer = props => (
             schema={props.schema}
             resourceToDataset={props.resourceToDataset}
             uiDataset={props.uiDataset}
-            uiResource={props.uiResource}
             onFetch={props.onFetch}
             onEmpty={props.onEmpty}
             onUpdate={props.onUpdate}
@@ -108,7 +107,6 @@ const DatasetsContainer = props => (
             schema={props.schema}
             resourceToDataset={props.resourceToDataset}
             uiDataset={props.uiDataset}
-            uiResource={props.uiResource}
             onCreate={props.onCreate}
             onEmptyResource={props.onEmptyResource}
             onSetResource={props.onSetResource}
