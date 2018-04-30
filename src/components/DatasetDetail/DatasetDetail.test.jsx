@@ -27,10 +27,4 @@ describe('The DatasetDetail component', () => {
       expect(wrap).toMatchSnapshot();
     });
   });
-
-  // describe('triggering events', () => {
-  //   it('clicking cancel opens modal', () => {
-  //     console.log('--------------', wrap.find('.resource-title'));
-  //   });
-  // });
 });
