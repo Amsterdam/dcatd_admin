@@ -57,8 +57,10 @@ export function createDataset(dataset) {
       .then(response =>
         dispatch(response.ok ? createDatasetSuccess(dataset) : serverError(response)))
       .then(() => {
-        // dispatch(push('/dcatd_admin/datasets'));
-        window.location.hash = '/datasets';
+        // window.location.hash = '/datasets';
+        const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
+        sessionStorage.removeItem('DCATD_REDIRECT_URL');
+        window.location = url;
       })
       .catch((error) => { throw error; });
   };
@@ -91,8 +93,10 @@ export function updateDataset(dataset) {
       .then(response =>
         dispatch(response.ok ? emptyDataset() : serverError(response)))
       .then(() => {
-        // dispatch(push('/dcatd_admin/datasets'));
-        window.location.hash = '/datasets';
+        // window.location.hash = '/datasets';
+        const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
+        sessionStorage.removeItem('DCATD_REDIRECT_URL');
+        window.location = url;
       })
       .catch((error) => { throw error; });
   };
