@@ -126,14 +126,16 @@ class DatasetDetail extends Component {
   }
 
   handleCancel() {
-    if (!isEqual(this.state.dataset, this.props.dataset, ['@context'])) {
+    if (isEqual(this.state.dataset, this.props.dataset, ['@context'])) {
+      this.props.onCancel();
+    } else {
       this.props.setModal({
         actionLabel: 'De gemaakte wijzigingen negeren',
         cancelLabel: 'Blijf deze dataset bewerken',
         content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen',
         open: true,
         onProceed: () => {
-          this.props.onRemove(this.state.dataset);
+          this.props.onCancel();
         }
       });
     }
@@ -206,6 +208,7 @@ DatasetDetail.defaultProps = {
   onFetch: () => {},
   onEmpty: () => {},
   onCreate: () => {},
+  onCancel: () => {},
   onRemove: () => {},
   onUpdate: () => {},
   onEmptyResource: () => {},
@@ -223,6 +226,7 @@ DatasetDetail.propTypes = {
   onFetch: PropTypes.func,
   onEmpty: PropTypes.func,
   onCreate: PropTypes.func,
+  onCancel: PropTypes.func,
   onRemove: PropTypes.func,
   onUpdate: PropTypes.func,
   onEmptyResource: PropTypes.func,
