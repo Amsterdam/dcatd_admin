@@ -6,6 +6,8 @@ import api from '../../services/api/api';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
 export const CREATE_DATASET_SUCCESS = 'CREATE_DATASET_SUCCESS';
+export const UPDATE_DATASET_SUCCESS = 'UPDATE_DATASET_SUCCESS';
+export const CANCEL_DATASET_SUCCESS = 'CANCEL_DATASET_SUCCESS';
 export const EMPTY_DATASET_SUCCESS = 'EMPTY_DATASET_SUCCESS';
 export const REMOVE_DATASET_SUCCESS = 'REMOVE_DATASET_SUCCESS';
 
@@ -78,6 +80,29 @@ export function emptyDataset() {
   };
 }
 
+export function cancelDatasetSuccess() {
+  return {
+    type: CANCEL_DATASET_SUCCESS
+  };
+}
+
+export function cancelDataset() {
+  return (dispatch) => {
+    // window.location.hash = '/datasets';
+    const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
+    sessionStorage.removeItem('DCATD_REDIRECT_URL');
+    window.location = url;
+
+    return dispatch(cancelDatasetSuccess());
+  };
+}
+
+export function updateDatasetSuccess() {
+  return {
+    type: UPDATE_DATASET_SUCCESS
+  };
+}
+
 export function updateDataset(dataset) {
   // PUT: 204
   return (dispatch) => {
@@ -91,7 +116,7 @@ export function updateDataset(dataset) {
       })
     })
       .then(response =>
-        dispatch(response.ok ? emptyDataset() : serverError(response)))
+        dispatch(response.ok ? updateDatasetSuccess() : serverError(response)))
       .then(() => {
         // window.location.hash = '/datasets';
         const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
