@@ -19,7 +19,7 @@ module.exports = {
     },
     './src/reducers': {
       statements: 100,
-      branches: 100,
+      branches: 90,
       functions: 80,
       lines: 100
     },
