@@ -10,6 +10,7 @@ ShallowWrapper {
     dispatch={[Function]}
     formData={Object {}}
     id={null}
+    onCancel={[Function]}
     onCreate={[Function]}
     onEmpty={[Function]}
     onEmptyResource={[Function]}

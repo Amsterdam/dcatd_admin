@@ -1,6 +1,6 @@
-// import { push } from 'react-router-redux';
 import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
+import redirectToPortal from '../../services/redirect-to-portal/redirect-to-portal';
 import { fetchSchema } from '../schema/schema';
 import api from '../../services/api/api';
 
@@ -59,10 +59,7 @@ export function createDataset(dataset) {
       .then(response =>
         dispatch(response.ok ? createDatasetSuccess(dataset) : serverError(response)))
       .then(() => {
-        // window.location.hash = '/datasets';
-        const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
-        sessionStorage.removeItem('DCATD_REDIRECT_URL');
-        window.location = url;
+        redirectToPortal();
       })
       .catch((error) => { throw error; });
   };
@@ -88,10 +85,7 @@ export function cancelDatasetSuccess() {
 
 export function cancelDataset() {
   return (dispatch) => {
-    // window.location.hash = '/datasets';
-    const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
-    sessionStorage.removeItem('DCATD_REDIRECT_URL');
-    window.location = url;
+    redirectToPortal();
 
     return dispatch(cancelDatasetSuccess());
   };
@@ -118,10 +112,7 @@ export function updateDataset(dataset) {
       .then(response =>
         dispatch(response.ok ? updateDatasetSuccess() : serverError(response)))
       .then(() => {
-        // window.location.hash = '/datasets';
-        const url = sessionStorage.getItem('DCATD_REDIRECT_URL');
-        sessionStorage.removeItem('DCATD_REDIRECT_URL');
-        window.location = url;
+        redirectToPortal();
       })
       .catch((error) => { throw error; });
   };
@@ -146,8 +137,7 @@ export function removeDataset(dataset) {
       .then(response =>
         dispatch(response.ok ? removeDatasetSuccess() : serverError(response)))
       .then(() => {
-        // dispatch(push('/dcatd_admin/datasets'));
-        window.location.hash = '/datasets';
+        redirectToPortal('list');
       })
       .catch((error) => { throw error; });
   };

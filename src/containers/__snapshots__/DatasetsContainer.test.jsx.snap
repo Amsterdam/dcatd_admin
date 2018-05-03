@@ -8,6 +8,7 @@ ShallowWrapper {
     dataset={Object {}}
     datasets={Array []}
     match={null}
+    onCancel={[Function]}
     onCreate={[Function]}
     onEmpty={[Function]}
     onEmptyResource={[Function]}
