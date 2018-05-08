@@ -16,6 +16,7 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
     }
 }
 
+String BRANCH = "${env.BRANCH_NAME}"
 
 node {
     stage("Checkout") {
@@ -23,9 +24,10 @@ node {
     }
 
     stage('Deploy Bakkie') {
-        when { not { branch 'master' } }
-        steps {
-        sh "scripts/bakkie.sh ${env.BRANCH_NAME}"
+        if(BRANCH != "master") {
+            tryStep "bakkie", {
+                sh "scripts/bakkie.sh ${BRANCH}"
+            }
         }
     }
 
@@ -37,7 +39,6 @@ node {
     }
 }
 
-String BRANCH = "${env.BRANCH_NAME}"
 
 if (BRANCH == "master") {
 
