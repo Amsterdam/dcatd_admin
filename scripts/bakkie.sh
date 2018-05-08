@@ -9,6 +9,7 @@ echo Building $1
 echo Build distribution of this branch
 export NODE_ENV=test
 
+npm install
 npm run build
 
 echo Publish distribution in web-dir
