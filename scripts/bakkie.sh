@@ -17,6 +17,6 @@ OUTDIR=/var/www/html/atlas/builds/$1/dcatd_admin
 if [ ! -d ${OUTDIR} ];
 	then mkdir -p ${OUTDIR};
 fi
-cp -r dist/* ${OUTDIR}
+cp -r build/* ${OUTDIR}
 
 echo Done
