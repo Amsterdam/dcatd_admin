@@ -7,7 +7,7 @@ set -x
 echo Building $1
 
 echo Build distribution of this branch
-export NODE_ENV=test
+export NODE_ENV=production
 
 npm install
 npm run build
