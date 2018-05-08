@@ -22,6 +22,13 @@ node {
         checkout scm
     }
 
+    stage('Deploy Bakkie') {
+        when { not { branch 'master' } }
+        steps {
+        sh "scripts/bakkie.sh ${env.BRANCH_NAME}"
+        }
+    }
+
     stage("Build image") {
         tryStep "build", {
             def image = docker.build("build.datapunt.amsterdam.nl:5000/atlas/dcatd_admin:${env.BUILD_NUMBER}")
