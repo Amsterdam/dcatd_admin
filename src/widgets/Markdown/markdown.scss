@@ -8,8 +8,14 @@
   &__preview {
     background-color: $white-four;
     height: auto;
-    margin-top: 16px;
+    margin-top: 4px;
     overflow: auto;
     padding: 4px 10px;
+
+    &-title {
+      @extend %heavy-font;
+
+      margin-top: 16px;
+    }
   }
 }

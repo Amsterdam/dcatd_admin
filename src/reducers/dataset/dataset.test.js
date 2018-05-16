@@ -46,7 +46,12 @@ describe('dataset reducer', () => {
             etag: '666'
           }
         })
-      ).toEqual({});
+      ).toEqual({
+        'foaf:isPrimaryTopicOf': {
+          'dct:issued': expect.any(String),
+          'dct:modified': expect.any(String)
+        }
+      });
     });
   });
 
