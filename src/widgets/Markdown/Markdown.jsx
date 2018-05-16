@@ -46,7 +46,7 @@ class Markdown extends Component {
         />
         <div className="markdown__preview-title">Preview</div>
         <ReactMarkdown
-          source={value || 'preview'}
+          source={value || this.props.placeholder || 'preview'}
           className="markdown__preview"
         />
       </div>
