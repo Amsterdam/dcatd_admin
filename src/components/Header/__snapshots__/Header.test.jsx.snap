@@ -22,6 +22,7 @@ ShallowWrapper {
         size="small"
       >
         <a
+          className="logo-link"
           href="http://portal/redirect-url"
         >
           <logo.svg
@@ -44,6 +45,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <a
+            className="logo-link"
             href="http://portal/redirect-url"
           >
             <logo.svg
@@ -70,6 +72,7 @@ ShallowWrapper {
             "children": <logo.svg
               className="logo"
             />,
+            "className": "logo-link",
             "href": "http://portal/redirect-url",
           },
           "ref": null,
@@ -115,6 +118,7 @@ ShallowWrapper {
           size="small"
         >
           <a
+            className="logo-link"
             href="http://portal/redirect-url"
           >
             <logo.svg
@@ -137,6 +141,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <a
+              className="logo-link"
               href="http://portal/redirect-url"
             >
               <logo.svg
@@ -163,6 +168,7 @@ ShallowWrapper {
               "children": <logo.svg
                 className="logo"
               />,
+              "className": "logo-link",
               "href": "http://portal/redirect-url",
             },
             "ref": null,

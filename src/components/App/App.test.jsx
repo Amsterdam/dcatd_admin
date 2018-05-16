@@ -20,6 +20,20 @@ const renderRoutes = path =>
   );
 
 describe('The App component', () => {
+  let origSessionStorage;
+
+  beforeEach(() => {
+    origSessionStorage = window.sessionStorage;
+
+    window.sessionStorage = {
+      getItem: jest.fn()
+    };
+  });
+
+  afterEach(() => {
+    window.sessionStorage = origSessionStorage;
+  });
+
   it('loads DatasetsContainer when valid url of existing dataset is used', () => {
     const wrap = renderRoutes('/datasets/adrian');
     expect(wrap.find(DatasetsContainer).length).toBe(1);

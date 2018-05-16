@@ -11,7 +11,7 @@ const Header = () => (
   <Container>
     <SemanticHeader size="small" className="header">
       {window.sessionStorage.getItem('DCATD_LIST_REDIRECT_URL') ?
-        <a href={window.sessionStorage.getItem('DCATD_LIST_REDIRECT_URL')}><Logo className="logo" /></a>
+        <a className="logo-link" href={window.sessionStorage.getItem('DCATD_LIST_REDIRECT_URL')}><Logo className="logo" /></a>
         :
         <Logo className="logo" />
       }
