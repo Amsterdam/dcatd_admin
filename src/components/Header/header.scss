@@ -6,11 +6,13 @@
   height: 50px;
 
   .logo,
+  .logo-link,
   .title {
     align-self: center;
   }
 
-  .logo {
+  .logo,
+  .logo-link {
     flex-basis: 87px;
   }
 }

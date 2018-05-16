@@ -46,7 +46,7 @@ class Markdown extends Component {
         />
         <ReactMarkdown
           source={value || 'preview'}
-          className="form-control preview"
+          className="markdown__preview"
         />
       </div>
     );

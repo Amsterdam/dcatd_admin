@@ -39,6 +39,7 @@ export default {
   },
   'dct:temporal': {
     'time:hasBeginning': {
+      'ui:widget': 'alt-date'
       // 'ui:field': 'rdp',
       // rdp: {
       //   placeholder: 'Kies een datum',
@@ -46,6 +47,7 @@ export default {
       // }
     },
     'time:hasEnd': {
+      'ui:widget': 'alt-date'
       // 'ui:field': 'rdp',
       // rdp: {
       //   placeholder: 'Kies een datum',
@@ -96,6 +98,7 @@ export default {
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
+      'ui:widget': 'alt-date'
       // 'ui:field': 'rdp',
       // rdp: {
       //   placeholder: 'Kies een datum',

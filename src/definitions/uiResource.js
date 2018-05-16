@@ -34,6 +34,7 @@ export default {
     'ui:placeholder': 'maak een keuze'
   },
   'dct:modified': {
+    'ui:widget': 'alt-date'
     // 'ui:field': 'rdp',
     // rdp: {
     //   placeholder: 'Kies een datum',
