@@ -30,13 +30,13 @@ class ResourceDetail extends Component {
       uploadStatus: props.uploadStatus
     };
 
-    this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
     this.setFieldState = this.setFieldState.bind(this);
     this.setResourceSpecs = this.setResourceSpecs.bind(this);
     this.setUploadStatus = this.setUploadStatus.bind(this);
     this.hasResource = this.hasResource.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -97,6 +97,15 @@ class ResourceDetail extends Component {
     this.setState({
       uploadStatus: status
     });
+  }
+
+  handleChange(changedFormData) {
+    const { formData } = this.state;
+
+    // prevent setting the visibility in the state when ams:distributionType is not changed
+    if (formData['ams:distributionType'] === changedFormData['ams:distributionType']) return;
+
+    this.setVisibilityOfFields(changedFormData);
   }
 
   hasResource() {
@@ -163,7 +172,7 @@ class ResourceDetail extends Component {
           transformErrors={transformErrors}
           onError={scrollToError}
           onSubmit={event => this.handleSubmit(event.formData)}
-          onChange={event => this.setVisibilityOfFields(event.formData)}
+          onChange={event => this.handleChange(event.formData)}
         >
           <div>
             <button
