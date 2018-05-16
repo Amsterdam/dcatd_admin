@@ -44,9 +44,10 @@ class Markdown extends Component {
 
           onChange={this.handleChange}
         />
+        <div className="markdown__preview-title">Preview</div>
         <ReactMarkdown
-          source={value || 'preview'}
-          className="form-control preview"
+          source={value || this.props.placeholder || 'preview'}
+          className="markdown__preview"
         />
       </div>
     );

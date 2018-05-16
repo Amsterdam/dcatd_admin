@@ -85,7 +85,7 @@ ShallowWrapper {
             className="resources-item__file-type
       resources-item__file-type--"
           >
-            overig
+            
           </span>
           <span
             className="resources-item__description-text"
@@ -144,7 +144,7 @@ ShallowWrapper {
               className="resources-item__file-type
       resources-item__file-type--"
             >
-              overig
+              
             </span>,
             <span
               className="resources-item__description-text"
@@ -161,12 +161,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "overig",
+              "children": "",
               "className": "resources-item__file-type
       resources-item__file-type--",
             },
             "ref": null,
-            "rendered": "overig",
+            "rendered": "",
             "type": "span",
           },
           Object {
@@ -216,7 +216,7 @@ ShallowWrapper {
               className="resources-item__file-type
       resources-item__file-type--"
             >
-              overig
+              
             </span>
             <span
               className="resources-item__description-text"
@@ -275,7 +275,7 @@ ShallowWrapper {
                 className="resources-item__file-type
       resources-item__file-type--"
               >
-                overig
+                
               </span>,
               <span
                 className="resources-item__description-text"
@@ -292,12 +292,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "overig",
+                "children": "",
                 "className": "resources-item__file-type
       resources-item__file-type--",
               },
               "ref": null,
-              "rendered": "overig",
+              "rendered": "",
               "type": "span",
             },
             Object {

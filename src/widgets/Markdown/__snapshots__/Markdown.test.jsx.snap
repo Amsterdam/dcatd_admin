@@ -41,8 +41,13 @@ ShallowWrapper {
           rows={undefined}
           value=""
         />,
+        <div
+          className="markdown__preview-title"
+        >
+          Preview
+        </div>,
         <ReactMarkdown
-          className="form-control preview"
+          className="markdown__preview"
           escapeHtml={true}
           renderers={Object {}}
           skipHtml={false}
@@ -77,9 +82,21 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Preview",
+          "className": "markdown__preview-title",
+        },
+        "ref": null,
+        "rendered": "Preview",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "className": "form-control preview",
+          "className": "markdown__preview",
           "escapeHtml": true,
           "renderers": Object {},
           "skipHtml": false,
@@ -112,8 +129,13 @@ ShallowWrapper {
             rows={undefined}
             value=""
           />,
+          <div
+            className="markdown__preview-title"
+          >
+            Preview
+          </div>,
           <ReactMarkdown
-            className="form-control preview"
+            className="markdown__preview"
             escapeHtml={true}
             renderers={Object {}}
             skipHtml={false}
@@ -148,9 +170,21 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Preview",
+            "className": "markdown__preview-title",
+          },
+          "ref": null,
+          "rendered": "Preview",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "className": "form-control preview",
+            "className": "markdown__preview",
             "escapeHtml": true,
             "renderers": Object {},
             "skipHtml": false,
@@ -216,8 +250,13 @@ ShallowWrapper {
           rows={undefined}
           value="foo"
         />,
+        <div
+          className="markdown__preview-title"
+        >
+          Preview
+        </div>,
         <ReactMarkdown
-          className="form-control preview"
+          className="markdown__preview"
           escapeHtml={true}
           renderers={Object {}}
           skipHtml={false}
@@ -252,9 +291,21 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Preview",
+          "className": "markdown__preview-title",
+        },
+        "ref": null,
+        "rendered": "Preview",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "className": "form-control preview",
+          "className": "markdown__preview",
           "escapeHtml": true,
           "renderers": Object {},
           "skipHtml": false,
@@ -287,8 +338,13 @@ ShallowWrapper {
             rows={undefined}
             value="foo"
           />,
+          <div
+            className="markdown__preview-title"
+          >
+            Preview
+          </div>,
           <ReactMarkdown
-            className="form-control preview"
+            className="markdown__preview"
             escapeHtml={true}
             renderers={Object {}}
             skipHtml={false}
@@ -323,9 +379,21 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Preview",
+            "className": "markdown__preview-title",
+          },
+          "ref": null,
+          "rendered": "Preview",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "className": "form-control preview",
+            "className": "markdown__preview",
             "escapeHtml": true,
             "renderers": Object {},
             "skipHtml": false,
@@ -391,8 +459,13 @@ ShallowWrapper {
           rows={undefined}
           value=""
         />,
+        <div
+          className="markdown__preview-title"
+        >
+          Preview
+        </div>,
         <ReactMarkdown
-          className="form-control preview"
+          className="markdown__preview"
           escapeHtml={true}
           renderers={Object {}}
           skipHtml={false}
@@ -427,9 +500,21 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Preview",
+          "className": "markdown__preview-title",
+        },
+        "ref": null,
+        "rendered": "Preview",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "className": "form-control preview",
+          "className": "markdown__preview",
           "escapeHtml": true,
           "renderers": Object {},
           "skipHtml": false,
@@ -462,8 +547,13 @@ ShallowWrapper {
             rows={undefined}
             value=""
           />,
+          <div
+            className="markdown__preview-title"
+          >
+            Preview
+          </div>,
           <ReactMarkdown
-            className="form-control preview"
+            className="markdown__preview"
             escapeHtml={true}
             renderers={Object {}}
             skipHtml={false}
@@ -498,9 +588,21 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Preview",
+            "className": "markdown__preview-title",
+          },
+          "ref": null,
+          "rendered": "Preview",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "className": "form-control preview",
+            "className": "markdown__preview",
             "escapeHtml": true,
             "renderers": Object {},
             "skipHtml": false,
@@ -566,8 +668,13 @@ ShallowWrapper {
           rows={undefined}
           value=""
         />,
+        <div
+          className="markdown__preview-title"
+        >
+          Preview
+        </div>,
         <ReactMarkdown
-          className="form-control preview"
+          className="markdown__preview"
           escapeHtml={true}
           renderers={Object {}}
           skipHtml={false}
@@ -602,9 +709,21 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Preview",
+          "className": "markdown__preview-title",
+        },
+        "ref": null,
+        "rendered": "Preview",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "className": "form-control preview",
+          "className": "markdown__preview",
           "escapeHtml": true,
           "renderers": Object {},
           "skipHtml": false,
@@ -637,8 +756,13 @@ ShallowWrapper {
             rows={undefined}
             value=""
           />,
+          <div
+            className="markdown__preview-title"
+          >
+            Preview
+          </div>,
           <ReactMarkdown
-            className="form-control preview"
+            className="markdown__preview"
             escapeHtml={true}
             renderers={Object {}}
             skipHtml={false}
@@ -673,9 +797,21 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Preview",
+            "className": "markdown__preview-title",
+          },
+          "ref": null,
+          "rendered": "Preview",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "className": "form-control preview",
+            "className": "markdown__preview",
             "escapeHtml": true,
             "renderers": Object {},
             "skipHtml": false,

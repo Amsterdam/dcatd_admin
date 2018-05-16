@@ -22,7 +22,8 @@ export default {
     'ui:widget': 'hidden'
   },
   'dct:description': {
-    'ui:widget': 'markdown'
+    'ui:widget': 'markdown',
+    'ui:placeholder': 'tekst of markdown'
     // 'ui:field': 'rte',
     // rte
   },
@@ -34,6 +35,7 @@ export default {
     'ui:placeholder': 'maak een keuze'
   },
   'dct:modified': {
+    // 'ui:widget': 'alt-date'
     // 'ui:field': 'rdp',
     // rdp: {
     //   placeholder: 'Kies een datum',
