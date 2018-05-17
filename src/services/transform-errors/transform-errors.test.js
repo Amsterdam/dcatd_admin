@@ -18,7 +18,7 @@ describe('The transform-errors service', () => {
       expect(transformErrors(errors)).toEqual([{
         message: 'Dit veld is verplicht.'
       }, {
-        message: 'De ingevoerde datum is niet correct. Vul het in als dd-mm-jjjj.'
+        message: 'De ingevoerde datum is niet correct. Vul het in de juiste volgorde in.'
       }, {
         message: 'Het ingevoerde e-mailadres is niet correct. Controleer het e-mailadres.'
       }, {
