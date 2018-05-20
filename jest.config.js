@@ -8,8 +8,8 @@ module.exports = {
     global: {
       statements: 45,
       branches: 34,
-      functions: 43,
-      lines: 43
+      functions: 42,
+      lines: 42
     },
     './src/actions': {
       statements: 90,

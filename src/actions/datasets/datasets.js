@@ -25,7 +25,7 @@ export function fetchDatasets() {
           title: dataset['dct:title'] || '',
           description: dataset['dct:description'] || ''
         })))
-        .then(datasets => dispatch(fetchDatasetsSuccess(datasets)))
+        .then(datasets => dispatch(fetchDatasetsSuccess(datasets)));
     }).catch(error => dispatch(fetchDatasetsFailure(error)));
   };
 }
