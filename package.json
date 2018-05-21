@@ -7,7 +7,7 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js",
-    "test-watch": "node scripts/test.js --config=jest.config.dev.js --watch --coverage=true --debug=false",
+    "test-watch": "node scripts/test.js --config=jest.config.dev.js --watch --coverage=false --debug=false",
     "test-update": "node scripts/test.js --updateSnapshot"
   },
   "devDependencies": {

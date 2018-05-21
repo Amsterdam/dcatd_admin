@@ -99,7 +99,8 @@ class ResourceDetail extends Component {
     });
   }
 
-  handleChange(changedFormData) {
+  handleChange(event) {
+    const changedFormData = event.formData;
     const { formData } = this.state;
 
     // prevent setting the visibility in the state when ams:distributionType is not changed
@@ -112,8 +113,8 @@ class ResourceDetail extends Component {
     return this.props.formData['@id'];
   }
 
-  handleSubmit(formData) {
-    this.props.onSetResourceToDataset(formData);
+  handleSubmit(event) {
+    this.props.onSetResourceToDataset(event.formData);
     this.props.onEmptyResource();
   }
 
@@ -171,8 +172,8 @@ class ResourceDetail extends Component {
           showErrorList={false}
           transformErrors={transformErrors}
           onError={scrollToError}
-          onSubmit={event => this.handleSubmit(event.formData)}
-          onChange={event => this.handleChange(event.formData)}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
         >
           <div>
             <button
@@ -181,7 +182,7 @@ class ResourceDetail extends Component {
             >
               OK en terug</button>
             <button
-              onClick={() => this.handleCancel()}
+              onClick={this.handleCancel}
               className="dcatd-form-button dcatd-form-button-cancel"
               type="button"
             >
@@ -229,7 +230,6 @@ ResourceDetail.propTypes = {
   uiResource: PropTypes.object.isRequired,
   uploadStatus: PropTypes.string,
   datasetTitle: PropTypes.string,
-
 
   onSetResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,

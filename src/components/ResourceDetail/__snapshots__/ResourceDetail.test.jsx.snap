@@ -5,7 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <ResourceDetail
-    datasetTitle=""
+    datasetTitle="Ga terug naar dataset"
     formData={Object {}}
     onEmptyResource={[MockFunction]}
     onSetResourceToDataset={[MockFunction]}
@@ -237,7 +237,7 @@ ShallowWrapper {
           className="resource-form__back"
           onClick={[Function]}
         >
-          
+          Ga terug naar dataset
         </button>,
         <h1
           className="resource-title"
@@ -525,12 +525,12 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "",
+          "children": "Ga terug naar dataset",
           "className": "resource-form__back",
           "onClick": [Function],
         },
         "ref": null,
-        "rendered": "",
+        "rendered": "Ga terug naar dataset",
         "type": "button",
       },
       Object {
@@ -906,7 +906,7 @@ ShallowWrapper {
             className="resource-form__back"
             onClick={[Function]}
           >
-            
+            Ga terug naar dataset
           </button>,
           <h1
             className="resource-title"
@@ -1194,12 +1194,12 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "",
+            "children": "Ga terug naar dataset",
             "className": "resource-form__back",
             "onClick": [Function],
           },
           "ref": null,
-          "rendered": "",
+          "rendered": "Ga terug naar dataset",
           "type": "button",
         },
         Object {
