@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import filesize from 'filesize';
-import dateFormat from '../../../definitions/date';
+import dateFormat from '../../../definitions/date-format';
 
 import './resources-item.scss';
 
