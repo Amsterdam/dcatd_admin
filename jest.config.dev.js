@@ -1,5 +1,6 @@
 module.exports = {
   verbose: true,
+  rootDir: './',
   collectCoverage: true,
   collectCoverageFrom: [
     'src/**/*.{js,jsx}',

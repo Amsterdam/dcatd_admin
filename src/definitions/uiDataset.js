@@ -1,4 +1,4 @@
-const uiDataset =  {
+const uiDataset = {
   'ui:field': [
     'resources',
     'dropdown',
