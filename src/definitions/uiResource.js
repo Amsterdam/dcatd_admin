@@ -1,8 +1,4 @@
-// import dayPickerProps from './day-picker';
-// rte has to be fixed in react-jsonschema-form-extras
-// import rte from './rte';
-
-export default {
+const uiResource = {
   'ui:field': [
     'rte'
   ],
@@ -22,7 +18,8 @@ export default {
     'ui:widget': 'hidden'
   },
   'dct:description': {
-    'ui:widget': 'markdown'
+    'ui:widget': 'markdown',
+    'ui:placeholder': 'tekst of markdown'
     // 'ui:field': 'rte',
     // rte
   },
@@ -34,6 +31,7 @@ export default {
     'ui:placeholder': 'maak een keuze'
   },
   'dct:modified': {
+    // 'ui:widget': 'alt-date'
     // 'ui:field': 'rdp',
     // rdp: {
     //   placeholder: 'Kies een datum',
@@ -53,3 +51,5 @@ export default {
     }
   }
 };
+
+export default uiResource;

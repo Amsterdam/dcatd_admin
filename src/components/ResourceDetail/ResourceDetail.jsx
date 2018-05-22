@@ -30,13 +30,13 @@ class ResourceDetail extends Component {
       uploadStatus: props.uploadStatus
     };
 
-    this.setVisibilityOfFields = this.setVisibilityOfFields.bind(this);
     this.setFieldState = this.setFieldState.bind(this);
     this.setResourceSpecs = this.setResourceSpecs.bind(this);
     this.setUploadStatus = this.setUploadStatus.bind(this);
     this.hasResource = this.hasResource.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -99,12 +99,22 @@ class ResourceDetail extends Component {
     });
   }
 
+  handleChange(event) {
+    const changedFormData = event.formData;
+    const { formData } = this.state;
+
+    // prevent setting the visibility in the state when ams:distributionType is not changed
+    if (formData['ams:distributionType'] === changedFormData['ams:distributionType']) return;
+
+    this.setVisibilityOfFields(changedFormData);
+  }
+
   hasResource() {
     return this.props.formData['@id'];
   }
 
-  handleSubmit(formData) {
-    this.props.onSetResourceToDataset(formData);
+  handleSubmit(event) {
+    this.props.onSetResourceToDataset(event.formData);
     this.props.onEmptyResource();
   }
 
@@ -142,7 +152,7 @@ class ResourceDetail extends Component {
     return (
       <div>
         <button
-          onClick={() => this.handleCancel()}
+          onClick={this.handleCancel}
           className="resource-form__back"
         >{this.props.datasetTitle}</button>
         <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>
@@ -162,8 +172,8 @@ class ResourceDetail extends Component {
           showErrorList={false}
           transformErrors={transformErrors}
           onError={scrollToError}
-          onSubmit={event => this.handleSubmit(event.formData)}
-          onChange={event => this.setVisibilityOfFields(event.formData)}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
         >
           <div>
             <button
@@ -172,7 +182,7 @@ class ResourceDetail extends Component {
             >
               OK en terug</button>
             <button
-              onClick={() => this.handleCancel()}
+              onClick={this.handleCancel}
               className="dcatd-form-button dcatd-form-button-cancel"
               type="button"
             >
@@ -220,7 +230,6 @@ ResourceDetail.propTypes = {
   uiResource: PropTypes.object.isRequired,
   uploadStatus: PropTypes.string,
   datasetTitle: PropTypes.string,
-
 
   onSetResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,

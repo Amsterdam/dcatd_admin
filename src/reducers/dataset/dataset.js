@@ -19,9 +19,18 @@ export default function (state = initialState, action) {
     case CREATE_DATASET_SUCCESS:
     case UPDATE_DATASET_SUCCESS:
     case CANCEL_DATASET_SUCCESS:
-    case EMPTY_DATASET_SUCCESS:
     case REMOVE_DATASET_SUCCESS:
       return {};
+
+    case EMPTY_DATASET_SUCCESS: {
+      const date = new Date().toISOString().slice(0, 10);
+      return {
+        'foaf:isPrimaryTopicOf': {
+          'dct:issued': date,
+          'dct:modified': date
+        }
+      };
+    }
 
     default:
       return state;

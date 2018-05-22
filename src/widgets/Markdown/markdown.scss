@@ -3,10 +3,19 @@
 .markdown {
   .form-control {
     height: 148px !important;
+  }
 
-    &.preview {
+  &__preview {
+    background-color: $white-four;
+    height: auto;
+    margin-top: 4px;
+    overflow: auto;
+    padding: 4px 10px;
+
+    &-title {
+      @extend %heavy-font;
+
       margin-top: 16px;
-      overflow: auto;
     }
   }
 }

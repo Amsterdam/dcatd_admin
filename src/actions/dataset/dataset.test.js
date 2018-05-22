@@ -1,6 +1,9 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { fetchDataset, createDataset, emptyDataset, updateDataset, removeDataset } from './dataset';
+import { fetchDataset, createDataset, emptyDataset, cancelDataset, updateDataset, removeDataset } from './dataset';
+
+jest.mock('../../services/auth/auth');
+jest.mock('../../services/redirect-to-portal/redirect-to-portal');
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
@@ -33,8 +36,6 @@ const mockModel = {
   open: true,
   onProceed: expect.any(Function)
 };
-
-jest.mock('../../services/auth/auth');
 
 describe('dataset actions', () => {
   beforeEach(() => {
@@ -158,17 +159,24 @@ describe('dataset actions', () => {
     });
   });
 
-  describe('should dispatch emptyDataset', () => {
-    it('authorized', () => {
-      const expectedActions = [{
-        type: 'EMPTY_DATASET_SUCCESS'
-      }];
+  it('should dispatch emptyDataset', () => {
+    const expectedActions = [{
+      type: 'EMPTY_DATASET_SUCCESS'
+    }];
 
-      const store = mockStore();
-      store.dispatch(emptyDataset()); // .then(() => {
-      expect(store.getActions()).toEqual(expectedActions);
-      // });
-    });
+    const store = mockStore();
+    store.dispatch(emptyDataset());
+    expect(store.getActions()).toEqual(expectedActions);
+  });
+
+  it('should dispatch cancelDataset', () => {
+    const expectedActions = [{
+      type: 'CANCEL_DATASET_SUCCESS'
+    }];
+
+    const store = mockStore();
+    store.dispatch(cancelDataset());
+    expect(store.getActions()).toEqual(expectedActions);
   });
 
   describe('should dispatch updateDataset', () => {
@@ -180,7 +188,7 @@ describe('dataset actions', () => {
       ]);
 
       const expectedActions = [{
-        type: 'EMPTY_DATASET_SUCCESS'
+        type: 'UPDATE_DATASET_SUCCESS'
       }];
 
       const store = mockStore();

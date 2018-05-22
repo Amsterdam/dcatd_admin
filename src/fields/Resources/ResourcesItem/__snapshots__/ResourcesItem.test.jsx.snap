@@ -85,7 +85,7 @@ ShallowWrapper {
             className="resources-item__file-type
       resources-item__file-type--"
           >
-            overig
+            
           </span>
           <span
             className="resources-item__description-text"
@@ -144,7 +144,7 @@ ShallowWrapper {
               className="resources-item__file-type
       resources-item__file-type--"
             >
-              overig
+              
             </span>,
             <span
               className="resources-item__description-text"
@@ -161,12 +161,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "overig",
+              "children": "",
               "className": "resources-item__file-type
       resources-item__file-type--",
             },
             "ref": null,
-            "rendered": "overig",
+            "rendered": "",
             "type": "span",
           },
           Object {
@@ -216,7 +216,7 @@ ShallowWrapper {
               className="resources-item__file-type
       resources-item__file-type--"
             >
-              overig
+              
             </span>
             <span
               className="resources-item__description-text"
@@ -275,7 +275,7 @@ ShallowWrapper {
                 className="resources-item__file-type
       resources-item__file-type--"
               >
-                overig
+                
               </span>,
               <span
                 className="resources-item__description-text"
@@ -292,12 +292,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "overig",
+                "children": "",
                 "className": "resources-item__file-type
       resources-item__file-type--",
               },
               "ref": null,
-              "rendered": "overig",
+              "rendered": "",
               "type": "span",
             },
             Object {
@@ -399,7 +399,7 @@ ShallowWrapper {
         <div
           className="resources-item__modified"
         >
-          2017 M11 30
+          30 november 2017
         </div>,
         <div
           className="resources-item__file-size"
@@ -436,11 +436,11 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": "2017 M11 30",
+          "children": "30 november 2017",
           "className": "resources-item__modified",
         },
         "ref": null,
-        "rendered": "2017 M11 30",
+        "rendered": "30 november 2017",
         "type": "div",
       },
       Object {
@@ -530,7 +530,7 @@ ShallowWrapper {
           <div
             className="resources-item__modified"
           >
-            2017 M11 30
+            30 november 2017
           </div>,
           <div
             className="resources-item__file-size"
@@ -567,11 +567,11 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "2017 M11 30",
+            "children": "30 november 2017",
             "className": "resources-item__modified",
           },
           "ref": null,
-          "rendered": "2017 M11 30",
+          "rendered": "30 november 2017",
           "type": "div",
         },
         Object {

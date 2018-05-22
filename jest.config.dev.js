@@ -1,15 +1,17 @@
 module.exports = {
+  rootDir: './',
   collectCoverage: true,
   collectCoverageFrom: [
-    'src/**/*.{js,jsx}'
+    'src/**/*.{js,jsx}',
+    '!src/definitions/*.js'
   ],
   coverageDirectory: 'coverage',
   coverageThreshold: {
     global: {
       statements: 45,
       branches: 34,
-      functions: 42,
-      lines: 42
+      functions: 43,
+      lines: 43
     },
     './src/actions': {
       statements: 90,

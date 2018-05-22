@@ -24,6 +24,15 @@ const mapStateToProps = state => ({
   dataset: state.dataset
 });
 
+const validate = (formData, errors) => {
+  // Include extra validation for themes. These are defined as multiselection list and 
+  // semantic-ui doesn't support required attribute
+  if (formData['dcat:theme'].length === 0) {
+    errors['dcat:theme'].addError('Dit veld is verplicht');
+  }
+  return errors;
+};
+
 class DatasetDetail extends Component {
   constructor(props) {
     super(props);
@@ -163,6 +172,7 @@ class DatasetDetail extends Component {
           onError={scrollToError}
           onSubmit={event => this.handleSubmit(event)}
           onChange={event => this.handleChange(event)}
+          validate={validate}
         >
           <div>
             <button
@@ -205,15 +215,15 @@ DatasetDetail.defaultProps = {
   dataset: {},
   resourceToDataset: {},
 
-  onFetch: () => {},
-  onEmpty: () => {},
-  onCreate: () => {},
-  onCancel: () => {},
-  onRemove: () => {},
-  onUpdate: () => {},
-  onEmptyResource: () => {},
-  onSetResource: () => {},
-  setModal: () => {}
+  onFetch: () => { },
+  onEmpty: () => { },
+  onCreate: () => { },
+  onCancel: () => { },
+  onRemove: () => { },
+  onUpdate: () => { },
+  onEmptyResource: () => { },
+  onSetResource: () => { },
+  setModal: () => { }
 };
 
 DatasetDetail.propTypes = {

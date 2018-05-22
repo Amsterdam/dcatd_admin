@@ -10,11 +10,18 @@ import './header.scss';
 const Header = () => (
   <Container>
     <SemanticHeader size="small" className="header">
-      <Logo className="logo" />
+      {window.sessionStorage.getItem('DCATD_LIST_REDIRECT_URL') ?
+        <a className="logo-link" href={window.sessionStorage.getItem('DCATD_LIST_REDIRECT_URL')}><Logo className="logo" /></a>
+        :
+        <Logo className="logo" />
+      }
       <span className="title">Dataset beheer</span>
-      <button
-        onClick={logout}
-      >uitloggen</button>
+      {window.sessionStorage.getItem('DCATD_DETAIL_REDIRECT_URL') || window.sessionStorage.getItem('DCATD_LIST_REDIRECT_URL') ?
+        '' :
+        <button
+          onClick={logout}
+        >uitloggen</button>
+      }
     </SemanticHeader>
   </Container>
 );

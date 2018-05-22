@@ -4,5 +4,5 @@ export default function (type = 'detail') {
   window.sessionStorage.removeItem('DCATD_DETAIL_REDIRECT_URL');
   window.sessionStorage.removeItem('DCATD_LIST_REDIRECT_URL');
 
-  window.location.assign(url);
+  window.location.assign(url || '#/datasets');
 }

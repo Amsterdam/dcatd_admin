@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import filesize from 'filesize';
-import dateFormat from '../../../definitions/date';
+import dateFormat from '../../../definitions/date-format';
 
 import './resources-item.scss';
 
 function getFileType(mime, fieldSchema) {
-  const type = fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)].toLowerCase();
+  const type = fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)].toLowerCase() : 'overig';
   return (
     <span className={`resources-item__file-type
       resources-item__file-type--${type}`}
-    >{type || 'overig'}
+    >{type}
     </span>
   );
 }
