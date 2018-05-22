@@ -1,8 +1,4 @@
-// import dayPickerProps from './day-picker';
-// rte has to be fixed in react-jsonschema-form-extras
-// import rte from './rte';
-
-export default {
+const uiResource = {
   'ui:field': [
     'rte'
   ],
@@ -55,3 +51,5 @@ export default {
     }
   }
 };
+
+export default uiResource;
