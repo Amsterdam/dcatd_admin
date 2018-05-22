@@ -152,7 +152,7 @@ class ResourceDetail extends Component {
     return (
       <div>
         <button
-          onClick={() => this.handleCancel()}
+          onClick={this.handleCancel}
           className="resource-form__back"
         >{this.props.datasetTitle}</button>
         <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>

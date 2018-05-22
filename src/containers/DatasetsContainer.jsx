@@ -152,6 +152,7 @@ DatasetsContainer.propTypes = {
   onSetResource: PropTypes.func.isRequired,
   onSetModal: PropTypes.func.isRequired,
   onSetResourceToDataset: PropTypes.func.isRequired,
+
   schema: PropTypes.object,
   uiDataset: PropTypes.object,
   uiResource: PropTypes.object
