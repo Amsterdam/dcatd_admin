@@ -30,10 +30,15 @@ class Resources extends Component {
 
   handleAddResource(type) {
     if (this.props.formContext && this.props.formContext.handleSetResource) {
+      const today = new Date().toISOString().split('T')[0];
       this.props.formContext.handleSetResource({
         'ams:classification': 'public',
         'ams:resourceType': type,
-        'dct:modified': new Date().toISOString().split('T')[0]
+        'dct:modified': today,
+        'foaf:isPrimaryTopicOf': {
+          'dct:issued': today,
+          'dct:modified': today
+        }
       });
     }
   }

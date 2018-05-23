@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import DatasetsContainer from '../../containers/DatasetsContainer';
+import DatasetsContainer from '../../containers/DatasetsContainer/DatasetsContainer';
 
 const middlewares = [thunk];
 const store = configureMockStore(middlewares)();
