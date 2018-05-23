@@ -2,7 +2,7 @@ FROM node:8.1-alpine as builder
   ARG NODE_ENV=development
   WORKDIR /app
   COPY . /app/
-  RUN npm cache clean --force
+
   RUN npm install && npm run build
 
 FROM nginx:stable-alpine
