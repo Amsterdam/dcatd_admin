@@ -170,8 +170,8 @@ class DatasetDetail extends Component {
           showErrorList={false}
           transformErrors={transformErrors}
           onError={scrollToError}
-          onSubmit={event => this.handleSubmit(event)}
-          onChange={event => this.handleChange(event)}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
           validate={validate}
         >
           <div>
@@ -182,7 +182,7 @@ class DatasetDetail extends Component {
               Opslaan</button>
             <button
               className="dcatd-form-button dcatd-form-button-cancel"
-              onClick={() => this.handleCancel()}
+              onClick={this.handleCancel}
               type="button"
             >
               Annuleren</button>
