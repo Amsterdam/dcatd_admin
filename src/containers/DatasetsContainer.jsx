@@ -11,8 +11,8 @@ import { emptyResource, setResource } from '../actions/resource/resource';
 import { setModal } from '../actions/modal/modal';
 
 import DatasetList from '../components/DatasetList/DatasetList';
-import DatasetDetail from '../components/DatasetDetail/DatasetDetail';
-import ResourceDetail from '../components/ResourceDetail/ResourceDetail';
+import DatasetForm from '../containers/DatasetForm/DatasetForm';
+import ResourceForm from '../containers/ResourceForm/ResourceForm';
 
 import './datasets-container.scss';
 
@@ -58,7 +58,7 @@ const DatasetsContainer = props => (
           className={`form-wrapper
             form-wrapper--${props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
         >
-          <ResourceDetail
+          <ResourceForm
             schema={(props.schema && props.schema.properties &&
               props.schema.properties['dcat:distribution'] &&
               props.schema.properties['dcat:distribution'].items) || {}}
@@ -69,7 +69,7 @@ const DatasetsContainer = props => (
             setModal={props.onSetModal}
             datasetTitle={props.dataset['dct:title']}
           />
-          <DatasetDetail
+          <DatasetForm
             id={props.match.params.id}
             dataset={props.dataset}
             schema={props.schema}
@@ -95,7 +95,7 @@ const DatasetsContainer = props => (
           className={`form-wrapper
             form-wrapper--${props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
         >
-          <ResourceDetail
+          <ResourceForm
             schema={(props.schema && props.schema.properties &&
               props.schema.properties['dcat:distribution'] &&
               props.schema.properties['dcat:distribution'].items) || {}}
@@ -105,7 +105,7 @@ const DatasetsContainer = props => (
             onEmptyResource={props.onEmptyResource}
             setModal={props.onSetModal}
           />
-          <DatasetDetail
+          <DatasetForm
             schema={props.schema}
             resourceToDataset={props.resourceToDataset}
             uiDataset={props.uiDataset}

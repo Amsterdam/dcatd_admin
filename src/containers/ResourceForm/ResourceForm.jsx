@@ -20,7 +20,7 @@ const fields = {
   ...localFields
 };
 
-class ResourceDetail extends Component {
+class ResourceForm extends Component {
   constructor(props) {
     super(props);
 
@@ -218,13 +218,13 @@ class ResourceDetail extends Component {
   }
 }
 
-ResourceDetail.defaultProps = {
+ResourceForm.defaultProps = {
   formData: {},
   datasetTitle: 'Ga terug naar dataset',
   uploadStatus: 'idle'
 };
 
-ResourceDetail.propTypes = {
+ResourceForm.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
@@ -236,4 +236,4 @@ ResourceDetail.propTypes = {
   setModal: PropTypes.func.isRequired
 };
 
-export default ResourceDetail;
+export default ResourceForm;

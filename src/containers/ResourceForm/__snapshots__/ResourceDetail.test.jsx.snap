@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The ResourceDetail component renders component renders default props 1`] = `
+exports[`The ResourceForm component renders component renders default props 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <ResourceDetail
+  Symbol(enzyme.__unrendered__): <ResourceForm
     datasetTitle="Ga terug naar dataset"
     formData={Object {}}
     onEmptyResource={[MockFunction]}
