@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
 });
 
 const validate = (formData, errors) => {
-  // Include extra validation for themes. These are defined as multiselection list and 
+  // Include extra validation for themes. These are defined as multiselection list and
   // semantic-ui doesn't support required attribute
   if (formData['dcat:theme'].length === 0) {
     errors['dcat:theme'].addError('Dit veld is verplicht');
@@ -170,8 +170,8 @@ class DatasetDetail extends Component {
           showErrorList={false}
           transformErrors={transformErrors}
           onError={scrollToError}
-          onSubmit={event => this.handleSubmit(event)}
-          onChange={event => this.handleChange(event)}
+          onSubmit={this.handleSubmit}
+          onChange={this.handleChange}
           validate={validate}
         >
           <div>
@@ -182,7 +182,7 @@ class DatasetDetail extends Component {
               Opslaan</button>
             <button
               className="dcatd-form-button dcatd-form-button-cancel"
-              onClick={() => this.handleCancel()}
+              onClick={this.handleCancel}
               type="button"
             >
               Annuleren</button>

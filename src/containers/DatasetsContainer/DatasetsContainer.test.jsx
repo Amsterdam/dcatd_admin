@@ -6,15 +6,15 @@ import thunk from 'redux-thunk';
 import DatasetsContainer from './DatasetsContainer';
 
 import { fetchDataset, emptyDataset, createDataset, cancelDataset, removeDataset, updateDataset }
-  from '../actions/dataset/dataset';
-import { setResourceToDataset } from '../actions/resourceToDataset/resourceToDataset';
-import { emptyResource, setResource } from '../actions/resource/resource';
-import { setModal } from '../actions/modal/modal';
+  from '../../actions/dataset/dataset';
+import { setResourceToDataset } from '../../actions/resourceToDataset/resourceToDataset';
+import { emptyResource, setResource } from '../../actions/resource/resource';
+import { setModal } from '../../actions/modal/modal';
 
-jest.mock('../actions/dataset/dataset');
-jest.mock('../actions/resourceToDataset/resourceToDataset');
-jest.mock('../actions/resource/resource');
-jest.mock('../actions/modal/modal');
+jest.mock('../../actions/dataset/dataset');
+jest.mock('../../actions/resourceToDataset/resourceToDataset');
+jest.mock('../../actions/resource/resource');
+jest.mock('../../actions/modal/modal');
 
 const middlewares = [thunk];
 

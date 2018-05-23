@@ -1,11 +1,11 @@
 import React from 'react';
 
 import Form from 'react-jsonschema-form';
-import ResourceDetail from './ResourceDetail';
+import ResourceForm from './ResourceForm';
 import schema from './schema.json';
 import uiResource from '../../definitions/uiResource';
 
-describe('The ResourceDetail component', () => {
+describe('The ResourceForm component', () => {
   let props;
   let wrap;
 
@@ -21,14 +21,14 @@ describe('The ResourceDetail component', () => {
 
   describe('renders component', () => {
     it('renders default props', () => {
-      wrap = shallow(<ResourceDetail {...props} />);
+      wrap = shallow(<ResourceForm {...props} />);
       expect(wrap).toMatchSnapshot();
     });
 
 
     describe('handleCancel', () => {
       it('should go back', () => {
-        wrap = shallow(<ResourceDetail {...props} />);
+        wrap = shallow(<ResourceForm {...props} />);
         const backButton = wrap.find('.resource-form__back').first();
         expect(backButton).toBeTruthy();
         backButton.simulate('click');
@@ -40,7 +40,7 @@ describe('The ResourceDetail component', () => {
           ...props,
           uploadStatus: 'busy'
         };
-        wrap = shallow(<ResourceDetail {...props} />);
+        wrap = shallow(<ResourceForm {...props} />);
         const cancelButton = wrap.find('.dcatd-form-button-cancel').first();
         expect(cancelButton.prop('type')).toBe('button');
         cancelButton.simulate('click');
@@ -52,7 +52,7 @@ describe('The ResourceDetail component', () => {
         props = {
           ...props
         };
-        wrap = shallow(<ResourceDetail {...props} />);
+        wrap = shallow(<ResourceForm {...props} />);
         const cancelButton = wrap.find('.dcatd-form-button-cancel').first();
         expect(cancelButton.prop('type')).toBe('button');
         cancelButton.simulate('click');
@@ -68,7 +68,7 @@ describe('The ResourceDetail component', () => {
             'foaf:isPrimaryTopicOf': {}
           }
         };
-        wrap = shallow(<ResourceDetail {...props} />);
+        wrap = shallow(<ResourceForm {...props} />);
         const event = { formData: { 'dct:modified': 'modified', 'ams:distributionType': 'modified' } };
         wrap.instance().setResourceSpecs(event.formData);
         const cancelButton = wrap.find('.dcatd-form-button-cancel').first();
@@ -87,7 +87,7 @@ describe('The ResourceDetail component', () => {
           uiResource
         };
 
-        wrap = shallow(<ResourceDetail {...props} />);
+        wrap = shallow(<ResourceForm {...props} />);
         form = wrap.find(Form).first();
       });
 
