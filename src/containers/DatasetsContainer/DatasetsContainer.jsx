@@ -5,14 +5,14 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import { fetchDataset, emptyDataset, createDataset, cancelDataset, removeDataset, updateDataset }
-  from '../actions/dataset/dataset';
-import { setResourceToDataset } from '../actions/resourceToDataset/resourceToDataset';
-import { emptyResource, setResource } from '../actions/resource/resource';
-import { setModal } from '../actions/modal/modal';
+  from '../../actions/dataset/dataset';
+import { setResourceToDataset } from '../../actions/resourceToDataset/resourceToDataset';
+import { emptyResource, setResource } from '../../actions/resource/resource';
+import { setModal } from '../../actions/modal/modal';
 
-import DatasetList from '../components/DatasetList/DatasetList';
-import DatasetForm from '../containers/DatasetForm/DatasetForm';
-import ResourceForm from '../containers/ResourceForm/ResourceForm';
+import DatasetList from '../../components/DatasetList/DatasetList';
+import DatasetForm from '../../containers/DatasetForm/DatasetForm';
+import ResourceForm from '../../containers/ResourceForm/ResourceForm';
 
 import './datasets-container.scss';
 
