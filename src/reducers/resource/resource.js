@@ -6,6 +6,7 @@ export default function (state = initialState, action) {
   switch (action.type) {
     case SET_RESOURCE_SUCCESS:
       return {
+        'dct:modified': new Date().toISOString().split('T')[0],
         ...action.resource
       };
 
