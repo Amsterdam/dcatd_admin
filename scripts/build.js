@@ -25,7 +25,7 @@ const printBuildError = require('react-dev-utils/printBuildError');
 const measureFileSizesBeforeBuild =
   FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
-const useYarn = fs.pathExistsSync(paths.yarnLockFile);
+const useYarn = fs.existsSync(paths.yarnLockFile);
 
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
