@@ -5,7 +5,6 @@ export default function (errors) {
     if (errorsMap[error.message]) {
       error.message = errorsMap[error.message];
     }
-    console.log('transformErrors', errors);
 
     return error;
   });

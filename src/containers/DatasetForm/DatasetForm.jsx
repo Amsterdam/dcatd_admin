@@ -25,12 +25,11 @@ const mapStateToProps = state => ({
 });
 
 const validate = (formData, errors) => {
-  // Include extra validation for themes. These are defined as multiselection list and 
+  // Include extra validation for themes. These are defined as multiselection list and
   // semantic-ui doesn't support required attribute
   if (formData['dcat:theme'].length === 0) {
     errors['dcat:theme'].addError('Dit veld is verplicht');
   }
-  console.log('validate', formData, errors);
   return errors;
 };
 
