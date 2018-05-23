@@ -3,7 +3,7 @@ FROM node:8.1-alpine as builder
   WORKDIR /app
   COPY . /app/
 
-  RUN npm install && npm run build
+  RUN install fs-extra && npm install && npm run build
 
 FROM nginx:stable-alpine
   COPY --from=builder /app/build/. /usr/share/nginx/html/dcatd_admin/
