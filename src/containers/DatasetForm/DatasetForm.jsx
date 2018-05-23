@@ -30,6 +30,7 @@ const validate = (formData, errors) => {
   if (formData['dcat:theme'].length === 0) {
     errors['dcat:theme'].addError('Dit veld is verplicht');
   }
+  console.log('validate', formData, errors);
   return errors;
 };
 
