@@ -6,9 +6,7 @@ FROM node:8.1-alpine as builder
           --unsafe-perm \
           --verbose \
           install && \
-      npm run build && \
-      npm cache clean --force \
-      npm prune
+      npm run build
 
 FROM nginx:stable-alpine
   COPY --from=builder /app/build/. /usr/share/nginx/html/dcatd_admin/
