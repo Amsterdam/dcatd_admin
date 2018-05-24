@@ -47,6 +47,12 @@ class ResourceForm extends Component {
 
     defer(() => {
       this.setVisibilityOfFields(this.state.formData);
+
+      this.setState({
+        formData: {
+          ...this.state.formData
+        }
+      });
     });
   }
 
@@ -62,12 +68,6 @@ class ResourceForm extends Component {
     } else {
       this.setFieldState('ams:serviceType', 'hidden');
     }
-
-    this.setState({
-      formData: {
-        ...formData
-      }
-    });
   }
 
   setFieldState(name, value) {
@@ -100,13 +100,11 @@ class ResourceForm extends Component {
   }
 
   handleChange(event) {
-    const changedFormData = event.formData;
-    const { formData } = this.state;
+    this.setState({
+      formData: event.formData
+    });
 
-    // prevent setting the visibility in the state when ams:distributionType is not changed
-    if (formData['ams:distributionType'] === changedFormData['ams:distributionType']) return;
-
-    this.setVisibilityOfFields(changedFormData);
+    this.setVisibilityOfFields(event.formData);
   }
 
   hasResource() {

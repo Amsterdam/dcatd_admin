@@ -29,7 +29,8 @@ describe('resource reducer', () => {
         'ams:resourceType': 'data',
         'ams:distributionType': 'file',
         'dct:format': 'application/vnd.ms-excel',
-        'ams:classification': 'public'
+        'ams:classification': 'public',
+        'dct:modified': expect.any(String)
       });
     });
   });
