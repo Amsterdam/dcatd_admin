@@ -10,7 +10,7 @@ describe('The transform-errors service', () => {
   }, {
     message: 'should match format "uri"'
   }, {
-    message: 'it will ignore the original error if it cant be matched'
+    message: 'it will keep the original error if it cant be matched'
   }];
 
   describe('it will map english error messages to dutch ones', () => {
@@ -23,8 +23,9 @@ describe('The transform-errors service', () => {
         message: 'Het ingevoerde e-mailadres is niet correct. Controleer het e-mailadres.'
       }, {
         message: 'De ingevoerde URL is niet correct. Controleer de URL.'
-      },
-      {}]);
+      }, {
+        message: 'it will keep the original error if it cant be matched'
+      }]);
     });
   });
 });
