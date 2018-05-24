@@ -4,7 +4,7 @@ exports[`The DatasetForm component renders component renders default props 1`] =
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <DatasetDetail
+  Symbol(enzyme.__unrendered__): <DatasetForm
     dataset={Object {}}
     datasetTitle=""
     dispatch={[Function]}

@@ -33,7 +33,7 @@ const validate = (formData, errors) => {
   return errors;
 };
 
-class DatasetDetail extends Component {
+class DatasetForm extends Component {
   constructor(props) {
     super(props);
 
@@ -210,7 +210,7 @@ class DatasetDetail extends Component {
   }
 }
 
-DatasetDetail.defaultProps = {
+DatasetForm.defaultProps = {
   id: null,
   dataset: {},
   resourceToDataset: {},
@@ -226,7 +226,7 @@ DatasetDetail.defaultProps = {
   setModal: () => { }
 };
 
-DatasetDetail.propTypes = {
+DatasetForm.propTypes = {
   schema: PropTypes.object.isRequired,
   uiDataset: PropTypes.object.isRequired,
   id: PropTypes.string,
@@ -247,4 +247,4 @@ DatasetDetail.propTypes = {
 export default connect(
   mapStateToProps,
   null // mapDispatchToProps
-)(DatasetDetail);
+)(DatasetForm);
