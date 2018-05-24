@@ -8,6 +8,7 @@ import uiResource from '../../definitions/uiResource';
 describe('The ResourceForm component', () => {
   let props;
   let wrap;
+  let instance;
 
   beforeEach(() => {
     props = {
@@ -89,6 +90,7 @@ describe('The ResourceForm component', () => {
 
         wrap = shallow(<ResourceForm {...props} />);
         form = wrap.find(Form).first();
+        instance = wrap.instance();
       });
 
       it('should create the form', () => {
@@ -97,24 +99,13 @@ describe('The ResourceForm component', () => {
 
       describe('handleChange', () => {
         beforeEach(() => {
-          wrap.instance().setVisibilityOfFields = jest.fn();
+          instance.setVisibilityOfFields = jest.fn();
         });
 
-        it('should have no effect on visibility of fields when formData[ams:distributionType] is not changed', () => {
-          // arrange
-          const event = { formData: { 'dct:modified': 'modified' } };
-
-          // act
-          form.simulate('change', event);
-
-          // assert
-          expect(wrap.instance().setVisibilityOfFields).not.toHaveBeenCalled();
-        });
-
-        it('should call setVisibilityOfFields when formData[ams:distributionType] is changed', () => {
+        it('should call setVisibilityOfFields when form has changed', () => {
           const event = { formData: { 'ams:distributionType': 'modified' } };
           form.simulate('change', event);
-          expect(wrap.instance().setVisibilityOfFields).toHaveBeenCalled();
+          expect(instance.setVisibilityOfFields).toHaveBeenCalled();
         });
       });
 
@@ -124,13 +115,13 @@ describe('The ResourceForm component', () => {
 
         it('should show format when ams:distributionType is file', () => {
           const formData = { 'ams:distributionType': 'file' };
-          wrap.instance().setVisibilityOfFields(formData);
+          instance.setVisibilityOfFields(formData);
           expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('select');
         });
 
         it('should show serviceType when ams:distributionType is api', () => {
           const formData = { 'ams:distributionType': 'api' };
-          wrap.instance().setVisibilityOfFields(formData);
+          instance.setVisibilityOfFields(formData);
           expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('select');
         });
       });
