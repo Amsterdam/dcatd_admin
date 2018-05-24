@@ -19,7 +19,7 @@ function getFileType(mime, fieldSchema) {
 const ResourcesItem = ({ resource, schemaProps }) => (
   <div className="resources-item">
     <div className="resources-item__modified">
-      {dateFormat.formatDate(resource['foaf:isPrimaryTopicOf']['dct:modified'])}</div>
+      {dateFormat.formatDate(resource['dct:modified'])}</div>
     <div className="resources-item__file-size">
       {resource['dcat:byteSize'] > 0 ? filesize(resource['dcat:byteSize']) : ''}</div>
     <div className="resources-item__title">

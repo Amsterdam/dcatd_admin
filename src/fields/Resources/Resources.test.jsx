@@ -70,7 +70,11 @@ describe('The Resources component (react-jsonschema-forms custom field)', () => 
       expect(spy).toHaveBeenCalledWith({
         'ams:classification': 'public',
         'ams:resourceType': 'data',
-        'dct:modified': expect.any(String)
+        'dct:modified': expect.any(String),
+        'foaf:isPrimaryTopicOf': {
+          'dct:issued': expect.any(String),
+          'dct:modified': expect.any(String)
+        }
       });
     });
 

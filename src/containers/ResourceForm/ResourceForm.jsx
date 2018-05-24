@@ -20,7 +20,7 @@ const fields = {
   ...localFields
 };
 
-class ResourceDetail extends Component {
+class ResourceForm extends Component {
   constructor(props) {
     super(props);
 
@@ -47,6 +47,12 @@ class ResourceDetail extends Component {
 
     defer(() => {
       this.setVisibilityOfFields(this.state.formData);
+
+      this.setState({
+        formData: {
+          ...this.state.formData
+        }
+      });
     });
   }
 
@@ -62,12 +68,6 @@ class ResourceDetail extends Component {
     } else {
       this.setFieldState('ams:serviceType', 'hidden');
     }
-
-    this.setState({
-      formData: {
-        ...formData
-      }
-    });
   }
 
   setFieldState(name, value) {
@@ -100,13 +100,11 @@ class ResourceDetail extends Component {
   }
 
   handleChange(event) {
-    const changedFormData = event.formData;
-    const { formData } = this.state;
+    this.setState({
+      formData: event.formData
+    });
 
-    // prevent setting the visibility in the state when ams:distributionType is not changed
-    if (formData['ams:distributionType'] === changedFormData['ams:distributionType']) return;
-
-    this.setVisibilityOfFields(changedFormData);
+    this.setVisibilityOfFields(event.formData);
   }
 
   hasResource() {
@@ -218,13 +216,13 @@ class ResourceDetail extends Component {
   }
 }
 
-ResourceDetail.defaultProps = {
+ResourceForm.defaultProps = {
   formData: {},
   datasetTitle: 'Ga terug naar dataset',
   uploadStatus: 'idle'
 };
 
-ResourceDetail.propTypes = {
+ResourceForm.propTypes = {
   formData: PropTypes.object,
   schema: PropTypes.object.isRequired,
   uiResource: PropTypes.object.isRequired,
@@ -236,4 +234,4 @@ ResourceDetail.propTypes = {
   setModal: PropTypes.func.isRequired
 };
 
-export default ResourceDetail;
+export default ResourceForm;

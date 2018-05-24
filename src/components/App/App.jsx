@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router';
 import { Container } from 'semantic-ui-react';
 
 import Header from '../Header/Header';
-import DatasetsContainer from '../../containers/DatasetsContainer';
+import DatasetsContainer from '../../containers/DatasetsContainer/DatasetsContainer';
 import Modal from '../Modal/Modal';
 
 const App = () => (
