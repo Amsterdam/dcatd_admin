@@ -10,6 +10,7 @@ import {
 const initialState = {};
 
 export default function (state = initialState, action) {
+  window.scrollTo(0, 0);
   switch (action.type) {
     case FETCH_DATASET_SUCCESS:
       return {
