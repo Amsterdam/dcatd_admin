@@ -45,6 +45,10 @@ h1 {
     color: $black;
     height: 32px;
     padding: 4px 10px;
+
+    &.multiple {
+      height: auto;
+    }
   }
 
   &-button {
