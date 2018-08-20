@@ -105,6 +105,14 @@ const uiDataset = {
     'dct:modified': {
       'ui:widget': 'hidden'
     }
+  },
+  'overheid:grondslag': {
+    'ui:widget': 'markdown',
+    'ui:placeholder': 'tekst of markdown'
+  },
+  'overheidds:doel': {
+    'ui:widget': 'markdown',
+    'ui:placeholder': 'tekst of markdown'
   }
 };
 
