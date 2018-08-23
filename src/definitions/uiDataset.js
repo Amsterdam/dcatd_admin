@@ -83,7 +83,10 @@ const uiDataset = {
     }
   },
   'dct:identifier': {
-    'ui:widget': 'hidden'
+    'ui:field': 'readonly',
+    'ui:options': {
+      title: 'Identifier'
+    }
   },
   'dcat:theme': {
     'ui:field': 'dropdown',
@@ -95,16 +98,19 @@ const uiDataset = {
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
-      // 'ui:widget': 'alt-date'
-      // 'ui:field': 'rdp',
-      // rdp: {
-      //   placeholder: 'Kies een datum',
-      //   dayPickerProps
-      // }
+
     },
     'dct:modified': {
-      'ui:widget': 'hidden'
+      'ui:field': 'readonly'
     }
+  },
+  'overheid:grondslag': {
+    'ui:widget': 'markdown',
+    'ui:placeholder': 'tekst of markdown'
+  },
+  'overheidds:doel': {
+    'ui:widget': 'markdown',
+    'ui:placeholder': 'tekst of markdown'
   }
 };
 

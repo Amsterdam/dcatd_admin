@@ -12,7 +12,7 @@ const uiResource = {
     'ui:placeholder': 'http://'
   },
   'dcat:byteSize': {
-    'ui:widget': 'hidden'
+    'ui:field': 'filesize'
   },
   'ams:classification': {
     'ui:widget': 'hidden'
@@ -44,10 +44,10 @@ const uiResource = {
   },
   'foaf:isPrimaryTopicOf': {
     'dct:issued': {
-      'ui:widget': 'hidden'
+      'ui:field': 'readonly'
     },
     'dct:modified': {
-      'ui:widget': 'hidden'
+      'ui:field': 'readonly'
     }
   }
 };
