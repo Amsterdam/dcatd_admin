@@ -194,8 +194,10 @@ class ResourceForm extends Component {
                   open: true,
                   onProceed: () => {
                     this.handleSubmit({
-                      '@id': formData['@id'],
-                      'dcat:accessURL': 'remove'
+                      formData: {
+                        '@id': formData['@id'],
+                        'dcat:accessURL': 'remove'
+                      }
                     });
                   }
                 })}
