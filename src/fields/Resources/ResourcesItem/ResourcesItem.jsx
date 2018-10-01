@@ -7,10 +7,10 @@ import dateFormat from '../../../definitions/date-format';
 import './resources-item.scss';
 
 function getFileType(mime, fieldSchema) {
-  const type = fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)].toLowerCase() : 'overig';
+  const type = fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)] : 'Overig';
   return (
     <span className={`resources-item__file-type
-      resources-item__file-type--${type}`}
+      resources-item__file-type--${type.toLowerCase()}`}
     >{type}
     </span>
   );
