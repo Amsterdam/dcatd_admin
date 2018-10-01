@@ -68,6 +68,12 @@ class ResourceForm extends Component {
     } else {
       this.setFieldState('ams:serviceType', 'hidden');
     }
+
+    if (formData['ams:distributionType'] === 'web') {
+      this.setFieldState('dcat:byteSize', 'hidden');
+    } else {
+      this.setFieldState('dcat:byteSize', 'string');
+    }
   }
 
   setFieldState(name, value) {

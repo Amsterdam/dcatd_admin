@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ReadOnly = ({ formData, schema, uiSchema }) => (
+const ReadOnly = ({ formData, schema, uiSchema }) => (uiSchema && uiSchema['ui:widget'] !== 'hidden') &&
   <div>
     <strong
       className="control-label"
@@ -13,8 +13,7 @@ const ReadOnly = ({ formData, schema, uiSchema }) => (
       }
     </strong>
     <div>{formData}</div>
-  </div>
-);
+  </div>;
 
 ReadOnly.defaultProps = {
   formData: '',

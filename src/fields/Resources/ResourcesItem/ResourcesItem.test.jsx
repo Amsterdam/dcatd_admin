@@ -46,6 +46,27 @@ describe('The ResourcesItem component', () => {
     expect(wrap).toMatchSnapshot();
   });
 
+  it('renders with title, description and date: leaving out format and file size for websites', () => {
+    const resource = {
+      'ams:distributionType': 'web',
+      'dct:title': 'Titel',
+      'dcat:accessURL': 'http://ergens',
+      'dct:description': 'omschrijving',
+      'dct:format': 'n/a',
+      'dcat:byteSize': '0',
+      'foaf:isPrimaryTopicOf': {}
+    };
+
+    const wrap = shallow(
+      <ResourcesItem
+        resource={resource}
+        schemaProps={mockSchema}
+      />
+    );
+
+    expect(wrap).toMatchSnapshot();
+  });
+
   it('renders with title and url: showing url in place of description', () => {
     const resource = {
       'dct:title': 'Titel',
