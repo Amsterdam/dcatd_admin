@@ -12,6 +12,7 @@ const uiResource = {
     'ui:placeholder': 'http://'
   },
   'dcat:byteSize': {
+    'ui:widget': 'hidden',
     'ui:field': 'filesize'
   },
   'ams:classification': {
