@@ -125,7 +125,13 @@ describe('The ResourceForm component', () => {
           expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('select');
         });
 
-        it('should show serviceType when ams:distributionType is web', () => {
+        it('should hide byteSize when ams:distributionType is api', () => {
+          const formData = { 'ams:distributionType': 'api' };
+          instance.setVisibilityOfFields(formData);
+          expect(wrap.state().uiResource['dcat:byteSize']['ui:widget']).toBe('hidden');
+        });
+
+        it('should hide byteSize when ams:distributionType is web', () => {
           const formData = { 'ams:distributionType': 'web' };
           instance.setVisibilityOfFields(formData);
           expect(wrap.state().uiResource['dcat:byteSize']['ui:widget']).toBe('hidden');

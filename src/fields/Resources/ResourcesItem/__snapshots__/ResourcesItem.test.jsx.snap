@@ -15,6 +15,18 @@ ShallowWrapper {
     }
     schemaProps={
       Object {
+        "ams:distributionType": Object {
+          "enum": Array [
+            "api",
+            "file",
+            "web",
+          ],
+          "enumNames": Array [
+            "API/Service",
+            "Bestand",
+            "Website",
+          ],
+        },
         "dct:format": Object {
           "enum": Array [
             "n/a",
@@ -329,7 +341,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`The ResourcesItem component renders with title, description and date: leaving out format and file size for websites 1`] = `
+exports[`The ResourcesItem component renders with title, description and date: leaving out file size for websites and APIs 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -347,6 +359,18 @@ ShallowWrapper {
     }
     schemaProps={
       Object {
+        "ams:distributionType": Object {
+          "enum": Array [
+            "api",
+            "file",
+            "web",
+          ],
+          "enumNames": Array [
+            "API/Service",
+            "Bestand",
+            "Website",
+          ],
+        },
         "dct:format": Object {
           "enum": Array [
             "n/a",
@@ -414,6 +438,12 @@ ShallowWrapper {
           className="resources-item__description"
         >
           <span
+            className="resources-item__file-type
+      resources-item__file-type--"
+          >
+            
+          </span>
+          <span
             className="resources-item__description-text"
           >
             omschrijving
@@ -466,7 +496,12 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            false,
+            <span
+              className="resources-item__file-type
+      resources-item__file-type--"
+            >
+              
+            </span>,
             <span
               className="resources-item__description-text"
             >
@@ -477,7 +512,19 @@ ShallowWrapper {
         },
         "ref": null,
         "rendered": Array [
-          false,
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "",
+              "className": "resources-item__file-type
+      resources-item__file-type--",
+            },
+            "ref": null,
+            "rendered": "",
+            "type": "span",
+          },
           Object {
             "instance": null,
             "key": undefined,
@@ -521,6 +568,12 @@ ShallowWrapper {
           <div
             className="resources-item__description"
           >
+            <span
+              className="resources-item__file-type
+      resources-item__file-type--"
+            >
+              
+            </span>
             <span
               className="resources-item__description-text"
             >
@@ -574,7 +627,12 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              false,
+              <span
+                className="resources-item__file-type
+      resources-item__file-type--"
+              >
+                
+              </span>,
               <span
                 className="resources-item__description-text"
               >
@@ -585,7 +643,19 @@ ShallowWrapper {
           },
           "ref": null,
           "rendered": Array [
-            false,
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "",
+                "className": "resources-item__file-type
+      resources-item__file-type--",
+              },
+              "ref": null,
+              "rendered": "",
+              "type": "span",
+            },
             Object {
               "instance": null,
               "key": undefined,
@@ -622,6 +692,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ResourcesItem
     resource={
       Object {
+        "ams:distributionType": "file",
         "dcat:accessURL": "http://ergens",
         "dcat:byteSize": "666",
         "dct:description": "omschrijving",
@@ -634,6 +705,18 @@ ShallowWrapper {
     }
     schemaProps={
       Object {
+        "ams:distributionType": Object {
+          "enum": Array [
+            "api",
+            "file",
+            "web",
+          ],
+          "enumNames": Array [
+            "API/Service",
+            "Bestand",
+            "Website",
+          ],
+        },
         "dct:format": Object {
           "enum": Array [
             "n/a",
@@ -702,9 +785,9 @@ ShallowWrapper {
         >
           <span
             className="resources-item__file-type
-      resources-item__file-type--pdf"
+      resources-item__file-type--bestand"
           >
-            pdf
+            Bestand
           </span>
           <span
             className="resources-item__description-text"
@@ -761,9 +844,9 @@ ShallowWrapper {
           "children": Array [
             <span
               className="resources-item__file-type
-      resources-item__file-type--pdf"
+      resources-item__file-type--bestand"
             >
-              pdf
+              Bestand
             </span>,
             <span
               className="resources-item__description-text"
@@ -780,12 +863,12 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "pdf",
+              "children": "Bestand",
               "className": "resources-item__file-type
-      resources-item__file-type--pdf",
+      resources-item__file-type--bestand",
             },
             "ref": null,
-            "rendered": "pdf",
+            "rendered": "Bestand",
             "type": "span",
           },
           Object {
@@ -833,9 +916,9 @@ ShallowWrapper {
           >
             <span
               className="resources-item__file-type
-      resources-item__file-type--pdf"
+      resources-item__file-type--bestand"
             >
-              pdf
+              Bestand
             </span>
             <span
               className="resources-item__description-text"
@@ -892,9 +975,9 @@ ShallowWrapper {
             "children": Array [
               <span
                 className="resources-item__file-type
-      resources-item__file-type--pdf"
+      resources-item__file-type--bestand"
               >
-                pdf
+                Bestand
               </span>,
               <span
                 className="resources-item__description-text"
@@ -911,12 +994,12 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "pdf",
+                "children": "Bestand",
                 "className": "resources-item__file-type
-      resources-item__file-type--pdf",
+      resources-item__file-type--bestand",
               },
               "ref": null,
-              "rendered": "pdf",
+              "rendered": "Bestand",
               "type": "span",
             },
             Object {

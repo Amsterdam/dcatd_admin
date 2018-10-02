@@ -3,6 +3,14 @@ import React from 'react';
 import ResourcesItem from './ResourcesItem';
 
 const mockSchema = {
+  'ams:distributionType': {
+    enum: [
+      'api',
+      'file',
+      'web'
+    ],
+    enumNames: ['API/Service', 'Bestand', 'Website']
+  },
   'dct:format': {
     enum: [
       'n/a',
@@ -26,6 +34,7 @@ const mockSchema = {
 describe('The ResourcesItem component', () => {
   it('renders with title, description, format, file size and date', () => {
     const resource = {
+      'ams:distributionType': 'file',
       'dct:title': 'Titel',
       'dcat:accessURL': 'http://ergens',
       'dct:description': 'omschrijving',
@@ -46,7 +55,7 @@ describe('The ResourcesItem component', () => {
     expect(wrap).toMatchSnapshot();
   });
 
-  it('renders with title, description and date: leaving out format and file size for websites', () => {
+  it('renders with title, description and date: leaving out file size for websites and APIs', () => {
     const resource = {
       'ams:distributionType': 'web',
       'dct:title': 'Titel',
