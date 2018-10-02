@@ -39,6 +39,10 @@ const uiResource = {
     //   dayPickerProps
     // }
   },
+  'dc:identifier': {
+    'ui:field': 'readonly',
+    'ui:placeholder': 'N.n.b.'
+  },
   'ams:serviceType': {
     'ui:widget': 'hidden',
     'ui:placeholder': 'maak een keuze'
