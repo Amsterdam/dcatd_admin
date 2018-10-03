@@ -59,12 +59,8 @@ export function createDataset(dataset) {
     })
       .then(response =>
         dispatch(response.ok ? createDatasetSuccess(dataset) : serverError(response)))
-      .then(() => {
-        dispatch(fetchDatasets());
-      })
-      .then(() => {
-        redirectToPortal();
-      })
+      .then(() => dispatch(fetchDatasets()))
+      .then(() => redirectToPortal())
       .catch((error) => { throw error; });
   };
 }
@@ -115,12 +111,8 @@ export function updateDataset(dataset) {
     })
       .then(response =>
         dispatch(response.ok ? updateDatasetSuccess() : serverError(response)))
-      .then(() => {
-        dispatch(fetchDatasets());
-      })
-      .then(() => {
-        redirectToPortal();
-      })
+      .then(() => dispatch(fetchDatasets()))
+      .then(() => redirectToPortal())
       .catch((error) => { throw error; });
   };
 }
@@ -143,12 +135,8 @@ export function removeDataset(dataset) {
     })
       .then(response =>
         dispatch(response.ok ? removeDatasetSuccess() : serverError(response)))
-      .then(() => {
-        dispatch(fetchDatasets());
-      })
-      .then(() => {
-        redirectToPortal();
-      })
+      .then(() => dispatch(fetchDatasets()))
+      .then(() => redirectToPortal())
       .catch((error) => { throw error; });
   };
 }
