@@ -6,15 +6,9 @@ import dateFormat from '../../../definitions/date-format';
 
 import './resources-item.scss';
 
-function getFileType(mime, fieldSchema) {
-  const type = fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)] : 'Anders';
-  return (
-    <span className={`resources-item__file-type
-      resources-item__file-type--${type.toLowerCase()}`}
-    >{type}
-    </span>
-  );
-}
+const getFileType = (mime, fieldSchema) => {
+  return fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)] : 'Anders';
+};
 
 const ResourcesItem = ({ resource, schemaProps }) => {
   let fileType;
@@ -34,7 +28,9 @@ const ResourcesItem = ({ resource, schemaProps }) => {
     <div className="resources-item__title">
       {resource['dct:title']}</div>
     <div className="resources-item__description">
-      { fileType }
+      <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase()}`}>
+        {fileType}
+      </span>
       <span className="resources-item__description-text">{resource['dct:description'] || resource['dcat:accessURL']}</span>
     </div>
   </div>);

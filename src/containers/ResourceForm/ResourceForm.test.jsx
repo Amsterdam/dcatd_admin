@@ -111,32 +111,60 @@ describe('The ResourceForm component', () => {
 
       describe('setVisibilityOfFields', () => {
         beforeEach(() => {
-        });
-
-        it('should show format when ams:distributionType is file', () => {
           const formData = { 'ams:distributionType': 'file' };
           instance.setVisibilityOfFields(formData);
+        });
+
+        it('should show format field', () => {
           expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('select');
         });
 
-        it('should show serviceType when ams:distributionType is api', () => {
+        it('should show byteSize field', () => {
+          expect(wrap.state().uiResource['dcat:byteSize']['ui:widget']).toBe('string');
+        });
+
+        it('should hide serviceType', () => {
+          expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('hidden');
+        });
+      })
+
+      describe('setVisibilityOfFields', () => {
+        beforeEach(() => {
           const formData = { 'ams:distributionType': 'api' };
           instance.setVisibilityOfFields(formData);
+        });
+
+        it('should hide format field', () => {
+          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('hidden');
+        });
+
+        it('should hide byteSize field', () => {
+          expect(wrap.state().uiResource['dcat:byteSize']['ui:widget']).toBe('hidden');
+        });
+
+        it('should show serviceType', () => {
           expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('select');
         });
+      })
 
-        it('should hide byteSize when ams:distributionType is api', () => {
-          const formData = { 'ams:distributionType': 'api' };
-          instance.setVisibilityOfFields(formData);
-          expect(wrap.state().uiResource['dcat:byteSize']['ui:widget']).toBe('hidden');
-        });
-
-        it('should hide byteSize when ams:distributionType is web', () => {
+      describe('setVisibilityOfFields', () => {
+        beforeEach(() => {
           const formData = { 'ams:distributionType': 'web' };
           instance.setVisibilityOfFields(formData);
+        });
+
+        it('should hide format field', () => {
+          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('hidden');
+        });
+
+        it('should hide byteSize field', () => {
           expect(wrap.state().uiResource['dcat:byteSize']['ui:widget']).toBe('hidden');
         });
-      });
+
+        it('should hide serviceType', () => {
+          expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('hidden');
+        });
+      })
     });
   });
 });

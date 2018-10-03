@@ -4,28 +4,21 @@ import filesize from 'filesize';
 import ReadOnly from '../ReadOnly/ReadOnly';
 
 // Check https://github.com/avoidwork/filesize.js for options
-const FileSize = ({ formData, schema, uiSchema, formContext, options }) => (
+const FileSize = ({ ...props, formData, options }) => (
   <ReadOnly
-    formContext={formContext}
-    schema={schema}
-    uiSchema={uiSchema}
+    {...props}
     formData={filesize(formData, options)}
   />
 );
 
 FileSize.defaultProps = {
   formData: 0,
-  formContext: {},
-  options: {},
-  uiSchema: {}
+  options: {}
 };
 
 FileSize.propTypes = {
   formData: PropTypes.number,
-  schema: PropTypes.object.isRequired,
-  uiSchema: PropTypes.object,
-  options: PropTypes.object,
-  formContext: PropTypes.object
+  options: PropTypes.object
 };
 
 export default FileSize;
