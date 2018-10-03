@@ -6,18 +6,21 @@ import dateFormat from '../../../definitions/date-format';
 
 import './resources-item.scss';
 
-function getFileType(mime, fieldSchema) {
-  const type = fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)].toLowerCase() : 'overig';
-  return (
-    <span className={`resources-item__file-type
-      resources-item__file-type--${type}`}
-    >{type}
-    </span>
-  );
-}
+const getFileType = (mime, fieldSchema) => {
+  return fieldSchema.enum.indexOf(mime) > -1 ? fieldSchema.enumNames[fieldSchema.enum.indexOf(mime)] : 'Anders';
+};
 
-const ResourcesItem = ({ resource, schemaProps }) => (
-  <div className="resources-item">
+const ResourcesItem = ({ resource, schemaProps }) => {
+  let fileType;
+  if (resource['ams:distributionType'] === 'api') {
+    fileType = getFileType(resource['ams:serviceType'], schemaProps['ams:serviceType']);
+  } else if (resource['ams:distributionType'] === 'file') {
+    fileType = getFileType(resource['dct:format'], schemaProps['dct:format']);
+  } else {
+    fileType = getFileType(resource['ams:distributionType'], schemaProps['ams:distributionType']);
+  }
+
+  return (<div className="resources-item">
     <div className="resources-item__modified">
       {dateFormat.formatDate(resource['dct:modified'])}</div>
     <div className="resources-item__file-size">
@@ -25,11 +28,13 @@ const ResourcesItem = ({ resource, schemaProps }) => (
     <div className="resources-item__title">
       {resource['dct:title']}</div>
     <div className="resources-item__description">
-      {getFileType(resource['dct:format'], schemaProps['dct:format'])}
+      <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase()}`}>
+        {fileType}
+      </span>
       <span className="resources-item__description-text">{resource['dct:description'] || resource['dcat:accessURL']}</span>
     </div>
-  </div>
-);
+  </div>);
+};
 
 ResourcesItem.defaultProps = {
   resource: {}

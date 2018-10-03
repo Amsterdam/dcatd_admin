@@ -63,6 +63,12 @@ class ResourceForm extends Component {
       this.setFieldState('dct:format', 'hidden');
     }
 
+    if (formData['ams:distributionType'] !== 'file') {
+      this.setFieldState('dcat:byteSize', 'hidden');
+    } else {
+      this.setFieldState('dcat:byteSize', 'string');
+    }
+
     if (formData['ams:distributionType'] === 'api') {
       this.setFieldState('ams:serviceType', 'select');
     } else {
