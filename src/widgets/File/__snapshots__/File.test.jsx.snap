@@ -12,6 +12,7 @@ ShallowWrapper {
     loaded={0}
     onChange={[Function]}
     placeholder=""
+    purl=""
     readonly={false}
     registry={Object {}}
     required={false}
@@ -62,6 +63,7 @@ ShallowWrapper {
           onChange={[Function]}
           type="file"
         />,
+        false,
         "",
       ],
       "className": "file",
@@ -119,6 +121,7 @@ ShallowWrapper {
         "rendered": null,
         "type": "input",
       },
+      false,
       "",
     ],
     "type": "div",
@@ -158,6 +161,7 @@ ShallowWrapper {
             onChange={[Function]}
             type="file"
           />,
+          false,
           "",
         ],
         "className": "file",
@@ -215,6 +219,7 @@ ShallowWrapper {
           "rendered": null,
           "type": "input",
         },
+        false,
         "",
       ],
       "type": "div",
