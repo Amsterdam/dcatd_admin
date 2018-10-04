@@ -18,12 +18,12 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 class File extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       file: props.file,
       loaded: props.loaded,
       status: props.status,
       total: props.total,
+      purl: props.purl,
       url: props.url,
       value: props.value
     };
@@ -35,6 +35,7 @@ class File extends Component {
 
   componentWillReceiveProps(props) {
     this.setState({
+      purl: props.purl,
       value: props.value
     });
 
@@ -135,8 +136,7 @@ class File extends Component {
   }
 
   render() {
-    const { file, status, value } = this.state;
-
+    const { file, purl, status, value } = this.state;
     return (
       <div className="file">
         <input
@@ -166,7 +166,7 @@ class File extends Component {
 
           onChange={event => this.processFile(event.target.files)}
         />
-        {status !== 'idle' ?
+        {status !== 'idle' &&
           <div className="file__progress">
             <div
               className="file__progress-percentage"
@@ -179,7 +179,15 @@ class File extends Component {
                 onClick={() => this.resetFile()}
               /> : ''}
           </div>
-          : ''}
+        }
+        {purl &&
+          <div>
+            <div className="file__purl-title">Permanente URL</div>
+            <div className="file__purl">
+              <p>{purl}</p>
+            </div>
+          </div>
+        }
       </div>
     );
   }
@@ -196,6 +204,7 @@ File.defaultProps = {
   required: false,
   status: 'idle',
   total: 0,
+  purl: '',
   url: '',
   value: '',
 
@@ -215,6 +224,7 @@ File.propTypes = {
   required: PropTypes.bool,
   status: PropTypes.string,
   total: PropTypes.number,
+  purl: PropTypes.string,
   url: PropTypes.string,
   value: PropTypes.string,
 

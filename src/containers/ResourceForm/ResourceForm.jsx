@@ -9,11 +9,14 @@ import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import isEqual from '../../services/is-equal/is-equal';
 import localFields from '../../fields';
-import widgets from '../../widgets';
 
 import '../../../node_modules/react-day-picker/lib/style.css';
 import '../dcatd-form.scss';
 import './resource-detail.scss';
+
+
+import File from '../../widgets/File/File';
+import Markdown from '../../widgets/Markdown/Markdown';
 
 const fields = {
   ...extraFields,
@@ -153,6 +156,10 @@ class ResourceForm extends Component {
 
   render() {
     const { formData } = this.state;
+    const widgets = {
+      file: (props) => { return <File {...props} purl={formData['ams:purl']} />; },
+      markdown: Markdown
+    };
     return (
       <div>
         <button
