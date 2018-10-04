@@ -3,6 +3,14 @@ import React from 'react';
 import ResourcesItem from './ResourcesItem';
 
 const mockSchema = {
+  'ams:distributionType': {
+    enum: [
+      'api',
+      'file',
+      'web'
+    ],
+    enumNames: ['API/Service', 'Bestand', 'Website']
+  },
   'dct:format': {
     enum: [
       'n/a',
@@ -26,6 +34,7 @@ const mockSchema = {
 describe('The ResourcesItem component', () => {
   it('renders with title, description, format, file size and date', () => {
     const resource = {
+      'ams:distributionType': 'file',
       'dct:title': 'Titel',
       'dcat:accessURL': 'http://ergens',
       'dct:description': 'omschrijving',
@@ -34,6 +43,27 @@ describe('The ResourcesItem component', () => {
       'foaf:isPrimaryTopicOf': {
         'dct:modified': '2017-11-30'
       }
+    };
+
+    const wrap = shallow(
+      <ResourcesItem
+        resource={resource}
+        schemaProps={mockSchema}
+      />
+    );
+
+    expect(wrap).toMatchSnapshot();
+  });
+
+  it('renders with title, description and date: leaving out file size for websites and APIs', () => {
+    const resource = {
+      'ams:distributionType': 'web',
+      'dct:title': 'Titel',
+      'dcat:accessURL': 'http://ergens',
+      'dct:description': 'omschrijving',
+      'dct:format': 'n/a',
+      'dcat:byteSize': '0',
+      'foaf:isPrimaryTopicOf': {}
     };
 
     const wrap = shallow(

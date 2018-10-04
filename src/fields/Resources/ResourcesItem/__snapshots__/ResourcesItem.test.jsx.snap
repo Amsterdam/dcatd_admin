@@ -15,6 +15,18 @@ ShallowWrapper {
     }
     schemaProps={
       Object {
+        "ams:distributionType": Object {
+          "enum": Array [
+            "api",
+            "file",
+            "web",
+          ],
+          "enumNames": Array [
+            "API/Service",
+            "Bestand",
+            "Website",
+          ],
+        },
         "dct:format": Object {
           "enum": Array [
             "n/a",
@@ -82,10 +94,9 @@ ShallowWrapper {
           className="resources-item__description"
         >
           <span
-            className="resources-item__file-type
-      resources-item__file-type--"
+            className="resources-item__file-type resources-item__file-type--anders"
           >
-            
+            Anders
           </span>
           <span
             className="resources-item__description-text"
@@ -141,10 +152,9 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <span
-              className="resources-item__file-type
-      resources-item__file-type--"
+              className="resources-item__file-type resources-item__file-type--anders"
             >
-              
+              Anders
             </span>,
             <span
               className="resources-item__description-text"
@@ -161,12 +171,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "",
-              "className": "resources-item__file-type
-      resources-item__file-type--",
+              "children": "Anders",
+              "className": "resources-item__file-type resources-item__file-type--anders",
             },
             "ref": null,
-            "rendered": "",
+            "rendered": "Anders",
             "type": "span",
           },
           Object {
@@ -213,10 +222,9 @@ ShallowWrapper {
             className="resources-item__description"
           >
             <span
-              className="resources-item__file-type
-      resources-item__file-type--"
+              className="resources-item__file-type resources-item__file-type--anders"
             >
-              
+              Anders
             </span>
             <span
               className="resources-item__description-text"
@@ -272,10 +280,9 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <span
-                className="resources-item__file-type
-      resources-item__file-type--"
+                className="resources-item__file-type resources-item__file-type--anders"
               >
-                
+                Anders
               </span>,
               <span
                 className="resources-item__description-text"
@@ -292,12 +299,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "",
-                "className": "resources-item__file-type
-      resources-item__file-type--",
+                "children": "Anders",
+                "className": "resources-item__file-type resources-item__file-type--anders",
               },
               "ref": null,
-              "rendered": "",
+              "rendered": "Anders",
               "type": "span",
             },
             Object {
@@ -329,6 +335,344 @@ ShallowWrapper {
 }
 `;
 
+exports[`The ResourcesItem component renders with title, description and date: leaving out file size for websites and APIs 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ResourcesItem
+    resource={
+      Object {
+        "ams:distributionType": "web",
+        "dcat:accessURL": "http://ergens",
+        "dcat:byteSize": "0",
+        "dct:description": "omschrijving",
+        "dct:format": "n/a",
+        "dct:title": "Titel",
+        "foaf:isPrimaryTopicOf": Object {},
+      }
+    }
+    schemaProps={
+      Object {
+        "ams:distributionType": Object {
+          "enum": Array [
+            "api",
+            "file",
+            "web",
+          ],
+          "enumNames": Array [
+            "API/Service",
+            "Bestand",
+            "Website",
+          ],
+        },
+        "dct:format": Object {
+          "enum": Array [
+            "n/a",
+            "text/csv",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "application/vnd.geo+json",
+            "application/gml+xml",
+            "text/html",
+            "application/json",
+            "application/pdf",
+            "image/png",
+            "application/vnd.ms-excel",
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+            "application/xml",
+            "application/octet-stream",
+          ],
+          "enumNames": Array [
+            "",
+            "CSV",
+            "DOCX",
+            "GeoJSON",
+            "GML",
+            "HTML",
+            "JSON",
+            "PDF",
+            "PNG",
+            "XLS",
+            "XLSX",
+            "XML",
+            "Anders",
+          ],
+        },
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <div
+          className="resources-item__modified"
+        >
+          
+        </div>,
+        <div
+          className="resources-item__file-size"
+        >
+          
+        </div>,
+        <div
+          className="resources-item__title"
+        >
+          Titel
+        </div>,
+        <div
+          className="resources-item__description"
+        >
+          <span
+            className="resources-item__file-type resources-item__file-type--website"
+          >
+            Website
+          </span>
+          <span
+            className="resources-item__description-text"
+          >
+            omschrijving
+          </span>
+        </div>,
+      ],
+      "className": "resources-item",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+          "className": "resources-item__modified",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "",
+          "className": "resources-item__file-size",
+        },
+        "ref": null,
+        "rendered": "",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Titel",
+          "className": "resources-item__title",
+        },
+        "ref": null,
+        "rendered": "Titel",
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span
+              className="resources-item__file-type resources-item__file-type--website"
+            >
+              Website
+            </span>,
+            <span
+              className="resources-item__description-text"
+            >
+              omschrijving
+            </span>,
+          ],
+          "className": "resources-item__description",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Website",
+              "className": "resources-item__file-type resources-item__file-type--website",
+            },
+            "ref": null,
+            "rendered": "Website",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "omschrijving",
+              "className": "resources-item__description-text",
+            },
+            "ref": null,
+            "rendered": "omschrijving",
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <div
+            className="resources-item__modified"
+          >
+            
+          </div>,
+          <div
+            className="resources-item__file-size"
+          >
+            
+          </div>,
+          <div
+            className="resources-item__title"
+          >
+            Titel
+          </div>,
+          <div
+            className="resources-item__description"
+          >
+            <span
+              className="resources-item__file-type resources-item__file-type--website"
+            >
+              Website
+            </span>
+            <span
+              className="resources-item__description-text"
+            >
+              omschrijving
+            </span>
+          </div>,
+        ],
+        "className": "resources-item",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "resources-item__modified",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "",
+            "className": "resources-item__file-size",
+          },
+          "ref": null,
+          "rendered": "",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Titel",
+            "className": "resources-item__title",
+          },
+          "ref": null,
+          "rendered": "Titel",
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className="resources-item__file-type resources-item__file-type--website"
+              >
+                Website
+              </span>,
+              <span
+                className="resources-item__description-text"
+              >
+                omschrijving
+              </span>,
+            ],
+            "className": "resources-item__description",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Website",
+                "className": "resources-item__file-type resources-item__file-type--website",
+              },
+              "ref": null,
+              "rendered": "Website",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "omschrijving",
+                "className": "resources-item__description-text",
+              },
+              "ref": null,
+              "rendered": "omschrijving",
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
+
 exports[`The ResourcesItem component renders with title, description, format, file size and date 1`] = `
 ShallowWrapper {
   "length": 1,
@@ -336,6 +680,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ResourcesItem
     resource={
       Object {
+        "ams:distributionType": "file",
         "dcat:accessURL": "http://ergens",
         "dcat:byteSize": "666",
         "dct:description": "omschrijving",
@@ -348,6 +693,18 @@ ShallowWrapper {
     }
     schemaProps={
       Object {
+        "ams:distributionType": Object {
+          "enum": Array [
+            "api",
+            "file",
+            "web",
+          ],
+          "enumNames": Array [
+            "API/Service",
+            "Bestand",
+            "Website",
+          ],
+        },
         "dct:format": Object {
           "enum": Array [
             "n/a",
@@ -415,10 +772,9 @@ ShallowWrapper {
           className="resources-item__description"
         >
           <span
-            className="resources-item__file-type
-      resources-item__file-type--pdf"
+            className="resources-item__file-type resources-item__file-type--pdf"
           >
-            pdf
+            PDF
           </span>
           <span
             className="resources-item__description-text"
@@ -474,10 +830,9 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <span
-              className="resources-item__file-type
-      resources-item__file-type--pdf"
+              className="resources-item__file-type resources-item__file-type--pdf"
             >
-              pdf
+              PDF
             </span>,
             <span
               className="resources-item__description-text"
@@ -494,12 +849,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "pdf",
-              "className": "resources-item__file-type
-      resources-item__file-type--pdf",
+              "children": "PDF",
+              "className": "resources-item__file-type resources-item__file-type--pdf",
             },
             "ref": null,
-            "rendered": "pdf",
+            "rendered": "PDF",
             "type": "span",
           },
           Object {
@@ -546,10 +900,9 @@ ShallowWrapper {
             className="resources-item__description"
           >
             <span
-              className="resources-item__file-type
-      resources-item__file-type--pdf"
+              className="resources-item__file-type resources-item__file-type--pdf"
             >
-              pdf
+              PDF
             </span>
             <span
               className="resources-item__description-text"
@@ -605,10 +958,9 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <span
-                className="resources-item__file-type
-      resources-item__file-type--pdf"
+                className="resources-item__file-type resources-item__file-type--pdf"
               >
-                pdf
+                PDF
               </span>,
               <span
                 className="resources-item__description-text"
@@ -625,12 +977,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "pdf",
-                "className": "resources-item__file-type
-      resources-item__file-type--pdf",
+                "children": "PDF",
+                "className": "resources-item__file-type resources-item__file-type--pdf",
               },
               "ref": null,
-              "rendered": "pdf",
+              "rendered": "PDF",
               "type": "span",
             },
             Object {

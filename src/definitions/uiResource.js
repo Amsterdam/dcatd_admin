@@ -12,6 +12,7 @@ const uiResource = {
     'ui:placeholder': 'http://'
   },
   'dcat:byteSize': {
+    'ui:widget': 'hidden',
     'ui:field': 'filesize'
   },
   'ams:classification': {
@@ -37,6 +38,10 @@ const uiResource = {
     //   placeholder: 'Kies een datum',
     //   dayPickerProps
     // }
+  },
+  'dc:identifier': {
+    'ui:field': 'readonly',
+    'ui:placeholder': 'N.n.b.'
   },
   'ams:serviceType': {
     'ui:widget': 'hidden',

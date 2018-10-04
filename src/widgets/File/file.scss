@@ -8,7 +8,6 @@
       background-color: $darkish-blue;
       color: $white;
       display: inline-block;
-      margin-bottom: 11px;
       padding: 4px 6px;
     }
 
@@ -22,7 +21,6 @@
     border: 1px  solid $warm-grey;
     position: relative;
     width: 60%;
-
 
     &-percentage {
       background-color: $white-two;
@@ -49,6 +47,20 @@
         @extend %icon-verwijder-white;
         background-color: $red;
       }
+    }
+  }
+
+  &__purl {
+    background-color: $white-four;
+    height: auto;
+    margin-top: 4px;
+    overflow: auto;
+    padding: 4px 10px;
+
+    &-title {
+      @extend %heavy-font;
+
+      margin-top: 16px;
     }
   }
 
