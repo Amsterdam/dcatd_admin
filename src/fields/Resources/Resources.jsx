@@ -69,7 +69,7 @@ class Resources extends Component {
             <div className="resources-type__content">
               {resources.filter(resource => resource['ams:resourceType'] === this.getResourceTypeSchema().enum[index]).map(resource => (
                 <a
-                  href={resource['dcat:accessURL']}
+                  href={resource['ams:purl']}
                   target="_blank"
                   className="resources-type__content-item"
                   key={resource['@id']}
