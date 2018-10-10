@@ -7,6 +7,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <ResourcesItem
     resource={
       Object {
+        "ams:purl": "http://acc.ergens",
         "dcat:accessURL": "http://ergens",
         "dct:format": "n/a",
         "dct:title": "Titel",
@@ -101,7 +102,7 @@ ShallowWrapper {
           <span
             className="resources-item__description-text"
           >
-            http://ergens
+            http://acc.ergens
           </span>
         </div>,
       ],
@@ -159,7 +160,7 @@ ShallowWrapper {
             <span
               className="resources-item__description-text"
             >
-              http://ergens
+              http://acc.ergens
             </span>,
           ],
           "className": "resources-item__description",
@@ -183,11 +184,11 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "http://ergens",
+              "children": "http://acc.ergens",
               "className": "resources-item__description-text",
             },
             "ref": null,
-            "rendered": "http://ergens",
+            "rendered": "http://acc.ergens",
             "type": "span",
           },
         ],
@@ -229,7 +230,7 @@ ShallowWrapper {
             <span
               className="resources-item__description-text"
             >
-              http://ergens
+              http://acc.ergens
             </span>
           </div>,
         ],
@@ -287,7 +288,7 @@ ShallowWrapper {
               <span
                 className="resources-item__description-text"
               >
-                http://ergens
+                http://acc.ergens
               </span>,
             ],
             "className": "resources-item__description",
@@ -311,11 +312,11 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "http://ergens",
+                "children": "http://acc.ergens",
                 "className": "resources-item__description-text",
               },
               "ref": null,
-              "rendered": "http://ergens",
+              "rendered": "http://acc.ergens",
               "type": "span",
             },
           ],
@@ -343,6 +344,7 @@ ShallowWrapper {
     resource={
       Object {
         "ams:distributionType": "web",
+        "ams:purl": "http://acc.ergens",
         "dcat:accessURL": "http://ergens",
         "dcat:byteSize": "0",
         "dct:description": "omschrijving",
@@ -681,6 +683,7 @@ ShallowWrapper {
     resource={
       Object {
         "ams:distributionType": "file",
+        "ams:purl": "http://acc.ergens",
         "dcat:accessURL": "http://ergens",
         "dcat:byteSize": "666",
         "dct:description": "omschrijving",
