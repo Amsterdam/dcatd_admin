@@ -15,7 +15,7 @@ export function fetchSchema() {
   return (dispatch) => {
     return fetch(api.schema)
       .then(response => response.json())
-      .then(response => response.components.schemas['dcat-doc'])
+      .then(response => response.components.schemas['dcat-dataset'])
       .then(schema => dispatch(fetchSchemaSuccess(schema)))
       .then(schema => dispatch(setUiDatasetOrder(schema)))
       .then(schema => dispatch(setUiResourceOrder(schema)))
