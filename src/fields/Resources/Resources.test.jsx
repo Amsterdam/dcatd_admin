@@ -6,6 +6,7 @@ const mockResources = [{
   'dct:title': 'Data via maps.amsterdam.nl',
   'dct:description': 'Let op!',
   'dcat:accessURL': 'http://maps.amsterdam.nl/open_geodata/',
+  'ams:purl': 'http://acc.maps.amsterdam.nl/open_geodata/',
   'ams:resourceType': 'data',
   'ams:distributionType': 'file',
   'dct:format': 'text/csv',
@@ -16,6 +17,7 @@ const mockResources = [{
 {
   'dct:title': 'Weergave op kaart',
   'dcat:accessURL': 'http://maps.amsterdam.nl/markten/',
+  'ams:purl': 'http://acc.maps.amsterdam.nl/markten/',
   'ams:resourceType': 'vis',
   'ams:distributionType': 'file',
   'dct:format': 'text/html',

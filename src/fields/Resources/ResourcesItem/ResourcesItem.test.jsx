@@ -37,6 +37,7 @@ describe('The ResourcesItem component', () => {
       'ams:distributionType': 'file',
       'dct:title': 'Titel',
       'dcat:accessURL': 'http://ergens',
+      'ams:purl': 'http://acc.ergens',
       'dct:description': 'omschrijving',
       'dct:format': 'application/pdf',
       'dcat:byteSize': '666',
@@ -60,6 +61,7 @@ describe('The ResourcesItem component', () => {
       'ams:distributionType': 'web',
       'dct:title': 'Titel',
       'dcat:accessURL': 'http://ergens',
+      'ams:purl': 'http://acc.ergens',
       'dct:description': 'omschrijving',
       'dct:format': 'n/a',
       'dcat:byteSize': '0',
@@ -80,6 +82,7 @@ describe('The ResourcesItem component', () => {
     const resource = {
       'dct:title': 'Titel',
       'dcat:accessURL': 'http://ergens',
+      'ams:purl': 'http://acc.ergens',
       'dct:format': 'n/a',
       'foaf:isPrimaryTopicOf': {}
     };

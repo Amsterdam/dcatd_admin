@@ -60,7 +60,7 @@ describe('datasets actions', () => {
       JSON.stringify({
         components: {
           schemas: {
-            'dcat-doc': mockSschema
+            'dcat-dataset': mockSschema
           }
         }
       })
@@ -118,7 +118,7 @@ describe('datasets actions', () => {
     fetch.once(JSON.stringify({
       components: {
         schemas: {
-          'dcat-doc': mockSschema
+          'dcat-dataset': mockSschema
         }
       }
     }));
