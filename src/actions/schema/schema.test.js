@@ -29,7 +29,7 @@ describe('schema actions', () => {
     fetch.mockResponseOnce(JSON.stringify({
       components: {
         schemas: {
-          'dcat-doc': mockSschema
+          'dcat-dataset': mockSschema
         }
       }
     }));
