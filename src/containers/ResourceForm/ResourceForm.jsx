@@ -30,7 +30,7 @@ class ResourceForm extends Component {
     this.state = {
       uiResource: props.uiResource,
       formData: props.formData,
-      formId: Date.now(),
+      formId: `id${Date.now()}`,
       uploadStatus: props.uploadStatus
     };
 
@@ -153,7 +153,7 @@ class ResourceForm extends Component {
         this.props.onEmptyResource();
       }
     }
-    this.setState({ formId: Date.now() });
+    this.setState({ formId: `id${Date.now()}` });
   }
 
   render() {
