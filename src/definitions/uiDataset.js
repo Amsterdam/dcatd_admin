@@ -111,6 +111,9 @@ const uiDataset = {
   'overheidds:doel': {
     'ui:widget': 'markdown',
     'ui:placeholder': 'tekst of markdown'
+  },
+  'ams:sortModified': {
+    'ui:field': 'readonly'
   }
 };
 
