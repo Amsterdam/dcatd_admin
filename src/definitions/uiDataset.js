@@ -112,7 +112,7 @@ const uiDataset = {
     'ui:widget': 'markdown',
     'ui:placeholder': 'tekst of markdown'
   },
-  'ams:sortModified': {
+  'ams:sort_modified': {
     'ui:field': 'readonly'
   }
 };
