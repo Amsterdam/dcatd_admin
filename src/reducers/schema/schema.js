@@ -13,7 +13,9 @@ export default function (state = initialState, action) {
       if (action.schema.properties) {
         // in ff in adw the all dates are incorrectly validated: this is a temporal fix
         delete action.schema.properties['dcat:distribution'].items.properties['dct:modified'].pattern;
-        delete action.schema.properties['foaf:isPrimaryTopicOf'].properties['dct:issued'].pattern;
+        if (action.schema.properties['foaf:isPrimaryTopicOf']) {
+          delete action.schema.properties['foaf:isPrimaryTopicOf'].properties['dct:issued'].pattern;
+        }
         delete action.schema.properties['dct:temporal'].properties['time:hasBeginning'].pattern;
         delete action.schema.properties['dct:temporal'].properties['time:hasEnd'].pattern;
       }
