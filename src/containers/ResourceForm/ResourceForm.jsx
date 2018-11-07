@@ -30,6 +30,7 @@ class ResourceForm extends Component {
     this.state = {
       uiResource: props.uiResource,
       formData: props.formData,
+      schema: props.schema,
       uploadStatus: props.uploadStatus
     };
 
@@ -45,16 +46,17 @@ class ResourceForm extends Component {
   componentWillReceiveProps(props) {
     this.setState({
       uiResource: { ...props.uiResource },
-      formData: { ...props.formData }
+      formData: { ...props.formData },
+      schema: { ...props.schema }
     });
 
     defer(() => {
       this.setVisibilityOfFields(this.state.formData);
 
-      this.setState({
-        formData: {
-          ...this.state.formData
-        }
+      this.setState((state) => {
+        return {
+          formData: { ...state.formData }
+        };
       });
     });
   }
@@ -62,6 +64,7 @@ class ResourceForm extends Component {
   setVisibilityOfFields(formData) {
     if (formData['ams:distributionType'] === 'file') {
       this.setFieldState('dcat:mediaType', 'select');
+      this.setFieldRequired('dcat:mediaType');
     } else {
       this.setFieldState('dcat:mediaType', 'hidden');
     }
@@ -74,29 +77,45 @@ class ResourceForm extends Component {
 
     if (formData['ams:distributionType'] === 'api') {
       this.setFieldState('ams:serviceType', 'select');
+      this.setFieldRequired('ams:serviceType');
     } else {
       this.setFieldState('ams:serviceType', 'hidden');
     }
   }
 
   setFieldState(name, value) {
-    this.setState({
-      uiResource: {
-        ...this.state.uiResource,
-        [name]: {
-          ...this.state.uiResource[name],
-          'ui:widget': value
+    this.setState((state) => {
+      return {
+        uiResource: {
+          ...state.uiResource,
+          [name]: {
+            ...state.uiResource[name],
+            'ui:widget': value
+          }
         }
-      }
+      };
+    });
+  }
+
+  setFieldRequired(property) {
+    this.setState((state) => {
+      return {
+        schema: {
+          ...state.schema,
+          required: [...state.schema.required, property]
+        }
+      };
     });
   }
 
   setResourceSpecs(values) {
-    this.setState({
-      formData: {
-        ...this.state.formData,
-        ...values
-      }
+    this.setState((state) => {
+      return {
+        formData: {
+          ...state.formData,
+          ...values
+        }
+      };
     });
 
     this.setUploadStatus('done');
@@ -155,7 +174,7 @@ class ResourceForm extends Component {
   }
 
   render() {
-    const { formData } = this.state;
+    const { formData, schema, uiResource } = this.state;
     const widgets = {
       file: (props) => { return <File {...props} />; },
       markdown: Markdown
@@ -170,7 +189,7 @@ class ResourceForm extends Component {
         <Form
           className="dcatd-form resource-form"
           idPrefix="resource"
-          schema={this.props.schema}
+          schema={schema}
           formData={formData}
           formContext={{
             setResourceSpecs: this.setResourceSpecs,
@@ -178,7 +197,7 @@ class ResourceForm extends Component {
           }}
           widgets={widgets}
           fields={fields}
-          uiSchema={this.state.uiResource}
+          uiSchema={uiResource}
           noHtml5Validate
           showErrorList={false}
           transformErrors={transformErrors}
@@ -243,7 +262,6 @@ ResourceForm.propTypes = {
   uiResource: PropTypes.object.isRequired,
   uploadStatus: PropTypes.string,
   datasetTitle: PropTypes.string,
-
   onSetResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,
   setModal: PropTypes.func.isRequired
