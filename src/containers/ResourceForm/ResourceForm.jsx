@@ -157,7 +157,7 @@ class ResourceForm extends Component {
   render() {
     const { formData } = this.state;
     const widgets = {
-      file: (props) => { return <File {...props} purl={formData['ams:purl']} />; },
+      file: (props) => { return <File {...props} />; },
       markdown: Markdown
     };
     return (

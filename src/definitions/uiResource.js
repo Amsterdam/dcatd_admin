@@ -6,10 +6,13 @@ const uiResource = {
     'markdown',
     'file'
   ],
-
   'dcat:accessURL': {
     'ui:widget': 'file',
     'ui:placeholder': 'http://'
+  },
+  'ams:purl': {
+    'ui:field': 'readonly',
+    'ui:placeholder': 'N.n.b.'
   },
   'dcat:byteSize': {
     'ui:widget': 'hidden',
