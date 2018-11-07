@@ -224,6 +224,12 @@
             "title": "Interne Kaartlaag ID",
             "type": "string"
           },
+          "ams:purl": {
+            "format": "uri",
+            "minLength": 1,
+            "title": "Persistente URL",
+            "type": "string"
+          },
           "ams:resourceType": {
             "enum": ["data", "doc", "vis", "app"],
             "enumNames": [
@@ -283,7 +289,7 @@
             "title": "Beschrijving",
             "type": "string"
           },
-          "dct:format": {
+          "dcat:mediaType": {
             "enum": [
               "n/a",
               "text/csv",
@@ -380,10 +386,11 @@
           "dct:title",
           "dct:description",
           "dcat:accessURL",
+          "ams:purl",
           "ams:resourceType",
           "ams:distributionType",
           "ams:serviceType",
-          "dct:format",
+          "dcat:mediaType",
           "ams:layerIdentifier",
           "dct:modified",
           "ams:classification",

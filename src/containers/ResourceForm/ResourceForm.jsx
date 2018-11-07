@@ -61,9 +61,9 @@ class ResourceForm extends Component {
 
   setVisibilityOfFields(formData) {
     if (formData['ams:distributionType'] === 'file') {
-      this.setFieldState('dct:format', 'select');
+      this.setFieldState('dcat:mediaType', 'select');
     } else {
-      this.setFieldState('dct:format', 'hidden');
+      this.setFieldState('dcat:mediaType', 'hidden');
     }
 
     if (formData['ams:distributionType'] !== 'file') {

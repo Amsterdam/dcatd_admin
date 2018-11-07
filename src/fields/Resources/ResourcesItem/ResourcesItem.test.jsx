@@ -11,7 +11,7 @@ const mockSchema = {
     ],
     enumNames: ['API/Service', 'Bestand', 'Website']
   },
-  'dct:format': {
+  'dcat:mediaType': {
     enum: [
       'n/a',
       'text/csv',
@@ -39,7 +39,7 @@ describe('The ResourcesItem component', () => {
       'dcat:accessURL': 'http://ergens',
       'ams:purl': 'http://acc.ergens',
       'dct:description': 'omschrijving',
-      'dct:format': 'application/pdf',
+      'dcat:mediaType': 'application/pdf',
       'dcat:byteSize': '666',
       'foaf:isPrimaryTopicOf': {
         'dct:modified': '2017-11-30'
@@ -63,7 +63,7 @@ describe('The ResourcesItem component', () => {
       'dcat:accessURL': 'http://ergens',
       'ams:purl': 'http://acc.ergens',
       'dct:description': 'omschrijving',
-      'dct:format': 'n/a',
+      'dcat:mediaType': 'n/a',
       'dcat:byteSize': '0',
       'foaf:isPrimaryTopicOf': {}
     };
@@ -83,7 +83,7 @@ describe('The ResourcesItem component', () => {
       'dct:title': 'Titel',
       'dcat:accessURL': 'http://ergens',
       'ams:purl': 'http://acc.ergens',
-      'dct:format': 'n/a',
+      'dcat:mediaType': 'n/a',
       'foaf:isPrimaryTopicOf': {}
     };
 

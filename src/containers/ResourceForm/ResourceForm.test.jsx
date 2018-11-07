@@ -116,7 +116,7 @@ describe('The ResourceForm component', () => {
         });
 
         it('should show format field', () => {
-          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('select');
+          expect(wrap.state().uiResource['dcat:mediaType']['ui:widget']).toBe('select');
         });
 
         it('should show byteSize field', () => {
@@ -135,7 +135,7 @@ describe('The ResourceForm component', () => {
         });
 
         it('should hide format field', () => {
-          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('hidden');
+          expect(wrap.state().uiResource['dcat:mediaType']['ui:widget']).toBe('hidden');
         });
 
         it('should hide byteSize field', () => {
@@ -154,7 +154,7 @@ describe('The ResourceForm component', () => {
         });
 
         it('should hide format field', () => {
-          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('hidden');
+          expect(wrap.state().uiResource['dcat:mediaType']['ui:widget']).toBe('hidden');
         });
 
         it('should hide byteSize field', () => {

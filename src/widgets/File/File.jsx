@@ -83,7 +83,7 @@ class File extends Component {
         if (this.props.registry.formContext && this.props.registry.formContext.setResourceSpecs) {
           this.props.registry.formContext.setResourceSpecs({
             'dcat:byteSize': this.state.total,
-            'dct:format': files[0].type,
+            'dcat:mediaType': files[0].type,
             'ams:distributionType': 'file'
           });
         }

@@ -34,6 +34,10 @@ const uiResource = {
     'ui:widget': 'hidden',
     'ui:placeholder': 'maak een keuze'
   },
+  'dcat:mediaType': {
+    'ui:widget': 'hidden',
+    'ui:placeholder': 'maak een keuze'
+  },
   'dct:modified': {
     // 'ui:widget': 'alt-date'
     // 'ui:field': 'rdp',
