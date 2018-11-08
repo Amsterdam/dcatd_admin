@@ -55,7 +55,8 @@ class ResourceForm extends Component {
 
       this.setState((state) => {
         return {
-          formData: { ...state.formData }
+          formData: { ...state.formData },
+          schema: { ...props.schema }
         };
       });
     });
@@ -98,11 +99,11 @@ class ResourceForm extends Component {
   }
 
   setFieldRequired(property) {
-    this.setState((state) => {
+    this.setState((state, props) => {
       return {
         schema: {
           ...state.schema,
-          required: [...state.schema.required, property]
+          required: [...props.schema.required, property]
         }
       };
     });
@@ -199,7 +200,7 @@ class ResourceForm extends Component {
           fields={fields}
           uiSchema={uiResource}
           noHtml5Validate
-          showErrorList={false}
+          showErrorList
           transformErrors={transformErrors}
           onError={scrollToError}
           onSubmit={this.handleSubmit}

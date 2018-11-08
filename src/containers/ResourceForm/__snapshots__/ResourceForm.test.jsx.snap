@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The ResourceForm component renders component renders default props 1`] = `
+exports[`The ResourceForm component renders component renders default props and state 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -103,12 +103,7 @@ ShallowWrapper {
             "title": "Bestandsgrootte",
             "type": "number",
           },
-          "dct:description": Object {
-            "minLength": 1,
-            "title": "Beschrijving",
-            "type": "string",
-          },
-          "dct:format": Object {
+          "dcat:mediaType": Object {
             "enum": Array [
               "n/a",
               "text/csv",
@@ -143,6 +138,11 @@ ShallowWrapper {
             ],
             "minLength": 1,
             "title": "Type bestand",
+            "type": "string",
+          },
+          "dct:description": Object {
+            "minLength": 1,
+            "title": "Beschrijving",
             "type": "string",
           },
           "dct:modified": Object {
@@ -207,7 +207,7 @@ ShallowWrapper {
           "ams:resourceType",
           "ams:distributionType",
           "ams:serviceType",
-          "dct:format",
+          "dcat:mediaType",
           "ams:layerIdentifier",
           "dct:modified",
           "ams:classification",
@@ -373,12 +373,7 @@ ShallowWrapper {
                   "title": "Bestandsgrootte",
                   "type": "number",
                 },
-                "dct:description": Object {
-                  "minLength": 1,
-                  "title": "Beschrijving",
-                  "type": "string",
-                },
-                "dct:format": Object {
+                "dcat:mediaType": Object {
                   "enum": Array [
                     "n/a",
                     "text/csv",
@@ -413,6 +408,11 @@ ShallowWrapper {
                   ],
                   "minLength": 1,
                   "title": "Type bestand",
+                  "type": "string",
+                },
+                "dct:description": Object {
+                  "minLength": 1,
+                  "title": "Beschrijving",
                   "type": "string",
                 },
                 "dct:modified": Object {
@@ -477,7 +477,7 @@ ShallowWrapper {
                 "ams:resourceType",
                 "ams:distributionType",
                 "ams:serviceType",
-                "dct:format",
+                "dcat:mediaType",
                 "ams:layerIdentifier",
                 "dct:modified",
                 "ams:classification",
@@ -486,7 +486,7 @@ ShallowWrapper {
               ],
             }
           }
-          showErrorList={false}
+          showErrorList={true}
           transformErrors={[Function]}
           uiSchema={Object {}}
           widgets={
@@ -701,12 +701,7 @@ ShallowWrapper {
                 "title": "Bestandsgrootte",
                 "type": "number",
               },
-              "dct:description": Object {
-                "minLength": 1,
-                "title": "Beschrijving",
-                "type": "string",
-              },
-              "dct:format": Object {
+              "dcat:mediaType": Object {
                 "enum": Array [
                   "n/a",
                   "text/csv",
@@ -741,6 +736,11 @@ ShallowWrapper {
                 ],
                 "minLength": 1,
                 "title": "Type bestand",
+                "type": "string",
+              },
+              "dct:description": Object {
+                "minLength": 1,
+                "title": "Beschrijving",
                 "type": "string",
               },
               "dct:modified": Object {
@@ -805,7 +805,7 @@ ShallowWrapper {
               "ams:resourceType",
               "ams:distributionType",
               "ams:serviceType",
-              "dct:format",
+              "dcat:mediaType",
               "ams:layerIdentifier",
               "dct:modified",
               "ams:classification",
@@ -813,7 +813,7 @@ ShallowWrapper {
               "foaf:isPrimaryTopicOf",
             ],
           },
-          "showErrorList": false,
+          "showErrorList": true,
           "transformErrors": [Function],
           "uiSchema": Object {},
           "widgets": Object {
@@ -1046,12 +1046,7 @@ ShallowWrapper {
                     "title": "Bestandsgrootte",
                     "type": "number",
                   },
-                  "dct:description": Object {
-                    "minLength": 1,
-                    "title": "Beschrijving",
-                    "type": "string",
-                  },
-                  "dct:format": Object {
+                  "dcat:mediaType": Object {
                     "enum": Array [
                       "n/a",
                       "text/csv",
@@ -1086,6 +1081,11 @@ ShallowWrapper {
                     ],
                     "minLength": 1,
                     "title": "Type bestand",
+                    "type": "string",
+                  },
+                  "dct:description": Object {
+                    "minLength": 1,
+                    "title": "Beschrijving",
                     "type": "string",
                   },
                   "dct:modified": Object {
@@ -1150,7 +1150,7 @@ ShallowWrapper {
                   "ams:resourceType",
                   "ams:distributionType",
                   "ams:serviceType",
-                  "dct:format",
+                  "dcat:mediaType",
                   "ams:layerIdentifier",
                   "dct:modified",
                   "ams:classification",
@@ -1159,7 +1159,7 @@ ShallowWrapper {
                 ],
               }
             }
-            showErrorList={false}
+            showErrorList={true}
             transformErrors={[Function]}
             uiSchema={Object {}}
             widgets={
@@ -1374,12 +1374,7 @@ ShallowWrapper {
                   "title": "Bestandsgrootte",
                   "type": "number",
                 },
-                "dct:description": Object {
-                  "minLength": 1,
-                  "title": "Beschrijving",
-                  "type": "string",
-                },
-                "dct:format": Object {
+                "dcat:mediaType": Object {
                   "enum": Array [
                     "n/a",
                     "text/csv",
@@ -1414,6 +1409,11 @@ ShallowWrapper {
                   ],
                   "minLength": 1,
                   "title": "Type bestand",
+                  "type": "string",
+                },
+                "dct:description": Object {
+                  "minLength": 1,
+                  "title": "Beschrijving",
                   "type": "string",
                 },
                 "dct:modified": Object {
@@ -1478,7 +1478,7 @@ ShallowWrapper {
                 "ams:resourceType",
                 "ams:distributionType",
                 "ams:serviceType",
-                "dct:format",
+                "dcat:mediaType",
                 "ams:layerIdentifier",
                 "dct:modified",
                 "ams:classification",
@@ -1486,7 +1486,7 @@ ShallowWrapper {
                 "foaf:isPrimaryTopicOf",
               ],
             },
-            "showErrorList": false,
+            "showErrorList": true,
             "transformErrors": [Function],
             "uiSchema": Object {},
             "widgets": Object {

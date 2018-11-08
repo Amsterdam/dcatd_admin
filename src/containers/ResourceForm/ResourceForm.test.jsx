@@ -21,11 +21,17 @@ describe('The ResourceForm component', () => {
   });
 
   describe('renders component', () => {
-    it('renders default props', () => {
+    it('renders default props and state', () => {
       wrap = shallow(<ResourceForm {...props} />);
+
+      wrap.setProps({
+        uiResource: { ...props.uiResource },
+        formData: { ...props.formData },
+        schema: { ...props.schema }
+      });
+
       expect(wrap).toMatchSnapshot();
     });
-
 
     describe('handleCancel', () => {
       it('should go back', () => {
