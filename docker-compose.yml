@@ -1,4 +1,18 @@
-useradmin:
-  build: .
-  ports:
-    - "3000:80"
+version: '3.5'
+services:
+  web: 
+    build:
+      args:
+        - BUILD_ENV=acc
+      context: .
+    ports: 
+      - "3000:80"
+    ipc: host
+
+  test:
+    build:
+      context: .
+      target: builder
+    environment:
+    - NODE_ENV=development
+    command: npm run test
