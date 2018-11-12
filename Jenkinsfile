@@ -24,28 +24,21 @@ node {
         checkout scm
     }
 
-    stage('Deploy Bakkie') {
-        if(BRANCH != "master") {
-            tryStep "bakkie", {
-                sh "scripts/bakkie.sh ${BRANCH}"
-            }
-        }
-    }
+    // stage('Deploy Bakkie') {
+    //     if(BRANCH != "master") {
+    //         tryStep "bakkie", {
+    //             sh "scripts/bakkie.sh ${BRANCH}"
+    //         }
+    //     }
+    // }
 
     stage('Unit tests') {
-      options {
-        timeout(time: 10, unit: 'MINUTES')
-      }
-      environment {
-        PROJECT = "${PROJECT_PREFIX}unit"
-      }
-      steps {
+      String PROJECT = "${PROJECT_PREFIX}unit"
+      tryStep "unit tests", {
         sh "docker-compose -p ${PROJECT} up --build --exit-code-from test test"
-      }
-      post {
-        always {
+      },
+      {
           sh "docker-compose -p ${PROJECT} down -v || true"
-        }
       }
     }
     
