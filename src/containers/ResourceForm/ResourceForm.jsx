@@ -30,6 +30,7 @@ class ResourceForm extends Component {
     this.state = {
       uiResource: props.uiResource,
       formData: props.formData,
+      formId: `id${Date.now()}`,
       schema: props.schema,
       uploadStatus: props.uploadStatus
     };
@@ -172,10 +173,11 @@ class ResourceForm extends Component {
         this.props.onEmptyResource();
       }
     }
+    this.setState({ formId: `id${Date.now()}` });
   }
 
   render() {
-    const { formData, schema, uiResource } = this.state;
+    const { formData, formId, schema, uiResource } = this.state;
     const widgets = {
       file: (props) => { return <File {...props} />; },
       markdown: Markdown
@@ -191,6 +193,7 @@ class ResourceForm extends Component {
           className="dcatd-form resource-form"
           idPrefix="resource"
           schema={schema}
+          key={formId}
           formData={formData}
           formContext={{
             setResourceSpecs: this.setResourceSpecs,
