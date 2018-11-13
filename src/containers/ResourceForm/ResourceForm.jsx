@@ -200,7 +200,7 @@ class ResourceForm extends Component {
           fields={fields}
           uiSchema={uiResource}
           noHtml5Validate
-          showErrorList
+          showErrorList={false}
           transformErrors={transformErrors}
           onError={scrollToError}
           onSubmit={this.handleSubmit}
