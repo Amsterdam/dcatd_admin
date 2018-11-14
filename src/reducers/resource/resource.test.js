@@ -18,7 +18,7 @@ describe('resource reducer', () => {
             'dcat:accessURL': 'http',
             'ams:resourceType': 'data',
             'ams:distributionType': 'file',
-            'dct:format': 'application/vnd.ms-excel',
+            'dcat:mediaType': 'application/vnd.ms-excel',
             'ams:classification': 'public'
           }
         })
@@ -28,7 +28,7 @@ describe('resource reducer', () => {
         'dcat:accessURL': 'http',
         'ams:resourceType': 'data',
         'ams:distributionType': 'file',
-        'dct:format': 'application/vnd.ms-excel',
+        'dcat:mediaType': 'application/vnd.ms-excel',
         'ams:classification': 'public',
         'dct:modified': expect.any(String)
       });
@@ -46,7 +46,7 @@ describe('resource reducer', () => {
             'dcat:accessURL': 'http',
             'ams:resourceType': 'data',
             'ams:distributionType': 'file',
-            'dct:format': 'application/vnd.ms-excel',
+            'dcat:mediaType': 'application/vnd.ms-excel',
             'ams:classification': 'public'
           }
         })

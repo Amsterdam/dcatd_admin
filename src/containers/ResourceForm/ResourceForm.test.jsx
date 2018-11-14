@@ -21,11 +21,17 @@ describe('The ResourceForm component', () => {
   });
 
   describe('renders component', () => {
-    it('renders default props', () => {
+    it('renders default props and state', () => {
       wrap = shallow(<ResourceForm {...props} />);
+
+      wrap.setProps({
+        uiResource: { ...props.uiResource },
+        formData: { ...props.formData },
+        schema: { ...props.schema }
+      });
+
       expect(wrap).toMatchSnapshot();
     });
-
 
     describe('handleCancel', () => {
       it('should go back', () => {
@@ -116,7 +122,7 @@ describe('The ResourceForm component', () => {
         });
 
         it('should show format field', () => {
-          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('select');
+          expect(wrap.state().uiResource['dcat:mediaType']['ui:widget']).toBe('select');
         });
 
         it('should show byteSize field', () => {
@@ -135,7 +141,7 @@ describe('The ResourceForm component', () => {
         });
 
         it('should hide format field', () => {
-          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('hidden');
+          expect(wrap.state().uiResource['dcat:mediaType']['ui:widget']).toBe('hidden');
         });
 
         it('should hide byteSize field', () => {
@@ -154,7 +160,7 @@ describe('The ResourceForm component', () => {
         });
 
         it('should hide format field', () => {
-          expect(wrap.state().uiResource['dct:format']['ui:widget']).toBe('hidden');
+          expect(wrap.state().uiResource['dcat:mediaType']['ui:widget']).toBe('hidden');
         });
 
         it('should hide byteSize field', () => {

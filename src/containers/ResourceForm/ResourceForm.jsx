@@ -31,6 +31,7 @@ class ResourceForm extends Component {
       uiResource: props.uiResource,
       formData: props.formData,
       formId: `id${Date.now()}`,
+      schema: props.schema,
       uploadStatus: props.uploadStatus
     };
 
@@ -46,25 +47,28 @@ class ResourceForm extends Component {
   componentWillReceiveProps(props) {
     this.setState({
       uiResource: { ...props.uiResource },
-      formData: { ...props.formData }
+      formData: { ...props.formData },
+      schema: { ...props.schema }
     });
 
     defer(() => {
       this.setVisibilityOfFields(this.state.formData);
 
-      this.setState({
-        formData: {
-          ...this.state.formData
-        }
+      this.setState((state) => {
+        return {
+          formData: { ...state.formData },
+          schema: { ...props.schema }
+        };
       });
     });
   }
 
   setVisibilityOfFields(formData) {
     if (formData['ams:distributionType'] === 'file') {
-      this.setFieldState('dct:format', 'select');
+      this.setFieldState('dcat:mediaType', 'select');
+      this.setFieldRequired('dcat:mediaType');
     } else {
-      this.setFieldState('dct:format', 'hidden');
+      this.setFieldState('dcat:mediaType', 'hidden');
     }
 
     if (formData['ams:distributionType'] !== 'file') {
@@ -75,29 +79,45 @@ class ResourceForm extends Component {
 
     if (formData['ams:distributionType'] === 'api') {
       this.setFieldState('ams:serviceType', 'select');
+      this.setFieldRequired('ams:serviceType');
     } else {
       this.setFieldState('ams:serviceType', 'hidden');
     }
   }
 
   setFieldState(name, value) {
-    this.setState({
-      uiResource: {
-        ...this.state.uiResource,
-        [name]: {
-          ...this.state.uiResource[name],
-          'ui:widget': value
+    this.setState((state) => {
+      return {
+        uiResource: {
+          ...state.uiResource,
+          [name]: {
+            ...state.uiResource[name],
+            'ui:widget': value
+          }
         }
-      }
+      };
+    });
+  }
+
+  setFieldRequired(property) {
+    this.setState((state, props) => {
+      return {
+        schema: {
+          ...state.schema,
+          required: [...props.schema.required, property]
+        }
+      };
     });
   }
 
   setResourceSpecs(values) {
-    this.setState({
-      formData: {
-        ...this.state.formData,
-        ...values
-      }
+    this.setState((state) => {
+      return {
+        formData: {
+          ...state.formData,
+          ...values
+        }
+      };
     });
 
     this.setUploadStatus('done');
@@ -121,9 +141,13 @@ class ResourceForm extends Component {
     return this.props.formData['@id'];
   }
 
+  handleEmptyResource() {
+    this.setState({ formId: `id${Date.now()}` }, () => this.props.onEmptyResource());
+  }
+
   handleSubmit(event) {
     this.props.onSetResourceToDataset(event.formData);
-    this.props.onEmptyResource();
+    this.handleEmptyResource();
   }
 
   handleCancel() {
@@ -134,7 +158,7 @@ class ResourceForm extends Component {
         content: 'Het uploaden is nog niet voltooid.',
         open: true,
         onProceed: () => {
-          this.props.onEmptyResource();
+          this.handleEmptyResource();
         }
       });
     } else {
@@ -146,20 +170,19 @@ class ResourceForm extends Component {
           content: 'Wijzigingen van deze resource zijn nog niet opgeslagen',
           open: true,
           onProceed: () => {
-            this.props.onEmptyResource();
+            this.handleEmptyResource();
           }
         });
       } else {
-        this.props.onEmptyResource();
+        this.handleEmptyResource();
       }
     }
-    this.setState({ formId: `id${Date.now()}` });
   }
 
   render() {
-    const { formData, formId } = this.state;
+    const { formData, formId, schema, uiResource } = this.state;
     const widgets = {
-      file: (props) => { return <File {...props} purl={formData['ams:purl']} />; },
+      file: (props) => { return <File {...props} />; },
       markdown: Markdown
     };
     return (
@@ -171,9 +194,10 @@ class ResourceForm extends Component {
         <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>
         <Form
           className="dcatd-form resource-form"
+          id={formId}
           idPrefix="resource"
+          schema={schema}
           key={formId}
-          schema={this.props.schema}
           formData={formData}
           formContext={{
             setResourceSpecs: this.setResourceSpecs,
@@ -181,7 +205,7 @@ class ResourceForm extends Component {
           }}
           widgets={widgets}
           fields={fields}
-          uiSchema={this.state.uiResource}
+          uiSchema={uiResource}
           noHtml5Validate
           showErrorList={false}
           transformErrors={transformErrors}
@@ -246,7 +270,6 @@ ResourceForm.propTypes = {
   uiResource: PropTypes.object.isRequired,
   uploadStatus: PropTypes.string,
   datasetTitle: PropTypes.string,
-
   onSetResourceToDataset: PropTypes.func.isRequired,
   onEmptyResource: PropTypes.func.isRequired,
   setModal: PropTypes.func.isRequired
