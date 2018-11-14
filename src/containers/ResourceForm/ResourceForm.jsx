@@ -141,9 +141,13 @@ class ResourceForm extends Component {
     return this.props.formData['@id'];
   }
 
+  handleEmptyResource() {
+    this.setState({ formId: `id${Date.now()}` }, () => this.props.onEmptyResource());
+  }
+
   handleSubmit(event) {
     this.props.onSetResourceToDataset(event.formData);
-    this.props.onEmptyResource();
+    this.handleEmptyResource();
   }
 
   handleCancel() {
@@ -154,7 +158,7 @@ class ResourceForm extends Component {
         content: 'Het uploaden is nog niet voltooid.',
         open: true,
         onProceed: () => {
-          this.props.onEmptyResource();
+          this.handleEmptyResource();
         }
       });
     } else {
@@ -166,14 +170,13 @@ class ResourceForm extends Component {
           content: 'Wijzigingen van deze resource zijn nog niet opgeslagen',
           open: true,
           onProceed: () => {
-            this.props.onEmptyResource();
+            this.handleEmptyResource();
           }
         });
       } else {
-        this.props.onEmptyResource();
+        this.handleEmptyResource();
       }
     }
-    this.setState({ formId: `id${Date.now()}` });
   }
 
   render() {
