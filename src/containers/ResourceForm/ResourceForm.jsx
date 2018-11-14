@@ -191,6 +191,7 @@ class ResourceForm extends Component {
         <h1 className="resource-title">Resource {this.hasResource() ? 'wijzigen' : 'toevoegen'}</h1>
         <Form
           className="dcatd-form resource-form"
+          id={formId}
           idPrefix="resource"
           schema={schema}
           key={formId}
