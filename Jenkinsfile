@@ -17,6 +17,7 @@ def tryStep(String message, Closure block, Closure tearDown = null) {
 }
 
 String BRANCH = "${env.BRANCH_NAME}"
+String PROJECT_PREFIX = "${env.BRANCH_NAME}_${env.BUILD_NUMBER}_"
 
 node {
     stage("Checkout") {
@@ -31,6 +32,16 @@ node {
         }
     }
 
+    stage('Unit tests') {
+      String PROJECT = "${PROJECT_PREFIX}unit"
+      tryStep "unit tests", {
+        sh "docker-compose -p ${PROJECT} up --build --exit-code-from test test"
+      },
+      {
+          sh "docker-compose -p ${PROJECT} down -v || true"
+      }
+    }
+    
     stage("Build image") {
         tryStep "build", {
             def image = docker.build("build.datapunt.amsterdam.nl:5000/atlas/dcatd_admin:${env.BUILD_NUMBER}")

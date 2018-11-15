@@ -18,7 +18,7 @@ describe('resourceToDataset reducer', () => {
             'dcat:accessURL': 'http',
             'ams:resourceType': 'data',
             'ams:distributionType': 'file',
-            'dct:format': 'application/vnd.ms-excel',
+            'dcat:mediaType': 'application/vnd.ms-excel',
             'ams:classification': 'public'
           }
         })
@@ -28,7 +28,7 @@ describe('resourceToDataset reducer', () => {
         'dcat:accessURL': 'http',
         'ams:resourceType': 'data',
         'ams:distributionType': 'file',
-        'dct:format': 'application/vnd.ms-excel',
+        'dcat:mediaType': 'application/vnd.ms-excel',
         'ams:classification': 'public'
       });
     });

@@ -15,7 +15,7 @@ const ResourcesItem = ({ resource, schemaProps }) => {
   if (resource['ams:distributionType'] === 'api') {
     fileType = getFileType(resource['ams:serviceType'], schemaProps['ams:serviceType']);
   } else if (resource['ams:distributionType'] === 'file') {
-    fileType = getFileType(resource['dct:format'], schemaProps['dct:format']);
+    fileType = getFileType(resource['dcat:mediaType'], schemaProps['dcat:mediaType']);
   } else {
     fileType = getFileType(resource['ams:distributionType'], schemaProps['ams:distributionType']);
   }
