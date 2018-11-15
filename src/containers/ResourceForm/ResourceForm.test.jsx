@@ -11,6 +11,7 @@ describe('The ResourceForm component', () => {
   let instance;
 
   beforeEach(() => {
+    global.Date.now = jest.fn(() => 1542192029769);
     props = {
       schema,
       uiResource: {},
@@ -132,7 +133,7 @@ describe('The ResourceForm component', () => {
         it('should hide serviceType', () => {
           expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('hidden');
         });
-      })
+      });
 
       describe('setVisibilityOfFields', () => {
         beforeEach(() => {
@@ -151,7 +152,7 @@ describe('The ResourceForm component', () => {
         it('should show serviceType', () => {
           expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('select');
         });
-      })
+      });
 
       describe('setVisibilityOfFields', () => {
         beforeEach(() => {
@@ -170,7 +171,7 @@ describe('The ResourceForm component', () => {
         it('should hide serviceType', () => {
           expect(wrap.state().uiResource['ams:serviceType']['ui:widget']).toBe('hidden');
         });
-      })
+      });
     });
   });
 });
