@@ -30,10 +30,6 @@ const uiResource = {
   'ams:distributionType': {
     'ui:placeholder': 'maak een keuze'
   },
-  'dct:format': {
-    'ui:widget': 'hidden',
-    'ui:placeholder': 'maak een keuze'
-  },
   'dcat:mediaType': {
     'ui:widget': 'hidden',
     'ui:placeholder': 'maak een keuze'
