@@ -63,6 +63,10 @@ class ResourceForm extends Component {
     });
   }
 
+  setUploadStatus(partialState) {
+    this.setState(partialState);
+  }
+
   setVisibilityOfFields(formData) {
     if (formData['ams:distributionType'] === 'file') {
       this.setFieldState('dcat:mediaType', 'select');
@@ -120,12 +124,8 @@ class ResourceForm extends Component {
       };
     });
 
-    this.setUploadStatus('done');
-  }
-
-  setUploadStatus(status) {
-    this.setState({
-      uploadStatus: status
+    this.setUploadStatus({
+      uploadStatus: 'done'
     });
   }
 

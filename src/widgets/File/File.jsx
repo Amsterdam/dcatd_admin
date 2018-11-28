@@ -32,6 +32,9 @@ class File extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
+
+    this.setResourceSpecs = props.registry.formContext.setResourceSpecs;
+    this.setUploadStatus = props.registry.formContext.setUploadStatus;
   }
 
   componentWillReceiveProps(props) {
@@ -60,9 +63,9 @@ class File extends Component {
         file: files[0].name
       });
 
-      if (this.props.registry.formContext && this.props.registry.formContext.setUploadStatus) {
-        this.props.registry.formContext.setUploadStatus('busy');
-      }
+      this.setUploadStatus({
+        uploadStatus: 'busy'
+      });
     };
 
     xhr.upload.onprogress = (e) => {
@@ -116,9 +119,9 @@ class File extends Component {
       url: ''
     });
 
-    if (this.props.registry.formContext && this.props.registry.formContext.setUploadStatus) {
-      this.props.registry.formContext.setUploadStatus('idle');
-    }
+    this.setUploadStatus({
+      uploadStatus: 'idle'
+    });
   }
 
   calculateProgress() {
@@ -136,7 +139,12 @@ class File extends Component {
 
   handleBlur() {
     if (this.state.value !== this.props.value) {
-      this.props.onChange(this.state.value || undefined);
+      if (this.props.registry.formContext && this.props.registry.formContext.setResourceSpecs) {
+        this.props.registry.formContext.setResourceSpecs({
+          'dcat:byteSize': 0,
+          'dcat:accessURL': this.state.value
+        });
+      }
     }
   }
 
@@ -224,7 +232,12 @@ File.propTypes = {
   loaded: PropTypes.number,
   placeholder: PropTypes.string,
   readonly: PropTypes.bool,
-  registry: PropTypes.object,
+  registry: PropTypes.shape({
+    formContext: PropTypes.shape({
+      setResourceSpecs: PropTypes.func.isRequired,
+      setUploadStatus: PropTypes.func.isRequired
+    })
+  }).isRequired,
   required: PropTypes.bool,
   status: PropTypes.string,
   total: PropTypes.number,

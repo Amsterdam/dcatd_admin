@@ -20,11 +20,12 @@ const ResourcesItem = ({ resource, schemaProps }) => {
     fileType = getFileType(resource['ams:distributionType'], schemaProps['ams:distributionType']);
   }
 
+  const isFileSizeVisible = resource['ams:distributionType'] === 'file' && resource['dcat:byteSize'] > 0;
   return (<div className="resources-item">
     <div className="resources-item__modified">
       {dateFormat.formatDate(resource['dct:modified'])}</div>
     <div className="resources-item__file-size">
-      {resource['dcat:byteSize'] > 0 ? filesize(resource['dcat:byteSize']) : ''}</div>
+      {isFileSizeVisible ? filesize(resource['dcat:byteSize']) : ''}</div>
     <div className="resources-item__title">
       {resource['dct:title']}</div>
     <div className="resources-item__description">

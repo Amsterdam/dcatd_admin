@@ -13,7 +13,14 @@ ShallowWrapper {
     onChange={[Function]}
     placeholder=""
     readonly={false}
-    registry={Object {}}
+    registry={
+      Object {
+        "formContext": Object {
+          "setResourceSpecs": [MockFunction],
+          "setUploadStatus": [MockFunction],
+        },
+      }
+    }
     required={false}
     serverError={[Function]}
     status="idle"
