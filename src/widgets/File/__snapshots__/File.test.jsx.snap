@@ -13,7 +13,14 @@ ShallowWrapper {
     onChange={[Function]}
     placeholder=""
     readonly={false}
-    registry={Object {}}
+    registry={
+      Object {
+        "formContext": Object {
+          "setResourceSpecs": [MockFunction],
+          "setUploadStatus": [MockFunction],
+        },
+      }
+    }
     required={false}
     serverError={[Function]}
     status="idle"
@@ -39,6 +46,7 @@ ShallowWrapper {
           disabled={false}
           id="very-unique-id"
           label=""
+          onBlur={[Function]}
           onChange={[Function]}
           placeholder=""
           readOnly={false}
@@ -77,6 +85,7 @@ ShallowWrapper {
           "disabled": false,
           "id": "very-unique-id",
           "label": "",
+          "onBlur": [Function],
           "onChange": [Function],
           "placeholder": "",
           "readOnly": false,
@@ -135,6 +144,7 @@ ShallowWrapper {
             disabled={false}
             id="very-unique-id"
             label=""
+            onBlur={[Function]}
             onChange={[Function]}
             placeholder=""
             readOnly={false}
@@ -173,6 +183,7 @@ ShallowWrapper {
             "disabled": false,
             "id": "very-unique-id",
             "label": "",
+            "onBlur": [Function],
             "onChange": [Function],
             "placeholder": "",
             "readOnly": false,
