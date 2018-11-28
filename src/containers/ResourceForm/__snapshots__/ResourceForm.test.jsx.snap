@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The ResourceForm component renders component renders default props 1`] = `
+exports[`The ResourceForm component renders component renders default props and state 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -103,12 +103,7 @@ ShallowWrapper {
             "title": "Bestandsgrootte",
             "type": "number",
           },
-          "dct:description": Object {
-            "minLength": 1,
-            "title": "Beschrijving",
-            "type": "string",
-          },
-          "dct:format": Object {
+          "dcat:mediaType": Object {
             "enum": Array [
               "n/a",
               "text/csv",
@@ -143,6 +138,11 @@ ShallowWrapper {
             ],
             "minLength": 1,
             "title": "Type bestand",
+            "type": "string",
+          },
+          "dct:description": Object {
+            "minLength": 1,
+            "title": "Beschrijving",
             "type": "string",
           },
           "dct:modified": Object {
@@ -207,7 +207,7 @@ ShallowWrapper {
           "ams:resourceType",
           "ams:distributionType",
           "ams:serviceType",
-          "dct:format",
+          "dcat:mediaType",
           "ams:layerIdentifier",
           "dct:modified",
           "ams:classification",
@@ -271,6 +271,7 @@ ShallowWrapper {
             }
           }
           formData={Object {}}
+          id="id1542192029769"
           idPrefix="resource"
           liveValidate={false}
           noHtml5Validate={true}
@@ -373,12 +374,7 @@ ShallowWrapper {
                   "title": "Bestandsgrootte",
                   "type": "number",
                 },
-                "dct:description": Object {
-                  "minLength": 1,
-                  "title": "Beschrijving",
-                  "type": "string",
-                },
-                "dct:format": Object {
+                "dcat:mediaType": Object {
                   "enum": Array [
                     "n/a",
                     "text/csv",
@@ -413,6 +409,11 @@ ShallowWrapper {
                   ],
                   "minLength": 1,
                   "title": "Type bestand",
+                  "type": "string",
+                },
+                "dct:description": Object {
+                  "minLength": 1,
+                  "title": "Beschrijving",
                   "type": "string",
                 },
                 "dct:modified": Object {
@@ -477,7 +478,7 @@ ShallowWrapper {
                 "ams:resourceType",
                 "ams:distributionType",
                 "ams:serviceType",
-                "dct:format",
+                "dcat:mediaType",
                 "ams:layerIdentifier",
                 "dct:modified",
                 "ams:classification",
@@ -555,7 +556,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "id1543406705133",
+        "key": "id1542192029769",
         "nodeType": "class",
         "props": Object {
           "ErrorList": [Function],
@@ -600,6 +601,7 @@ ShallowWrapper {
             "setUploadStatus": [Function],
           },
           "formData": Object {},
+          "id": "id1542192029769",
           "idPrefix": "resource",
           "liveValidate": false,
           "noHtml5Validate": true,
@@ -701,12 +703,7 @@ ShallowWrapper {
                 "title": "Bestandsgrootte",
                 "type": "number",
               },
-              "dct:description": Object {
-                "minLength": 1,
-                "title": "Beschrijving",
-                "type": "string",
-              },
-              "dct:format": Object {
+              "dcat:mediaType": Object {
                 "enum": Array [
                   "n/a",
                   "text/csv",
@@ -741,6 +738,11 @@ ShallowWrapper {
                 ],
                 "minLength": 1,
                 "title": "Type bestand",
+                "type": "string",
+              },
+              "dct:description": Object {
+                "minLength": 1,
+                "title": "Beschrijving",
                 "type": "string",
               },
               "dct:modified": Object {
@@ -805,7 +807,7 @@ ShallowWrapper {
               "ams:resourceType",
               "ams:distributionType",
               "ams:serviceType",
-              "dct:format",
+              "dcat:mediaType",
               "ams:layerIdentifier",
               "dct:modified",
               "ams:classification",
@@ -944,6 +946,7 @@ ShallowWrapper {
               }
             }
             formData={Object {}}
+            id="id1542192029769"
             idPrefix="resource"
             liveValidate={false}
             noHtml5Validate={true}
@@ -1046,12 +1049,7 @@ ShallowWrapper {
                     "title": "Bestandsgrootte",
                     "type": "number",
                   },
-                  "dct:description": Object {
-                    "minLength": 1,
-                    "title": "Beschrijving",
-                    "type": "string",
-                  },
-                  "dct:format": Object {
+                  "dcat:mediaType": Object {
                     "enum": Array [
                       "n/a",
                       "text/csv",
@@ -1086,6 +1084,11 @@ ShallowWrapper {
                     ],
                     "minLength": 1,
                     "title": "Type bestand",
+                    "type": "string",
+                  },
+                  "dct:description": Object {
+                    "minLength": 1,
+                    "title": "Beschrijving",
                     "type": "string",
                   },
                   "dct:modified": Object {
@@ -1150,7 +1153,7 @@ ShallowWrapper {
                   "ams:resourceType",
                   "ams:distributionType",
                   "ams:serviceType",
-                  "dct:format",
+                  "dcat:mediaType",
                   "ams:layerIdentifier",
                   "dct:modified",
                   "ams:classification",
@@ -1228,7 +1231,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "id1543406705133",
+          "key": "id1542192029769",
           "nodeType": "class",
           "props": Object {
             "ErrorList": [Function],
@@ -1273,6 +1276,7 @@ ShallowWrapper {
               "setUploadStatus": [Function],
             },
             "formData": Object {},
+            "id": "id1542192029769",
             "idPrefix": "resource",
             "liveValidate": false,
             "noHtml5Validate": true,
@@ -1374,12 +1378,7 @@ ShallowWrapper {
                   "title": "Bestandsgrootte",
                   "type": "number",
                 },
-                "dct:description": Object {
-                  "minLength": 1,
-                  "title": "Beschrijving",
-                  "type": "string",
-                },
-                "dct:format": Object {
+                "dcat:mediaType": Object {
                   "enum": Array [
                     "n/a",
                     "text/csv",
@@ -1414,6 +1413,11 @@ ShallowWrapper {
                   ],
                   "minLength": 1,
                   "title": "Type bestand",
+                  "type": "string",
+                },
+                "dct:description": Object {
+                  "minLength": 1,
+                  "title": "Beschrijving",
                   "type": "string",
                 },
                 "dct:modified": Object {
@@ -1478,7 +1482,7 @@ ShallowWrapper {
                 "ams:resourceType",
                 "ams:distributionType",
                 "ams:serviceType",
-                "dct:format",
+                "dcat:mediaType",
                 "ams:layerIdentifier",
                 "dct:modified",
                 "ams:classification",

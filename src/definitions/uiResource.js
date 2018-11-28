@@ -6,10 +6,13 @@ const uiResource = {
     'markdown',
     'file'
   ],
-
   'dcat:accessURL': {
     'ui:widget': 'file',
     'ui:placeholder': 'http://'
+  },
+  'ams:purl': {
+    'ui:field': 'readonly',
+    'ui:placeholder': 'N.n.b.'
   },
   'dcat:byteSize': {
     'ui:widget': 'hidden',
@@ -27,7 +30,7 @@ const uiResource = {
   'ams:distributionType': {
     'ui:placeholder': 'maak een keuze'
   },
-  'dct:format': {
+  'dcat:mediaType': {
     'ui:widget': 'hidden',
     'ui:placeholder': 'maak een keuze'
   },

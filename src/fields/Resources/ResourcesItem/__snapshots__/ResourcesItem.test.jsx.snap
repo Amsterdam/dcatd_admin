@@ -9,7 +9,7 @@ ShallowWrapper {
       Object {
         "ams:purl": "http://acc.ergens",
         "dcat:accessURL": "http://ergens",
-        "dct:format": "n/a",
+        "dcat:mediaType": "n/a",
         "dct:title": "Titel",
         "foaf:isPrimaryTopicOf": Object {},
       }
@@ -28,7 +28,7 @@ ShallowWrapper {
             "Website",
           ],
         },
-        "dct:format": Object {
+        "dcat:mediaType": Object {
           "enum": Array [
             "n/a",
             "text/csv",
@@ -347,8 +347,8 @@ ShallowWrapper {
         "ams:purl": "http://acc.ergens",
         "dcat:accessURL": "http://ergens",
         "dcat:byteSize": "0",
+        "dcat:mediaType": "n/a",
         "dct:description": "omschrijving",
-        "dct:format": "n/a",
         "dct:title": "Titel",
         "foaf:isPrimaryTopicOf": Object {},
       }
@@ -367,7 +367,7 @@ ShallowWrapper {
             "Website",
           ],
         },
-        "dct:format": Object {
+        "dcat:mediaType": Object {
           "enum": Array [
             "n/a",
             "text/csv",
@@ -686,8 +686,8 @@ ShallowWrapper {
         "ams:purl": "http://acc.ergens",
         "dcat:accessURL": "http://ergens",
         "dcat:byteSize": "666",
+        "dcat:mediaType": "application/pdf",
         "dct:description": "omschrijving",
-        "dct:format": "application/pdf",
         "dct:title": "Titel",
         "foaf:isPrimaryTopicOf": Object {
           "dct:modified": "2017-11-30",
@@ -708,7 +708,7 @@ ShallowWrapper {
             "Website",
           ],
         },
-        "dct:format": Object {
+        "dcat:mediaType": Object {
           "enum": Array [
             "n/a",
             "text/csv",

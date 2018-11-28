@@ -9,7 +9,7 @@ const mockResources = [{
   'ams:purl': 'http://acc.maps.amsterdam.nl/open_geodata/',
   'ams:resourceType': 'data',
   'ams:distributionType': 'file',
-  'dct:format': 'text/csv',
+  'dcat:mediaType': 'text/csv',
   'ams:classification': 'public',
   'foaf:isPrimaryTopicOf': { 'dct:issued': '2017-02-02', 'dct:modified': '2017-02-02' },
   '@id': '_:d1'
@@ -20,7 +20,7 @@ const mockResources = [{
   'ams:purl': 'http://acc.maps.amsterdam.nl/markten/',
   'ams:resourceType': 'vis',
   'ams:distributionType': 'file',
-  'dct:format': 'text/html',
+  'dcat:mediaType': 'text/html',
   'ams:classification': 'public',
   'foaf:isPrimaryTopicOf': { 'dct:issued': '2017-02-02', 'dct:modified': '2017-02-02' },
   '@id': '_:d2'

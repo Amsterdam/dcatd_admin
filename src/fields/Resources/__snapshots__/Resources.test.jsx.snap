@@ -16,8 +16,8 @@ ShallowWrapper {
           "ams:purl": "http://acc.maps.amsterdam.nl/open_geodata/",
           "ams:resourceType": "data",
           "dcat:accessURL": "http://maps.amsterdam.nl/open_geodata/",
+          "dcat:mediaType": "text/csv",
           "dct:description": "Let op!",
-          "dct:format": "text/csv",
           "dct:title": "Data via maps.amsterdam.nl",
           "foaf:isPrimaryTopicOf": Object {
             "dct:issued": "2017-02-02",
@@ -31,7 +31,7 @@ ShallowWrapper {
           "ams:purl": "http://acc.maps.amsterdam.nl/markten/",
           "ams:resourceType": "vis",
           "dcat:accessURL": "http://maps.amsterdam.nl/markten/",
-          "dct:format": "text/html",
+          "dcat:mediaType": "text/html",
           "dct:title": "Weergave op kaart",
           "foaf:isPrimaryTopicOf": Object {
             "dct:issued": "2017-02-02",

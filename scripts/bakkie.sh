@@ -9,7 +9,11 @@ echo Building $1
 echo Build distribution of this branch
 export NODE_ENV=development
 
-npm install
+npm --production=false \
+	--unsafe-perm \
+	--verbose \
+	--registry=https://repo.datapunt.amsterdam.nl/repository/npm-group/ \
+	install 
 npm run build
 
 echo Publish distribution in web-dir
