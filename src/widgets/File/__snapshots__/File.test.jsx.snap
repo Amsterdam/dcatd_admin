@@ -39,6 +39,7 @@ ShallowWrapper {
           disabled={false}
           id="very-unique-id"
           label=""
+          onBlur={[Function]}
           onChange={[Function]}
           placeholder=""
           readOnly={false}
@@ -77,6 +78,7 @@ ShallowWrapper {
           "disabled": false,
           "id": "very-unique-id",
           "label": "",
+          "onBlur": [Function],
           "onChange": [Function],
           "placeholder": "",
           "readOnly": false,
@@ -135,6 +137,7 @@ ShallowWrapper {
             disabled={false}
             id="very-unique-id"
             label=""
+            onBlur={[Function]}
             onChange={[Function]}
             placeholder=""
             readOnly={false}
@@ -173,6 +176,7 @@ ShallowWrapper {
             "disabled": false,
             "id": "very-unique-id",
             "label": "",
+            "onBlur": [Function],
             "onChange": [Function],
             "placeholder": "",
             "readOnly": false,

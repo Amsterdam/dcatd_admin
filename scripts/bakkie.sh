@@ -9,6 +9,7 @@ echo Building $1
 echo Build distribution of this branch
 export NODE_ENV=development
 
+rm -rf node_modules/
 npm --production=false \
 	--unsafe-perm \
 	--verbose \
