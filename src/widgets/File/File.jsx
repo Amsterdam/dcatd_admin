@@ -30,6 +30,8 @@ class File extends Component {
     this.processFile = this.processFile.bind(this);
     this.resetFile = this.resetFile.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleValueChange = this.handleValueChange.bind(this);
+    this.handleBlur = this.handleBlur.bind(this);
   }
 
   componentWillReceiveProps(props) {
@@ -130,7 +132,19 @@ class File extends Component {
     this.setState({
       value
     });
-    this.props.onChange(value || undefined);
+  }
+
+  handleBlur() {
+    if (this.state.value !== this.props.value) {
+      this.props.onChange(this.state.value || undefined);
+    }
+  }
+
+  handleValueChange(event) {
+    const { value } = event.target;
+    this.setState({
+      value
+    });
   }
 
   render() {
@@ -147,7 +161,8 @@ class File extends Component {
           readOnly={this.props.readonly}
           required={this.props.required}
           value={value}
-          onChange={event => this.handleChange(event.target.value)}
+          onChange={this.handleValueChange}
+          onBlur={this.handleBlur}
         />
         <label
           htmlFor={`${this.props.id}-upload`}
@@ -197,8 +212,8 @@ File.defaultProps = {
   url: '',
   value: '',
 
-  onChange: () => {},
-  serverError: () => {}
+  onChange: () => { },
+  serverError: () => { }
 };
 
 File.propTypes = {
