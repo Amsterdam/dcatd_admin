@@ -29,7 +29,7 @@ const ResourcesItem = ({ resource, schemaProps }) => {
     <div className="resources-item__title">
       {resource['dct:title']}</div>
     <div className="resources-item__description">
-      <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase()}`}>
+      <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase().replace(/[: ][ ]*/g, '-')}`}>
         {fileType}
       </span>
       <span className="resources-item__description-text">{resource['dct:description'] || resource['ams:purl']}</span>
