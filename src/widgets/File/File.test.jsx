@@ -43,8 +43,18 @@ describe('The File component (react-jsonschema-forms custom field)', () => {
     oldFormData = window.FormData;
     window.FormData = jest.fn().mockImplementation(formDataMock);
 
+    const props = {
+      id: 'very-unique-id',
+      registry: {
+        formContext: {
+          setResourceSpecs: jest.fn(),
+          setUploadStatus: jest.fn()
+        }
+      }
+    };
+
     store = configureMockStore(middlewares)();
-    wrap = shallow(<File id="very-unique-id" />, { context: { store } }).dive();
+    wrap = shallow(<File {...props} />, { context: { store } }).dive();
   });
 
   afterEach(() => {
