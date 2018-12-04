@@ -29,6 +29,7 @@ const ResourcesItem = ({ resource, schemaProps }) => {
     <div className="resources-item__title">
       {resource['dct:title']}</div>
     <div className="resources-item__description">
+      <!-- Transform filetype to kebab-case variable that can be used as CSS class -->
       <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase().replace(/[: ][ ]*/g, '-')}`}>
         {fileType}
       </span>
