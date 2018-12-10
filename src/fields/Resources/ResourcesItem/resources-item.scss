@@ -62,7 +62,7 @@
   }
 
   &__file-type {
-    background-color: $warm-grey;
+    background-color: $pinkish-grey;
     color: $black;
     display: inline-block;
     font-size: 14px;
@@ -70,53 +70,76 @@
     margin-right: 5px;
     padding: 2px 5px 0 5px;
 
-    &--xls,
-    &--xlsx {
-      background-color: $thema-6;
+    &--anders {
+      background-color: $brownish-grey;
+      color: $white;
+    }
+
+    &--csv {
+      background-color: $aquamarine;
+    }
+
+    &--docx {
+      background-color: $darkish-blue;
+      color: $white;
+    }
+
+    &--geojson {
+      background-color: $marigold;
+    }
+
+    &--gml {
+      background-color: $deep-green-two;
+      color: $white;
+    }
+
+    &--html {
+      background-color: $azure;
+    }
+
+    &--json {
+      background-color: $dandelion;
     }
 
     &--pdf {
       background-color: $red;
+      color: $white;
     }
 
-    &--csv {
-      background-color: $thema-2;
+    &--png {
+      background-color: $turquoise-blue;
     }
 
-    &--json {
-      background-color: $thema-1;
-    }
-
-    &--geojson {
-      background-color: $warm-grey; /* no color yet */
+    &--rest-atom-feed {
+      background-color: $tangerine;
     }
 
     &--shp {
-      background-color: $warm-grey; /* no color yet */
+      background-color: $deep-green;
+      color: $white;
     }
 
-    &--wms {
-      background-color: $warm-grey; /* no color yet */
+    &--website {
+      background-color: $warm-grey;
     }
 
     &--wfs {
-      background-color: $warm-grey; /* no color yet */
+      background-color: $red-violet;
+      color: $white;
+    }
+
+    &--wms {
+      background-color: $dark-hot-pink;
+      color: $white;
     }
 
     &--xml {
-      background-color: $thema-4;
+      background-color: $ugly-yellow;
     }
 
-    &--html {
-      background-color: $thema-9;
-    }
-
-    &--zip {
-      background-color: $brownish-grey;
-    }
-
-    &--api {
-      background-color: $thema-15;
+    &--xls,
+    &--xlsx {
+      background-color: $emerald;
     }
   }
 }
