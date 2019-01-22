@@ -22,6 +22,15 @@ class Api {
   get schema() {
     return `${this._root}/dcatd/openapi`;
   }
+
+  resetEndpointCache() {
+    const url = this.datasets;
+    Object.entries(window.sessionStorage).forEach(([itemKey]) => {
+      if (itemKey.startsWith(url)) {
+        window.sessionStorage.removeItem(itemKey);
+      }
+    });
+  }
 }
 
 export default new Api();

@@ -1,4 +1,5 @@
 import redirectToPortal from './redirect-to-portal';
+import api from '../api/api';
 
 describe('The redirect-to-portal service', () => {
   let mockUrl = 'http://portal/redirect-url';
@@ -11,7 +12,8 @@ describe('The redirect-to-portal service', () => {
 
     window.sessionStorage = {
       getItem: () => mockUrl,
-      removeItem: jest.fn()
+      removeItem: jest.fn(),
+      [api.datasets]: 'test'
     };
     window.location.assign = jest.fn();
   });
@@ -26,6 +28,7 @@ describe('The redirect-to-portal service', () => {
 
     expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('DCATD_DETAIL_REDIRECT_URL');
     expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('DCATD_LIST_REDIRECT_URL');
+    expect(window.sessionStorage.removeItem).toHaveBeenCalledWith(api.datasets);
 
     expect(window.location.assign).toHaveBeenCalledWith(mockUrl);
   });
@@ -35,6 +38,7 @@ describe('The redirect-to-portal service', () => {
 
     expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('DCATD_DETAIL_REDIRECT_URL');
     expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('DCATD_LIST_REDIRECT_URL');
+    expect(window.sessionStorage.removeItem).toHaveBeenCalledWith(api.datasets);
 
     expect(window.location.assign).toHaveBeenCalledWith(mockUrl);
   });
@@ -45,6 +49,7 @@ describe('The redirect-to-portal service', () => {
 
     expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('DCATD_DETAIL_REDIRECT_URL');
     expect(window.sessionStorage.removeItem).toHaveBeenCalledWith('DCATD_LIST_REDIRECT_URL');
+    expect(window.sessionStorage.removeItem).toHaveBeenCalledWith(api.datasets);
 
     expect(window.location.assign).toHaveBeenCalledWith('#/datasets');
   });
