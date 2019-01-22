@@ -136,7 +136,7 @@ export function removeDataset(dataset) {
       .then(response =>
         dispatch(response.ok ? removeDatasetSuccess() : serverError(response)))
       .then(() => dispatch(fetchDatasets()))
-      .then(() => redirectToPortal())
+      .then(() => redirectToPortal('list'))
       .catch((error) => { throw error; });
   };
 }
