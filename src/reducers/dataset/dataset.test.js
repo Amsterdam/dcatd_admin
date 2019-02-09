@@ -1,6 +1,10 @@
 import dataset from './dataset';
 
 describe('dataset reducer', () => {
+  beforeAll(() => {
+    global.scrollTo = jest.fn();
+  });
+
   const mockDataset = {
     '@id': 'ams-dcatd:ois-95620',
     'dct:description': 'Mooie dataset, zeg',

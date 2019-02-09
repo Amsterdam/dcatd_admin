@@ -26,12 +26,6 @@ export default function (state = initialState, action) {
       }
       return { ...action.schema };
 
-    case CREATE_DATASET_SUCCESS:
-    case UPDATE_DATASET_SUCCESS:
-    case REMOVE_DATASET_SUCCESS:
-      return {};
-
-
     default:
       return state;
   }

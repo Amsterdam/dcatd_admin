@@ -1,4 +1,5 @@
 import datasets from './datasets';
+import { createDatasetSuccess, updateDatasetSuccess, removeDatasetSuccess } from '../../actions/dataset/dataset';
 
 describe('datasets reducer', () => {
   it('should handle initial state', () => {
@@ -23,6 +24,20 @@ describe('datasets reducer', () => {
       }, {
         title: 'dataset 2'
       }]);
+    });
+  });
+
+  describe('modification actions on a dataset', () => {
+    it('should initialize the datasets list on createDatasetSuccess', () => {
+      expect(datasets([{}], createDatasetSuccess({}))).toEqual([]);
+    });
+
+    it('should initialize the datasets list on createDatasetSuccess', () => {
+      expect(datasets([{}], updateDatasetSuccess({}))).toEqual([]);
+    });
+
+    it('should initialize the datasets list on createDatasetSuccess', () => {
+      expect(datasets([{}], removeDatasetSuccess({}))).toEqual([]);
     });
   });
 });
