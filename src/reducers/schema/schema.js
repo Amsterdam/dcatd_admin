@@ -1,4 +1,9 @@
 import { FETCH_SCHEMA_SUCCESS } from '../../actions/schema/schema';
+import {
+  CREATE_DATASET_SUCCESS,
+  UPDATE_DATASET_SUCCESS,
+  REMOVE_DATASET_SUCCESS
+} from '../../actions/dataset/dataset';
 
 const initialState = {
   properties: {},
@@ -20,6 +25,12 @@ export default function (state = initialState, action) {
         delete action.schema.properties['dct:temporal'].properties['time:hasEnd'].pattern;
       }
       return { ...action.schema };
+
+    case CREATE_DATASET_SUCCESS:
+    case UPDATE_DATASET_SUCCESS:
+    case REMOVE_DATASET_SUCCESS:
+      return {};
+
 
     default:
       return state;

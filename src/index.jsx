@@ -10,8 +10,6 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 import App from './components/App/App';
-import { fetchDatasets } from './actions/datasets/datasets';
-import { fetchSchema } from './actions/schema/schema';
 import { fetchUiDataset } from './actions/uiDataset/uiDataset';
 import { fetchUiResource } from './actions/uiResource/uiResource';
 import { initAuth, getReturnPath } from './services/auth/auth';
@@ -37,11 +35,8 @@ if (returnPath) {
   store.dispatch(push(returnPath));
 }
 
-store.dispatch(fetchDatasets());
-store.dispatch(fetchSchema());
 store.dispatch(fetchUiDataset());
 store.dispatch(fetchUiResource());
-
 render(
   <Provider store={store}>
     <HashRouter>
