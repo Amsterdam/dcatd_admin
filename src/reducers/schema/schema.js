@@ -1,9 +1,4 @@
 import { FETCH_SCHEMA_SUCCESS } from '../../actions/schema/schema';
-import {
-  CREATE_DATASET_SUCCESS,
-  UPDATE_DATASET_SUCCESS,
-  REMOVE_DATASET_SUCCESS
-} from '../../actions/dataset/dataset';
 
 const initialState = {
   properties: {},
