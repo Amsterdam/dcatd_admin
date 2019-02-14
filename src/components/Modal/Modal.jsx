@@ -16,25 +16,39 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   setModal
 }, dispatch);
 
+const modalHeader = {
+  AUTH_ERROR: 'Niet bevoegd',
+  SERVER_ERROR: 'Er ging iets mis'
+}
+
+const modalContent = {
+   AUTH_ERROR: `
+    <span>
+      <p>U bent niet bevoegd tot het beschikbaar maken van een dataset</p>
+    </span>
+  `,
+  SERVER_ERROR: `
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+    </span>
+  `
+}
+
 const Modal = props => (
   <SemanticModal
     open={props.modal.open}
     size="tiny"
   >
-    <SemanticModal.Header>{props.modal.content === 'SERVER_ERROR' ? 'Niet bevoegd' : 'Let op!'}</SemanticModal.Header>
+    <SemanticModal.Header>
+      { modalHeader[props.modal.content] }
+    </SemanticModal.Header>
     <SemanticModal.Content>
-      {props.modal.content === 'SERVER_ERROR' ?
-        (
-          <span>
-            <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
-            Wellicht komt dit doordat:
-            <ol>
-              <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
-              <li>U niet bevoegd bent om datasets te beheren.</li>
-            </ol>
-          </span>
-        )
-        : props.modal.content}
+      <div dangerouslySetInnerHTML={{ __html: modalContent[props.modal.content] }} />
     </SemanticModal.Content>
     <SemanticModal.Actions>
       <button

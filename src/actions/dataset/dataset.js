@@ -57,11 +57,16 @@ export function createDataset(dataset) {
         'If-None-Match': '*'
       })
     })
-      .then(response =>
-        dispatch(response.ok ? createDatasetSuccess(dataset) : serverError(response)))
-      .then(() => dispatch(fetchDatasets()))
-      .then(() => redirectToPortal())
-      .catch((error) => { throw error; });
+    .then(response => {
+      if (response.ok) {
+        dispatch(createDatasetSuccess());
+        dispatch(fetchDatasets());
+        redirectToPortal();
+      } else {
+        dispatch(serverError(response))
+      }
+    })
+    .catch((error) => { throw error; });
   };
 }
 
@@ -109,11 +114,16 @@ export function updateDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      .then(response =>
-        dispatch(response.ok ? updateDatasetSuccess() : serverError(response)))
-      .then(() => dispatch(fetchDatasets()))
-      .then(() => redirectToPortal())
-      .catch((error) => { throw error; });
+    .then(response => {
+      if (response.ok) {
+        dispatch(updateDatasetSuccess());
+        dispatch(fetchDatasets());
+        redirectToPortal();
+      } else {
+        dispatch(serverError(response))
+      }
+    })
+    .catch((error) => { throw error; });
   };
 }
 
@@ -133,10 +143,15 @@ export function removeDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      .then(response =>
-        dispatch(response.ok ? removeDatasetSuccess() : serverError(response)))
-      .then(() => dispatch(fetchDatasets()))
-      .then(() => redirectToPortal('list'))
-      .catch((error) => { throw error; });
+    .then(response => {
+      if (response.ok) {
+        dispatch(removeDatasetSuccess());
+        dispatch(fetchDatasets());
+        redirectToPortal();
+      } else {
+        dispatch(serverError(response))
+      }
+    })
+    .catch((error) => { throw error; });
   };
 }
