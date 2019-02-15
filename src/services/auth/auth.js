@@ -33,7 +33,7 @@ const scopes = [
 ];
 
 const encodedScopes = encodeURIComponent(scopes.join(' '));
-const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${encodedScopes}`;
+export const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${encodedScopes}`;
 
 // The keys of values we need to store in the session storage
 //
@@ -48,7 +48,7 @@ const STATE_TOKEN = 'stateToken';
 const ACCESS_TOKEN = 'accessToken';
 
 let returnPath;
-let tokenData = {};
+let tokenData;
 
 /**
  * Finishes an error from the OAuth2 authorization service.
@@ -194,9 +194,12 @@ function restoreAccessToken() {
  */
 export function initAuth() {
   returnPath = '';
-  if (restoreAccessToken()) { // Restore acces token from session storage
-    catchError(); // Catch any error from the OAuth2 authorization service
-    handleCallback(); // Handle a callback from the OAuth2 authorization service
+  restoreAccessToken();
+  catchError(); // Catch any error from the OAuth2 authorization service
+  handleCallback(); // Handle a callback from the OAuth2 authorization service
+
+  if (!getAccessToken()) { // Restore acces token from session storage
+    login();
   }
 }
 
@@ -211,7 +214,7 @@ export function getReturnPath() {
 }
 
 export function isAdmin() {
-  return tokenData.scopes.includes('CAT/W')
+  return (tokenData) ? tokenData.scopes.includes('CAT/W') : false;
 }
 
 /**

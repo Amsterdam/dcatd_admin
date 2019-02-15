@@ -57,16 +57,16 @@ export function createDataset(dataset) {
         'If-None-Match': '*'
       })
     })
-    .then(response => {
-      if (response.ok) {
-        dispatch(createDatasetSuccess());
-        dispatch(fetchDatasets());
-        redirectToPortal();
-      } else {
-        dispatch(serverError(response))
-      }
-    })
-    .catch((error) => { throw error; });
+      .then((response) => {
+        if (response.ok) {
+          dispatch(createDatasetSuccess());
+          dispatch(fetchDatasets());
+          redirectToPortal();
+        } else {
+          dispatch(serverError(response));
+        }
+      })
+      .catch((error) => { throw error; });
   };
 }
 
@@ -114,16 +114,16 @@ export function updateDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-    .then(response => {
-      if (response.ok) {
-        dispatch(updateDatasetSuccess());
-        dispatch(fetchDatasets());
-        redirectToPortal();
-      } else {
-        dispatch(serverError(response))
-      }
-    })
-    .catch((error) => { throw error; });
+      .then((response) => {
+        if (response.ok) {
+          dispatch(updateDatasetSuccess());
+          dispatch(fetchDatasets());
+          redirectToPortal();
+        } else {
+          dispatch(serverError(response));
+        }
+      })
+      .catch((error) => { throw error; });
   };
 }
 
@@ -143,15 +143,15 @@ export function removeDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-    .then(response => {
-      if (response.ok) {
-        dispatch(removeDatasetSuccess());
-        dispatch(fetchDatasets());
-        redirectToPortal();
-      } else {
-        dispatch(serverError(response))
-      }
-    })
-    .catch((error) => { throw error; });
+      .then((response) => {
+        if (response.ok) {
+          dispatch(removeDatasetSuccess());
+          dispatch(fetchDatasets());
+          redirectToPortal();
+        } else {
+          dispatch(serverError(response));
+        }
+      })
+      .catch((error) => { throw error; });
   };
 }

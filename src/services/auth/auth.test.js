@@ -1,4 +1,4 @@
-import { initAuth, login, logout, getReturnPath, getAuthHeaders } from './auth';
+import { initAuth, login, logout, getReturnPath, getAuthHeaders, AUTH_PATH } from './auth';
 import queryStringParser from '../query-string-parser/query-string-parser';
 import stateTokenGenerator from '../state-token-generator/state-token-generator';
 
@@ -202,7 +202,7 @@ describe('The auth service', () => {
         savedAccessToken = '123AccessToken';
 
         initAuth();
-        expect(global.sessionStorage.removeItem).not.toHaveBeenCalledWith('accessToken');
+        expect(global.sessionStorage.removeItem).toHaveBeenCalledWith('accessToken');
       });
     });
   });
@@ -234,9 +234,8 @@ describe('The auth service', () => {
 
       login();
 
-      expect(global.location.href).toBe('https://acc.api.data.amsterdam.nl/oauth2/authorize' +
-        '?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=CAT%2FW&state=123StateToken' +
-        '&redirect_uri=https%3A%2F%2Fdata.amsterdam.nl%2Fdcatd_admin%2F');
+      expect(global.location.href).toBe(`https://acc.api.data.amsterdam.nl${AUTH_PATH}`
+        + '&state=123StateToken&redirect_uri=https%3A%2F%2Fdata.amsterdam.nl%2Fdcatd_admin%2F');
     });
   });
 

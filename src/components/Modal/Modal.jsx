@@ -19,10 +19,10 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 const modalHeader = {
   AUTH_ERROR: 'Niet bevoegd',
   SERVER_ERROR: 'Er ging iets mis'
-}
+};
 
 const modalContent = {
-   AUTH_ERROR: `
+  AUTH_ERROR: `
     <span>
       <p>U bent niet bevoegd tot het beschikbaar maken van een dataset</p>
     </span>
@@ -37,7 +37,7 @@ const modalContent = {
       </ol>
     </span>
   `
-}
+};
 
 const Modal = props => (
   <SemanticModal
