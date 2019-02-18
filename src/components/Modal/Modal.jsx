@@ -24,17 +24,18 @@ const modalHeader = {
 const modalContent = {
   AUTH_ERROR: `
     <span>
-      <p>U bent niet bevoegd tot het beschikbaar maken van een dataset</p>
+      <p>U bent niet bevoegd tot het beschikbaar maken van een dataset.</p>
     </span>
   `,
   SERVER_ERROR: `
     <span>
       <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
-      Wellicht komt dit doordat:
+      <p>Wellicht komt dit doordat:
       <ol>
         <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
         <li>U niet bevoegd bent om datasets te beheren.</li>
       </ol>
+      </p>
     </span>
   `
 };
