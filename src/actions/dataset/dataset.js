@@ -56,9 +56,14 @@ export function createDataset(dataset) {
         'If-None-Match': '*'
       })
     })
-      .then(response =>
-        dispatch(response.ok ? createDatasetSuccess(dataset) : serverError(response)))
-      .then(() => redirectToPortal())
+      .then((response) => {
+        if (response.ok) {
+          dispatch(createDatasetSuccess());
+          redirectToPortal();
+        } else {
+          dispatch(serverError(response));
+        }
+      })
       .catch((error) => { throw error; });
   };
 }
@@ -107,9 +112,14 @@ export function updateDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      .then(response =>
-        dispatch(response.ok ? updateDatasetSuccess() : serverError(response)))
-      .then(() => redirectToPortal())
+      .then((response) => {
+        if (response.ok) {
+          dispatch(updateDatasetSuccess());
+          redirectToPortal();
+        } else {
+          dispatch(serverError(response));
+        }
+      })
       .catch((error) => { throw error; });
   };
 }
@@ -130,9 +140,14 @@ export function removeDataset(dataset) {
         'If-Match': dataset.etag
       })
     })
-      .then(response =>
-        dispatch(response.ok ? removeDatasetSuccess() : serverError(response)))
-      .then(() => redirectToPortal('list'))
+      .then((response) => {
+        if (response.ok) {
+          dispatch(removeDatasetSuccess());
+          redirectToPortal();
+        } else {
+          dispatch(serverError(response));
+        }
+      })
       .catch((error) => { throw error; });
   };
 }
