@@ -34,23 +34,26 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <ModalHeader>
-          Niet bevoegd
+          Er ging iets mis
         </ModalHeader>,
         <ModalContent>
-          <span>
-            <p>
-              U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
-            </p>
-            Wellicht komt dit doordat:
-            <ol>
-              <li>
-                Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-              </li>
-              <li>
-                U niet bevoegd bent om datasets te beheren.
-              </li>
-            </ol>
-          </span>
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      <p>Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+      </p>
+    </span>
+  ",
+              }
+            }
+          />
         </ModalContent>,
         <ModalActions>
           <button
@@ -76,10 +79,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": "Niet bevoegd",
+          "children": "Er ging iets mis",
         },
         "ref": null,
-        "rendered": "Niet bevoegd",
+        "rendered": "Er ging iets mis",
         "type": [Function],
       },
       Object {
@@ -87,20 +90,23 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": <span>
-            <p>
-              U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
-            </p>
-            Wellicht komt dit doordat:
-            <ol>
-              <li>
-                Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-              </li>
-              <li>
-                U niet bevoegd bent om datasets te beheren.
-              </li>
-            </ol>
-          </span>,
+          "children": <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": "
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      <p>Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+      </p>
+    </span>
+  ",
+              }
+            }
+          />,
         },
         "ref": null,
         "rendered": Object {
@@ -108,78 +114,23 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": Array [
-              <p>
-                U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
-              </p>,
-              "Wellicht komt dit doordat:",
-              <ol>
-                <li>
-                  Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-                </li>
-                <li>
-                  U niet bevoegd bent om datasets te beheren.
-                </li>
-              </ol>,
-            ],
+            "dangerouslySetInnerHTML": Object {
+              "__html": "
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      <p>Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+      </p>
+    </span>
+  ",
+            },
           },
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
-              },
-              "ref": null,
-              "rendered": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
-              "type": "p",
-            },
-            "Wellicht komt dit doordat:",
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": Array [
-                  <li>
-                    Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-                  </li>,
-                  <li>
-                    U niet bevoegd bent om datasets te beheren.
-                  </li>,
-                ],
-              },
-              "ref": null,
-              "rendered": Array [
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
-                  },
-                  "ref": null,
-                  "rendered": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
-                  "type": "li",
-                },
-                Object {
-                  "instance": null,
-                  "key": undefined,
-                  "nodeType": "host",
-                  "props": Object {
-                    "children": "U niet bevoegd bent om datasets te beheren.",
-                  },
-                  "ref": null,
-                  "rendered": "U niet bevoegd bent om datasets te beheren.",
-                  "type": "li",
-                },
-              ],
-              "type": "ol",
-            },
-          ],
-          "type": "span",
+          "rendered": null,
+          "type": "div",
         },
         "type": [Function],
       },
@@ -228,23 +179,26 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <ModalHeader>
-            Niet bevoegd
+            Er ging iets mis
           </ModalHeader>,
           <ModalContent>
-            <span>
-              <p>
-                U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
-              </p>
-              Wellicht komt dit doordat:
-              <ol>
-                <li>
-                  Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-                </li>
-                <li>
-                  U niet bevoegd bent om datasets te beheren.
-                </li>
-              </ol>
-            </span>
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      <p>Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+      </p>
+    </span>
+  ",
+                }
+              }
+            />
           </ModalContent>,
           <ModalActions>
             <button
@@ -270,10 +224,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": "Niet bevoegd",
+            "children": "Er ging iets mis",
           },
           "ref": null,
-          "rendered": "Niet bevoegd",
+          "rendered": "Er ging iets mis",
           "type": [Function],
         },
         Object {
@@ -281,20 +235,23 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": <span>
-              <p>
-                U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
-              </p>
-              Wellicht komt dit doordat:
-              <ol>
-                <li>
-                  Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-                </li>
-                <li>
-                  U niet bevoegd bent om datasets te beheren.
-                </li>
-              </ol>
-            </span>,
+            "children": <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": "
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      <p>Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+      </p>
+    </span>
+  ",
+                }
+              }
+            />,
           },
           "ref": null,
           "rendered": Object {
@@ -302,78 +259,23 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": Array [
-                <p>
-                  U bent niet (meer) bevoegd tot het uitvoeren van deze actie.
-                </p>,
-                "Wellicht komt dit doordat:",
-                <ol>
-                  <li>
-                    Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-                  </li>
-                  <li>
-                    U niet bevoegd bent om datasets te beheren.
-                  </li>
-                </ol>,
-              ],
+              "dangerouslySetInnerHTML": Object {
+                "__html": "
+    <span>
+      <p>U bent niet (meer) bevoegd tot het uitvoeren van deze actie.</p>
+      <p>Wellicht komt dit doordat:
+      <ol>
+        <li>Uw sessie is verlopen. Deze duurt maximaal 10 uur.</li>
+        <li>U niet bevoegd bent om datasets te beheren.</li>
+      </ol>
+      </p>
+    </span>
+  ",
+              },
             },
             "ref": null,
-            "rendered": Array [
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
-                },
-                "ref": null,
-                "rendered": "U bent niet (meer) bevoegd tot het uitvoeren van deze actie.",
-                "type": "p",
-              },
-              "Wellicht komt dit doordat:",
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": Array [
-                    <li>
-                      Uw sessie is verlopen. Deze duurt maximaal 10 uur.
-                    </li>,
-                    <li>
-                      U niet bevoegd bent om datasets te beheren.
-                    </li>,
-                  ],
-                },
-                "ref": null,
-                "rendered": Array [
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
-                    },
-                    "ref": null,
-                    "rendered": "Uw sessie is verlopen. Deze duurt maximaal 10 uur.",
-                    "type": "li",
-                  },
-                  Object {
-                    "instance": null,
-                    "key": undefined,
-                    "nodeType": "host",
-                    "props": Object {
-                      "children": "U niet bevoegd bent om datasets te beheren.",
-                    },
-                    "ref": null,
-                    "rendered": "U niet bevoegd bent om datasets te beheren.",
-                    "type": "li",
-                  },
-                ],
-                "type": "ol",
-              },
-            ],
-            "type": "span",
+            "rendered": null,
+            "type": "div",
           },
           "type": [Function],
         },
@@ -465,11 +367,15 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <ModalHeader>
-          Let op!
-        </ModalHeader>,
+        <ModalHeader />,
         <ModalContent>
-          Weet u het zeker?
+          <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined,
+              }
+            }
+          />
         </ModalContent>,
         <ModalActions>
           <button
@@ -500,10 +406,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": "Let op!",
+          "children": undefined,
         },
         "ref": null,
-        "rendered": "Let op!",
+        "rendered": null,
         "type": [Function],
       },
       Object {
@@ -511,10 +417,28 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": "Weet u het zeker?",
+          "children": <div
+            dangerouslySetInnerHTML={
+              Object {
+                "__html": undefined,
+              }
+            }
+          />,
         },
         "ref": null,
-        "rendered": "Weet u het zeker?",
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "dangerouslySetInnerHTML": Object {
+              "__html": undefined,
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
         "type": [Function],
       },
       Object {
@@ -578,11 +502,15 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <ModalHeader>
-            Let op!
-          </ModalHeader>,
+          <ModalHeader />,
           <ModalContent>
-            Weet u het zeker?
+            <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": undefined,
+                }
+              }
+            />
           </ModalContent>,
           <ModalActions>
             <button
@@ -613,10 +541,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": "Let op!",
+            "children": undefined,
           },
           "ref": null,
-          "rendered": "Let op!",
+          "rendered": null,
           "type": [Function],
         },
         Object {
@@ -624,10 +552,28 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": "Weet u het zeker?",
+            "children": <div
+              dangerouslySetInnerHTML={
+                Object {
+                  "__html": undefined,
+                }
+              }
+            />,
           },
           "ref": null,
-          "rendered": "Weet u het zeker?",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "dangerouslySetInnerHTML": Object {
+                "__html": undefined,
+              },
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "div",
+          },
           "type": [Function],
         },
         Object {

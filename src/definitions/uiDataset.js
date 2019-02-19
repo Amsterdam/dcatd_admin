@@ -114,6 +114,9 @@ const uiDataset = {
   },
   'ams:sort_modified': {
     'ui:field': 'readonly'
+  },
+  'ams:modifiedby': {
+    'ui:field': 'readonly'
   }
 };
 
