@@ -18,6 +18,13 @@ ShallowWrapper {
         },
       ]
     }
+    onFetchDatasets={
+      [MockFunction] {
+        "calls": Array [
+          Array [],
+        ],
+      }
+    }
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],

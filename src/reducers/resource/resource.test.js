@@ -1,6 +1,9 @@
 import resource from './resource';
 
 describe('resource reducer', () => {
+  beforeAll(() => {
+    global.scrollTo = jest.fn();
+  });
   it('should handle initial state', () => {
     expect(
       resource(undefined, {})

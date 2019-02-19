@@ -2,7 +2,6 @@ import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
 import redirectToPortal from '../../services/redirect-to-portal/redirect-to-portal';
 import { fetchSchema } from '../schema/schema';
-import { fetchDatasets } from '../datasets/datasets';
 import api from '../../services/api/api';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
@@ -60,7 +59,6 @@ export function createDataset(dataset) {
       .then((response) => {
         if (response.ok) {
           dispatch(createDatasetSuccess());
-          dispatch(fetchDatasets());
           redirectToPortal();
         } else {
           dispatch(serverError(response));
@@ -117,7 +115,6 @@ export function updateDataset(dataset) {
       .then((response) => {
         if (response.ok) {
           dispatch(updateDatasetSuccess());
-          dispatch(fetchDatasets());
           redirectToPortal();
         } else {
           dispatch(serverError(response));
@@ -146,7 +143,6 @@ export function removeDataset(dataset) {
       .then((response) => {
         if (response.ok) {
           dispatch(removeDatasetSuccess());
-          dispatch(fetchDatasets());
           redirectToPortal();
         } else {
           dispatch(serverError(response));

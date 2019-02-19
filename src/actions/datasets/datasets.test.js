@@ -22,6 +22,7 @@ const mockSschema = {
 
 describe('datasets actions', () => {
   beforeEach(() => {
+    global.scrollTo = jest.fn();
     fetch.resetMocks();
   });
 
@@ -65,18 +66,18 @@ describe('datasets actions', () => {
         }
       })
     ], [
-        JSON.stringify({
-          'dcat:dataset': [{
-            'dct:identifier': 'id-1',
-            'dct:title': 'dataset 1',
-            'dct:description': 'omschrijving 1'
-          }, {
-            'dct:identifier': 'id-2',
-            'dct:title': 'dataset 2',
-            'dct:description': 'omschrijving 2'
-          }]
-        })
-      ]);
+      JSON.stringify({
+        'dcat:dataset': [{
+          'dct:identifier': 'id-1',
+          'dct:title': 'dataset 1',
+          'dct:description': 'omschrijving 1'
+        }, {
+          'dct:identifier': 'id-2',
+          'dct:title': 'dataset 2',
+          'dct:description': 'omschrijving 2'
+        }]
+      })
+    ]);
 
     const expectedActions = [{
       type: 'FETCH_SCHEMA_SUCCESS',
