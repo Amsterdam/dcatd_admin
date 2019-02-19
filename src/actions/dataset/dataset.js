@@ -1,7 +1,6 @@
 import { getAuthHeaders } from '../../services/auth/auth';
 import serverError from '../../services/server-error/server-error';
 import redirectToPortal from '../../services/redirect-to-portal/redirect-to-portal';
-import { fetchSchema } from '../schema/schema';
 import api from '../../services/api/api';
 
 export const FETCH_DATASET_SUCCESS = 'FETCH_DATASET_SUCCESS';
@@ -22,19 +21,17 @@ export function fetchDataset(id) {
   let serverResponse = { ok: false };
   let etag = '';
   return (dispatch) => {
-    return dispatch(fetchSchema()).then(() => {
-      return fetch(`${api.datasets}/${id}`)
-        .then((response) => {
-          serverResponse = response;
-          etag = response.headers.get('etag');
-          return response.json();
-        })
-        .then(dataset => dispatch(serverResponse.ok ? fetchDatasetSuccess({
-          ...dataset,
-          etag
-        }) : serverError(serverResponse)))
-        .catch((error) => { throw error; });
-    });
+    return fetch(`${api.datasets}/${id}`)
+      .then((response) => {
+        serverResponse = response;
+        etag = response.headers.get('etag');
+        return response.json();
+      })
+      .then(dataset => dispatch(serverResponse.ok ? fetchDatasetSuccess({
+        ...dataset,
+        etag
+      }) : serverError(serverResponse)))
+      .catch((error) => { throw error; });
   };
 }
 
