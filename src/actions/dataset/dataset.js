@@ -140,7 +140,7 @@ export function removeDataset(dataset) {
       .then((response) => {
         if (response.ok) {
           dispatch(removeDatasetSuccess());
-          redirectToPortal();
+          redirectToPortal('list');
         } else {
           dispatch(serverError(response));
         }
