@@ -372,7 +372,7 @@ ShallowWrapper {
           <div
             dangerouslySetInnerHTML={
               Object {
-                "__html": undefined,
+                "__html": "Weet u het zeker?",
               }
             }
           />
@@ -420,7 +420,7 @@ ShallowWrapper {
           "children": <div
             dangerouslySetInnerHTML={
               Object {
-                "__html": undefined,
+                "__html": "Weet u het zeker?",
               }
             }
           />,
@@ -432,7 +432,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "dangerouslySetInnerHTML": Object {
-              "__html": undefined,
+              "__html": "Weet u het zeker?",
             },
           },
           "ref": null,
@@ -507,7 +507,7 @@ ShallowWrapper {
             <div
               dangerouslySetInnerHTML={
                 Object {
-                  "__html": undefined,
+                  "__html": "Weet u het zeker?",
                 }
               }
             />
@@ -555,7 +555,7 @@ ShallowWrapper {
             "children": <div
               dangerouslySetInnerHTML={
                 Object {
-                  "__html": undefined,
+                  "__html": "Weet u het zeker?",
                 }
               }
             />,
@@ -567,7 +567,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "dangerouslySetInnerHTML": Object {
-                "__html": undefined,
+                "__html": "Weet u het zeker?",
               },
             },
             "ref": null,
