@@ -367,9 +367,7 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <ModalHeader>
-          Let op!
-        </ModalHeader>,
+        <ModalHeader />,
         <ModalContent>
           <div
             dangerouslySetInnerHTML={
@@ -408,10 +406,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": "Let op!",
+          "children": undefined,
         },
         "ref": null,
-        "rendered": "Let op!",
+        "rendered": null,
         "type": [Function],
       },
       Object {
@@ -504,9 +502,7 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <ModalHeader>
-            Let op!
-          </ModalHeader>,
+          <ModalHeader />,
           <ModalContent>
             <div
               dangerouslySetInnerHTML={
@@ -545,10 +541,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": "Let op!",
+            "children": undefined,
           },
           "ref": null,
-          "rendered": "Let op!",
+          "rendered": null,
           "type": [Function],
         },
         Object {
