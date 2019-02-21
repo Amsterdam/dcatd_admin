@@ -10,8 +10,8 @@ const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
 const getClientEnvironment = require('./env');
 const paths = require('./paths');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractSass = new ExtractTextPlugin('main.css');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const extractSass = new MiniCssExtractPlugin('main.css');
 
 // Webpack uses `publicPath` to determine where the app is being served from.
 // In development, we always serve from the root. This makes config easier.
@@ -30,6 +30,7 @@ module.exports = {
   // You may want 'eval' instead if you prefer to see the compiled output in DevTools.
   // See the discussion in https://github.com/facebookincubator/create-react-app/issues/343.
   devtool: 'cheap-module-source-map',
+  mode: 'development',
   // These are the "entry points" to our application.
   // This means they will be the "root" imports that are included in JS bundle.
   // The first two entry points enable "hot" CSS and auto-refreshes for JS.
@@ -45,8 +46,6 @@ module.exports = {
     // require.resolve('webpack-dev-server/client') + '?/',
     // require.resolve('webpack/hot/dev-server'),
     require.resolve('react-dev-utils/webpackHotDevClient'),
-    // We ship a few polyfills by default:
-    require.resolve('./polyfills'),
     // Errors should be considered fatal in development
     require.resolve('react-error-overlay'),
     // Finally, this is your app's code:
@@ -158,41 +157,43 @@ module.exports = {
           },
           {
             test: /\.(css|scss)$/,
-            use: ['extracted-loader'].concat(extractSass.extract({
-              use: [{
-                loader: 'css-loader',
-                options: {
-                  importLoaders: 1,
-                  minimize: true,
-                  sourceMap: true
-                }
-              }, {
-                loader: 'sass-loader'
+            use: [
+              {
+                loader: MiniCssExtractPlugin.loader
               },
               {
-                loader: require.resolve('postcss-loader'),
+                loader: 'css-loader',
                 options: {
-                  // Necessary for external CSS imports to work
-                  // https://github.com/facebookincubator/create-react-app/issues/2677
-                  ident: 'postcss',
-                  plugins: () => [
-                    require('postcss-flexbugs-fixes'),
-                    autoprefixer({
-                      browsers: [
-                        '>1%',
-                        'last 4 versions',
-                        'Firefox ESR',
-                        'not ie < 9', // React doesn't support IE8 anyway
-                      ],
-                      flexbox: 'no-2009',
-                    }),
-                  ],
-                },
-              }],
-              // use style-loader in development
-              fallback: 'style-loader'
-            }))
-          },
+                  // Todo: eventually turn on modules: true
+                  // For now we explicitly tell classnames to be local
+                  localIdentName: '[name]__[local]--[hash:base64:5]',
+                  url: false // Disable URL parsing in css for now
+                }
+              },
+              {
+                loader: 'postcss-loader',
+                options: {
+                  plugins: (loader) => [
+                    require('autoprefixer')({ browsers: ['last 3 versions'] })
+                  ]
+                }
+              },
+              {
+                loader: 'sass-loader'
+              }
+            ]
+            },
+          // {
+          //   test: /\.(css|scss)$/,
+          //   loader: extractSass ? [
+          //     {
+          //       loader: MiniCssExtractPlugin.loader
+          //     }, 
+          //     'css-loader'
+          //   ] : [
+          //     'style-loader', ...cssRules
+          //   ]
+          // },
           {
             test: /\.svg$/,
             loader: 'svg-react-loader'
@@ -220,16 +221,16 @@ module.exports = {
     ],
   },
   plugins: [
-    // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
-    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-    // In development, this will be an empty string.
-    new InterpolateHtmlPlugin(env.raw),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
     }),
+    // Makes some environment variables available in index.html.
+    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
+    // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    // In development, this will be an empty string.
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
     // Add module names to factory functions so they appear in browser profiler.
     new webpack.NamedModulesPlugin(),
     // Makes some environment variables available to the JS code, for example:

@@ -1,3 +1,5 @@
+import 'react-app-polyfill/ie11'; // For IE 11 support
+
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
@@ -10,7 +12,6 @@ import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
 import App from './components/App/App';
-import { fetchDatasets } from './actions/datasets/datasets';
 import { fetchSchema } from './actions/schema/schema';
 import { fetchUiDataset } from './actions/uiDataset/uiDataset';
 import { fetchUiResource } from './actions/uiResource/uiResource';
@@ -37,11 +38,9 @@ if (returnPath) {
   store.dispatch(push(returnPath));
 }
 
-store.dispatch(fetchDatasets());
 store.dispatch(fetchSchema());
 store.dispatch(fetchUiDataset());
 store.dispatch(fetchUiResource());
-
 render(
   <Provider store={store}>
     <HashRouter>

@@ -8,6 +8,7 @@ import extraFields from 'react-jsonschema-form-extras';
 import transformErrors from '../../services/transform-errors/transform-errors';
 import scrollToError from '../../services/scroll-to-error/scroll-to-error';
 import isEqual from '../../services/is-equal/is-equal';
+import { isAdmin } from '../../services/auth/auth';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
@@ -23,15 +24,6 @@ const fields = {
 const mapStateToProps = state => ({
   dataset: state.dataset
 });
-
-const validate = (formData, errors) => {
-  // Include extra validation for themes. These are defined as multiselection list and
-  // semantic-ui doesn't support required attribute
-  if (formData['dcat:theme'].length === 0) {
-    errors['dcat:theme'].addError('Dit veld is verplicht');
-  }
-  return errors;
-};
 
 class DatasetForm extends Component {
   constructor(props) {
@@ -100,20 +92,6 @@ class DatasetForm extends Component {
 
   handleSetResource(resource) {
     this.props.onSetResource(resource);
-    // if (!isEqual(this.state.dataset, this.props.dataset, ['@context', 'dcat:distribution'])) {
-    //   this.props.setModal({
-    //     actionLabel: 'Opslaan en verdergaan',
-    //     cancelLabel: 'Op deze pagina blijven',
-    //     content: 'Wijzigingen op deze pagina zijn nog niet opgeslagen.',
-    //     open: true,
-    //     onProceed: () => {
-    //       // submit form
-    //       // @TODO we have to fix submitting the form at this point
-    //     }
-    //   });
-    // } else {
-    //   this.props.onSetResource(resource);
-    // }
   }
 
   hasDataset() {
@@ -172,7 +150,6 @@ class DatasetForm extends Component {
           onError={scrollToError}
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
-          validate={validate}
         >
           <div>
             <button
@@ -186,7 +163,7 @@ class DatasetForm extends Component {
               type="button"
             >
               Annuleren</button>
-            {this.hasDataset() ?
+            {(this.hasDataset() && isAdmin()) ?
               <button
                 onClick={() => this.props.setModal({
                   actionLabel: 'Dataset verwijderen',

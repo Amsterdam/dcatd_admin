@@ -1,6 +1,7 @@
 import api from '../../services/api/api';
 import queryStringParser from '../query-string-parser/query-string-parser';
 import stateTokenGenerator from '../state-token-generator/state-token-generator';
+import accessTokenParser from '../access-token-parser/access-token-parser';
 
 // A map of the error keys, that the OAuth2 authorization service can
 // return, to a full description
@@ -26,8 +27,13 @@ const API_ROOT = api.root;
 
 // The URI we need to redirect to for communication with the OAuth2
 // authorization service
-const scopes = encodeURIComponent('CAT/W');
-const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${scopes}`;
+const scopes = [
+  'CAT/R',
+  'CAT/W'
+];
+
+const encodedScopes = encodeURIComponent(scopes.join(' '));
+export const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${encodedScopes}`;
 
 // The keys of values we need to store in the session storage
 //
@@ -42,6 +48,7 @@ const STATE_TOKEN = 'stateToken';
 const ACCESS_TOKEN = 'accessToken';
 
 let returnPath;
+let tokenData;
 
 /**
  * Finishes an error from the OAuth2 authorization service.
@@ -158,6 +165,26 @@ export function logout() {
 }
 
 /**
+ * Restores the access token from session storage when available.
+ */
+function restoreAccessToken() {
+  const accessToken = getAccessToken();
+  if (accessToken) {
+    const parsedToken = accessTokenParser(accessToken);
+    const now = Math.floor(new Date().getTime() / 1000);
+
+    if (!parsedToken.expiresAt || (parsedToken.expiresAt <= now)) {
+      tokenData = {};
+      logout();
+      return false;
+    }
+
+    tokenData = parsedToken;
+  }
+  return true;
+}
+
+/**
  * Initializes the auth service when needed. Catches any callback params and
  * errors from the OAuth2 authorization service when available.
  *
@@ -167,11 +194,12 @@ export function logout() {
  */
 export function initAuth() {
   returnPath = '';
+  restoreAccessToken();
   catchError(); // Catch any error from the OAuth2 authorization service
   handleCallback(); // Handle a callback from the OAuth2 authorization service
 
-  if (!getAccessToken()) {
-    login(); // Initiate login process when there is no access token
+  if (!getAccessToken()) { // Restore acces token from session storage
+    login();
   }
 }
 
@@ -183,6 +211,10 @@ export function initAuth() {
  */
 export function getReturnPath() {
   return returnPath;
+}
+
+export function isAdmin() {
+  return (tokenData) ? tokenData.scopes.includes('CAT/W') : false;
 }
 
 /**

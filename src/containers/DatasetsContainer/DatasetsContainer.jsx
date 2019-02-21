@@ -15,6 +15,7 @@ import DatasetForm from '../../containers/DatasetForm/DatasetForm';
 import ResourceForm from '../../containers/ResourceForm/ResourceForm';
 
 import './datasets-container.scss';
+import { fetchDatasets } from '../../actions/datasets/datasets';
 
 const mapStateToProps = state => ({
   dataset: state.dataset,
@@ -36,7 +37,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   onEmptyResource: emptyResource,
   onSetResource: setResource,
   onSetModal: setModal,
-  onSetResourceToDataset: setResourceToDataset
+  onSetResourceToDataset: setResourceToDataset,
+  onFetchDatasets: fetchDatasets
 }, dispatch);
 
 const DatasetsContainer = props => (
@@ -47,6 +49,7 @@ const DatasetsContainer = props => (
       render={() => (
         <DatasetList
           datasets={props.datasets}
+          onFetchDatasets={props.onFetchDatasets}
         />
       )}
     />
@@ -152,6 +155,7 @@ DatasetsContainer.propTypes = {
   onSetResource: PropTypes.func.isRequired,
   onSetModal: PropTypes.func.isRequired,
   onSetResourceToDataset: PropTypes.func.isRequired,
+  onFetchDatasets: PropTypes.func.isRequired,
 
   schema: PropTypes.object,
   uiDataset: PropTypes.object,

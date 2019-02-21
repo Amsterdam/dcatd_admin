@@ -15,7 +15,11 @@ describe('The DatasetList component', () => {
   }];
 
   beforeEach(() => {
-    wrap = shallow(<DatasetList datasets={mockDatsets} />);
+    const props = {
+      datasets: mockDatsets,
+      onFetchDatasets: jest.fn()
+    };
+    wrap = shallow(<DatasetList {...props} />);
   });
 
   it('renders component', () => {

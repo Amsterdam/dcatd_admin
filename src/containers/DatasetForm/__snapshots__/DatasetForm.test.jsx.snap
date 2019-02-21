@@ -4243,7 +4243,6 @@ ShallowWrapper {
               ],
             }
           }
-          validate={[Function]}
           widgets={
             Object {
               "file": [Function],
@@ -6421,7 +6420,6 @@ ShallowWrapper {
               "markdown",
             ],
           },
-          "validate": [Function],
           "widgets": Object {
             "file": [Function],
             "markdown": [Function],
@@ -8620,7 +8618,6 @@ ShallowWrapper {
                 ],
               }
             }
-            validate={[Function]}
             widgets={
               Object {
                 "file": [Function],
@@ -10798,7 +10795,6 @@ ShallowWrapper {
                 "markdown",
               ],
             },
-            "validate": [Function],
             "widgets": Object {
               "file": [Function],
               "markdown": [Function],
