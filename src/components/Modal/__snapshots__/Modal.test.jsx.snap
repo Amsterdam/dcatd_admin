@@ -367,12 +367,14 @@ ShallowWrapper {
     "nodeType": "class",
     "props": Object {
       "children": Array [
-        <ModalHeader />,
+        <ModalHeader>
+          Let op!
+        </ModalHeader>,
         <ModalContent>
           <div
             dangerouslySetInnerHTML={
               Object {
-                "__html": undefined,
+                "__html": "Weet u het zeker?",
               }
             }
           />
@@ -406,10 +408,10 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "children": undefined,
+          "children": "Let op!",
         },
         "ref": null,
-        "rendered": null,
+        "rendered": "Let op!",
         "type": [Function],
       },
       Object {
@@ -420,7 +422,7 @@ ShallowWrapper {
           "children": <div
             dangerouslySetInnerHTML={
               Object {
-                "__html": undefined,
+                "__html": "Weet u het zeker?",
               }
             }
           />,
@@ -432,7 +434,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "dangerouslySetInnerHTML": Object {
-              "__html": undefined,
+              "__html": "Weet u het zeker?",
             },
           },
           "ref": null,
@@ -502,12 +504,14 @@ ShallowWrapper {
       "nodeType": "class",
       "props": Object {
         "children": Array [
-          <ModalHeader />,
+          <ModalHeader>
+            Let op!
+          </ModalHeader>,
           <ModalContent>
             <div
               dangerouslySetInnerHTML={
                 Object {
-                  "__html": undefined,
+                  "__html": "Weet u het zeker?",
                 }
               }
             />
@@ -541,10 +545,10 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "children": undefined,
+            "children": "Let op!",
           },
           "ref": null,
-          "rendered": null,
+          "rendered": "Let op!",
           "type": [Function],
         },
         Object {
@@ -555,7 +559,7 @@ ShallowWrapper {
             "children": <div
               dangerouslySetInnerHTML={
                 Object {
-                  "__html": undefined,
+                  "__html": "Weet u het zeker?",
                 }
               }
             />,
@@ -567,7 +571,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "dangerouslySetInnerHTML": Object {
-                "__html": undefined,
+                "__html": "Weet u het zeker?",
               },
             },
             "ref": null,

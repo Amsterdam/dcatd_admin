@@ -46,10 +46,13 @@ const Modal = props => (
     size="tiny"
   >
     <SemanticModal.Header>
-      { modalHeader[props.modal.content] }
+      { modalHeader[props.modal.content] || 'Let op!' }
     </SemanticModal.Header>
     <SemanticModal.Content>
-      <div dangerouslySetInnerHTML={{ __html: modalContent[props.modal.content] }} />
+      <div dangerouslySetInnerHTML={{
+        __html: modalContent[props.modal.content] || props.modal.content
+      }}
+      />
     </SemanticModal.Content>
     <SemanticModal.Actions>
       <button
