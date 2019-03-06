@@ -151,35 +151,37 @@ class DatasetForm extends Component {
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
         >
-          <div>
-            <button
-              className="dcatd-form-button dcatd-form-button-submit"
-              type="submit"
-            >
-              Opslaan</button>
-            <button
-              className="dcatd-form-button dcatd-form-button-cancel"
-              onClick={this.handleCancel}
-              type="button"
-            >
-              Annuleren</button>
-            {(this.hasDataset() && isAdmin()) ?
+          <div className="dcatd-form-footer">
+            <div className="dcatd-form-footer__container">
               <button
-                onClick={() => this.props.setModal({
-                  actionLabel: 'Dataset verwijderen',
-                  cancelLabel: 'Annuleren',
-                  content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
-                  open: true,
-                  onProceed: () => {
-                    this.props.onRemove(dataset);
-                  }
-                })}
-                type="button"
-                className="dcatd-form-button dcatd-form-button-remove"
+                className="dcatd-form-button dcatd-form-button-submit"
+                type="submit"
               >
-                Dataset verwijderen
-              </button>
-              : ''}
+                Opslaan</button>
+              <button
+                className="dcatd-form-button dcatd-form-button-cancel"
+                onClick={this.handleCancel}
+                type="button"
+              >
+                Annuleren</button>
+              {(this.hasDataset() && isAdmin()) ?
+                <button
+                  onClick={() => this.props.setModal({
+                    actionLabel: 'Dataset verwijderen',
+                    cancelLabel: 'Annuleren',
+                    content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
+                    open: true,
+                    onProceed: () => {
+                      this.props.onRemove(dataset);
+                    }
+                  })}
+                  type="button"
+                  className="dcatd-form-button dcatd-form-button-remove"
+                >
+                  Dataset verwijderen
+                </button>
+                : ''}
+            </div>
           </div>
         </Form>
       </div>

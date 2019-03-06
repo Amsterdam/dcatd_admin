@@ -49,7 +49,7 @@ const Modal = props => (
       { modalHeader[props.modal.content] || 'Let op!' }
     </SemanticModal.Header>
     <SemanticModal.Content>
-      <div dangerouslySetInnerHTML={{
+      <div dangerouslySetInnerHTML={{ // eslint-disable-line react/no-danger
         __html: modalContent[props.modal.content] || props.modal.content
       }}
       />
