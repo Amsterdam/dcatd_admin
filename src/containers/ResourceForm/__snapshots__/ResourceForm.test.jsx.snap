@@ -497,21 +497,27 @@ ShallowWrapper {
             }
           }
         >
-          <div>
-            <button
-              className="dcatd-form-button dcatd-form-button-submit"
-              type="submit"
+          <div
+            className="dcatd-form-footer dcatd-form-footer--extra-high"
+          >
+            <div
+              className="dcatd-form-footer__container"
             >
-              OK en terug
-            </button>
-            <button
-              className="dcatd-form-button dcatd-form-button-cancel"
-              onClick={[Function]}
-              type="button"
-            >
-              Annuleren
-            </button>
-            
+              <button
+                className="dcatd-form-button dcatd-form-button-submit"
+                type="submit"
+              >
+                OK en terug
+              </button>
+              <button
+                className="dcatd-form-button dcatd-form-button-cancel"
+                onClick={[Function]}
+                type="button"
+              >
+                Annuleren
+              </button>
+              
+            </div>
             <div
               className="resource-form__disclaimer"
             >
@@ -560,21 +566,27 @@ ShallowWrapper {
         "nodeType": "class",
         "props": Object {
           "ErrorList": [Function],
-          "children": <div>
-            <button
-              className="dcatd-form-button dcatd-form-button-submit"
-              type="submit"
+          "children": <div
+            className="dcatd-form-footer dcatd-form-footer--extra-high"
+          >
+            <div
+              className="dcatd-form-footer__container"
             >
-              OK en terug
-            </button>
-            <button
-              className="dcatd-form-button dcatd-form-button-cancel"
-              onClick={[Function]}
-              type="button"
-            >
-              Annuleren
-            </button>
-            
+              <button
+                className="dcatd-form-button dcatd-form-button-submit"
+                type="submit"
+              >
+                OK en terug
+              </button>
+              <button
+                className="dcatd-form-button dcatd-form-button-cancel"
+                onClick={[Function]}
+                type="button"
+              >
+                Annuleren
+              </button>
+              
+            </div>
             <div
               className="resource-form__disclaimer"
             >
@@ -830,26 +842,31 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <button
-                className="dcatd-form-button dcatd-form-button-submit"
-                type="submit"
+              <div
+                className="dcatd-form-footer__container"
               >
-                OK en terug
-              </button>,
-              <button
-                className="dcatd-form-button dcatd-form-button-cancel"
-                onClick={[Function]}
-                type="button"
-              >
-                Annuleren
-              </button>,
-              "",
+                <button
+                  className="dcatd-form-button dcatd-form-button-submit"
+                  type="submit"
+                >
+                  OK en terug
+                </button>
+                <button
+                  className="dcatd-form-button dcatd-form-button-cancel"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Annuleren
+                </button>
+                
+              </div>,
               <div
                 className="resource-form__disclaimer"
               >
                 Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het opslaan van de dataset wordt ook de resource opgeslagen.
               </div>,
             ],
+            "className": "dcatd-form-footer dcatd-form-footer--extra-high",
           },
           "ref": null,
           "rendered": Array [
@@ -858,29 +875,57 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "OK en terug",
-                "className": "dcatd-form-button dcatd-form-button-submit",
-                "type": "submit",
+                "children": Array [
+                  <button
+                    className="dcatd-form-button dcatd-form-button-submit"
+                    type="submit"
+                  >
+                    OK en terug
+                  </button>,
+                  <button
+                    className="dcatd-form-button dcatd-form-button-cancel"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Annuleren
+                  </button>,
+                  "",
+                ],
+                "className": "dcatd-form-footer__container",
               },
               "ref": null,
-              "rendered": "OK en terug",
-              "type": "button",
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "OK en terug",
+                    "className": "dcatd-form-button dcatd-form-button-submit",
+                    "type": "submit",
+                  },
+                  "ref": null,
+                  "rendered": "OK en terug",
+                  "type": "button",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Annuleren",
+                    "className": "dcatd-form-button dcatd-form-button-cancel",
+                    "onClick": [Function],
+                    "type": "button",
+                  },
+                  "ref": null,
+                  "rendered": "Annuleren",
+                  "type": "button",
+                },
+                "",
+              ],
+              "type": "div",
             },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": "Annuleren",
-                "className": "dcatd-form-button dcatd-form-button-cancel",
-                "onClick": [Function],
-                "type": "button",
-              },
-              "ref": null,
-              "rendered": "Annuleren",
-              "type": "button",
-            },
-            "",
             Object {
               "instance": null,
               "key": undefined,
@@ -1172,21 +1217,27 @@ ShallowWrapper {
               }
             }
           >
-            <div>
-              <button
-                className="dcatd-form-button dcatd-form-button-submit"
-                type="submit"
+            <div
+              className="dcatd-form-footer dcatd-form-footer--extra-high"
+            >
+              <div
+                className="dcatd-form-footer__container"
               >
-                OK en terug
-              </button>
-              <button
-                className="dcatd-form-button dcatd-form-button-cancel"
-                onClick={[Function]}
-                type="button"
-              >
-                Annuleren
-              </button>
-              
+                <button
+                  className="dcatd-form-button dcatd-form-button-submit"
+                  type="submit"
+                >
+                  OK en terug
+                </button>
+                <button
+                  className="dcatd-form-button dcatd-form-button-cancel"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Annuleren
+                </button>
+                
+              </div>
               <div
                 className="resource-form__disclaimer"
               >
@@ -1235,21 +1286,27 @@ ShallowWrapper {
           "nodeType": "class",
           "props": Object {
             "ErrorList": [Function],
-            "children": <div>
-              <button
-                className="dcatd-form-button dcatd-form-button-submit"
-                type="submit"
+            "children": <div
+              className="dcatd-form-footer dcatd-form-footer--extra-high"
+            >
+              <div
+                className="dcatd-form-footer__container"
               >
-                OK en terug
-              </button>
-              <button
-                className="dcatd-form-button dcatd-form-button-cancel"
-                onClick={[Function]}
-                type="button"
-              >
-                Annuleren
-              </button>
-              
+                <button
+                  className="dcatd-form-button dcatd-form-button-submit"
+                  type="submit"
+                >
+                  OK en terug
+                </button>
+                <button
+                  className="dcatd-form-button dcatd-form-button-cancel"
+                  onClick={[Function]}
+                  type="button"
+                >
+                  Annuleren
+                </button>
+                
+              </div>
               <div
                 className="resource-form__disclaimer"
               >
@@ -1505,26 +1562,31 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": Array [
-                <button
-                  className="dcatd-form-button dcatd-form-button-submit"
-                  type="submit"
+                <div
+                  className="dcatd-form-footer__container"
                 >
-                  OK en terug
-                </button>,
-                <button
-                  className="dcatd-form-button dcatd-form-button-cancel"
-                  onClick={[Function]}
-                  type="button"
-                >
-                  Annuleren
-                </button>,
-                "",
+                  <button
+                    className="dcatd-form-button dcatd-form-button-submit"
+                    type="submit"
+                  >
+                    OK en terug
+                  </button>
+                  <button
+                    className="dcatd-form-button dcatd-form-button-cancel"
+                    onClick={[Function]}
+                    type="button"
+                  >
+                    Annuleren
+                  </button>
+                  
+                </div>,
                 <div
                   className="resource-form__disclaimer"
                 >
                   Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het opslaan van de dataset wordt ook de resource opgeslagen.
                 </div>,
               ],
+              "className": "dcatd-form-footer dcatd-form-footer--extra-high",
             },
             "ref": null,
             "rendered": Array [
@@ -1533,29 +1595,57 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "OK en terug",
-                  "className": "dcatd-form-button dcatd-form-button-submit",
-                  "type": "submit",
+                  "children": Array [
+                    <button
+                      className="dcatd-form-button dcatd-form-button-submit"
+                      type="submit"
+                    >
+                      OK en terug
+                    </button>,
+                    <button
+                      className="dcatd-form-button dcatd-form-button-cancel"
+                      onClick={[Function]}
+                      type="button"
+                    >
+                      Annuleren
+                    </button>,
+                    "",
+                  ],
+                  "className": "dcatd-form-footer__container",
                 },
                 "ref": null,
-                "rendered": "OK en terug",
-                "type": "button",
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "OK en terug",
+                      "className": "dcatd-form-button dcatd-form-button-submit",
+                      "type": "submit",
+                    },
+                    "ref": null,
+                    "rendered": "OK en terug",
+                    "type": "button",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Annuleren",
+                      "className": "dcatd-form-button dcatd-form-button-cancel",
+                      "onClick": [Function],
+                      "type": "button",
+                    },
+                    "ref": null,
+                    "rendered": "Annuleren",
+                    "type": "button",
+                  },
+                  "",
+                ],
+                "type": "div",
               },
-              Object {
-                "instance": null,
-                "key": undefined,
-                "nodeType": "host",
-                "props": Object {
-                  "children": "Annuleren",
-                  "className": "dcatd-form-button dcatd-form-button-cancel",
-                  "onClick": [Function],
-                  "type": "button",
-                },
-                "ref": null,
-                "rendered": "Annuleren",
-                "type": "button",
-              },
-              "",
               Object {
                 "instance": null,
                 "key": undefined,
