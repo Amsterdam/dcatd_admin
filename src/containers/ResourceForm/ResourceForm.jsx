@@ -213,7 +213,7 @@ class ResourceForm extends Component {
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
         >
-          <div className="dcatd-form-footer">
+          <div className="dcatd-form-footer dcatd-form-footer--extra-high">
             <div className="dcatd-form-footer__container">
               <button
                 className="dcatd-form-button dcatd-form-button-submit"
@@ -248,10 +248,10 @@ class ResourceForm extends Component {
                   Resource verwijderen
                 </button>
                 : ''}
-              <div className="resource-form__disclaimer">
+            </div>
+            <div className="resource-form__disclaimer">
                 Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het
                 opslaan van de dataset wordt ook de resource opgeslagen.
-              </div>
             </div>
           </div>
         </Form>
