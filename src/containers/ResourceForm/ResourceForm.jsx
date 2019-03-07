@@ -213,43 +213,45 @@ class ResourceForm extends Component {
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
         >
-          <div>
-            <button
-              className="dcatd-form-button dcatd-form-button-submit"
-              type="submit"
-            >
-              OK en terug</button>
-            <button
-              onClick={this.handleCancel}
-              className="dcatd-form-button dcatd-form-button-cancel"
-              type="button"
-            >
-              Annuleren</button>
-            {this.hasResource() ?
+          <div className="dcatd-form-footer">
+            <div className="dcatd-form-footer__container">
               <button
-                onClick={() => this.props.setModal({
-                  actionLabel: 'Resource verwijderen',
-                  cancelLabel: 'Annuleren',
-                  content: 'Door de resource te verwijderen, gaan alle gegevens van de resource verloren',
-                  open: true,
-                  onProceed: () => {
-                    this.handleSubmit({
-                      formData: {
-                        '@id': formData['@id'],
-                        'dcat:accessURL': 'remove'
-                      }
-                    });
-                  }
-                })}
-                type="button"
-                className="dcatd-form-button dcatd-form-button-remove"
+                className="dcatd-form-button dcatd-form-button-submit"
+                type="submit"
               >
-                Resource verwijderen
-              </button>
-              : ''}
-            <div className="resource-form__disclaimer">
-              Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het
-              opslaan van de dataset wordt ook de resource opgeslagen.
+                OK en terug</button>
+              <button
+                onClick={this.handleCancel}
+                className="dcatd-form-button dcatd-form-button-cancel"
+                type="button"
+              >
+                Annuleren</button>
+              {this.hasResource() ?
+                <button
+                  onClick={() => this.props.setModal({
+                    actionLabel: 'Resource verwijderen',
+                    cancelLabel: 'Annuleren',
+                    content: 'Door de resource te verwijderen, gaan alle gegevens van de resource verloren',
+                    open: true,
+                    onProceed: () => {
+                      this.handleSubmit({
+                        formData: {
+                          '@id': formData['@id'],
+                          'dcat:accessURL': 'remove'
+                        }
+                      });
+                    }
+                  })}
+                  type="button"
+                  className="dcatd-form-button dcatd-form-button-remove"
+                >
+                  Resource verwijderen
+                </button>
+                : ''}
+              <div className="resource-form__disclaimer">
+                Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het
+                opslaan van de dataset wordt ook de resource opgeslagen.
+              </div>
             </div>
           </div>
         </Form>
