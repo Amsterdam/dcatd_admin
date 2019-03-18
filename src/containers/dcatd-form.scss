@@ -253,4 +253,24 @@ h1 {
     border: 2px solid $black;
     box-shadow: none;
   }
+
+  &-footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: whitesmoke;
+    
+    &__container {
+        width: 960px;
+        margin: 0 auto;
+        padding: 10px;
+    }
+        
+    &--extra-high {
+      height: 80px;
+    }
+  }
+    
 }

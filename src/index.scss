@@ -9,3 +9,7 @@ html,
 body {
   @extend %base-font;
 }
+
+body {
+  min-height: 100vh;
+}
