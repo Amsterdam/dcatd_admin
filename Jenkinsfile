@@ -24,14 +24,6 @@ node {
         checkout scm
     }
 
-    stage('Deploy Bakkie') {
-        if(BRANCH != "master") {
-            tryStep "bakkie", {
-                sh "scripts/bakkie.sh ${BRANCH}"
-            }
-        }
-    }
-
     stage('Unit tests') {
       String PROJECT = "${PROJECT_PREFIX}unit"
       tryStep "unit tests", {
@@ -44,7 +36,7 @@ node {
     
     stage("Build image") {
         tryStep "build", {
-            def image = docker.build("build.datapunt.amsterdam.nl:5000/atlas/dcatd_admin:${env.BUILD_NUMBER}")
+            def image = docker.build("repo.data.amsterdam.nl/atlas/dcatd_admin:${env.BUILD_NUMBER}")
             image.push()
         }
     }
@@ -56,7 +48,7 @@ if (BRANCH == "master") {
     node {
         stage('Push acceptance image') {
             tryStep "image tagging", {
-                def image = docker.image("build.datapunt.amsterdam.nl:5000/atlas/dcatd_admin:${env.BUILD_NUMBER}")
+                def image = docker.image("repo.data.amsterdam.nl/atlas/dcatd_admin:${env.BUILD_NUMBER}")
                 image.pull()
                 image.push("acceptance")
             }
@@ -86,7 +78,7 @@ if (BRANCH == "master") {
     node {
         stage("Build production image") {
             tryStep "build", {
-                def image = docker.build("build.datapunt.amsterdam.nl:5000/atlas/dcatd_admin:${env.BUILD_NUMBER}", "--build-arg NODE_ENV=production .")
+                def image = docker.build("repo.data.amsterdam.nl/atlas/dcatd_admin:${env.BUILD_NUMBER}", "--build-arg NODE_ENV=production .")
                 image.push("production")
                 image.push("lastest")
             }
