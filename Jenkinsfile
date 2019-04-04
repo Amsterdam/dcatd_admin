@@ -24,14 +24,6 @@ node {
         checkout scm
     }
 
-    stage('Deploy Bakkie') {
-        if(BRANCH != "master") {
-            tryStep "bakkie", {
-                sh "scripts/bakkie.sh ${BRANCH}"
-            }
-        }
-    }
-
     stage('Unit tests') {
       String PROJECT = "${PROJECT_PREFIX}unit"
       tryStep "unit tests", {
