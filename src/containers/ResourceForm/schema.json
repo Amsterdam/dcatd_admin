@@ -64,7 +64,7 @@
     },
     "dcat:accessURL": {
       "description":
-        "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+        "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
       "format": "uri",
       "minLength": 1,
       "title": "URL of upload",

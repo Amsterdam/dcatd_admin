@@ -200,6 +200,7 @@ class ResourceForm extends Component {
           key={formId}
           formData={formData}
           formContext={{
+            formData,
             setResourceSpecs: this.setResourceSpecs,
             setUploadStatus: this.setUploadStatus
           }}

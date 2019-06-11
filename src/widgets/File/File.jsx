@@ -85,11 +85,16 @@ class File extends Component {
           value: location
         });
 
-        if (this.props.registry.formContext && this.props.registry.formContext.setResourceSpecs) {
-          this.props.registry.formContext.setResourceSpecs({
+        const { formContext } = this.props.registry;
+        if (formContext && formContext.setResourceSpecs) {
+          formContext.setResourceSpecs({
             'dcat:byteSize': this.state.total,
             'dcat:mediaType': files[0].type,
-            'ams:distributionType': 'file'
+            'ams:distributionType': 'file',
+            'dct:modified': new Date().toISOString().split('T')[0],
+            'foaf:isPrimaryTopicOf': {
+              ...formContext.formData['foaf:isPrimaryTopicOf']
+            }
           });
         }
 
@@ -139,7 +144,8 @@ class File extends Component {
 
   handleBlur() {
     if (this.state.value !== this.props.value) {
-      if (this.props.registry.formContext && this.props.registry.formContext.setResourceSpecs) {
+      const { formContext } = this.props.registry;
+      if (formContext && formContext.setResourceSpecs) {
         this.props.registry.formContext.setResourceSpecs({
           'dcat:byteSize': 0,
           'dcat:accessURL': this.state.value

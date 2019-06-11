@@ -90,7 +90,7 @@ ShallowWrapper {
             "type": "string",
           },
           "dcat:accessURL": Object {
-            "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+            "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
             "format": "uri",
             "minLength": 1,
             "title": "URL of upload",
@@ -267,6 +267,7 @@ ShallowWrapper {
           }
           formContext={
             Object {
+              "formData": Object {},
               "setResourceSpecs": [Function],
               "setUploadStatus": [Function],
             }
@@ -363,7 +364,7 @@ ShallowWrapper {
                   "type": "string",
                 },
                 "dcat:accessURL": Object {
-                  "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                  "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                   "format": "uri",
                   "minLength": 1,
                   "title": "URL of upload",
@@ -610,6 +611,7 @@ ShallowWrapper {
             "typeahead": [Function],
           },
           "formContext": Object {
+            "formData": Object {},
             "setResourceSpecs": [Function],
             "setUploadStatus": [Function],
           },
@@ -704,7 +706,7 @@ ShallowWrapper {
                 "type": "string",
               },
               "dcat:accessURL": Object {
-                "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                 "format": "uri",
                 "minLength": 1,
                 "title": "URL of upload",
@@ -987,6 +989,7 @@ ShallowWrapper {
             }
             formContext={
               Object {
+                "formData": Object {},
                 "setResourceSpecs": [Function],
                 "setUploadStatus": [Function],
               }
@@ -1083,7 +1086,7 @@ ShallowWrapper {
                     "type": "string",
                   },
                   "dcat:accessURL": Object {
-                    "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                    "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                     "format": "uri",
                     "minLength": 1,
                     "title": "URL of upload",
@@ -1330,6 +1333,7 @@ ShallowWrapper {
               "typeahead": [Function],
             },
             "formContext": Object {
+              "formData": Object {},
               "setResourceSpecs": [Function],
               "setUploadStatus": [Function],
             },
@@ -1424,7 +1428,7 @@ ShallowWrapper {
                   "type": "string",
                 },
                 "dcat:accessURL": Object {
-                  "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                  "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                   "format": "uri",
                   "minLength": 1,
                   "title": "URL of upload",

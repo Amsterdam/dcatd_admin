@@ -7,7 +7,6 @@ import './resources.scss';
 
 const getNow = () => new Date(Date.now());
 
-
 class Resources extends Component {
   constructor(props) {
     super(props);
@@ -50,15 +49,7 @@ class Resources extends Component {
     event.preventDefault();
 
     if (this.props.formContext && this.props.formContext.handleSetResource) {
-      const today = getNow().toISOString().split('T')[0];
-      this.props.formContext.handleSetResource({ ...resource,
-        ...{ 'dct:modified': today,
-          'foaf:isPrimaryTopicOf': {
-            ...resource['foaf:isPrimaryTopicOf'],
-            'dct:modified': today
-          }
-        }
-      });
+      this.props.formContext.handleSetResource(resource);
     }
   }
 
