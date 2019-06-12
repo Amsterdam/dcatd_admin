@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 
 import defer from 'lodash.defer';
 
+import getNow from '../../services/get-now/get-now';
 import api from '../../services/api/api';
 import serverError from '../../services/server-error/server-error';
 import { getAccessToken } from '../../services/auth/auth';
@@ -91,7 +92,7 @@ class File extends Component {
             'dcat:byteSize': this.state.total,
             'dcat:mediaType': files[0].type,
             'ams:distributionType': 'file',
-            'dct:modified': new Date().toISOString().split('T')[0],
+            'dct:modified': getNow().toISOString().split('T')[0],
             'foaf:isPrimaryTopicOf': {
               ...formContext.formData['foaf:isPrimaryTopicOf']
             }

@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import getNow from '../../services/get-now/get-now';
 import ResourcesItem from './ResourcesItem/ResourcesItem';
 
 import './resources.scss';
-
-const getNow = () => new Date(Date.now());
 
 class Resources extends Component {
   constructor(props) {
