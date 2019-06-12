@@ -20,7 +20,7 @@ ShallowWrapper {
           "dct:title": "Data via maps.amsterdam.nl",
           "foaf:isPrimaryTopicOf": Object {
             "dct:issued": "2017-02-02",
-            "dct:modified": "2017-02-02",
+            "dct:modified": "2019-01-01",
           },
         },
         Object {
@@ -31,10 +31,11 @@ ShallowWrapper {
           "ams:resourceType": "vis",
           "dcat:accessURL": "http://maps.amsterdam.nl/markten/",
           "dcat:mediaType": "text/html",
+          "dct:modified": "2019-01-01",
           "dct:title": "Weergave op kaart",
           "foaf:isPrimaryTopicOf": Object {
             "dct:issued": "2017-02-02",
-            "dct:modified": "2017-02-02",
+            "dct:modified": "2019-01-01",
           },
         },
       ]

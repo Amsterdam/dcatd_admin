@@ -2,6 +2,9 @@ import React from 'react';
 
 import Resources from './Resources';
 
+const mockDate = '2019-01-01T11:01:58.135Z';
+const modified = mockDate.split('T')[0];
+
 const mockResources = [{
   'dct:title': 'Data via maps.amsterdam.nl',
   'dct:description': 'Let op!',
@@ -11,7 +14,7 @@ const mockResources = [{
   'ams:distributionType': 'file',
   'dcat:mediaType': 'text/csv',
   'ams:classification': 'public',
-  'foaf:isPrimaryTopicOf': { 'dct:issued': '2017-02-02', 'dct:modified': '2017-02-02' },
+  'foaf:isPrimaryTopicOf': { 'dct:issued': '2017-02-02', 'dct:modified': modified },
   '@id': '_:d1'
 },
 {
@@ -21,8 +24,9 @@ const mockResources = [{
   'ams:resourceType': 'vis',
   'ams:distributionType': 'file',
   'dcat:mediaType': 'text/html',
+  'dct:modified': modified,
   'ams:classification': 'public',
-  'foaf:isPrimaryTopicOf': { 'dct:issued': '2017-02-02', 'dct:modified': '2017-02-02' },
+  'foaf:isPrimaryTopicOf': { 'dct:issued': '2017-02-02', 'dct:modified': modified },
   '@id': '_:d2'
 }];
 
@@ -40,6 +44,10 @@ const mockSchema = {
 };
 
 describe('The Resources component (react-jsonschema-forms custom field)', () => {
+  beforeEach(() => {
+    global.Date.now = jest.fn(() => new Date(mockDate).valueOf());
+  });
+
   describe('renders component', () => {
     it('renders two resources', () => {
       const wrap = shallow(

@@ -311,7 +311,7 @@ ShallowWrapper {
                   "type": "string",
                 },
                 "dcat:accessURL": Object {
-                  "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                  "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                   "format": "uri",
                   "minLength": 1,
                   "title": "URL of upload",
@@ -2451,7 +2451,7 @@ ShallowWrapper {
                         "type": "string",
                       },
                       "dcat:accessURL": Object {
-                        "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                        "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                         "format": "uri",
                         "minLength": 1,
                         "title": "URL of upload",
@@ -4643,7 +4643,7 @@ ShallowWrapper {
                       "type": "string",
                     },
                     "dcat:accessURL": Object {
-                      "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                      "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                       "format": "uri",
                       "minLength": 1,
                       "title": "URL of upload",
@@ -6867,7 +6867,7 @@ ShallowWrapper {
                           "type": "string",
                         },
                         "dcat:accessURL": Object {
-                          "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                          "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                           "format": "uri",
                           "minLength": 1,
                           "title": "URL of upload",
@@ -9059,7 +9059,7 @@ ShallowWrapper {
                         "type": "string",
                       },
                       "dcat:accessURL": Object {
-                        "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden",
+                        "description": "Toegangslink naar de daadwerkelijke gegevensset óf downloadlink om gegevensset te downloaden. Vergeet niet de Verversingsdatum hieronder te controleren.",
                         "format": "uri",
                         "minLength": 1,
                         "title": "URL of upload",
