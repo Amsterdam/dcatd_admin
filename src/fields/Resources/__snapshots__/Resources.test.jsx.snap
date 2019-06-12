@@ -2,7 +2,6 @@
 
 exports[`The Resources component (react-jsonschema-forms custom field) renders component renders two resources 1`] = `
 ShallowWrapper {
-  "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Resources
     formContext={Object {}}
@@ -21,7 +20,7 @@ ShallowWrapper {
           "dct:title": "Data via maps.amsterdam.nl",
           "foaf:isPrimaryTopicOf": Object {
             "dct:issued": "2017-02-02",
-            "dct:modified": "2017-02-02",
+            "dct:modified": "2019-01-01",
           },
         },
         Object {
@@ -32,10 +31,11 @@ ShallowWrapper {
           "ams:resourceType": "vis",
           "dcat:accessURL": "http://maps.amsterdam.nl/markten/",
           "dcat:mediaType": "text/html",
+          "dct:modified": "2019-01-01",
           "dct:title": "Weergave op kaart",
           "foaf:isPrimaryTopicOf": Object {
             "dct:issued": "2017-02-02",
-            "dct:modified": "2017-02-02",
+            "dct:modified": "2019-01-01",
           },
         },
       ]
@@ -67,8 +67,10 @@ ShallowWrapper {
   />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
+    "checkPropTypes": [Function],
     "getNode": [Function],
     "render": [Function],
+    "simulateError": [Function],
     "simulateEvent": [Function],
     "unmount": [Function],
   },
@@ -1010,8 +1012,28 @@ ShallowWrapper {
     "adapter": ReactSixteenAdapter {
       "options": Object {
         "enableComponentDidUpdateOnSetState": true,
+        "legacyContextMode": "parent",
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getChildContext": Object {
+            "calledByRenderer": false,
+          },
+          "getDerivedStateFromError": false,
+          "getDerivedStateFromProps": Object {
+            "hasShouldComponentUpdateBug": true,
+          },
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
       },
     },
+    Symbol(enzyme.__providerValues__): undefined,
   },
+  Symbol(enzyme.__providerValues__): Map {},
+  Symbol(enzyme.__childContext__): null,
 }
 `;

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import getNow from '../../services/get-now/get-now';
 import ResourcesItem from './ResourcesItem/ResourcesItem';
 
 import './resources.scss';
@@ -30,7 +31,7 @@ class Resources extends Component {
 
   handleAddResource(type) {
     if (this.props.formContext && this.props.formContext.handleSetResource) {
-      const today = new Date().toISOString().split('T')[0];
+      const today = getNow().toISOString().split('T')[0];
       this.props.formContext.handleSetResource({
         'ams:classification': 'public',
         'ams:resourceType': type,
