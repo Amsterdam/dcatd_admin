@@ -2,16 +2,16 @@
 
 def tryStep(String message, Closure block, Closure tearDown = null) {
     try {
-        block();
+        block()
     }
     catch (Throwable t) {
         slackSend message: "${env.JOB_NAME}: ${message} failure ${env.BUILD_URL}", channel: '#ci-channel', color: 'danger'
 
-        throw t;
+        throw t
     }
     finally {
         if (tearDown) {
-            tearDown();
+            tearDown()
         }
     }
 }
@@ -33,11 +33,13 @@ node {
           sh "docker-compose -p ${PROJECT} down -v || true"
       }
     }
-    
+
     stage("Build image") {
         tryStep "build", {
-            def image = docker.build("repo.data.amsterdam.nl/atlas/dcatd_admin:${env.BUILD_NUMBER}")
+            docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
+            def image = docker.build("atlas/dcatd_admin:${env.BUILD_NUMBER}")
             image.push()
+            }
         }
     }
 }
@@ -48,9 +50,11 @@ if (BRANCH == "master") {
     node {
         stage('Push acceptance image') {
             tryStep "image tagging", {
-                def image = docker.image("repo.data.amsterdam.nl/atlas/dcatd_admin:${env.BUILD_NUMBER}")
+                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
+                def image = docker.image("atlas/dcatd_admin:${env.BUILD_NUMBER}")
                 image.pull()
                 image.push("acceptance")
+                }
             }
         }
     }
@@ -69,7 +73,6 @@ if (BRANCH == "master") {
         }
     }
 
-
     stage('Waiting for approval') {
         slackSend channel: '#ci-channel', color: 'warning', message: 'Dcatd-Admin is waiting for Production Release - please confirm'
         input "Deploy to Production?"
@@ -78,9 +81,11 @@ if (BRANCH == "master") {
     node {
         stage("Build production image") {
             tryStep "build", {
-                def image = docker.build("repo.data.amsterdam.nl/atlas/dcatd_admin:${env.BUILD_NUMBER}", "--build-arg NODE_ENV=production .")
+                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
+                def image = docker.build("atlas/dcatd_admin:${env.BUILD_NUMBER}", "--build-arg NODE_ENV=production .")
                 image.push("production")
-                image.push("lastest")
+                image.push("latest")
+                }
             }
         }
     }
