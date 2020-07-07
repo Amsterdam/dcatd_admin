@@ -13,8 +13,7 @@ rm -rf node_modules/
 npm --production=false \
 	--unsafe-perm \
 	--verbose \
-	--registry=https://nexus.data.amsterdam.nl/repository/npm-group/ \
-	install 
+	install
 npm run build
 
 echo Publish distribution in web-dir
