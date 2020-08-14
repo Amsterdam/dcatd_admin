@@ -5,7 +5,6 @@ FROM node:10.10 as builder
   RUN npm --production=false \
           --unsafe-perm \
           --verbose \
-          --registry=https://nexus.data.amsterdam.nl/repository/npm-group/ \
           install && \
       npm run build
 

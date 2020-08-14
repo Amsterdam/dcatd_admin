@@ -35,10 +35,10 @@ node {
           sh "docker-compose -p ${PROJECT} down -v || true"
       }
     }
-    
+
     stage("Build image") {
         tryStep "build", {
-                docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
+            docker.withRegistry("${DOCKER_REGISTRY_HOST}",'docker_registry_auth') {
             def image = docker.build("atlas/dcatd_admin:${env.BUILD_NUMBER}")
             image.push()
             }
@@ -73,7 +73,6 @@ if (BRANCH == "master") {
             }
         }
     }
-
 
     stage('Waiting for approval') {
         slackSend channel: '#ci-channel', color: 'warning', message: 'Dcatd-Admin is waiting for Production Release - please confirm'
