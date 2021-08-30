@@ -7,7 +7,7 @@
     "preinstall": "npm cache verify",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js",
+    "test": "jest src",
     "test-watch": "node scripts/test.js --config=jest.config.dev.js --watch --coverage=true --debug=false",
     "test-update": "node scripts/test.js --updateSnapshot"
   },
@@ -62,6 +62,7 @@
   "dependencies": {
     "filesize": "^3.6.0",
     "history": "^4.7.2",
+    "keycloak-js": "^15.0.2",
     "lodash.defer": "^4.1.0",
     "moment": "^2.20.1",
     "object-assign": "4.1.1",

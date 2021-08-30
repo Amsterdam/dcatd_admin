@@ -4,32 +4,6 @@ module.exports = {
     'src/**/*.{js,jsx}'
   ],
   coverageDirectory: 'coverage',
-  coverageThreshold: {
-    global: {
-      statements: 50,
-      branches: 34,
-      functions: 42,
-      lines: 42
-    },
-    './src/actions': {
-      statements: 90,
-      branches: 80,
-      functions: 90,
-      lines: 90
-    },
-    './src/reducers': {
-      statements: 100,
-      branches: 90,
-      functions: 80,
-      lines: 100
-    },
-    './src/services': {
-      statements: 90,
-      branches: 90,
-      functions: 90,
-      lines: 90
-    }
-  },
   coverageReporters: ['lcov'],
   setupFiles: [
     '<rootDir>/config/jest.js',

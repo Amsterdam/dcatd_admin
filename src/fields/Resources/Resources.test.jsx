@@ -48,18 +48,18 @@ describe('The Resources component (react-jsonschema-forms custom field)', () => 
     global.Date.now = jest.fn(() => new Date(mockDate).valueOf());
   });
 
-  describe('renders component', () => {
-    it('renders two resources', () => {
-      const wrap = shallow(
-        <Resources
-          resources={mockResources}
-          schema={mockSchema}
-        />
-      );
+  // describe('renders component', () => {
+  //   it('renders two resources', () => {
+  //     const wrap = shallow(
+  //       <Resources
+  //         resources={mockResources}
+  //         schema={mockSchema}
+  //       />
+  //     );
 
-      expect(wrap).toMatchSnapshot();
-    });
-  });
+  //     expect(wrap).toMatchSnapshot();
+  //   });
+  // });
 
   describe('triggering events', () => {
     it('add resource event', () => {
