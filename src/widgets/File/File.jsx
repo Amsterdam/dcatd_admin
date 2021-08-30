@@ -94,6 +94,7 @@ class File extends Component {
             'ams:distributionType': 'file',
             'dct:modified': getNow().toISOString().split('T')[0],
             'foaf:isPrimaryTopicOf': {
+              // eslint-disable-next-line react/prop-types
               ...formContext.formData['foaf:isPrimaryTopicOf']
             }
           });

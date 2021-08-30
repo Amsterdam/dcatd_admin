@@ -62,6 +62,7 @@
   "dependencies": {
     "filesize": "^3.6.0",
     "history": "^4.7.2",
+    "keycloak-js": "^15.0.2",
     "lodash.defer": "^4.1.0",
     "moment": "^2.20.1",
     "object-assign": "4.1.1",

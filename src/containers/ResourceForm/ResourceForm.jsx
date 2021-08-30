@@ -251,8 +251,8 @@ class ResourceForm extends Component {
                 : ''}
             </div>
             <div className="resource-form__disclaimer">
-                Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het
-                opslaan van de dataset wordt ook de resource opgeslagen.
+              Let op: na het klikken op OK is de resource nog niet opgeslagen. Pas tijdens het
+              opslaan van de dataset wordt ook de resource opgeslagen.
             </div>
           </div>
         </Form>
