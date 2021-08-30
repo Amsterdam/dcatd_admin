@@ -72,6 +72,7 @@ class Resources extends Component {
                 <a
                   href={resource['ams:purl']}
                   target="_blank"
+                  rel="noreferrer"
                   className="resources-type__content-item"
                   key={resource['@id']}
                 >
