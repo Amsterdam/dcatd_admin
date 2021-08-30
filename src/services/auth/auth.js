@@ -53,22 +53,33 @@ const scopes = [
   'CAT/W'
 ];
 
-const encodedScopes = encodeURIComponent(scopes.join(' '));
-export const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${encodedScopes}`;
+const AuthScope = {
+  CatR: 'CAT/R',
+  CatW: 'CAT/W',
+}
+
+// Catalogus (Dcatd) admin
+const dcatdScopes = [
+  AuthScope.CatR, // Redacteursrechten
+  AuthScope.CatW, // Beheerdersrechten
+]
+
+// const encodedScopes = encodeURIComponent(scopes.join(' '));
+// export const AUTH_PATH = `/oauth2/authorize?idp_id=datapunt&response_type=token&client_id=dcatd_admin&scope=${encodedScopes}`;
 
 // The keys of values we need to store in the session storage
 //
 // `location.pathname` string at the moment we redirect to the
 // OAuth2 authorization service, and need to get back to afterwards
-const RETURN_PATH = 'returnPath';
+// const RETURN_PATH = 'returnPath';
 // The OAuth2 state(token) (OAuth terminology, has nothing to do with
 // our app state), which is a random string
-const STATE_TOKEN = 'stateToken';
+// const STATE_TOKEN = 'stateToken';
 // The access token returned by the OAuth2 authorization service
 // containing user scopes and name
-const ACCESS_TOKEN = 'accessToken';
+// const ACCESS_TOKEN = 'accessToken';
 
-let returnPath;
+// let returnPath;
 let tokenData;
 
 /**
@@ -78,25 +89,25 @@ let tokenData;
  * @param description {string} Error description as returned from the
  * service.
  */
-// function handleError(code, description) {
-//   sessionStorage.removeItem(STATE_TOKEN);
-//   // Remove parameters from the URL, as set by the error callback from the
-//   // OAuth2 authorization service, to clean up the URL.
-//   // location.search = '';
-//   throw new Error('Authorization service responded with error ' +
-//       `${code} [${description}] (${ERROR_MESSAGES[code]})`);
-// }
+function handleError(code, description) {
+  // sessionStorage.removeItem(STATE_TOKEN);
+  // Remove parameters from the URL, as set by the error callback from the
+  // OAuth2 authorization service, to clean up the URL.
+  // location.search = '';
+  throw new Error('Authorization service responded with error ' +
+      `${code} [${description}] (${ERROR_MESSAGES[code]})`);
+}
 
 /**
  * Handles errors in case they were returned by the OAuth2 authorization
  * service.
  */
-// function catchError() {
-//   const params = queryStringParser(location.search);
-//   if (params && params.error) {
-//     handleError(params.error, params.error_description);
-//   }
-// }
+function catchError() {
+  const params = queryStringParser(location.search);
+  if (params && params.error) {
+    handleError(params.error, params.error_description);
+  }
+}
 
 /**
  * Returns the access token from session storage when available.
@@ -258,10 +269,13 @@ export async function initAuth() {
     onLoad: 'check-sso',
     silentCheckSsoRedirectUri: `${window.location.origin}/silent-check-sso.html`,
   })
-
+  
   if (authenticated) {
     await keycloak.loadUserInfo()
   }
+
+  // TODO is this going to do anything?
+  catchError()
 
   return authenticated
 }
@@ -272,12 +286,11 @@ export async function initAuth() {
  * @returns {string} The return path where we moved away from when the login
  * process was initiated.
  */
-export function getReturnPath() {
-  return returnPath;
-}
+// export function getReturnPath() {
+//   return returnPath;
+// }
 
 export function isAdmin() {
-  console.log('tokenData', tokenData)
   return (tokenData) ? tokenData.scopes.includes('CAT/W') : false;
 }
 

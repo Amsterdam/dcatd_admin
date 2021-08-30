@@ -6,8 +6,8 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
-import { HashRouter } from 'react-router-dom';
-import { routerMiddleware, push } from 'react-router-redux';
+import { HashRouter, push } from 'react-router-dom';
+import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
@@ -32,20 +32,21 @@ const store = createStore(
   )
 );
 
-initAuth();
-const returnPath = getReturnPath();
-if (returnPath) {
-  store.dispatch(push(returnPath));
-}
+initAuth().then(() => {
+  const returnPath = getReturnPath();
+  if (returnPath) {
+    store.dispatch(push(returnPath));
+  }
 
-store.dispatch(fetchSchema());
-store.dispatch(fetchUiDataset());
-store.dispatch(fetchUiResource());
-render(
-  <Provider store={store}>
-    <HashRouter>
-      <App />
-    </HashRouter>
-  </Provider>,
-  document.getElementById('root')
-);
+  store.dispatch(fetchSchema());
+  store.dispatch(fetchUiDataset());
+  store.dispatch(fetchUiResource());
+  render(
+    <Provider store={store}>
+      <HashRouter>
+        <App />
+      </HashRouter>
+    </Provider>,
+    document.getElementById('root')
+  );
+});
