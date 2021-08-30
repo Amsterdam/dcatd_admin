@@ -73,7 +73,7 @@
     "react-bootstrap-table": "^4.3.1",
     "react-bootstrap-typeahead": "^2.4.0",
     "react-day-picker": "^7.0.7",
-    "react-dev-utils": "^7.0.1",
+    "react-dev-utils": "^11.0.4",
     "react-dom": "^16.2.0",
     "react-error-overlay": "^1.0.10",
     "react-jsonschema-form": "^1.0.1",
