@@ -34,12 +34,27 @@ keycloak.onTokenExpired = async () => {
 //   AuthScope.CatW, // Beheerdersrechten
 // ]
 
-let tokenData;
-
 export function getAccessToken() {
   // return keycloak.token ?? ''
   // eslint-disable-next-line no-void
   return keycloak.token !== null && keycloak.token !== void 0 ? keycloak.token : '';
+}
+
+function getScopes() {
+  let realmRoles = [];
+  let resourceRoles = [];
+
+  if (keycloak.realmAccess) {
+    realmRoles = keycloak.realmAccess.roles ? keycloak.realmAccess.roles : [];
+  }
+
+  if (keycloak.resourceAccess) {
+    resourceRoles = Object.values(keycloak.resourceAccess);
+  }
+
+  resourceRoles = resourceRoles.flatMap(resource => resource.roles);
+
+  return [...realmRoles, ...resourceRoles];
 }
 
 export function isAuthenticated() {
@@ -87,18 +102,9 @@ export async function initAuth() {
 }
 
 export function isAdmin() {
-  return (tokenData) ? tokenData.scopes.includes('CAT/W') : false;
+  const scopes = getScopes();
+  return scopes ? scopes.includes('CAT/W') : false;
 }
-
-/**
- * Creates an instance of the native JS `Headers` class containing the
- * authorization headers needed for an API call.
- *
- * @returns {Object<string, string>} The headers needed for an API call.
- */
-// export function getAuthHeaders() {
-//   return { Authorization: `Bearer ${getAccessToken()}` };
-// }
 
 export const getAuthHeaders = () => {
   if (!isAuthenticated() || !keycloak.token) {
