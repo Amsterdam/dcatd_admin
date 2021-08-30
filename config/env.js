@@ -75,8 +75,8 @@ function getClientEnvironment(publicUrl) {
         // images into the `src` and `import` them in code to get their paths.
         PUBLIC_URL: publicUrl,
         KEYCLOAK_URL: process.env.KEYCLOAK_URL || 'https://iam.amsterdam.nl/auth',
-        // KEYCLOAK_REALM: process.env.KEYCLOAK_REALM || 'datapunt-ad', // PROD
-        KEYCLOAK_REALM: process.env.KEYCLOAK_REALM || 'datapunt-ad-acc', // ACC
+        KEYCLOAK_REALM: process.env.KEYCLOAK_REALM || 'datapunt-ad', // PROD
+        // KEYCLOAK_REALM: process.env.KEYCLOAK_REALM || 'datapunt-ad-acc', // ACC
         KEYCLOAK_CLIENT: process.env.KEYCLOAK_CLIENT || 'dcatd-admin'
       }
     );
