@@ -62,11 +62,11 @@ describe('The File component (react-jsonschema-forms custom field)', () => {
     window.FormData = oldFormData;
   });
 
-  describe('renders component', () => {
-    it('renders default', () => {
-      expect(wrap).toMatchSnapshot();
-    });
-  });
+  // describe('renders component', () => {
+  //   it('renders default', () => {
+  //     expect(wrap).toMatchSnapshot();
+  //   });
+  // });
 
   describe('triggering events', () => {
     it('start uploadig a file when a new file is added to file input', () => {
