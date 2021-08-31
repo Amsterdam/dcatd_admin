@@ -10,5 +10,16 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css"></link>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/flatly/bootstrap.min.css"></link>
     <link rel="stylesheet" href="https://fast.fonts.net/cssapi/3680cf49-2b05-4b8a-af28-fa9e27d2bed0.css"></link>
+    <% if (!htmlWebpackPlugin.options.skipEnvJSON) { %>
+      <script id="environment" type="application/json">
+        {
+          "NODE_ENV": "${NODE_ENV}",
+          "PUBLIC_URL": "${PUBLIC_URL}",
+          "KEYCLOAK_URL": "${KEYCLOAK_URL}",
+          "KEYCLOAK_REALM": "${KEYCLOAK_REALM}",
+          "KEYCLOAK_CLIENT": "${KEYCLOAK_CLIENT}"
+        }
+      </script>
+    <% } %>
   </body>
 </html>
