@@ -25,6 +25,17 @@ function getEnvironmentVariables() {
   return config;
 }
 
-const environment = { ...defaultEnvironment, ...getEnvironmentVariables() };
+// eslint-disable-next-line import/no-mutable-exports
+let environment = { ...defaultEnvironment, ...getEnvironmentVariables() };
+
+if (window.location.host === 'acc.data.amsterdam.nl') {
+  environment = {
+    ...defaultEnvironment,
+    ...getEnvironmentVariables(),
+    ...{
+      KEYCLOAK_REALM: 'datapunt-ad-acc'
+    }
+  };
+}
 
 export default environment;

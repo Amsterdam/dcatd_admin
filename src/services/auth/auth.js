@@ -90,7 +90,7 @@ export async function initAuth() {
     checkLoginIframe: false,
     pkceMethod: 'S256',
     onLoad: 'check-sso',
-    silentCheckSsoRedirectUri: `${window.location.origin}/silent-check-sso.html`
+    silentCheckSsoRedirectUri: `${window.location.origin}/dcatd_admin/silent-check-sso.html`
   });
 
   if (authenticated) {
