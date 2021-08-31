@@ -5,8 +5,6 @@ const defaultEnvironment = {
   KEYCLOAK_REALM: 'datapunt-ad',
   KEYCLOAK_CLIENT: 'dcatd-admin'
 };
-  
-const environment = { ...defaultEnvironment, ...getEnvironmentVariables() }
 
 /**
  * Gets the environment variables provided at startup to the Docker container.
@@ -26,5 +24,7 @@ function getEnvironmentVariables() {
 
   return config;
 }
+
+const environment = { ...defaultEnvironment, ...getEnvironmentVariables() };
 
 export default environment;
