@@ -10,7 +10,7 @@ services:
   test:
     build:
       context: .
-      target: builder
+      target: build-stage
     environment:
     - NODE_ENV=development
     command: npm run test
