@@ -1,8 +1,15 @@
-# dependencies
-node_modules
-# production
-build
-# misc
-.DS_Store
-npm-debug.log
-.git
+## Ignore everything by default
+*
+
+
+## Allow specific files and folders
+!.*rc
+!*.conf
+!favicon.png
+!index.ejs
+!package*
+!public/
+!scripts/
+!sitemap-generator/
+!src/
+!tsconfig.*

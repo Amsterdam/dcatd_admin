@@ -10,7 +10,7 @@
  * @returns {Object.<string, string>} A key-value map representation of
  * the query string, or null if `queryString` is falsy.
  */
-export default function (queryString) {
+export default function queryStringParser(queryString) {
   return queryString
     ? queryString
       .substring(1)

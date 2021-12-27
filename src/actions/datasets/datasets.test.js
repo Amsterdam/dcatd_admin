@@ -1,6 +1,12 @@
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import { FETCH_DATASETS_SUCCESS, FETCH_DATASETS_FAILURE, fetchDatasetsSuccess, fetchDatasets, fetchDatasetsFailure } from './datasets';
+import {
+  FETCH_DATASETS_SUCCESS,
+  FETCH_DATASETS_FAILURE,
+  fetchDatasetsSuccess,
+  fetchDatasets,
+  fetchDatasetsFailure
+} from './datasets';
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);

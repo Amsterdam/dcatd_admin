@@ -27,7 +27,7 @@ class DatasetList extends React.Component {
             </tr>
           </thead>
           <tbody>
-            {datasets && datasets.map(dataset => (
+            {datasets && datasets.map((dataset) => (
               <tr key={dataset.id}>
                 <td>
                   <NavLink

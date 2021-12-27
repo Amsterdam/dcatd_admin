@@ -9,7 +9,7 @@ import Modal from '../Modal/Modal';
 const App = () => (
   <div>
     <Header />
-    <Container className="container-main" >
+    <Container className="container-main">
       <Route
         exact
         path="/"
