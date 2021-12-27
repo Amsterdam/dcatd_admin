@@ -12,7 +12,7 @@ import { isAdmin } from '../../services/auth/auth';
 import localFields from '../../fields';
 import widgets from '../../widgets';
 
-import '../../../node_modules/react-day-picker/lib/style.css';
+import 'react-day-picker/lib/style.css';
 import '../dcatd-form.scss';
 import './dataset-detail.scss';
 
@@ -21,7 +21,7 @@ const fields = {
   ...localFields
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   dataset: state.dataset
 });
 
@@ -50,7 +50,7 @@ class DatasetForm extends Component {
     this.props.onEmptyResource();
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({
       dataset: { ...props.dataset }
     });
@@ -67,7 +67,7 @@ class DatasetForm extends Component {
     if (id) {
       if (resource['dcat:accessURL'] === 'remove') {
         // remove resource
-        distributions = distributions.filter(distribution => distribution['@id'] !== id);
+        distributions = distributions.filter((distribution) => distribution['@id'] !== id);
       } else {
         distributions = distributions.map((distribution) => {
           if (distribution['@id'] === id) {
@@ -82,20 +82,16 @@ class DatasetForm extends Component {
       distributions.push(resource);
     }
 
-    this.setState({
+    this.setState((state) => ({
       dataset: {
-        ...this.state.dataset,
+        ...state.dataset,
         'dcat:distribution': [...distributions]
       }
-    });
+    }));
   }
 
   handleSetResource(resource) {
     this.props.onSetResource(resource);
-  }
-
-  hasDataset() {
-    return this.props.id;
   }
 
   handleSubmit(event) {
@@ -128,11 +124,18 @@ class DatasetForm extends Component {
     }
   }
 
+  hasDataset() {
+    return this.props.id;
+  }
+
   render() {
     const { dataset } = this.state;
     return (
       <div>
-        <h1 className="dataset-title">Dataset {this.hasDataset() ? 'wijzigen' : 'toevoegen'}</h1>
+        <h1 className="dataset-title">
+          Dataset
+          {this.hasDataset() ? 'wijzigen' : 'toevoegen'}
+        </h1>
         <Form
           className="dcatd-form dataset-form"
           idPrefix="dataset"
@@ -157,29 +160,33 @@ class DatasetForm extends Component {
                 className="dcatd-form-button dcatd-form-button-submit"
                 type="submit"
               >
-                Opslaan</button>
+                Opslaan
+              </button>
               <button
                 className="dcatd-form-button dcatd-form-button-cancel"
                 onClick={this.handleCancel}
                 type="button"
               >
-                Annuleren</button>
-              {(this.hasDataset() && isAdmin()) ?
-                <button
-                  onClick={() => this.props.setModal({
-                    actionLabel: 'Dataset verwijderen',
-                    cancelLabel: 'Annuleren',
-                    content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
-                    open: true,
-                    onProceed: () => {
-                      this.props.onRemove(dataset);
-                    }
-                  })}
-                  type="button"
-                  className="dcatd-form-button dcatd-form-button-remove"
-                >
-                  Dataset verwijderen
-                </button>
+                Annuleren
+              </button>
+              {(this.hasDataset() && isAdmin())
+                ? (
+                  <button
+                    onClick={() => this.props.setModal({
+                      actionLabel: 'Dataset verwijderen',
+                      cancelLabel: 'Annuleren',
+                      content: 'Door de dataset te verwijderen, gaan alle gegevens verloren',
+                      open: true,
+                      onProceed: () => {
+                        this.props.onRemove(dataset);
+                      }
+                    })}
+                    type="button"
+                    className="dcatd-form-button dcatd-form-button-remove"
+                  >
+                    Dataset verwijderen
+                  </button>
+                )
                 : ''}
             </div>
           </div>

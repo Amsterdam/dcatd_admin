@@ -12,7 +12,7 @@ import { getAccessToken } from '../../services/auth/auth';
 
 import './file.scss';
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators({
   serverError
 }, dispatch);
 
@@ -24,7 +24,6 @@ class File extends Component {
       loaded: props.loaded,
       status: props.status,
       total: props.total,
-      url: props.url,
       value: props.value
     };
 
@@ -34,11 +33,10 @@ class File extends Component {
     this.handleValueChange = this.handleValueChange.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
 
-    this.setResourceSpecs = props.registry.formContext.setResourceSpecs;
     this.setUploadStatus = props.registry.formContext.setUploadStatus;
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({
       value: props.value
     });
@@ -46,6 +44,31 @@ class File extends Component {
     if (!props.value) {
       this.resetFile();
     }
+  }
+
+  handleChange(value) {
+    this.setState({
+      value
+    });
+  }
+
+  handleBlur() {
+    if (this.state.value !== this.props.value) {
+      const { formContext } = this.props.registry;
+      if (formContext && formContext.setResourceSpecs) {
+        this.props.registry.formContext.setResourceSpecs({
+          'dcat:byteSize': 0,
+          'dcat:accessURL': this.state.value
+        });
+      }
+    }
+  }
+
+  handleValueChange(event) {
+    const { value } = event.target;
+    this.setState({
+      value
+    });
   }
 
   processFile(files) {
@@ -82,7 +105,6 @@ class File extends Component {
         const location = xhr.getResponseHeader('Location');
         this.setState({
           status: 'done',
-          url: location,
           value: location
         });
 
@@ -122,8 +144,7 @@ class File extends Component {
       file: '',
       loaded: 0,
       total: 0,
-      status: 'idle',
-      url: ''
+      status: 'idle'
     });
 
     this.setUploadStatus({
@@ -136,31 +157,6 @@ class File extends Component {
       return 100;
     }
     return (this.state.total ? ((this.state.loaded / this.state.total) * 95).toFixed(0) : 0);
-  }
-
-  handleChange(value) {
-    this.setState({
-      value
-    });
-  }
-
-  handleBlur() {
-    if (this.state.value !== this.props.value) {
-      const { formContext } = this.props.registry;
-      if (formContext && formContext.setResourceSpecs) {
-        this.props.registry.formContext.setResourceSpecs({
-          'dcat:byteSize': 0,
-          'dcat:accessURL': this.state.value
-        });
-      }
-    }
-  }
-
-  handleValueChange(event) {
-    const { value } = event.target;
-    this.setState({
-      value
-    });
   }
 
   render() {
@@ -180,35 +176,42 @@ class File extends Component {
           onChange={this.handleValueChange}
           onBlur={this.handleBlur}
         />
+        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
         <label
           htmlFor={`${this.props.id}-upload`}
           className={`
             file__upload-label
             ${status === 'idle' ? '' : 'file__upload--hidden'}
           `}
-        >Selecteer bestand voor upload</label>
+        >
+          Selecteer bestand voor upload
+        </label>
         <input
           type="file"
           className="file__upload file__upload--hidden"
           id={`${this.props.id}-upload`}
           disabled={this.props.disabled}
-
-          onChange={event => this.processFile(event.target.files)}
+          onChange={(event) => this.processFile(event.target.files)}
         />
-        {status !== 'idle' &&
+        {status !== 'idle'
+          && (
           <div className="file__progress">
             <div
               className="file__progress-percentage"
               style={{ width: `${this.calculateProgress()}%` }}
             />
             <span className="file__progress-filename">{file}</span>
-            {status === 'done' ?
-              <button
-                className="file__progress-close-button"
-                onClick={() => this.resetFile()}
-              /> : ''}
+            {status === 'done'
+              ? (
+                // eslint-disable-next-line jsx-a11y/control-has-associated-label
+                <button
+                  type="button"
+                  className="file__progress-close-button"
+                  onClick={() => this.resetFile()}
+                />
+              ) : ''}
           </div>
-        }
+          )}
       </div>
     );
   }
@@ -225,9 +228,7 @@ File.defaultProps = {
   required: false,
   status: 'idle',
   total: 0,
-  url: '',
   value: '',
-
   onChange: () => { },
   serverError: () => { }
 };
@@ -245,13 +246,11 @@ File.propTypes = {
       setResourceSpecs: PropTypes.func.isRequired,
       setUploadStatus: PropTypes.func.isRequired
     })
-  }).isRequired,
+  }),
   required: PropTypes.bool,
   status: PropTypes.string,
   total: PropTypes.number,
-  url: PropTypes.string,
   value: PropTypes.string,
-
   onChange: PropTypes.func,
   serverError: PropTypes.func
 };

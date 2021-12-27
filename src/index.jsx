@@ -1,11 +1,9 @@
-import 'react-app-polyfill/ie11'; // For IE 11 support
-
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory as createHistory } from 'history';
 import { HashRouter } from 'react-router-dom';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
@@ -32,7 +30,11 @@ const store = createStore(
   )
 );
 
+const doc = document;
+
 initAuth().then(() => {
+  console.log(doc);
+  console.log(document);
   store.dispatch(fetchSchema());
   store.dispatch(fetchUiDataset());
   store.dispatch(fetchUiResource());
@@ -44,4 +46,5 @@ initAuth().then(() => {
     </Provider>,
     document.getElementById('root')
   );
+  document.replaceChild(doc, document.documentElement);
 });

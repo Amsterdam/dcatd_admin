@@ -9,7 +9,8 @@ import {
 
 const initialState = [];
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function datasets(state = initialState, action) {
   switch (action.type) {
     case FETCH_DATASETS_SUCCESS:
       return [...action.datasets];

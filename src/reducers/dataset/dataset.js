@@ -9,7 +9,8 @@ import {
 
 const initialState = {};
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function dataset(state = initialState, action) {
   window.scrollTo(0, 0);
   switch (action.type) {
     case FETCH_DATASET_SUCCESS:

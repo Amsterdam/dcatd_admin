@@ -21,21 +21,26 @@ const ResourcesItem = ({ resource, schemaProps }) => {
   }
 
   const isFileSizeVisible = resource['ams:distributionType'] === 'file' && resource['dcat:byteSize'] > 0;
-  return (<div className="resources-item">
-    <div className="resources-item__modified">
-      {dateFormat.formatDate(resource['dct:modified'])}</div>
-    <div className="resources-item__file-size">
-      {isFileSizeVisible ? filesize(resource['dcat:byteSize']) : ''}</div>
-    <div className="resources-item__title">
-      {resource['dct:title']}</div>
-    <div className="resources-item__description">
-      {/* Transform filetype to kebab-case variable that can be used as CSS class */}
-      <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase().replace(/[: ][ ]*/g, '-')}`}>
-        {fileType}
-      </span>
-      <span className="resources-item__description-text">{resource['dct:description'] || resource['ams:purl']}</span>
+  return (
+    <div className="resources-item">
+      <div className="resources-item__modified">
+        {dateFormat.formatDate(resource['dct:modified'])}
+      </div>
+      <div className="resources-item__file-size">
+        {isFileSizeVisible ? filesize(resource['dcat:byteSize']) : ''}
+      </div>
+      <div className="resources-item__title">
+        {resource['dct:title']}
+      </div>
+      <div className="resources-item__description">
+        {/* Transform filetype to kebab-case variable that can be used as CSS class */}
+        <span className={`resources-item__file-type resources-item__file-type--${fileType.toLowerCase().replace(/[: ][ ]*/g, '-')}`}>
+          {fileType}
+        </span>
+        <span className="resources-item__description-text">{resource['dct:description'] || resource['ams:purl']}</span>
+      </div>
     </div>
-  </div>);
+  );
 };
 
 ResourcesItem.defaultProps = {

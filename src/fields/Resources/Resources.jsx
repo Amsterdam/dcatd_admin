@@ -19,14 +19,10 @@ class Resources extends Component {
     this.getResourceTypeSchema = this.getResourceTypeSchema.bind(this);
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({
       resources: props.formData
     });
-  }
-
-  getResourceTypeSchema() {
-    return this.props.schema.items.properties['ams:resourceType'];
   }
 
   handleAddResource(type) {
@@ -52,6 +48,10 @@ class Resources extends Component {
     }
   }
 
+  getResourceTypeSchema() {
+    return this.props.schema.items.properties['ams:resourceType'];
+  }
+
   render() {
     const { resources } = this.state;
 
@@ -61,6 +61,7 @@ class Resources extends Component {
           <div className="resources-type" key={this.getResourceTypeSchema().enum[index]}>
             <div className="resources-type__header">
               <span className="resources-type__header-title">{type}</span>
+              {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
               <button
                 type="button"
                 onClick={() => this.handleAddResource(this.getResourceTypeSchema().enum[index])}
@@ -68,7 +69,7 @@ class Resources extends Component {
               />
             </div>
             <div className="resources-type__content">
-              {resources.filter(resource => resource['ams:resourceType'] === this.getResourceTypeSchema().enum[index]).map(resource => (
+              {resources.filter((resource) => resource['ams:resourceType'] === this.getResourceTypeSchema().enum[index]).map((resource) => (
                 <a
                   href={resource['ams:purl']}
                   target="_blank"
@@ -80,9 +81,10 @@ class Resources extends Component {
                     resource={resource}
                     schemaProps={this.props.schema.items.properties}
                   />
+                  {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                   <button
                     type="button"
-                    onClick={event => this.handleEditResource(event, resource)}
+                    onClick={(event) => this.handleEditResource(event, resource)}
                     className="resources-button resources-button-edit"
                   />
                 </a>

@@ -10,5 +10,4 @@ const redirectToPortal = (type = 'detail') => {
   window.location.assign(url || '#/datasets');
 };
 
-
 export default redirectToPortal;

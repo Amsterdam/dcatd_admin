@@ -27,7 +27,7 @@ export function fetchDataset(id) {
         etag = response.headers.get('etag');
         return response.json();
       })
-      .then(dataset => dispatch(serverResponse.ok ? fetchDatasetSuccess({
+      .then((dataset) => dispatch(serverResponse.ok ? fetchDatasetSuccess({
         ...dataset,
         etag
       }) : serverError(serverResponse)))

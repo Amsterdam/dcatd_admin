@@ -4,7 +4,8 @@ const initialState = {
   'ui:order': []
 };
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function uiDataset(state = initialState, action) {
   switch (action.type) {
     case FETCH_UI_DATASET_SUCCESS:
       return { ...action.uiDataset };
