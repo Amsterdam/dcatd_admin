@@ -83,25 +83,6 @@ export function logout() {
   keycloak.logout();
 }
 
-export async function initAuth() {
-  // For more information about these options consult the documentation:
-  // https://www.keycloak.org/docs/latest/securing_apps/#_javascript_adapter
-  const authenticated = await keycloak.init({
-    checkLoginIframe: false,
-    pkceMethod: 'S256',
-    onLoad: 'check-sso',
-    silentCheckSsoRedirectUri: `${window.location.origin}/dcatd_admin/silent-check-sso.html`
-  });
-
-  if (authenticated) {
-    await keycloak.loadUserInfo();
-  } else {
-    login();
-  }
-
-  return authenticated;
-}
-
 export function isAdmin() {
   const scopes = getScopes();
   return scopes ? scopes.includes('CAT/W') : false;
