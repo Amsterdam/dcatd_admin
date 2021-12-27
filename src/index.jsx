@@ -4,6 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { Provider } from 'react-redux';
 import { createBrowserHistory as createHistory } from 'history';
+import { ReactKeycloakProvider } from '@react-keycloak/web';
 import { HashRouter } from 'react-router-dom';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
@@ -13,8 +14,7 @@ import App from './components/App/App';
 import { fetchSchema } from './actions/schema/schema';
 import { fetchUiDataset } from './actions/uiDataset/uiDataset';
 import { fetchUiResource } from './actions/uiResource/uiResource';
-import { initAuth } from './services/auth/auth';
-
+import keycloak from './keycloak';
 import './styling/config.scss';
 import './index.scss';
 
@@ -30,21 +30,24 @@ const store = createStore(
   )
 );
 
-const doc = document;
-
-initAuth().then(() => {
-  console.log(doc);
-  console.log(document);
-  store.dispatch(fetchSchema());
-  store.dispatch(fetchUiDataset());
-  store.dispatch(fetchUiResource());
-  render(
+store.dispatch(fetchSchema());
+store.dispatch(fetchUiDataset());
+store.dispatch(fetchUiResource());
+render(
+  <ReactKeycloakProvider
+    authClient={keycloak}
+    initOptions={{
+      checkLoginIframe: false,
+      pkceMethod: 'S256',
+      onLoad: 'check-sso',
+      silentCheckSsoRedirectUri: `${window.location.origin}/`
+    }}
+  >
     <Provider store={store}>
       <HashRouter>
         <App />
       </HashRouter>
-    </Provider>,
-    document.getElementById('root')
-  );
-  document.replaceChild(doc, document.documentElement);
-});
+    </Provider>
+  </ReactKeycloakProvider>,
+  document.getElementById('root')
+);
