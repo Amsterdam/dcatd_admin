@@ -11,8 +11,6 @@
     "test": "react-scripts test  --transformIgnorePatterns \"node_modules/(?!react-markdown)/\""
   },
   "dependencies": {
-    "@amsterdam/use-promise": "^3.0.1",
-    "@react-keycloak/web": "^3.4.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -50,8 +48,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
     "stream": "^0.0.2",
-    "util": "^0.12.4",
-    "web-vitals": "^2.1.2"
+    "util": "^0.12.4"
   },
   "devDependencies": {
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
