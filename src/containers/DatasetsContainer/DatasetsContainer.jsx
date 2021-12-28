@@ -4,20 +4,22 @@ import { Route } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { fetchDataset, emptyDataset, createDataset, cancelDataset, removeDataset, updateDataset }
+import {
+  fetchDataset, emptyDataset, createDataset, cancelDataset, removeDataset, updateDataset
+}
   from '../../actions/dataset/dataset';
 import { setResourceToDataset } from '../../actions/resourceToDataset/resourceToDataset';
 import { emptyResource, setResource } from '../../actions/resource/resource';
 import { setModal } from '../../actions/modal/modal';
 
 import DatasetList from '../../components/DatasetList/DatasetList';
-import DatasetForm from '../../containers/DatasetForm/DatasetForm';
-import ResourceForm from '../../containers/ResourceForm/ResourceForm';
+import DatasetForm from '../DatasetForm/DatasetForm';
+import ResourceForm from '../ResourceForm/ResourceForm';
 
 import './datasets-container.scss';
 import { fetchDatasets } from '../../actions/datasets/datasets';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   dataset: state.dataset,
   datasets: state.datasets,
   resource: state.resource,
@@ -27,7 +29,7 @@ const mapStateToProps = state => ({
   uiResource: state.uiResource
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators({
   onFetch: fetchDataset,
   onEmpty: emptyDataset,
   onCreate: createDataset,
@@ -41,7 +43,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
   onFetchDatasets: fetchDatasets
 }, dispatch);
 
-const DatasetsContainer = props => (
+const DatasetsContainer = (props) => (
   <section>
     <Route
       exact
@@ -62,9 +64,9 @@ const DatasetsContainer = props => (
             form-wrapper--${props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
         >
           <ResourceForm
-            schema={(props.schema && props.schema.properties &&
-              props.schema.properties['dcat:distribution'] &&
-              props.schema.properties['dcat:distribution'].items) || {}}
+            schema={(props.schema && props.schema.properties
+              && props.schema.properties['dcat:distribution']
+              && props.schema.properties['dcat:distribution'].items) || {}}
             uiResource={props.uiResource}
             formData={props.resource}
             onSetResourceToDataset={props.onSetResourceToDataset}
@@ -99,9 +101,9 @@ const DatasetsContainer = props => (
             form-wrapper--${props.resource['ams:resourceType'] ? 'show' : 'hide'}-resource-form`}
         >
           <ResourceForm
-            schema={(props.schema && props.schema.properties &&
-              props.schema.properties['dcat:distribution'] &&
-              props.schema.properties['dcat:distribution'].items) || {}}
+            schema={(props.schema && props.schema.properties
+              && props.schema.properties['dcat:distribution']
+              && props.schema.properties['dcat:distribution'].items) || {}}
             uiResource={props.uiResource}
             formData={props.resource}
             onSetResourceToDataset={props.onSetResourceToDataset}
@@ -134,7 +136,6 @@ DatasetsContainer.defaultProps = {
   resourceToDataset: {},
   uiDataset: {},
   uiResource: {},
-
   onFetch: () => {}
 };
 
@@ -145,7 +146,7 @@ DatasetsContainer.propTypes = {
   resource: PropTypes.object,
   resourceToDataset: PropTypes.object,
 
-  onFetch: PropTypes.func.isRequired,
+  onFetch: PropTypes.func,
   onEmpty: PropTypes.func.isRequired,
   onCreate: PropTypes.func.isRequired,
   onRemove: PropTypes.func.isRequired,

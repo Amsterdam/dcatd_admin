@@ -2,7 +2,8 @@ import { SET_RESOURCE_TO_DATASET_SUCCESS } from '../../actions/resourceToDataset
 
 const initialState = {};
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function resourceToDataset(state = initialState, action) {
   switch (action.type) {
     case SET_RESOURCE_TO_DATASET_SUCCESS:
       return {

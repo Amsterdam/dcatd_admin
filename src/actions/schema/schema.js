@@ -14,11 +14,11 @@ export function fetchSchemaSuccess(schema) {
 export function fetchSchema() {
   return (dispatch) => {
     return fetch(api.schema)
-      .then(response => response.json())
-      .then(response => response.components.schemas['dcat-dataset'])
-      .then(schema => dispatch(fetchSchemaSuccess(schema)))
-      .then(schema => dispatch(setUiDatasetOrder(schema)))
-      .then(schema => dispatch(setUiResourceOrder(schema)))
+      .then((response) => response.json())
+      .then((response) => response.components.schemas['dcat-dataset'])
+      .then((schema) => dispatch(fetchSchemaSuccess(schema)))
+      .then((schema) => dispatch(setUiDatasetOrder(schema)))
+      .then((schema) => dispatch(setUiResourceOrder(schema)))
       .catch((error) => { throw error; });
   };
 }

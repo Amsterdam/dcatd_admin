@@ -8,16 +8,18 @@ class Dropdown extends Component {
   static getOptions(items) {
     if (items.examples) {
       return items.examples.map(
-        option => ({
+        (option) => ({
           value: option,
           text: option
-        }));
+        })
+      );
     }
     return items.enum.map(
       (option, index) => ({
         value: option,
         text: items.enumNames[index]
-      }));
+      })
+    );
   }
 
   constructor(props) {
@@ -32,16 +34,16 @@ class Dropdown extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({
       value: props.formData
     });
   }
 
   handleAddition(event, { value }) {
-    this.setState({
-      options: [{ text: value, value }, ...this.state.options]
-    });
+    this.setState((state) => ({
+      options: [{ text: value, value }, ...state.options]
+    }));
   }
 
   handleChange(event, { value }) {
@@ -60,7 +62,8 @@ class Dropdown extends Component {
         <label
           className="control-label"
           htmlFor={this.props.idSchema.$id}
-        >{this.props.schema.title}
+        >
+          {this.props.schema.title}
           {this.props.required ? <span className="required">*</span> : ''}
         </label>
         <SemanticDropdown
@@ -88,8 +91,6 @@ class Dropdown extends Component {
 }
 
 Dropdown.defaultProps = {
-  allowAdditions: false,
-  label: '',
   formData: []
 };
 

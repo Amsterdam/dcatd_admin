@@ -4,8 +4,8 @@ function decodeToken(token) {
       window.atob(token
         .split('.')[1]
         .replace('-', '+')
-        .replace('_', '/')
-      ));
+        .replace('_', '/'))
+    );
   } catch (e) {
     return {};
   }

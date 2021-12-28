@@ -15,7 +15,7 @@ class Markdown extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  componentWillReceiveProps(props) {
+  UNSAFE_componentWillReceiveProps(props) {
     this.setState({
       value: props.value
     });
@@ -41,14 +41,14 @@ class Markdown extends Component {
           label={this.props.label}
           required={this.props.required}
           value={value}
-
           onChange={this.handleChange}
         />
         <div className="markdown__preview-title">Preview</div>
         <ReactMarkdown
-          source={value || this.props.placeholder || 'preview'}
           className="markdown__preview"
-        />
+        >
+          {value || this.props.placeholder || 'preview'}
+        </ReactMarkdown>
       </div>
     );
   }

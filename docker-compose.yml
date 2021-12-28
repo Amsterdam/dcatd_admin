@@ -4,13 +4,13 @@ services:
     build:
       context: .
     ports: 
-      - "3000:80"
+      - "3001:80"
     ipc: host
 
   test:
     build:
       context: .
-      target: builder
+      target: build-stage
     environment:
-    - NODE_ENV=development
+      - NODE_ENV=development
     command: npm run test
