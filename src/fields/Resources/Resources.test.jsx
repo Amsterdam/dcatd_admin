@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Resources from './Resources';
+import { shallow } from '../../../test/enzyme';
 
 const mockDate = '2019-01-01T11:01:58.135Z';
 const modified = mockDate.split('T')[0];
