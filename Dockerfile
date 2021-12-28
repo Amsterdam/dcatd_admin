@@ -1,12 +1,11 @@
-FROM node:10.10 as builder
-  ARG NODE_ENV=development
-  WORKDIR /app
-  COPY . /app/
-  RUN npm --production=false \
-          --unsafe-perm \
-          --verbose \
-          install && \
-      npm run build
+FROM node:latest as build-stage
+ARG NODE_ENV=development
+WORKDIR /app
+COPY . /app/
+RUN npm ci && \
+    npm cache clean --force && \
+    npm run build
 
 FROM nginx:stable-alpine
-  COPY --from=builder /app/build/. /usr/share/nginx/html/dcatd_admin/
+COPY default.conf /etc/nginx/conf.d/
+COPY --from=build-stage /app/build/. /usr/share/nginx/html/

@@ -8,11 +8,11 @@ import { setModal } from '../../actions/modal/modal';
 
 import './modal.scss';
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   modal: state.modal
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({
+const mapDispatchToProps = (dispatch) => bindActionCreators({
   setModal
 }, dispatch);
 
@@ -40,7 +40,7 @@ const modalContent = {
   `
 };
 
-const Modal = props => (
+const Modal = (props) => (
   <SemanticModal
     open={props.modal.open}
     size="tiny"
@@ -56,6 +56,7 @@ const Modal = props => (
     </SemanticModal.Content>
     <SemanticModal.Actions>
       <button
+        type="button"
         onClick={() => {
           props.setModal({ open: false });
           props.modal.onProceed();
@@ -64,20 +65,22 @@ const Modal = props => (
       >
         {props.modal.actionLabel}
       </button>
-      {props.modal.cancelLabel ?
-        <button
-          onClick={() => props.setModal({ open: false })}
-          className="dcatd-form-button dcatd-form-button-cancel"
-        >
-          {props.modal.cancelLabel}
-        </button>
+      {props.modal.cancelLabel
+        ? (
+          <button
+            type="button"
+            onClick={() => props.setModal({ open: false })}
+            className="dcatd-form-button dcatd-form-button-cancel"
+          >
+            {props.modal.cancelLabel}
+          </button>
+        )
         : ''}
     </SemanticModal.Actions>
   </SemanticModal>
 );
 
 Modal.defaultProps = {
-  open: false,
   modal: {
     content: 'Weet u het zeker?',
     actionLabel: 'OK',

@@ -53,7 +53,7 @@ function getScopes() {
     resourceRoles = Object.values(keycloak.resourceAccess);
   }
 
-  resourceRoles = resourceRoles.flatMap(resource => resource.roles);
+  resourceRoles = resourceRoles.flatMap((resource) => resource.roles);
 
   return [...realmRoles, ...resourceRoles];
 }
@@ -71,8 +71,8 @@ export function isAuthenticated() {
 
   // return keycloak.authenticated ?? false
   // eslint-disable-next-line no-void
-  return keycloak.authenticated !== null && keycloak.authenticated !== void 0 ?
-    keycloak.authenticated : false;
+  return keycloak.authenticated !== null && keycloak.authenticated !== void 0
+    ? keycloak.authenticated : false;
 }
 
 export function login() {
@@ -112,6 +112,5 @@ export const getAuthHeaders = () => {
     return {};
   }
 
-  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
   return { Authorization: `Bearer ${getAccessToken()}` };
 };

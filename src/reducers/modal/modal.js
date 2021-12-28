@@ -8,7 +8,8 @@ const initialState = {
   onProceed: () => {}
 };
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function modal(state = initialState, action) {
   switch (action.type) {
     case SET_MODAL_SUCCESS:
       return {

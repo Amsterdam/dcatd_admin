@@ -19,13 +19,13 @@ export function fetchDatasets() {
   return (dispatch) => {
     return dispatch(fetchSchema()).then(() => {
       return fetch(api.datasets)
-        .then(response => response.json())
-        .then(response => response['dcat:dataset'].map(dataset => ({
+        .then((response) => response.json())
+        .then((response) => response['dcat:dataset'].map((dataset) => ({
           id: dataset['dct:identifier'],
           title: dataset['dct:title'] || '',
           description: dataset['dct:description'] || ''
         })))
-        .then(datasets => dispatch(fetchDatasetsSuccess(datasets)));
-    }).catch(error => dispatch(fetchDatasetsFailure(error)));
+        .then((datasets) => dispatch(fetchDatasetsSuccess(datasets)));
+    }).catch((error) => dispatch(fetchDatasetsFailure(error)));
   };
 }

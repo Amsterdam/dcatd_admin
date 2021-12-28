@@ -1,11 +1,9 @@
-import 'react-app-polyfill/ie11'; // For IE 11 support
-
 import React from 'react';
 import { render } from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension/logOnlyInProduction';
 import { Provider } from 'react-redux';
-import createHistory from 'history/createBrowserHistory';
+import { createBrowserHistory as createHistory } from 'history';
 import { HashRouter } from 'react-router-dom';
 import { routerMiddleware } from 'react-router-redux';
 import thunk from 'redux-thunk';
@@ -16,7 +14,6 @@ import { fetchSchema } from './actions/schema/schema';
 import { fetchUiDataset } from './actions/uiDataset/uiDataset';
 import { fetchUiResource } from './actions/uiResource/uiResource';
 import { initAuth } from './services/auth/auth';
-
 import './styling/config.scss';
 import './index.scss';
 
@@ -44,4 +41,6 @@ initAuth().then(() => {
     </Provider>,
     document.getElementById('root')
   );
+  // Important: this is a fix that will make sure the DOM is synced with the virtual DOM, as keycloak mutates the DOM asynchronously
+  document.replaceChild(document, document.documentElement);
 });

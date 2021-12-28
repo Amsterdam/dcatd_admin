@@ -2,7 +2,8 @@ import { SET_RESOURCE_SUCCESS, EMPTY_RESOURCE_SUCCESS } from '../../actions/reso
 
 const initialState = {};
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function resource(state = initialState, action) {
   switch (action.type) {
     case SET_RESOURCE_SUCCESS:
       return {

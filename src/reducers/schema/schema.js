@@ -7,7 +7,8 @@ const initialState = {
   'x-order': []
 };
 
-export default function (state = initialState, action) {
+// eslint-disable-next-line default-param-last
+export default function schema(state = initialState, action) {
   switch (action.type) {
     case FETCH_SCHEMA_SUCCESS:
       if (action.schema.properties) {

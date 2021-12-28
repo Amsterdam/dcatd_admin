@@ -10,12 +10,21 @@ describe('The redirect-to-portal service', () => {
     origSessionStorage = window.sessionStorage;
     origLocationAssign = window.location.assign;
 
-    window.sessionStorage = {
-      getItem: () => mockUrl,
-      removeItem: jest.fn(),
-      [api.datasets]: 'test'
-    };
-    window.location.assign = jest.fn();
+    Object.defineProperty(window, 'location', {
+      value: {
+        assign: jest.fn()
+      },
+      writable: true
+    });
+
+    Object.defineProperty(window, 'sessionStorage', {
+      value: {
+        getItem: () => mockUrl,
+        removeItem: jest.fn(),
+        [api.datasets]: 'test'
+      },
+      writable: true
+    });
   });
 
   afterEach(() => {

@@ -4,7 +4,7 @@ import filesize from 'filesize';
 import ReadOnly from '../ReadOnly/ReadOnly';
 
 // Check https://github.com/avoidwork/filesize.js for options
-const FileSize = ({ ...props, formData, options }) => (
+const FileSize = ({ formData, options, ...props }) => (
   <ReadOnly
     {...props}
     formData={filesize(formData, options)}

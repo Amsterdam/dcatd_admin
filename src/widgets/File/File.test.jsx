@@ -3,6 +3,7 @@ import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import File from './File';
+import { shallow } from '../../../test/enzyme';
 
 const middlewares = [thunk];
 
