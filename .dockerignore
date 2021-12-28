@@ -12,4 +12,5 @@
 !scripts/
 !sitemap-generator/
 !src/
+!test/
 !tsconfig.*
