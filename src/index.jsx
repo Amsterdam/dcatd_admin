@@ -41,7 +41,4 @@ initAuth().then(() => {
     </Provider>,
     document.getElementById('root')
   );
-  // Important: this is a fix that will make sure the DOM is synced
-  // with the virtual DOM, as keycloak mutates the DOM asynchronously
-  document.replaceChild(document, document.documentElement);
 });
