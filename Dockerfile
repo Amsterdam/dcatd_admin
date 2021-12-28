@@ -7,5 +7,4 @@ RUN npm ci && \
     npm run build
 
 FROM nginx:stable-alpine
-COPY default.conf /etc/nginx/conf.d/
 COPY --from=build-stage /app/build/. /usr/share/nginx/html/
