@@ -89,14 +89,12 @@ export async function initAuth() {
   const authenticated = await keycloak.init({
     checkLoginIframe: false,
     pkceMethod: 'S256',
-    onLoad: 'check-sso',
+    onLoad: 'login-required',
     silentCheckSsoRedirectUri: `${window.location.origin}/dcatd_admin/silent-check-sso.html`
   });
 
   if (authenticated) {
     await keycloak.loadUserInfo();
-  } else {
-    login();
   }
 
   return authenticated;
