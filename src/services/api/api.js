@@ -1,9 +1,11 @@
+import environment from '../../environment';
+
 class Api {
   constructor() {
     this.setRoot();
   }
 
-  setRoot(nodeEnv = process.env.NODE_ENV) {
+  setRoot(nodeEnv = environment.NODE_ENV) {
     this._root = `https://${nodeEnv !== 'production' ? 'acc.' : ''}api.data.amsterdam.nl`;
   }
 

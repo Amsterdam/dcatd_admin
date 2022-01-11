@@ -9,7 +9,7 @@ const defaultEnvironment = {
 };
 
 // eslint-disable-next-line import/no-mutable-exports
-let environment = { ...defaultEnvironment };
+let environment = defaultEnvironment;
 
 if (window.location.host === 'localhost:3001') {
   environment = {
