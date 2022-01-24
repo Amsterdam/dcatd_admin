@@ -5,6 +5,7 @@ import { Container } from 'semantic-ui-react';
 import Header from '../Header/Header';
 import DatasetsContainer from '../../containers/DatasetsContainer/DatasetsContainer';
 import Modal from '../Modal/Modal';
+import { isAuthenticated } from '../../services/auth/auth';
 
 const App = () => {
   return (
@@ -12,10 +13,15 @@ const App = () => {
       <Header />
       <Container className="container-main">
         <Route
+          exact
           path="/"
-          render={() => (
-            <Redirect to="/datasets" />
-          )}
+          render={() => {
+            if (isAuthenticated()) {
+              return <Redirect to="/datasets" />;
+            }
+
+            return null;
+          }}
         />
         <Route exact path="/datasets/:id?" component={DatasetsContainer} />
       </Container>
