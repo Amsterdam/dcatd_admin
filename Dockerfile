@@ -1,4 +1,4 @@
-FROM node:latest as build-stage
+FROM node:16.15.0 as build-stage
 ARG NODE_ENV=development
 WORKDIR /app
 COPY . /app/
