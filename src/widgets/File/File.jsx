@@ -101,7 +101,7 @@ class File extends Component {
 
     xhr.onload = () => {
       // upload success
-      if (xhr.readyState === 4 && xhr.status === 201 && xhr.statusText === 'Created') {
+      if (xhr.readyState === 4 && xhr.status === 201) {
         const location = xhr.getResponseHeader('Location');
         this.setState({
           status: 'done',
